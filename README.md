@@ -117,9 +117,13 @@ For example, try (by commenting and uncommenting) alternating between
 ```
 "format" "application/sparql-results+json"
 ```
- and 
-```"format" "text"```
+ and
+ 
+```
+"format" "text"
+```
  in the
+
 ```
 {:query-params . . . }
 ```
