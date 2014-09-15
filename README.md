@@ -1,26 +1,10 @@
 # webapp (branch dev)
 
-A skeletal clojure webapp demonstrating access to aama paradigmatic and 
-other data via a local Fuseki server. The branch dev webapp is intended as 
-a test bed for SPARQL queries in a clojure context. It uses "live" aama 
-data, and assumes that language data has been loaded into the aama datastore 
-(cf. aama-data/bin/aama-datastore-setup.sh and aama-data/bin/README.md)
+A skeletal clojure webapp (https:/github.com/gbgg/webapp) demonstrating access to aama paradigmatic and other data via a local Fuseki server. The branch dev webapp is intended as a test bed for SPARQL queries in a clojure context. It uses "live" aama data, and assumes that language data has been loaded into the aama datastore (cf. aama-data/bin/aama-datastore-setup.sh and aama-data/bin/README.md)
 
 ## Fuseki setup
 
-Assuming you have cloned the aama/webapp repo into aama/webapp, edit
-webapp/etc/fuseki to set FUSEKI_HOME to the correct directory.  Then
-source it: `$ source webapp/etc/fuseki`. In order to run the server using
-the same datastore as is being used in aama-data do the following:
-
-```
-$ cd $FUSEKI_HOME
-$ ./fuseki-server --config=etc/aamaconfig.ttl
-```
-
-(Or just run `$ bin/fuseki.sh`.) These steps ensure that you are querying the
-same datastore as is being used for development of the aama datastore in
-aama-data.
+Run `$ bin/fuseki.sh` in order to launch the server using the same datastore as is being used in aama-data.
 
 ### Verify setup
 
@@ -138,14 +122,18 @@ substitute any of these queries for the
 currently contained in ``src/clj/webapp/core.clj``, or try out SPARQL queries 
 of your own (in matsu format!).
 
+Other trial pages, showing drop-down query pick lists and a help page can be seen at:
 
-But you don't have a repl yet.
+* /beja-arteiga2
+* /oromo
+* /guide
+
 
 ## REPL
 
 For the Clojure REPL see `lein repl`,
 [tools.nrepl](https://github.com/clojure/tools.nrepl), and
-[cider](https://github.com/clojure-emacs/cider).
+[cider](NNNNhttps://github.com/clojure-emacs/cider).
 
 You do not have to use emacs.  Many Clojure hackers do, but recently
 [Lighttable](http://www.chris-granger.com/lighttable/) has also become

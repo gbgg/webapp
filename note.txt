@@ -1,0 +1,1 @@
+This skeleton web app (~/webapp) has been cloned from https://github.com/gbgg/webapp (in turn forked from https://github.com/aama/webapp). Branch master uses book.ttl from fuseki. Branch dev tries out different aama-related display pages. Further developments in ~/webapps/aama-webapp-trial1/. . . etc.
