@@ -1,5 +1,5 @@
-(ns webapp3.repl
-  (:use webapp3.handler
+(ns webapp.repl
+  (:use webapp.handler
         ring.server.standalone
         [ring.middleware file-info file]))
 
