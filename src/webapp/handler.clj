@@ -1,17 +1,17 @@
-(ns webapp3.handler
+(ns webapp.handler
   (:require [compojure.core :refer [defroutes routes]]
             [ring.middleware.resource :refer [wrap-resource]]
             [ring.middleware.file-info :refer [wrap-file-info]]
             [hiccup.middleware :refer [wrap-base-url]]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [webapp3.routes.home :refer [home-routes]]))
+            [webapp.routes.home :refer [home-routes]]))
 
 (defn init []
-  (println "webapp3 is starting"))
+  (println "webapp is starting"))
 
 (defn destroy []
-  (println "webapp3 is shutting down"))
+  (println "webapp is shutting down"))
 
 (defroutes app-routes
   (route/resources "/")

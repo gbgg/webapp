@@ -1,4 +1,4 @@
-(defproject webapp3 "0.1.0-SNAPSHOT"
+(defproject webapp "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.6.0"]
@@ -11,9 +11,9 @@
                  [org.clojure/clojurescript "0.0-2311"]
                  [ring-server "0.3.1"]]
   :plugins [[lein-ring "0.8.10"]]
-  :ring {:handler webapp3.handler/app
-         :init webapp3.handler/init
-         :destroy webapp3.handler/destroy}
+  :ring {:handler webapp.handler/app
+         :init webapp.handler/init
+         :destroy webapp.handler/destroy}
   :aot :all
   :profiles
   {:production

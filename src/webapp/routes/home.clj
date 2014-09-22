@@ -1,17 +1,14 @@
-(ns webapp3.routes.home
+(ns webapp.routes.home
   (:require [compojure.core :refer :all]
-            [webapp3.views.layout :as layout]
-            [webapp3.models.sparql :as sparql]
+            [webapp.views.layout :as layout]
+            [webapp.models.sparql :as sparql]
             [clojure.tools.logging :as log]
             [hiccup.form :refer :all]
             ;;[clojure.string :as str]
 ))
 
-(defn show-pdgm1 [language labbrev valstring]
-  (let [pquery (str language " : " labbrev " : " valstring)]
-  [:p pquery]))
 
-(defn show-pdgm2 [language labbrev valstring]
+(defn show-pdgm [language labbrev valstring]
        (let [pquery (sparql/pdgmquery language labbrev valstring)]
          [:p pquery]))
 
@@ -34,4 +31,4 @@
   (GET "/" [] (home))
   (POST "/pdgm" [language labbrev valstring] 
         (layout/common 
-         (show-pdgm2 language labbrev valstring))))
+         (show-pdgm! language labbrev valstring))))

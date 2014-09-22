@@ -1,4 +1,4 @@
-(ns webapp3.models.sparql
+(ns webapp.models.sparql
 (:refer-clojure :exclude [filter concat group-by max min count])
   (:require [compojure.core :refer :all]
             [compojure.handler :as handler]

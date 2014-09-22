@@ -1,4 +1,4 @@
-(ns webapp3.views.layout
+(ns webapp.views.layout
   (:require [hiccup.page :refer [html5 include-css]]))
 
 (defn common [& body]
