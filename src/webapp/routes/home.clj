@@ -31,4 +31,4 @@
   (GET "/" [] (home))
   (POST "/pdgm" [language labbrev valstring] 
         (layout/common 
-         (show-pdgm! language labbrev valstring))))
+         (show-pdgm language labbrev valstring))))
