@@ -22,24 +22,50 @@
                       :aamag "<http://oi.uchicago.edu/aama/2013/graph/>"
                       :bar "<http://id.oi.uchicago.edu/aama/2013/beja-arteiga/>"})
 
-(defn show-pdgm [language labbrev valstring]
-       (let [pquery (sparql/pdgmquery language labbrev valstring)]
-         [:p pquery]))
+;;(defn show-pdgm [language labbrev valstring]
+;;       (let [pquery (sparql/pdgmquery language labbrev valstring)]
+;;         [:p pquery]))
+
+;;(defn form-pdgm [language labbrev valstring]
+;;       (let [value-section (sparql/valsection valstring)]
+;;         (pdgm-qry language lpref value-section)))
 
 ;;(def values (split valstring #","))
 
-
-
-(defquery pdgm-qry [language lpref valstring]
-        (select :lex :num :pers :gen :token)
-        (where (graph [:aamag language]
-        :s [lpref :pos] [lpref :Verb]  \.
-	:s [:aamas :lang] [:aama (capitalize language)]  \.
+(defquery aama-qry []
+(select :lex :num :pers :gen :token)
+(where (graph [:aamag :beja-arteiga]
+        :s [:bar :pos] [:bar :Verb]  \.
+	:s [:aamas :lang] [:aama :Beja-arteiga]  \.
 	:s [:aamas :lang] :lang  \.
 	:lang [:rdfs :label] :langLabel  \.
-        ;;(doseq [value values]
-        ;;  :s (str ":Q" value) [lpref value] \.
-        ;;  (str ":Q" value) [:rdfs :label] value  \.)
+	:s :QPrefix [:bar :Prefix] \.
+	:QPrefix [:rdfs :label] :Prefix  \.
+	:s :QAffirmative [:bar :Affirmative] \.
+	:QAffirmative [:rdfs :label] :Affirmative  \.
+	:s :QCCY [:bar :CCY] \.
+	:QCCY [:rdfs :label] :CCY  \.
+	:s :QAorist [:bar :Aorist]  \.
+	:QAorist [:rdfs :label] :Aorist  \.
+	(optional :s [:aamas :lexeme] :lex)  \. 
+	(optional :s [:bar :number] :number)  \.
+	(optional :number [:rdfs :label] :num)  \. 
+	(union (group :s [:bar :pngShapeClass] :person)  
+	       (group :s [:bar :person] :person))  \.
+	:person [:rdfs :label] :pers  \.
+	(optional :s [:bar :gender] :gender)  \.
+	(optional :gender [:rdfs :label] :gen)  \. 
+	:s [:bar :token] :token  \.))
+(order-by :lex (desc :num) :pers (desc :gen)))
+
+(defquery pdgm-qry [language lpref]
+        (select :lex :num :pers :gen :token)
+        (where (graph [:aamag (str ":"language)]
+        :s [lpref :pos] [lpref :Verb]  \.
+	:s [:aamas :lang] [:aama (str ":" (capitalize language))]  \.
+	:s [:aamas :lang] :lang  \.
+	:lang [:rdfs :label] :langLabel  \.
+        ;;valsection
         (optional :s [:aamas :lexeme] :lex)  \. 
 	(optional :s [lpref :number] :number)  \.
 	(optional :number [:rdfs :label] :num)  \. 
@@ -50,6 +76,15 @@
 	(optional :gender [:rdfs :label] :gen)  \. 
 	:s [lpref :token] :token  \.))
         (order-by :lex (desc :num) :pers (desc :gen)))
+
+(defn query-form [language lpref valstring]
+  (let [values (split valstring #",")
+        valsection (doseq [value values]
+            (str ":s :Q" value " ["lpref" "value"] \\.")
+            (str ":Q" value " [:rdfs :label] "value"  \\."))]
+    (pdgm-qry language lpref valsection)))
+
+
 
 (defn home []
   (layout/common [:h1 "PDGM Display"]
@@ -65,12 +100,18 @@
 
 (defroutes home-routes
   (GET "/" [] (home))
-  (POST "/pdgm" [language lpref valstring] 
-        (pdgm-qry language lpref valstring)
+  (POST "/pdgm" [language lpref ] 
+        ;;(layout/common
+         ;;(show-pdgm language labbrev valstring))))
+        (aama-qry)
+        (pdgm-qry language lpref)
+        )
+  (GET "/sparql"
+       [language lpref]
        ;; send SPARQL over HTTP request
        (let [req (http/get aama
                            {:query-params
-                            {"query" (pdgm-qry)
+                            {"query" (pdgm-qry language lpref)
                              ;;"format" "application/sparql-results+json"}})]
                              "format" "text"}})]
          (log/info "sparql result status: " (:status req))

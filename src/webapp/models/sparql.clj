@@ -4,6 +4,7 @@
             [compojure.handler :as handler]
             [compojure.route :as route]
             [clojure.string :refer [capitalize split]]
+
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             [boutros.matsu.sparql :refer :all]
@@ -11,6 +12,13 @@
             [clojure.tools.logging :as log])
   (:use [hiccup.page :only [html5]])
 )
+
+;;(defn query-form [language lpref valstring]
+;;  (let [values (split valstring #",")
+;;        valsection (doseq [value values]
+;;            (str ":s :Q" value " ["lpref" "value"] \\.")
+;;            (str ":Q" value " [:rdfs :label] "value" \\."))]
+;;    (pdgm-qry language lpref valstring)))
 
 (defn pdgmquery [language lang valstring]
     ;;(str language " : " valstring)
