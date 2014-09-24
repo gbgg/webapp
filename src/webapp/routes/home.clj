@@ -26,18 +26,20 @@
        (let [pquery (sparql/pdgmquery language labbrev valstring)]
          [:p pquery]))
 
+;;(def values (split valstring #","))
+
+
+
 (defquery pdgm-qry [language lpref valstring]
-    (let [values (split valstring #",")
-          Language (capitalize language)]
         (select :lex :num :pers :gen :token)
         (where (graph [:aamag language]
         :s [lpref :pos] [lpref :Verb]  \.
-	:s [:aamas :lang] [:aama Language]  \.
+	:s [:aamas :lang] [:aama (capitalize language)]  \.
 	:s [:aamas :lang] :lang  \.
 	:lang [:rdfs :label] :langLabel  \.
-        (doseq [value values]
-          :s (str ":Q" value) [lpref value] \.
-          (str ":Q" value) [:rdfs :label] value  \.)
+        ;;(doseq [value values]
+        ;;  :s (str ":Q" value) [lpref value] \.
+        ;;  (str ":Q" value) [:rdfs :label] value  \.)
         (optional :s [:aamas :lexeme] :lex)  \. 
 	(optional :s [lpref :number] :number)  \.
 	(optional :number [:rdfs :label] :num)  \. 
@@ -47,7 +49,7 @@
 	(optional :s [lpref :gender] :gender)  \.
 	(optional :gender [:rdfs :label] :gen)  \. 
 	:s [lpref :token] :token  \.))
-        (order-by :lex (desc :num) :pers (desc :gen))))
+        (order-by :lex (desc :num) :pers (desc :gen)))
 
 (defn home []
   (layout/common [:h1 "PDGM Display"]
@@ -56,14 +58,15 @@
                  [:hr]
                  (form-to [:post "/pdgm"]
                           [:p "Language:" (text-field "language")]
-                          [:p "LangAbbrev:" (text-field "labbrev")]
+                          [:p "LangAbbrev:" (text-field "lpref")]
                           [:p "Value String:" (text-field "valstring")]
                            (submit-button "Get pdgm"))
                           [:hr]))
 
 (defroutes home-routes
   (GET "/" [] (home))
-  (POST "/pdgm" [language labbrev valstring] 
+  (POST "/pdgm" [language lpref valstring] 
+        (pdgm-qry language lpref valstring)
        ;; send SPARQL over HTTP request
        (let [req (http/get aama
                            {:query-params
