@@ -1,1 +1,7 @@
-This skeleton web app (~/webapp) has been cloned from https://github.com/gbgg/webapp (in turn forked from https://github.com/aama/webapp). Branch master uses book.ttl from fuseki. Branch dev tries out different aama-related display pages. Further developments in ~/webapps/aama-webapp-trial1/. . . etc.
+This skeleton web app (~/webapp) has been cloned from https://github.com/gbgg/webapp (in turn forked from https://github.com/aama/webapp). 
+
+Branch master uses book.ttl from fuseki. 
+
+Branch dev tries out different aama-related html display pages rendered into hiccup format by hiccup-bridge, plus (aama-qry), a hard-coded finite pdgm in matsu format.
+
+Branch dev3   - with language, lpref, valstring inputform; plus hard-coded matsu and sparql quefies, and functions to generate matsu and sparql queries from input.
