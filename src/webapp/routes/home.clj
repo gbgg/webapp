@@ -64,7 +64,7 @@
       (tmpl/render-string 
        (str
         "(defquery pdgm-qry []
-         :lex :num :pers :gen :token)
+         (select :lex :num :pers :gen :token)
         (where (graph [:aamag :{{language}}]
         :s [:{{lpref}} :pos] [:{{lpref}} :Verb]  \\.
 	:s [:aamas :lang] [:aama :{{Language}}]  \\.

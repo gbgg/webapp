@@ -5,3 +5,4 @@ Branch master uses book.ttl from fuseki.
 Branch dev tries out different aama-related html display pages rendered into hiccup format by hiccup-bridge, plus (aama-qry), a hard-coded finite pdgm in matsu format.
 
 Branch dev2   - with language, lpref, valstring inputform; plus hard-coded matsu and sparql quefies, and functions to generate matsu and sparql queries from input.
+
