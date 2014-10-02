@@ -236,7 +236,10 @@ ORDER BY ?lex DESC(?num) ?pers DESC(?gen)")
          (log/info "sparql result status: " (:status req))
          (layout/common
           [:body
-           [:h1 "Result with query-sparql"]
+           [:h1#clickable "Result with query-sparql"]
            [:pre (:body req)]
-           [:p "sparql = " query-sparql]]))))
- 
+           [:p "sparql = " query-sparql]
+           [:script {:src "js/goog/base.js" :type "text/javascript"}]
+           [:script {:src "js/webapp.js" :type "text/javascript"}]
+           [:script {:type "text/javascript"}
+            "goog.require('webapp.core
