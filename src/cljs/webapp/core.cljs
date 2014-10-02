@@ -10,7 +10,6 @@
 (def clickable (.getElementById js/document "clickable"))
 
 (.addEventListener clickable "click" handle-click)
-src/cljs/webapp/core.cljs (END)
 
 
 
