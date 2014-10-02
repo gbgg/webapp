@@ -6,3 +6,4 @@ Branch dev tries out different aama-related html display pages rendered into hic
 
 Branch dev2   - with language, lpref, valstring inputform; plus hard-coded matsu and sparql quefies, and functions to generate matsu and sparql queries from input.
 
+Branch dev3 - incorporate cljs into dev2 state and make pick-list
