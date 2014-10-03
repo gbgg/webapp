@@ -209,8 +209,28 @@ ORDER BY ?lex DESC(?num) ?pers DESC(?gen)")
                  (form-to [:post "/pdgm"]
                           [:p "Language:" (text-field "language" "beja-arteiga")]
                           [:p "LangAbbrev:" (text-field "lpref" "bar")]
-                          [:p "Value String:" (text-field "valstring" "Prefix,Affirmative,CCY,Aorist")]
-                           (submit-button "Get pdgm"))
+                          [:p "PDGM Value Clusters :" 
+                           [:select#valstring.required
+                            {:title "Choose a value.", :name "valstring"}
+                            [:option "Prefix,Affirmative,CCC,Aorist"]
+                            [:option "Prefix,Affirmative,CCC,Imperative"]
+                            [:option "Prefix,Affirmative,CCC,Optative"]
+                            [:option "Prefix,Affirmative,CCC,Past"]
+                            [:option "Prefix,Affirmative,CCC,Present"]
+                            [:option "Prefix,Affirmative,CCY,Aorist"]
+                            [:option "Prefix,Affirmative,CCY,Imperative"]
+                            [:option "Prefix,Affirmative,CCY,Optative"]
+                            [:option "Prefix,Affirmative,CCY,Past"]
+                            [:option "Prefix,Affirmative,CCY,Present"]
+                            [:option "Prefix,Affirmative,CVC,Aorist"]
+                            [:option "Prefix,Affirmative,CVC,Imperative"]
+                            [:option "Prefix,Affirmative,CVC,Optative"]
+                            [:option "Prefix,Affirmative,CVC,Past"]
+                            [:option "Prefix,Affirmative,CVC,Present"]]]
+                          ;;(submit-button "Get pdgm")
+                          [:input#submit
+                           {:value "Get pdgm", :name "submit", :type "submit"}]
+                          )
                           [:hr]))
 
 (defroutes home-routes
@@ -242,4 +262,4 @@ ORDER BY ?lex DESC(?num) ?pers DESC(?gen)")
            [:script {:src "js/goog/base.js" :type "text/javascript"}]
            [:script {:src "js/webapp.js" :type "text/javascript"}]
            [:script {:type "text/javascript"}
-            "goog.require('webapp.core
+            "goog.require('webapp.core');"]]))))
