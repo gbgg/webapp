@@ -1,78 +1,17 @@
-(ns webapp.models.sparql
-(:refer-clojure :exclude [filter concat group-by max min count])
+(ns webapp.routes.home
+ (:refer-clojure :exclude [filter concat group-by max min count])
   (:require [compojure.core :refer :all]
+            [webapp.views.layout :as layout]
+            [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
             [clojure.string :refer [capitalize split]]
-
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             [boutros.matsu.sparql :refer :all]
             [boutros.matsu.core :refer [register-namespaces]]
-            [clojure.tools.logging :as log])
-  (:use [hiccup.page :only [html5]])
-)
-
-;;generate standard SPARQL query using stencil/render-string. 
-;;This version contains in the "for [value values]" section
-;;the triple "?Q{{value}} rdfs:label ?{{value}} .", which
-;;essentially stipulates that the property to which the value
-;;in question belongs has in fact an rdfs:label. At present
-;;not certain why this seemed necessary at some point.
-(defn pdgmqry-sparql-alt [language lpref valstring]
-    (let [values (split valstring #",")
-          Language (capitalize language)
-          ]
-      (str
-      (tmpl/render-string 
-       (str
-	"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
-	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
-	PREFIX aama: <http://id.oi.uchicago.edu/aama/2013/> 
-	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
-	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
-	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
-	SELECT ?lex ?num ?pers ?gen ?token  
-	WHERE\n{ 
-	 { 
-	  GRAPH aamag:{{language}}\n  { 
-	   ?s {{lpref}}:pos {{lpref}}:Verb .  
-	   ?s aamas:lang aama:{{Language}} . 
-	   ?s aamas:lang ?lang . 
-	   ?lang rdfs:label ?langLabel .  ")
-       {:lpref lpref
-        :language language
-        :Language Language})
-      (apply str  
-             (for [value values]
-        (tmpl/render-string 
-         (str
-          "?s ?Q{{value}}  {{lpref}}:{{value}} .  
-	   ?Q{{value}} rdfs:label ?{{value}} .  
-          ")
-         {:value value
-          :lpref lpref})
-          )
-      )
-      (tmpl/render-string
-       (str
-       "   OPTIONAL { ?s aamas:lexeme ?lex . }  
-	   OPTIONAL { ?s {{lpref}}:number ?number .  
-	   ?number rdfs:label ?num . } 
-	   {   ?s {{lpref}}:pngShapeClass ?person .}  
-	   UNION  
-	   {   ?s {{lpref}}:person ?person .}  
-	   ?person rdfs:label ?pers .  
-	   OPTIONAL { ?s {{lpref}}:gender ?gender .  
-	   ?gender rdfs:label ?gen . } 
-	   ?s {{lpref}}:token ?token .  
-	  } 
-	 } 
-	} 
-	ORDER BY ?lex DESC(?num) ?pers DESC(?gen) ")
-       {:lpref lpref})
-       );;str
-))
+            [clojure.tools.logging :as log]
+            [hiccup.form :refer :all]))
 
 ;; local aama sparql query endpoint
 (def aama "http://localhost:3030/aama/query")
@@ -259,3 +198,86 @@ ORDER BY ?lex DESC(?num) ?pers DESC(?gen)")
        {:lpref lpref})
        );;str
 ))
+
+(defn make-options
+  [lg pos]
+  (let [;;optionfile (first pfile) 
+        optionfile (str lg "-" pos "-list.txt")
+        optionlist (slurp optionfile)]
+    (clojure.string/split optionlist #"\n")))
+
+(def lg "bar")
+
+(def pos "fn")
+
+(def options (make-options lg pos))
+
+(defn home 
+  []
+  (layout/common [:h1 "PDGM Display"]
+                 [:p "Welcome to PDGM Display"]
+                 ;; [:p error]
+                 [:hr]
+                 (form-to [:post "/pdgm"]
+                          [:p "Language:" (text-field "language" "beja-arteiga")]
+                          [:p "LangAbbrev:" (text-field "lpref" "bar")]
+                          [:p "PDGM Value Clusters One :" 
+                           [:select#valstring.required
+                            {:title "Choose a value.", :name "valstring"}
+                            [:option "Prefix,Affirmative,CCC,Aorist"]
+                            [:option "Prefix,Affirmative,CCC,Imperative"]
+                            [:option "Prefix,Affirmative,CCC,Optative"]
+                            [:option "Prefix,Affirmative,CCC,Past"]
+                            [:option "Prefix,Affirmative,CCC,Present"]
+                            [:option "Prefix,Affirmative,CCY,Aorist"]
+                            [:option "Prefix,Affirmative,CCY,Imperative"]
+                            [:option "Prefix,Affirmative,CCY,Optative"]
+                            [:option "Prefix,Affirmative,CCY,Past"]
+                            [:option "Prefix,Affirmative,CCY,Present"]
+                            [:option "Prefix,Affirmative,CVC,Aorist"]
+                            [:option "Prefix,Affirmative,CVC,Imperative"]
+                            [:option "Prefix,Affirmative,CVC,Optative"]
+                            [:option "Prefix,Affirmative,CVC,Past"]
+                            [:option "Prefix,Affirmative,CVC,Present"]]]
+                          [:p "PDGM Value Clusters Two :" 
+                           [:select#valstring2.required
+                            {:title "Choose a value.", :name "valstring"}
+                            (for [option options]
+                              [:option  option ])
+                            ]]
+                          ;;(submit-button "Get pdgm")
+                          [:input#submit
+                           {:value "Get pdgm", :name "submit", :type "submit"}]
+                          )
+                          [:hr]))
+
+(defroutes home-routes
+  (GET "/" [] (home))
+  (POST "/pdgm" [language lpref valstring] 
+        (layout/common
+        (def query-sparql (pdgmqry-sparql language lpref valstring))
+        (def query-matsu (pdgmqry-matsu language lpref valstring))
+        [:p "sparql = " query-sparql]
+        [:p "matsu = " query-matsu])
+        )
+  (GET "/sparql" []
+       ;;[language lpref valstring]
+       ;; send SPARQL over HTTP request
+       (let [req (http/get aama
+                           {:query-params
+                            ;;{"query" (aama-qry) ;;canned matsu
+                            ;;{"query" query-matsu ;;generated matsu
+                            ;;{"query" pdgm-qry ;;canned sparql
+                            {"query" query-sparql ;;generated sparql
+                             ;;"format" "application/sparql-results+json"}})]
+                             "format" "text"}})]
+         (log/info "sparql result status: " (:status req))
+         (layout/common
+          [:body
+           [:h1#clickable "Result with query-sparql"]
+           [:pre (:body req)]
+           [:p "sparql = " query-sparql]
+           [:script {:src "js/goog/base.js" :type "text/javascript"}]
+           [:script {:src "js/webapp.js" :type "text/javascript"}]
+           [:script {:type "text/javascript"}
+            "goog.require('webapp.core');"]]))))

@@ -5,7 +5,8 @@
             [hiccup.middleware :refer [wrap-base-url]]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [webapp.routes.home :refer [home-routes]]))
+            [webapp.routes.home :refer [home-routes]]
+            [webapp.routes.pdgm :refer [pdgm-routes]]))
 
 (defn init []
   (println "webapp is starting"))
@@ -18,7 +19,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes home-routes app-routes)
+  (-> (routes home-routes pdgm-routes app-routes)
       (handler/site)
       (wrap-base-url)))
 
