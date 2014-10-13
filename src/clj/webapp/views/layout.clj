@@ -26,7 +26,8 @@
         [:body content]))))
 
 (defn base [& content]
-  (RenderablePage. content))
+  (RenderablePage. content
+  ))
 
 (defn make-menu [& items]
   [:div#usermenu (for [item items] [:div.menuitem item])])
@@ -40,6 +41,10 @@
 
 (defn common [& content]
   (base    
-      (user-menu))
-    [:div.content content])
+    [:div#usermenu 
+   [:div.menuitem (link-to "/" "Home")]
+   [:div.menuitem (link-to "/pdgm" "Paradigms")]
+   [:div.menuitem (link-to "/propval" "Property-value displays")]
+   [:div.menuitem (link-to "/pvlists" "Property-value lists")]]
+    [:div.content content]))
 

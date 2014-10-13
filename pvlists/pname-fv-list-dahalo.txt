@@ -1,23 +1,20 @@
-1. Dahalo,U,Negative,PastSubj (1)
-2. Dahalo,Imperfective,Affirmative,Imperative (2)
-3. Dahalo,Imperfective,Affirmative,Jussive (7)
-4. Dahalo,Imperfective,Affirmative,PastGen (7)
-5. Dahalo,Imperfective,Affirmative,PastHab (7)
-6. Dahalo,Imperfective,Affirmative,PastSubj (7)
-7. Dahalo,Imperfective,Negative,Jussive (7)
-8. Dahalo,Perfective,Affirmative,Imperative (2)
-9. Dahalo,Perfective,Affirmative,Jussive (7)
-10. Dahalo,Perfective,Affirmative,PastGen (7)
-11. Dahalo,Perfective,Affirmative,PastHab (7)
-12. Dahalo,Perfective,Affirmative,PastSubj (7)
-13. Dahalo,Perfective,Negative,Jussive (7)
-14. Dahalo,U,Affirmative,NonPastGen (7)
-15. Dahalo,U,Affirmative,NonPastSubj (7)
-16. Dahalo,U,Negative,Imperative (1)
-17. Dahalo,U,Negative,NonPastGen (1)
-18. Dahalo,U,Negative,NonPastSubj (1)
-19. Dahalo,U,Negative,PastGen (9)
-20. Dahalo,U,Negative,PastHab (1)
-21. Dahalo,U,Negative,PastSubj (1)
-
-
+Imperfective,Affirmative,Imperative
+Imperfective,Affirmative,Jussive
+Imperfective,Affirmative,PastGen
+Imperfective,Affirmative,PastHab
+Imperfective,Affirmative,PastSubj
+Imperfective,Negative,Jussive
+Perfective,Affirmative,Imperative
+Perfective,Affirmative,Jussive
+Perfective,Affirmative,PastGen
+Perfective,Affirmative,PastHab
+Perfective,Affirmative,PastSubj
+Perfective,Negative,Jussive
+U,Affirmative,NonPastGen
+U,Affirmative,NonPastSubj
+U,Negative,Imperative
+U,Negative,NonPastGen
+U,Negative,NonPastSubj
+U,Negative,PastGen
+U,Negative,PastHab
+U,Negative,PastSubj

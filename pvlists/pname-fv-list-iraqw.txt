@@ -1,61 +1,58 @@
-1. Iraqw,SelBEVerb,Affirmative,Independent (1)
-2. Iraqw,Conj1,Affirmative,Past (6)
-3. Iraqw,Conj1,Affirmative,Present (7)
-4. Iraqw,Conj1,Indicative,Affirmative,Past (7)
-5. Iraqw,Conj1,Q,Affirmative,Past (6)
-6. Iraqw,Conj1,SubjMarker,Affirmative,Present (7)
-7. Iraqw,Conj1,Subjunctive,Affirmative,Past (7)
-8. Iraqw,Conj1,TenseFormation1,Negative,Present (7)
-9. Iraqw,Conj1,TenseFormation2,Negative,Past (7)
-10. Iraqw,Conj2,Affirmative,Past (6)
-11. Iraqw,Conj2,Affirmative,Present (3)
-12. Iraqw,Conj2,Indicative,Affirmative,Past (7)
-13. Iraqw,Conj2,Q,Affirmative,Past (6)
-14. Iraqw,Conj2,SubjMarker,Affirmative,Present (7)
-15. Iraqw,Conj2,Subjunctive,Affirmative,Past (7)
-16. Iraqw,Conj2,TenseFormation1,Negative,Present (7)
-17. Iraqw,Conj2,TenseFormation2,Negative,Past (7)
-18. Iraqw,Conj2a,Affirmative,Present (7)
-19. Iraqw,Conj2b,Affirmative,Present (7)
-20. Iraqw,Conj3a,Affirmative (2)
-21. Iraqw,Conj3a,Affirmative,Present (7)
-22. Iraqw,Conj3a,StemFormation,Affirmative,Present (7)
-23. Iraqw,Conj3a,SubjMarker,Affirmative,Present (7)
-24. Iraqw,Conj3b,Affirmative (2)
-25. Iraqw,Conj3b,Affirmative,Present (7)
-26. Iraqw,Conj3b,StemFormation,Affirmative,Present (7)
-27. Iraqw,Conj3b,SubjMarker,Affirmative,Present (7)
-28. Iraqw,Conj3c,Affirmative (2)
-29. Iraqw,Conj3c,StemFormation,Affirmative,Present (7)
-30. Iraqw,Conj3c,SubjMarker,Affirmative,Present (7)
-31. Iraqw,Conj3d,Affirmative (2)
-32. Iraqw,Conj3d,StemFormation,Affirmative,Present (7)
-33. Iraqw,Conj3d,SubjMarker,Affirmative,Present (7)
-34. Iraqw,Conj3e,Affirmative (2)
-35. Iraqw,Conj3e,Affirmative,Past (6)
-36. Iraqw,Conj3e,Affirmative,Present (14)
-37. Iraqw,Conj3e,Indicative,Affirmative,Past (7)
-38. Iraqw,Conj3e,Q,Affirmative,Past (6)
-39. Iraqw,Conj3e,StemFormation,Affirmative,Present (7)
-40. Iraqw,Conj3e,SubjMarker,Affirmative,Present (7)
-41. Iraqw,Conj3e,Subjunctive,Affirmative,Past (7)
-42. Iraqw,Conj3e,TenseFormation,Affirmative,Imperative (2)
-43. Iraqw,Conj3e,TenseFormation,Affirmative,Past (7)
-44. Iraqw,Conj3e,TenseFormation,Affirmative,PastQ (6)
-45. Iraqw,Conj3e,TenseFormation,Affirmative,PresQ (6)
-46. Iraqw,Conj3e,TenseFormation,Affirmative,Present (7)
-47. Iraqw,Conj3e,TenseFormation,Affirmative,RelativePresent (7)
-48. Iraqw,Conj3e,TenseFormation,Negative,Imperative (2)
-49. Iraqw,Conj3e,TenseFormation,Negative,Past (7)
-50. Iraqw,Conj3e,TenseFormation,Negative,Present (7)
-51. Iraqw,Conj3e,TenseFormation,Subordiate,Present (2)
-52. Iraqw,Conj3e,TenseFormation1,Negative,Present (7)
-53. Iraqw,Conj3e,TenseFormation2,Negative,Past (7)
-54. Iraqw,Irreg,Affirmative,Present (7)
-55. Iraqw,SelBENom,Affirmative,Copula (2)
-56. Iraqw,SelBENom,Affirmative,Dependent (2)
-57. Iraqw,SelBENom,Affirmative,Locative (2)
-58. Iraqw,SelBEVerb,Affirmative,Dependent (6)
-59. Iraqw,SelBEVerb,Affirmative,Independent (6)
-
-
+Conj1,Affirmative,Past
+Conj1,Affirmative,Present
+Conj1,Indicative,Affirmative,Past
+Conj1,Q,Affirmative,Past
+Conj1,SubjMarker,Affirmative,Present
+Conj1,Subjunctive,Affirmative,Past
+Conj1,TenseFormation1,Negative,Present
+Conj1,TenseFormation2,Negative,Past
+Conj2,Affirmative,Past
+Conj2,Affirmative,Present
+Conj2,Indicative,Affirmative,Past
+Conj2,Q,Affirmative,Past
+Conj2,SubjMarker,Affirmative,Present
+Conj2,Subjunctive,Affirmative,Past
+Conj2,TenseFormation1,Negative,Present
+Conj2,TenseFormation2,Negative,Past
+Conj2a,Affirmative,Present
+Conj2b,Affirmative,Present
+Conj3a,Affirmative
+Conj3a,Affirmative,Present
+Conj3a,StemFormation,Affirmative,Present
+Conj3a,SubjMarker,Affirmative,Present
+Conj3b,Affirmative
+Conj3b,Affirmative,Present
+Conj3b,StemFormation,Affirmative,Present
+Conj3b,SubjMarker,Affirmative,Present
+Conj3c,Affirmative
+Conj3c,StemFormation,Affirmative,Present
+Conj3c,SubjMarker,Affirmative,Present
+Conj3d,Affirmative
+Conj3d,StemFormation,Affirmative,Present
+Conj3d,SubjMarker,Affirmative,Present
+Conj3e,Affirmative
+Conj3e,Affirmative,Past
+Conj3e,Affirmative,Present
+Conj3e,Indicative,Affirmative,Past
+Conj3e,Q,Affirmative,Past
+Conj3e,StemFormation,Affirmative,Present
+Conj3e,SubjMarker,Affirmative,Present
+Conj3e,Subjunctive,Affirmative,Past
+Conj3e,TenseFormation,Affirmative,Imperative
+Conj3e,TenseFormation,Affirmative,Past
+Conj3e,TenseFormation,Affirmative,PastQ
+Conj3e,TenseFormation,Affirmative,PresQ
+Conj3e,TenseFormation,Affirmative,Present
+Conj3e,TenseFormation,Affirmative,RelativePresent
+Conj3e,TenseFormation,Negative,Imperative
+Conj3e,TenseFormation,Negative,Past
+Conj3e,TenseFormation,Negative,Present
+Conj3e,TenseFormation,Subordiate,Present
+Conj3e,TenseFormation1,Negative,Present
+Conj3e,TenseFormation2,Negative,Past
+Irreg,Affirmative,Present
+SelBENom,Affirmative,Copula
+SelBENom,Affirmative,Dependent
+SelBENom,Affirmative,Locative
+SelBEVerb,Affirmative,Dependent
+SelBEVerb,Affirmative,Independent

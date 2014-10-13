@@ -213,17 +213,19 @@ ORDER BY ?lex DESC(?num) ?pers DESC(?gen)")
           ]
       (str
       (tmpl/render-string 
-       (str
-	"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+       (str "
+	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
 	PREFIX aama: <http://id.oi.uchicago.edu/aama/2013/> 
 	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
 	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
 	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
 	SELECT ?lex ?num ?pers ?gen ?token  
-	WHERE\n{ 
+	WHERE
+        { 
 	 { 
-	  GRAPH aamag:{{language}}\n  { 
+	  GRAPH aamag:{{language}}  
+          { 
 	   ?s {{lpref}}:pos {{lpref}}:Verb .  
 	   ?s aamas:lang aama:{{Language}} . 
 	   ?s aamas:lang ?lang . 
@@ -234,15 +236,15 @@ ORDER BY ?lex DESC(?num) ?pers DESC(?gen)")
       (apply str  
              (for [value values]
         (tmpl/render-string 
-         (str
-          "?s ?Q{{value}}  {{lpref}}:{{value}} .  ")
+         (str "
+           ?s ?Q{{value}}  {{lpref}}:{{value}} .  ")
          {:value value
           :lpref lpref})
           )
       )
       (tmpl/render-string
-       (str
-       "   OPTIONAL { ?s aamas:lexeme ?lex . }  
+       (str " 
+           OPTIONAL { ?s aamas:lexeme ?lex . }  
 	   OPTIONAL { ?s {{lpref}}:number ?number .  
 	   ?number rdfs:label ?num . } 
 	   {   ?s {{lpref}}:pngShapeClass ?person .}  

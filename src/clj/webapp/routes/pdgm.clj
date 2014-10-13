@@ -18,43 +18,47 @@
 (defn pdgm []
   (let [langlist (slurp "pvlists/langlist.txt")
         languages (split langlist #"\n")]
-  (layout/common [:h1 "PDGM Type"]
-                 [:p "Welcome to PDGM Type"]
+  (layout/common [:h3 "Paradigms"]
+                 [:p "Choose Language and Type"]
                  ;; [:p error]
                  [:hr]
                  (form-to [:post "/pdgmqry"]
                           [:p "PDGM Language:" 
                            [:select#language.required
-                            {:title "Choose a value.", :name "valstring"}
+                            {:title "Choose a language.", :name "language"}
                             (for [language languages]
-                              [:language  language ])
+                              [:option  language ])
                             ]]
                           [:p "PDGM Type:" 
                            [:select#pos.required
-                            {:title "Choose a value.", :name "valstring"}
-                              [:option "fn"]
+                            {:title "Choose a pdgm type.", :name "pos"}
+                              [:option "fv"]
                               [:option "nfv"]
                               [:option "pro"]
                               [:option "noun"]
                             ]]
                           ;;(submit-button "Get pdgm")
                           [:input#submit
-                           {:value "Get pdgm type", :name "submit", :type "submit"}]
+                           {:value "Get pdgm language/type", :name "submit", :type "submit"}]
                           )
                           [:hr])))
 
 (defn handle-pdgmqry 
   [language pos]
-  (let [valclusterfile (str "pvlists/-" pos "-list-" language ".txt")
+  (let [valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")
         valclusterlist (slurp valclusterfile)
         valclusters (clojure.string/split valclusterlist #"\n")]
     (layout/common 
-     [:h1 "PDGM Display"]
-     [:p "Welcome to PDGM Display"]
+     [:h3 "Paradigms"]
+     [:p "Choose Value Clusters"]
      ;;[:p error]
      [:hr]
      (form-to [:post "/pdgmdisplay"]
-              [:p "Language: " language]
+              [:p "Language: "
+               [:select#language.required
+                {:title "Choose a language.", :name "language"}
+                  [:option  language]
+                ]]
               [:p "PDGM Type: " pos]
               [:p "PDGM Value Clusters:" 
                [:select#valstring.required
@@ -71,8 +75,10 @@
   [language valstring]
   ;; send SPARQL over HTTP request
   ;; see if can make separate ns & page 
-  (let [lpref-map (slurp "pvlists/lpref-map")
-        lpref (lpref-map language)
+  (let [Language (capitalize language)
+        lprefmap (read-string (slurp "pvlists/lprefs.clj"))
+        lang (read-string (str ":" language))
+        lpref (lang lprefmap)
         query-sparql (sparql/pdgmqry-sparql language lpref valstring)
         req (http/get aama
                       {:query-params
@@ -82,16 +88,17 @@
          (log/info "sparql result status: " (:status req))
          (layout/common
           [:body
-           [:h1#clickable "Result with query-sparql"]
+           [:h3#clickable "Paradigm: " Language " / " valstring]
            [:pre (:body req)]
+           [:h3#clickable "Query"]
            [:pre query-sparql]
            [:script {:src "js/goog/base.js" :type "text/javascript"}]
            [:script {:src "js/webapp.js" :type "text/javascript"}]
            [:script {:type "text/javascript"}
             "goog.require('webapp.core');"]])))
 
-
 (defroutes pdgm-routes
   (GET "/pdgm" [] (pdgm))
   (POST "/pdgmqry" [language pos] (handle-pdgmqry language pos))
-  (POST "/pdgmdisplay" [language valstring] (handle-pdgmdisplay language valstring)))
+  (POST "/pdgmdisplay" [language valstring] (handle-pdgmdisplay language valstring))
+  )

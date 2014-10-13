@@ -1,115 +1,112 @@
-1. Tsamakko,ProSuff,SuffSet5 (1)
-2. Tsamakko,Common,TenseSuffSets,Affirmative,SuffSet1,Jussive (7)
-3. Tsamakko,Common,TenseSuffSets,Affirmative,SuffSet2,Future (7)
-4. Tsamakko,Common,TenseSuffSets,Affirmative,SuffSet2,Imperfect (7)
-5. Tsamakko,Common,TenseSuffSets,Affirmative,SuffSet5,Imperfect (7)
-6. Tsamakko,Common,TenseSuffSets,Negative,SuffSet1,Future (7)
-7. Tsamakko,Common,TenseSuffSets,Negative,SuffSet1,NonPast (7)
-8. Tsamakko,Common,TenseSuffSets,Negative,SuffSet3,Jussive (7)
-9. Tsamakko,Common,TenseSuffSets,Negative,SuffSet3,Past (7)
-10. Tsamakko,Common,TenseSuffSets,Subordinate,SuffSet1,Future (7)
-11. Tsamakko,ConjA,Affirmative,CVC,Aorist (7)
-12. Tsamakko,ConjA,Affirmative,CVC,Consecutive (7)
-13. Tsamakko,ConjA,Affirmative,CVC,Future (7)
-14. Tsamakko,ConjA,Affirmative,CVC,Imperative (2)
-15. Tsamakko,ConjA,Affirmative,CVC,Imperfect (7)
-16. Tsamakko,ConjA,Affirmative,CVC,Jussive (7)
-17. Tsamakko,ConjA,Affirmative,CVC-VC,Aorist (7)
-18. Tsamakko,ConjA,Affirmative,CVC-VC,Consecutive (7)
-19. Tsamakko,ConjA,Affirmative,CVC-VC,Future (7)
-20. Tsamakko,ConjA,Affirmative,CVC-VC,Imperative (2)
-21. Tsamakko,ConjA,Affirmative,CVC-VC,Imperfect (7)
-22. Tsamakko,ConjA,Affirmative,CVC-VC,Jussive (7)
-23. Tsamakko,ConjA,Affirmative,CVCVC,Aorist (7)
-24. Tsamakko,ConjA,Affirmative,CVCVC,Consecutive (7)
-25. Tsamakko,ConjA,Affirmative,CVCVC,Future (7)
-26. Tsamakko,ConjA,Affirmative,CVCVC,Imperative (2)
-27. Tsamakko,ConjA,Affirmative,CVCVC,Imperfect (7)
-28. Tsamakko,ConjA,Affirmative,CVCVC,Jussive (7)
-29. Tsamakko,ConjA,Affirmative,CVVC,Aorist (7)
-30. Tsamakko,ConjA,Affirmative,CVVC,Consecutive (7)
-31. Tsamakko,ConjA,Affirmative,CVVC,Future (7)
-32. Tsamakko,ConjA,Affirmative,CVVC,Imperative (2)
-33. Tsamakko,ConjA,Affirmative,CVVC,Imperfect (7)
-34. Tsamakko,ConjA,Affirmative,CVVC,Jussive (7)
-35. Tsamakko,ConjA,ConjA-ConjBComparison,Aorist (7)
-36. Tsamakko,ConjA,ConjA-ConjBComparison,Consecutive (7)
-37. Tsamakko,ConjA,ConjA-ConjBComparison,Imperative (2)
-38. Tsamakko,ConjA,Negative,CVC,Future (7)
-39. Tsamakko,ConjA,Negative,CVC,Jussive (7)
-40. Tsamakko,ConjA,Negative,CVC,NonPast (7)
-41. Tsamakko,ConjA,Negative,CVC,Past (7)
-42. Tsamakko,ConjA,Negative,CVC-VC,Future (7)
-43. Tsamakko,ConjA,Negative,CVC-VC,Jussive (7)
-44. Tsamakko,ConjA,Negative,CVC-VC,NonPast (7)
-45. Tsamakko,ConjA,Negative,CVC-VC,Past (7)
-46. Tsamakko,ConjA,Negative,CVCVC,Future (7)
-47. Tsamakko,ConjA,Negative,CVCVC,Jussive (7)
-48. Tsamakko,ConjA,Negative,CVCVC,NonPast (7)
-49. Tsamakko,ConjA,Negative,CVCVC,Past (7)
-50. Tsamakko,ConjA,Negative,CVVC,Future (7)
-51. Tsamakko,ConjA,Negative,CVVC,Jussive (7)
-52. Tsamakko,ConjA,Negative,CVVC,NonPast (7)
-53. Tsamakko,ConjA,Negative,CVVC,Past (7)
-54. Tsamakko,ConjA,Subordinate,CVC,Future (7)
-55. Tsamakko,ConjA,Subordinate,CVC-VC,Future (7)
-56. Tsamakko,ConjA,Subordinate,CVCVC,Future (7)
-57. Tsamakko,ConjA,Subordinate,CVVC,Future (7)
-58. Tsamakko,ConjA,TenseSuffSets,Affirmative,SuffSet1,Aorist (7)
-59. Tsamakko,ConjA,TenseSuffSets,Affirmative,SuffSet4,Consecutive (7)
-60. Tsamakko,ConjB,Affirmative,CVC,Aorist (7)
-61. Tsamakko,ConjB,Affirmative,CVC,Consecutive (7)
-62. Tsamakko,ConjB,Affirmative,CVC,Future (7)
-63. Tsamakko,ConjB,Affirmative,CVC,Imperative (2)
-64. Tsamakko,ConjB,Affirmative,CVC,Imperfect (7)
-65. Tsamakko,ConjB,Affirmative,CVC,Jussive (7)
-66. Tsamakko,ConjB,Affirmative,CVC-VC,Aorist (7)
-67. Tsamakko,ConjB,Affirmative,CVC-VC,Consecutive (7)
-68. Tsamakko,ConjB,Affirmative,CVC-VC,Future (7)
-69. Tsamakko,ConjB,Affirmative,CVC-VC,Imperative (2)
-70. Tsamakko,ConjB,Affirmative,CVC-VC,Imperfect (7)
-71. Tsamakko,ConjB,Affirmative,CVC-VC,Jussive (7)
-72. Tsamakko,ConjB,Affirmative,CVCVC,Aorist (7)
-73. Tsamakko,ConjB,Affirmative,CVCVC,Consecutive (7)
-74. Tsamakko,ConjB,Affirmative,CVCVC,Future (7)
-75. Tsamakko,ConjB,Affirmative,CVCVC,Imperative (2)
-76. Tsamakko,ConjB,Affirmative,CVCVC,Imperfect (7)
-77. Tsamakko,ConjB,Affirmative,CVCVC,Jussive (7)
-78. Tsamakko,ConjB,Affirmative,CVVC,Aorist (7)
-79. Tsamakko,ConjB,Affirmative,CVVC,Consecutive (7)
-80. Tsamakko,ConjB,Affirmative,CVVC,Future (7)
-81. Tsamakko,ConjB,Affirmative,CVVC,Imperative (2)
-82. Tsamakko,ConjB,Affirmative,CVVC,Imperfect (7)
-83. Tsamakko,ConjB,Affirmative,CVVC,Jussive (7)
-84. Tsamakko,ConjB,ConjA-ConjBComparison,Aorist (7)
-85. Tsamakko,ConjB,ConjA-ConjBComparison,Consecutive (7)
-86. Tsamakko,ConjB,ConjA-ConjBComparison,Imperative (2)
-87. Tsamakko,ConjB,Negative,CVC,Future (7)
-88. Tsamakko,ConjB,Negative,CVC,Jussive (7)
-89. Tsamakko,ConjB,Negative,CVC,NonPast (7)
-90. Tsamakko,ConjB,Negative,CVC,Past (7)
-91. Tsamakko,ConjB,Negative,CVC-VC,Future (7)
-92. Tsamakko,ConjB,Negative,CVC-VC,Jussive (7)
-93. Tsamakko,ConjB,Negative,CVC-VC,NonPast (7)
-94. Tsamakko,ConjB,Negative,CVC-VC,Past (7)
-95. Tsamakko,ConjB,Negative,CVCVC,Future (7)
-96. Tsamakko,ConjB,Negative,CVCVC,Jussive (7)
-97. Tsamakko,ConjB,Negative,CVCVC,NonPast (7)
-98. Tsamakko,ConjB,Negative,CVCVC,Past (7)
-99. Tsamakko,ConjB,Negative,CVVC,Future (7)
-100. Tsamakko,ConjB,Negative,CVVC,Jussive (7)
-101. Tsamakko,ConjB,Negative,CVVC,NonPast (7)
-102. Tsamakko,ConjB,Negative,CVVC,Past (7)
-103. Tsamakko,ConjB,Subordinate,CVC,Future (7)
-104. Tsamakko,ConjB,Subordinate,CVC-VC,Future (7)
-105. Tsamakko,ConjB,Subordinate,CVCVC,Future (7)
-106. Tsamakko,ConjB,Subordinate,CVVC,Future (7)
-107. Tsamakko,ConjB,TenseSuffSets,Affirmative,SuffSet1,Aorist (7)
-108. Tsamakko,ConjB,TenseSuffSets,Affirmative,SuffSet2,Consecutive (7)
-109. Tsamakko,ProSuff,SuffSet1 (7)
-110. Tsamakko,ProSuff,SuffSet2 (7)
-111. Tsamakko,ProSuff,SuffSet3 (7)
-112. Tsamakko,ProSuff,SuffSet4 (7)
-113. Tsamakko,ProSuff,SuffSet5 (7)
-
-
+Common,TenseSuffSets,Affirmative,SuffSet1,Jussive
+Common,TenseSuffSets,Affirmative,SuffSet2,Future
+Common,TenseSuffSets,Affirmative,SuffSet2,Imperfect
+Common,TenseSuffSets,Affirmative,SuffSet5,Imperfect
+Common,TenseSuffSets,Negative,SuffSet1,Future
+Common,TenseSuffSets,Negative,SuffSet1,NonPast
+Common,TenseSuffSets,Negative,SuffSet3,Jussive
+Common,TenseSuffSets,Negative,SuffSet3,Past
+Common,TenseSuffSets,Subordinate,SuffSet1,Future
+ConjA,Affirmative,CVC,Aorist
+ConjA,Affirmative,CVC,Consecutive
+ConjA,Affirmative,CVC,Future
+ConjA,Affirmative,CVC,Imperative
+ConjA,Affirmative,CVC,Imperfect
+ConjA,Affirmative,CVC,Jussive
+ConjA,Affirmative,CVC-VC,Aorist
+ConjA,Affirmative,CVC-VC,Consecutive
+ConjA,Affirmative,CVC-VC,Future
+ConjA,Affirmative,CVC-VC,Imperative
+ConjA,Affirmative,CVC-VC,Imperfect
+ConjA,Affirmative,CVC-VC,Jussive
+ConjA,Affirmative,CVCVC,Aorist
+ConjA,Affirmative,CVCVC,Consecutive
+ConjA,Affirmative,CVCVC,Future
+ConjA,Affirmative,CVCVC,Imperative
+ConjA,Affirmative,CVCVC,Imperfect
+ConjA,Affirmative,CVCVC,Jussive
+ConjA,Affirmative,CVVC,Aorist
+ConjA,Affirmative,CVVC,Consecutive
+ConjA,Affirmative,CVVC,Future
+ConjA,Affirmative,CVVC,Imperative
+ConjA,Affirmative,CVVC,Imperfect
+ConjA,Affirmative,CVVC,Jussive
+ConjA,ConjA-ConjBComparison,Aorist
+ConjA,ConjA-ConjBComparison,Consecutive
+ConjA,ConjA-ConjBComparison,Imperative
+ConjA,Negative,CVC,Future
+ConjA,Negative,CVC,Jussive
+ConjA,Negative,CVC,NonPast
+ConjA,Negative,CVC,Past
+ConjA,Negative,CVC-VC,Future
+ConjA,Negative,CVC-VC,Jussive
+ConjA,Negative,CVC-VC,NonPast
+ConjA,Negative,CVC-VC,Past
+ConjA,Negative,CVCVC,Future
+ConjA,Negative,CVCVC,Jussive
+ConjA,Negative,CVCVC,NonPast
+ConjA,Negative,CVCVC,Past
+ConjA,Negative,CVVC,Future
+ConjA,Negative,CVVC,Jussive
+ConjA,Negative,CVVC,NonPast
+ConjA,Negative,CVVC,Past
+ConjA,Subordinate,CVC,Future
+ConjA,Subordinate,CVC-VC,Future
+ConjA,Subordinate,CVCVC,Future
+ConjA,Subordinate,CVVC,Future
+ConjA,TenseSuffSets,Affirmative,SuffSet1,Aorist
+ConjA,TenseSuffSets,Affirmative,SuffSet4,Consecutive
+ConjB,Affirmative,CVC,Aorist
+ConjB,Affirmative,CVC,Consecutive
+ConjB,Affirmative,CVC,Future
+ConjB,Affirmative,CVC,Imperative
+ConjB,Affirmative,CVC,Imperfect
+ConjB,Affirmative,CVC,Jussive
+ConjB,Affirmative,CVC-VC,Aorist
+ConjB,Affirmative,CVC-VC,Consecutive
+ConjB,Affirmative,CVC-VC,Future
+ConjB,Affirmative,CVC-VC,Imperative
+ConjB,Affirmative,CVC-VC,Imperfect
+ConjB,Affirmative,CVC-VC,Jussive
+ConjB,Affirmative,CVCVC,Aorist
+ConjB,Affirmative,CVCVC,Consecutive
+ConjB,Affirmative,CVCVC,Future
+ConjB,Affirmative,CVCVC,Imperative
+ConjB,Affirmative,CVCVC,Imperfect
+ConjB,Affirmative,CVCVC,Jussive
+ConjB,Affirmative,CVVC,Aorist
+ConjB,Affirmative,CVVC,Consecutive
+ConjB,Affirmative,CVVC,Future
+ConjB,Affirmative,CVVC,Imperative
+ConjB,Affirmative,CVVC,Imperfect
+ConjB,Affirmative,CVVC,Jussive
+ConjB,ConjA-ConjBComparison,Aorist
+ConjB,ConjA-ConjBComparison,Consecutive
+ConjB,ConjA-ConjBComparison,Imperative
+ConjB,Negative,CVC,Future
+ConjB,Negative,CVC,Jussive
+ConjB,Negative,CVC,NonPast
+ConjB,Negative,CVC,Past
+ConjB,Negative,CVC-VC,Future
+ConjB,Negative,CVC-VC,Jussive
+ConjB,Negative,CVC-VC,NonPast
+ConjB,Negative,CVC-VC,Past
+ConjB,Negative,CVCVC,Future
+ConjB,Negative,CVCVC,Jussive
+ConjB,Negative,CVCVC,NonPast
+ConjB,Negative,CVCVC,Past
+ConjB,Negative,CVVC,Future
+ConjB,Negative,CVVC,Jussive
+ConjB,Negative,CVVC,NonPast
+ConjB,Negative,CVVC,Past
+ConjB,Subordinate,CVC,Future
+ConjB,Subordinate,CVC-VC,Future
+ConjB,Subordinate,CVCVC,Future
+ConjB,Subordinate,CVVC,Future
+ConjB,TenseSuffSets,Affirmative,SuffSet1,Aorist
+ConjB,TenseSuffSets,Affirmative,SuffSet2,Consecutive
+ProSuff,SuffSet1
+ProSuff,SuffSet2
+ProSuff,SuffSet3
+ProSuff,SuffSet4
+ProSuff,SuffSet5
