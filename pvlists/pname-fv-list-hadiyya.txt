@@ -1,0 +1,14 @@
+Affirmative,Imperative
+Affirmative,Imperfect
+Affirmative,Jussive
+Affirmative,PastPerfect
+Affirmative,PastProgressive
+Affirmative,PresenProgressive
+Affirmative,PresentPerfect
+Affirmative,SimplePerfect
+Interrogative,PresentPerfect
+Negative,Imperative
+Negative,Imperfect
+Negative,Jussive
+Negative,SimplePerfect
+SubjMarkerTemplates

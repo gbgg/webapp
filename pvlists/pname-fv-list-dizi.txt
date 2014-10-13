@@ -1,0 +1,13 @@
+Affirmative,Imperative
+Affirmative,Jussive
+Affirmative,Past
+AuxNegSuff
+AuxNegSuff,Negative
+CommandForms,Aff,Imprtv
+CommandForms,Aff,Juss
+CommandForms,Neg,Imprtv
+CommandForms,Neg,Juss
+Negative,Imperative
+Negative,Jussive
+PngProclitic
+SubjSuff

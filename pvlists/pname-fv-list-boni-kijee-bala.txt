@@ -1,0 +1,6 @@
+Suffix2,Affirmative,Imperative
+Suffix2,Affirmative,Imperfect
+Suffix2,Affirmative,Perfect
+Suffix2,Negative,Imperative
+Suffix2,Negative,Imperfect
+Suffix2,Negative,Perfect

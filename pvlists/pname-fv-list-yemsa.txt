@@ -1,0 +1,240 @@
+Conj1,Affirmative,Cond1
+Conj1,Affirmative,Desiderative
+Conj1,Affirmative,FutIngr
+Conj1,Affirmative,FutPerf
+Conj1,Affirmative,FutProgr
+Conj1,Affirmative,FutPunct
+Conj1,Affirmative,GerPres
+Conj1,Affirmative,GerPret
+Conj1,Affirmative,Imperative
+Conj1,Affirmative,Imperfect
+Conj1,Affirmative,Irrealis
+Conj1,Affirmative,Jussive
+Conj1,Affirmative,Perfect
+Conj1,Affirmative,Potential
+Conj1,Affirmative,PresIngr
+Conj1,Affirmative,PresProgr
+Conj1,Affirmative,PresPunct
+Conj1,Affirmative,PretDubit
+Conj1,Affirmative,PretEgr
+Conj1,Affirmative,PretIngr
+Conj1,Affirmative,PretProgr
+Conj1,Affirmative,cond2
+Conj1,Monosyllablic,Affirmative,FutPunct
+Conj1,Monosyllablic,Affirmative,GerPres
+Conj1,Monosyllablic,Affirmative,GerPret
+Conj1,Monosyllablic,Affirmative,Imperative
+Conj1,Monosyllablic,Affirmative,Imperfect
+Conj1,Monosyllablic,Affirmative,Jussive
+Conj1,Monosyllablic,Affirmative,Perfect
+Conj1,Monosyllablic,Affirmative,PresIngr
+Conj1,Monosyllablic,Affirmative,PresPunct
+Conj1,Monosyllablic,Affirmative,PretDubit
+Conj1,Monosyllablic,Affirmative,PretEgr
+Conj1,Monosyllablic,Affirmative,PretIngr
+Conj1,Monosyllablic,Affirmative,PretProgr
+Conj1,Negative,Cond1
+Conj1,Negative,Desiderative
+Conj1,Negative,FutIngr
+Conj1,Negative,FutPerf
+Conj1,Negative,FutProgr
+Conj1,Negative,FutPunct
+Conj1,Negative,FutPunctSub
+Conj1,Negative,Gerund
+Conj1,Negative,Irrealis
+Conj1,Negative,Jussive
+Conj1,Negative,Perfect
+Conj1,Negative,Potential
+Conj1,Negative,PresHab
+Conj1,Negative,PresIngr
+Conj1,Negative,PresProgr
+Conj1,Negative,PresPunct
+Conj1,Negative,PretDubit
+Conj1,Negative,PretHab
+Conj1,Negative,PretIngr
+Conj1,Negative,PretProgr
+Conj1,Negative,cond2
+Conj2,Affirmative,Cond1
+Conj2,Affirmative,Desiderative
+Conj2,Affirmative,FutProgr
+Conj2,Affirmative,FutPunct
+Conj2,Affirmative,GerPres
+Conj2,Affirmative,GerPret
+Conj2,Affirmative,Imperative
+Conj2,Affirmative,Imperfect
+Conj2,Affirmative,Jussive
+Conj2,Affirmative,Perfect
+Conj2,Affirmative,Potential
+Conj2,Affirmative,PresProgr
+Conj2,Affirmative,PresPunct
+Conj2,Affirmative,PretProgr
+Conj2,Monosyllablic,Affirmative,FutPunct
+Conj2,Monosyllablic,Affirmative,GerPres
+Conj2,Monosyllablic,Affirmative,GerPret
+Conj2,Monosyllablic,Affirmative,Imperative
+Conj2,Monosyllablic,Affirmative,Imperfect
+Conj2,Monosyllablic,Affirmative,Jussive
+Conj2,Monosyllablic,Affirmative,Perfect
+Conj2,Monosyllablic,Affirmative,PresIngr
+Conj2,Monosyllablic,Affirmative,PresPunct
+Conj2,Monosyllablic,Affirmative,PretDubit
+Conj2,Monosyllablic,Affirmative,PretEgr
+Conj2,Monosyllablic,Affirmative,PretIngr
+Conj2,Monosyllablic,Affirmative,PretProgr
+Conj2,Negative,Desiderative
+Conj2,Negative,FutIngr
+Conj2,Negative,FutPunct
+Conj2,Negative,Jussive
+Conj2,Negative,Perfect
+Conj2,Negative,PresPunct
+Conj2a,Monosyllablic,Affirmative,Desiderative
+Conj2a,Monosyllablic,Affirmative,FutPunct
+Conj2a,Monosyllablic,Affirmative,Imperative
+Conj2a,Monosyllablic,Affirmative,Imperfect
+Conj2a,Monosyllablic,Affirmative,Jussive
+Conj2a,Monosyllablic,Affirmative,Potential
+Conj2a,Monosyllablic,Affirmative,PresPunct
+Conj2a,Monosyllablic,Negative,FutPunct
+Conj2a,Monosyllablic,Negative,Imperfect
+Conj2a,Monosyllablic,Negative,Jussive
+Conj2a,Monosyllablic,Negative,PresPunct
+Conj2a,Monosyllablic,Negative,Subordinate
+Conj3,Affirmative,Cond1
+Conj3,Affirmative,Desiderative
+Conj3,Affirmative,FutProgr
+Conj3,Affirmative,FutPunct
+Conj3,Affirmative,GerPres
+Conj3,Affirmative,GerPret
+Conj3,Affirmative,Imperative
+Conj3,Affirmative,Imperfect
+Conj3,Affirmative,Jussive
+Conj3,Affirmative,Perfect
+Conj3,Affirmative,Potential
+Conj3,Affirmative,PresProgr
+Conj3,Affirmative,PresPunct
+Conj3,Affirmative,PretProgr
+Conj3,Monosyllablic,Affirmative,FutPunct
+Conj3,Monosyllablic,Affirmative,GerPres
+Conj3,Monosyllablic,Affirmative,GerPret
+Conj3,Monosyllablic,Affirmative,Imperative
+Conj3,Monosyllablic,Affirmative,Imperfect
+Conj3,Monosyllablic,Affirmative,Jussive
+Conj3,Monosyllablic,Affirmative,Perfect
+Conj3,Monosyllablic,Affirmative,PresIngr
+Conj3,Monosyllablic,Affirmative,PresPunct
+Conj3,Monosyllablic,Affirmative,PretDubit
+Conj3,Monosyllablic,Affirmative,PretEgr
+Conj3,Monosyllablic,Affirmative,PretIngr
+Conj3,Monosyllablic,Affirmative,PretProgr
+Conj3,Negative,FutProgr
+Conj3,Negative,FutPunct
+Conj3,Negative,FutPunctSub
+Conj3,Negative,Gerund
+Conj3,Negative,Jussive
+Conj3,Negative,Perfect
+Conj3,Negative,Potential
+Conj3,Negative,PresHab
+Conj3,Negative,PresPunct
+Conj3,Negative,PretDubit
+Conj3,Negative,PretHab
+Conj3,Negative,PretProgr
+Conj3a,Monosyllablic,Affirmative,FutPunct
+Conj3a,Monosyllablic,Affirmative,GerPres
+Conj3a,Monosyllablic,Affirmative,GerPret
+Conj3a,Monosyllablic,Affirmative,Imperative
+Conj3a,Monosyllablic,Affirmative,Imperfect
+Conj3a,Monosyllablic,Affirmative,Jussive
+Conj3a,Monosyllablic,Affirmative,Perfect
+Conj3a,Monosyllablic,Affirmative,PresIngr
+Conj3a,Monosyllablic,Affirmative,PresPunct
+Conj3a,Monosyllablic,Affirmative,PretDubit
+Conj3a,Monosyllablic,Affirmative,PretEgr
+Conj3a,Monosyllablic,Affirmative,PretIngr
+Conj3a,Monosyllablic,Affirmative,PretProgr
+Conj3b,Monosyllablic,Affirmative,FutPunct
+Conj3b,Monosyllablic,Affirmative,GerPres
+Conj3b,Monosyllablic,Affirmative,GerPret
+Conj3b,Monosyllablic,Affirmative,Imperative
+Conj3b,Monosyllablic,Affirmative,Imperfect
+Conj3b,Monosyllablic,Affirmative,Jussive
+Conj3b,Monosyllablic,Affirmative,Perfect
+Conj3b,Monosyllablic,Affirmative,PresIngr
+Conj3b,Monosyllablic,Affirmative,PresPunct
+Conj3b,Monosyllablic,Affirmative,PretDubit
+Conj3b,Monosyllablic,Affirmative,PretEgr
+Conj3b,Monosyllablic,Affirmative,PretIngr
+Conj3b,Monosyllablic,Affirmative,PretProgr
+Future
+Preterite
+conj2 exponents,Affirmative,Cond1
+conj2 exponents,Affirmative,Desiderative
+conj2 exponents,Affirmative,FutProgr
+conj2 exponents,Affirmative,FutPunct
+conj2 exponents,Affirmative,GerPres
+conj2 exponents,Affirmative,GerPret
+conj2 exponents,Affirmative,Imperative
+conj2 exponents,Affirmative,Imperfect
+conj2 exponents,Affirmative,Jussive
+conj2 exponents,Affirmative,Perfect
+conj2 exponents,Affirmative,Potential
+conj2 exponents,Affirmative,PresProgr
+conj2 exponents,Affirmative,PresPunct
+conj2 exponents,Affirmative,PretProgr
+conj2 exponents,Monosyllablic,Affirmative,FutPunct
+conj2 exponents,Monosyllablic,Affirmative,GerPres
+conj2 exponents,Monosyllablic,Affirmative,GerPret
+conj2 exponents,Monosyllablic,Affirmative,Imperative
+conj2 exponents,Monosyllablic,Affirmative,Imperfect
+conj2 exponents,Monosyllablic,Affirmative,Jussive
+conj2 exponents,Monosyllablic,Affirmative,Perfect
+conj2 exponents,Monosyllablic,Affirmative,PresIngr
+conj2 exponents,Monosyllablic,Affirmative,PresPunct
+conj2 exponents,Monosyllablic,Affirmative,PretDubit
+conj2 exponents,Monosyllablic,Affirmative,PretEgr
+conj2 exponents,Monosyllablic,Affirmative,PretIngr
+conj2 exponents,Monosyllablic,Affirmative,PretProgr
+conj2 exponents,Negative,Desiderative
+conj2 exponents,Negative,FutIngr
+conj2 exponents,Negative,FutPunct
+conj2 exponents,Negative,Jussive
+conj2 exponents,Negative,Perfect
+conj2 exponents,Negative,PresPunct
+conj3 exponents,Affirmative,Cond1
+conj3 exponents,Affirmative,Desiderative
+conj3 exponents,Affirmative,FutProgr
+conj3 exponents,Affirmative,FutPunct
+conj3 exponents,Affirmative,GerPres
+conj3 exponents,Affirmative,GerPret
+conj3 exponents,Affirmative,Imperative
+conj3 exponents,Affirmative,Imperfect
+conj3 exponents,Affirmative,Jussive
+conj3 exponents,Affirmative,Perfect
+conj3 exponents,Affirmative,Potential
+conj3 exponents,Affirmative,PresProgr
+conj3 exponents,Affirmative,PresPunct
+conj3 exponents,Affirmative,PretProgr
+conj3 exponents,Monosyllablic,Affirmative,FutPunct
+conj3 exponents,Monosyllablic,Affirmative,GerPres
+conj3 exponents,Monosyllablic,Affirmative,GerPret
+conj3 exponents,Monosyllablic,Affirmative,Imperative
+conj3 exponents,Monosyllablic,Affirmative,Imperfect
+conj3 exponents,Monosyllablic,Affirmative,Jussive
+conj3 exponents,Monosyllablic,Affirmative,Perfect
+conj3 exponents,Monosyllablic,Affirmative,PresIngr
+conj3 exponents,Monosyllablic,Affirmative,PresPunct
+conj3 exponents,Monosyllablic,Affirmative,PretDubit
+conj3 exponents,Monosyllablic,Affirmative,PretEgr
+conj3 exponents,Monosyllablic,Affirmative,PretIngr
+conj3 exponents,Monosyllablic,Affirmative,PretProgr
+conj3 exponents,Negative,FutProgr
+conj3 exponents,Negative,FutPunct
+conj3 exponents,Negative,FutPunctSub
+conj3 exponents,Negative,Gerund
+conj3 exponents,Negative,Jussive
+conj3 exponents,Negative,Perfect
+conj3 exponents,Negative,Potential
+conj3 exponents,Negative,PresHab
+conj3 exponents,Negative,PresPunct
+conj3 exponents,Negative,PretDubit
+conj3 exponents,Negative,PretHab
+conj3 exponents,Negative,PretProgr

@@ -1,0 +1,15 @@
+Aff,Imperfect
+Aff,Imprtv
+Aff,Jussive
+Aff,PastProg
+Aff,PresPerf
+Aff,PresProg
+Aff,SimplePerf
+Affirmative
+Affirmative,PastProgressive
+Affirmative,PresentPerfect
+Affirmative,PresentProgressive
+Affirmative,SimplePerfect
+Neg,Imprtv
+Negative
+SubjMarkerTemplates
