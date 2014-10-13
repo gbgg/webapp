@@ -32,10 +32,10 @@
                           [:p "PDGM Type:" 
                            [:select#pos.required
                             {:title "Choose a pdgm type.", :name "pos"}
-                              [:option "fv"]
-                              [:option "nfv"]
-                              [:option "pro"]
-                              [:option "noun"]
+                              [:option {:value "fv" :label "Finite Verb"}]
+                              [:option {:value "nfv" :label "Non-finite Verb"}]
+                              [:option {:value "pro" :label "Pronoun"}]
+                              [:option {:value "noun" :label "Noun"}]
                             ]]
                           ;;(submit-button "Get pdgm")
                           [:input#submit
