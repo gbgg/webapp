@@ -6,6 +6,7 @@ pom.xml
 /out/
 /resources/public/cljs/
 /target/
+/notes/
 .lein-deps-sum
 .lein-repl-history
 .lein-plugins/

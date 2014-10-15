@@ -1,2 +1,2 @@
-1. NonFinite:conjClass,polarity,tam
+NonFinite:conjClass,polarity,tam
 

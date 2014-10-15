@@ -1,6 +1,6 @@
-1. Demostrative:deixis,gender,number
-2. Independent:gender,number,person
-3. ObjCliticImprtv:case,gender,number,person
-4. ObjCliticPerf:case,gender,number,person
-5. PossClitic:case,gender,numHead,number,person
+Demostrative:deixis,gender,number
+Independent:gender,number,person
+ObjCliticImprtv:case,gender,number,person
+ObjCliticPerf:case,gender,number,person
+PossClitic:case,gender,numHead,number,person
 

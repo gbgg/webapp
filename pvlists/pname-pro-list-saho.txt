@@ -1,2 +1,2 @@
-1. Independent:case,gender,number,person
+Independent:case,gender,number,person
 

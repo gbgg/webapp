@@ -1,5 +1,5 @@
-1. Demonstrative:deixis,gender,number
-2. Independent1:case,gender,number,person
-3. Independent2:case,gender,number,person
-4. Interrogative:case
+Demonstrative:deixis,gender,number
+Independent1:case,gender,number,person
+Independent2:case,gender,number,person
+Interrogative:case
 

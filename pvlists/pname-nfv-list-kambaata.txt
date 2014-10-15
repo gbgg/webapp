@@ -1,2 +1,2 @@
-1. DervStem:class
+DervStem:class
 

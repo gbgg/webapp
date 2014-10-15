@@ -1,7 +1,7 @@
-1. ArtDef:case,gender,morphClass,number
-2. Gen_PossPred:genderHead,genderPoss,morphClass,numHead,numPoss,number,person
-3. Independent:case,gender,number,person
-4. Interrogative:case,gender,morphClass,numHead,number
-5. PossInd:gender,morphClass,numHead,number,person
-6. PossSuff:genderHead,numHead,number,person
+ArtDef:case,gender,morphClass,number
+Gen_PossPred:genderHead,genderPoss,morphClass,numHead,numPoss,number,person
+Independent:case,gender,number,person
+Interrogative:case,gender,morphClass,numHead,number
+PossInd:gender,morphClass,numHead,number,person
+PossSuff:genderHead,numHead,number,person
 

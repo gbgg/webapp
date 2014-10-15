@@ -1,2 +1,2 @@
-1. Independent:gender,number,person
+Independent:gender,number,person
 

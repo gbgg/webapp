@@ -1,2 +1,2 @@
-1. DervStem:derivedStem,formType
+DervStem:derivedStem,formType
 

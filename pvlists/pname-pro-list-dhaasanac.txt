@@ -1,2 +1,2 @@
-1. Independent:case,cohesion,emphatic,number,person
+Independent:case,cohesion,emphatic,number,person
 

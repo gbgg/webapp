@@ -1,2 +1,2 @@
-1. DervStem:derivedStem
+DervStem:derivedStem
 

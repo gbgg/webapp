@@ -1,2 +1,2 @@
-1. PrefixIrregular:conjClass,rootClass
+PrefixIrregular:conjClass,rootClass
 

@@ -1,2 +1,2 @@
-1. Possessive:formType,gender,number,person
+Possessive:formType,gender,number,person
 

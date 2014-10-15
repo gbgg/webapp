@@ -1,4 +1,4 @@
-1. Independent:number,person,synEnv
-2. ObjAff:number,person
-3. Possessive:gender,number,person
+Independent:number,person,synEnv
+ObjAff:number,person
+Possessive:gender,number,person
 
