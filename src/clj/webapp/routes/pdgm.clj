@@ -23,19 +23,25 @@
                  ;; [:p error]
                  [:hr]
                  (form-to [:post "/pdgmqry"]
-                          [:p "PDGM Language:" 
+                          [:p "PDGM Language: " 
                            [:select#language.required
                             {:title "Choose a language.", :name "language"}
                             (for [language languages]
                               [:option  language ])
                             ]]
-                          [:p "PDGM Type:" 
+                          [:p "PDGM Type: "
                            [:select#pos.required
                             {:title "Choose a pdgm type.", :name "pos"}
                               [:option {:value "fv" :label "Finite Verb"}]
                               [:option {:value "nfv" :label "Non-finite Verb"}]
                               [:option {:value "pro" :label "Pronoun"}]
                               [:option {:value "noun" :label "Noun"}]
+                            ]]
+                          [:p "PDGM Value Clusters: " 
+                           [:select#valstring.required
+                            {:title "Choose a value.", :name "valstring"}
+                            ;;(for [valcluster valclusters]
+                            ;; [:option  valcluster])
                             ]]
                           ;;(submit-button "Get pdgm")
                           [:input#submit
@@ -54,17 +60,17 @@
      ;;[:p error]
      [:hr]
      (form-to [:post "/pdgmdisplay"]
-              [:p "Language: "
+              [:p "PDGM Language:       "
                [:select#language.required
                 {:title "Choose a language.", :name "language"}
                   [:option  language]
                 ]]
-              [:p "PDGM Type: " 
+              [:p "PDGM Type:           " 
                [:select#pos.required
                 {:title "PDGM Type.", :name "pos"}
                   [:option  pos]
                 ]]
-              [:p "PDGM Value Clusters:" 
+              [:p "PDGM Value Clusters: " 
                [:select#valstring.required
                 {:title "Choose a value.", :name "valstring"}
                 (for [valcluster valclusters]
