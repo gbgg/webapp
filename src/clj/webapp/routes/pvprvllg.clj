@@ -1,4 +1,4 @@
-(ns webapp.routes.propval
+(ns webapp.routes.pvprvllg
  (:refer-clojure :exclude [filter concat group-by max min count])
   (:require [compojure.core :refer :all]
             [webapp.views.layout :as layout]
@@ -15,14 +15,17 @@
 
 (def aama "http://localhost:3030/aama/query")
 
-(defn propval []
+(defn pvprvllg []
   (let [langlist (slurp "pvlists/langlist.txt")
         languages (split langlist #"\n")]
   (layout/common [:h1 "Property Value Displays"]
-                          [:hr])))
+                          [:hr]
+)))
 
-(defroutes propval-routes
-  (GET "/propval" [] (propval))
+(defroutes pvprvllg-routes
+  (GET "/pvprvllg" [] (pvprvllg))
   ;;(POST "/pdgmqry" [language pos] (handle-pdgmqry language pos))
   ;;(POST "/pdgmdisplay" [language valstring] (handle-pdgmdisplay language valstring))
   )
+
+

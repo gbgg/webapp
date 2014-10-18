@@ -44,7 +44,7 @@
     [:div#usermenu 
    [:div.menuitem (link-to "/" "Home")]
    [:div.menuitem (link-to "/pdgm" "Paradigms")]
-   [:div.menuitem (link-to "/propval" "Property-value displays")]
+   [:div.menuitem (link-to "/pvdisp" "Property-value displays")]
    [:div.menuitem (link-to "/pvlists" "Property-value lists")]]
     [:div.content content]))
 

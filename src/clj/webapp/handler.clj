@@ -7,8 +7,11 @@
             [compojure.handler :as handler]
             [compojure.route :as route]
             [webapp.routes.home :refer [home-routes]]
-            [webapp.routes.propval :refer [propval-routes]]
+            [webapp.routes.pvlgpr :refer [pvlgpr-routes]]
+            [webapp.routes.pvprvllg :refer [pvprvllg-routes]]
+            [webapp.routes.pvlgvl :refer [pvlgvl-routes]]
             [webapp.routes.pvlists :refer [pvlists-routes]]
+            [webapp.routes.pvdisp :refer [pvdisp-routes]]
             [webapp.routes.pdgm :refer [pdgm-routes]]))
 
 (defn init []
@@ -22,7 +25,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes home-routes pdgm-routes propval-routes pvlists-routes app-routes)
+  (-> (routes home-routes pdgm-routes pvdisp-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes pvlists-routes app-routes)
       (handler/site)
       (wrap-base-url)))
 

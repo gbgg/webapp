@@ -18,36 +18,39 @@
 (defn pdgm []
   (let [langlist (slurp "pvlists/langlist.txt")
         languages (split langlist #"\n")]
-  (layout/common [:h3 "Paradigms"]
-                 [:p "Choose Language and Type"]
-                 ;; [:p error]
-                 [:hr]
-                 (form-to [:post "/pdgmqry"]
-                          [:p "PDGM Language: " 
-                           [:select#language.required
-                            {:title "Choose a language.", :name "language"}
-                            (for [language languages]
-                              [:option  language ])
-                            ]]
-                          [:p "PDGM Type: "
-                           [:select#pos.required
-                            {:title "Choose a pdgm type.", :name "pos"}
-                              [:option {:value "fv" :label "Finite Verb"}]
-                              [:option {:value "nfv" :label "Non-finite Verb"}]
-                              [:option {:value "pro" :label "Pronoun"}]
-                              [:option {:value "noun" :label "Noun"}]
-                            ]]
-                          [:p "PDGM Value Clusters: " 
-                           [:select#valstring.required
-                            {:title "Choose a value.", :name "valstring"}
-                            ;;(for [valcluster valclusters]
-                            ;; [:option  valcluster])
-                            ]]
-                          ;;(submit-button "Get pdgm")
-                          [:input#submit
-                           {:value "Get pdgm language/type", :name "submit", :type "submit"}]
-                          )
-                          [:hr])))
+  (layout/common 
+   [:h3 "Paradigms"]
+   [:p "Choose Language and Type"]
+   ;; [:p error]
+   [:hr]
+   (form-to [:post "/pdgmqry"]
+            [:table
+             [:tr [:td "PDGM Language: " ]
+              [:td [:select#language.required
+                    {:title "Choose a language.", :name "language"}
+                    (for [language languages]
+                      [:option  language ])
+                    ]]]
+             [:tr [:td "PDGM Type: "]
+              [:td [:select#pos.required
+                    {:title "Choose a pdgm type.", :name "pos"}
+                    [:option {:value "fv" :label "Finite Verb"}]
+                    [:option {:value "nfv" :label "Non-finite Verb"}]
+                    [:option {:value "pro" :label "Pronoun"}]
+                    [:option {:value "noun" :label "Noun"}]
+                    ]]]
+             [:tr [:td "PDGM Value Clusters: " ]
+              [:td [:select#valstring.required
+                    {:title "Choose a value.", :name "valstring"}
+                    ;;(for [valcluster valclusters]
+                    ;; [:option  valcluster])
+                    ]]]
+             ;;(submit-button "Get pdgm")
+             [:tr [:td ]
+              [:td [:input#submit
+                    {:value "Get PDGM Value Clusters", :name "submit", :type "submit"}]]]]
+            )
+   [:hr])))
 
 (defn display-valclusters
   [language pos]
@@ -60,26 +63,28 @@
      ;;[:p error]
      [:hr]
      (form-to [:post "/pdgmdisplay"]
-              [:p "PDGM Language:       "
-               [:select#language.required
+        [:table
+         [:tr [:td "PDGM Language: " ]
+          [:td [:select#language.required
                 {:title "Choose a language.", :name "language"}
-                  [:option  language]
-                ]]
-              [:p "PDGM Type:           " 
-               [:select#pos.required
-                {:title "PDGM Type.", :name "pos"}
-                  [:option  pos]
-                ]]
-              [:p "PDGM Value Clusters: " 
-               [:select#valstring.required
+                  [:option  language ]
+                ]]]
+         [:tr [:td "PDGM Type: "]
+          [:td [:select#pos.required
+                {:title "Choose a pdgm type.", :name "pos"}
+                [:option pos]
+                ]]]
+         [:tr [:td "PDGM Value Clusters: " ]
+          [:td [:select#valstring.required
                 {:title "Choose a value.", :name "valstring"}
                 (for [valcluster valclusters]
                   [:option  valcluster])
-                ]]
-              ;;(submit-button "Get pdgm")
-              [:input#submit
-               {:value "Display pdgm", :name "submit", :type "submit"}])
-     [:hr])))
+                ]]]
+         ;;(submit-button "Get pdgm")
+         [:tr [:td ]
+          [:td [:input#submit
+                {:value "Display pdgm", :name "submit", :type "submit"}]]]]
+     [:hr]))))
 
 (defn handle-pdgmqry
   [language pos]
@@ -113,7 +118,8 @@
           [:body
            [:h3#clickable "Paradigm: " Language " / " valstring]
            [:pre (:body req)]
-           [:h3#clickable "Query"]
+           [:hr]
+           [:h3#clickable "Query:"]
            [:pre query-sparql]
            [:script {:src "js/goog/base.js" :type "text/javascript"}]
            [:script {:src "js/webapp.js" :type "text/javascript"}]

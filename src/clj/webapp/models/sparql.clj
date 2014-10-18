@@ -348,3 +348,26 @@
         :selection qpropstring})
        );;str
 ))
+
+(defn lgpr-sparql [ldomain prop]
+  (let [Ldomain (capitalize ldomain)]
+  (str
+   (tmpl/render-string 
+    (str "
+       prefix aama:	 <http://id.oi.uchicago.edu/aama/2013/>
+       prefix aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
+       prefix rdf:	 <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+       prefix rdfs:	 <http://www.w3.org/2000/01/rdf-schema#>
+
+       SELECT DISTINCT ?valuelabel
+       WHERE {
+         GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{lang}}> {
+          <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{type}}> rdfs:range ?Type .
+          ?value rdf:type ?Type .
+          ?value rdfs:label ?valuelabel .
+          }
+        }
+       ORDER BY ?valuelabel  ")
+    {:lang ldomain
+     :type prop}))))
+
