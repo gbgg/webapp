@@ -29,8 +29,8 @@
               [:td [:select#language.required
                     {:title "Choose a language.", :name "language"}
                     (for [language languages]
-                      [:option  language ])
-                    ]]]
+                      (let [opts (split language #" ")]
+                        [:option {:value (first opts)} (last opts) ]))]]]
              [:tr [:td "PDGM Type: "]
               [:td [:select#pos.required
                     {:title "Choose a pdgm type.", :name "pos"}
@@ -66,8 +66,8 @@
         [:table
          [:tr [:td "PDGM Language: " ]
           [:td [:select#language.required
-                {:title "Choose a language.", :name "language"}
-                  [:option  language ]
+               {:title "Choose a language.", :name "language"}
+                [:option language]
                 ]]]
          [:tr [:td "PDGM Type: "]
           [:td [:select#pos.required
