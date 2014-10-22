@@ -350,24 +350,63 @@
 ))
 
 (defn lgpr-sparql [ldomain prop]
-  (let [Ldomain (capitalize ldomain)]
+  (let [ldoms (split ldomain #",")]
   (str
-   (tmpl/render-string 
     (str "
        prefix aama:	 <http://id.oi.uchicago.edu/aama/2013/>
        prefix aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
        prefix rdf:	 <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
        prefix rdfs:	 <http://www.w3.org/2000/01/rdf-schema#>
 
-       SELECT DISTINCT ?valuelabel
-       WHERE {
-         GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{lang}}> {
+       SELECT DISTINCT ?language ?valuelabel
+       WHERE { ")
+      (apply str  
+             (for [ldom ldoms]
+               (tmpl/render-string 
+                  (str "
+         {GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{lang}}> {
           <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{type}}> rdfs:range ?Type .
           ?value rdf:type ?Type .
           ?value rdfs:label ?valuelabel .
-          }
-        }
-       ORDER BY ?valuelabel  ")
-    {:lang ldomain
-     :type prop}))))
+          ?value aamas:lang ?lang .
+          ?lang rdfs:label ?language .
+          }}  "
+                       (if (not (= (last ldoms) ldom))
+                         (str " 
+          UNION")))
+    {:lang ldom
+     :type prop})))
+      (str "}
+       ORDER BY ?language ?valuelabel  "))))
+
+(defn lgvl-sparql [ldomain lval]
+  (let [ldoms (split ldomain #",")]
+  (str
+    (str "
+       prefix aama:	 <http://id.oi.uchicago.edu/aama/2013/>
+       prefix aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
+       prefix rdf:	 <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+       prefix rdfs:	 <http://www.w3.org/2000/01/rdf-schema#>
+
+       SELECT DISTINCT ?language ?predlabel
+       WHERE { ")
+      (apply str  
+             (for [ldom ldoms]
+               (tmpl/render-string 
+                  (str "
+         {GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{lang}}> {
+          ?value rdfs:label \"{{type}}\" .
+          ?value rdf:type ?predexp .
+          ?pred rdfs:range ?predexp .
+          ?pred rdfs:label ?predlabel .
+          ?pred aamas:lang ?lang .
+          ?lang rdfs:label ?language .
+          }}  "
+                       (if (not (= (last ldoms) ldom))
+                         (str " 
+          UNION")))
+    {:lang ldom
+     :type lval})))
+      (str "}
+       ORDER BY ?language ?predlabel  "))))
 

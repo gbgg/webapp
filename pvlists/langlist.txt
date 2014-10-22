@@ -1,46 +1,46 @@
-afar
-akkadian-ob
-alaaba
-arabic
-arbore
-awngi
-bayso
-beja-arteiga
-beja-atmaan
-beja-beniamer
-beja-bishari
-beja-hadendowa
-bilin
-boni-jara
-boni-kijee-bala
-boni-kilii
-burji
-burunge
-coptic-sahidic
-dahalo
-dhaasanac
-dizi
-egyptian-middle
-elmolo
-gawwada
-gedeo
-geez
-hadiyya
-hebrew
-iraqw
-kambaata
-kemant
-khamtanga
-koorete
-maale
-oromo
-rendille
-saho
-shinassha
-sidaama
-somali-standard
-syriac
-tsamakko
-wolaytta
-yaaku
-yemsa
+afar  Afar
+akkadian-ob  Akkadian-ob
+alaaba  Alaaba
+arabic  Arabic
+arbore  Arbore
+awngi  Awngi
+bayso  Bayso
+beja-arteiga  Beja-arteiga
+beja-atmaan  Beja-atmaan
+beja-beniamer  Beja-beniamer
+beja-bishari  Beja-bishari
+beja-hadendowa  Beja-hadendowa
+bilin  Bilin
+boni-jara  Boni-jara
+boni-kijee-bala  Boni-kijee-bala
+boni-kilii  Boni-kilii
+burji  Burji
+burunge  Burunge
+coptic-sahidic  Coptic-sahidic
+dahalo  Dahalo
+dhaasanac  Dhaasanac
+dizi  Dizi
+egyptian-middle  Egyptian-middle
+elmolo  Elmolo
+gawwada  Gawwada
+gedeo  Gedeo
+geez  Geez
+hadiyya  Hadiyya
+hebrew  Hebrew
+iraqw  Iraqw
+kambaata  Kambaata
+kemant  Kemant
+khamtanga  Khamtanga
+koorete  Koorete
+maale  Maale
+oromo  Oromo
+rendille  Rendille
+saho  Saho
+shinassha  Shinassha
+sidaama  Sidaama
+somali-standard  Somali-standard
+syriac  Syriac
+tsamakko  Tsamakko
+wolaytta  Wolaytta
+yaaku  Yaaku
+yemsa  Yemsa

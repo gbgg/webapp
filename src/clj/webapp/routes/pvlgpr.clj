@@ -5,7 +5,7 @@
             [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [clojure.string :refer [capitalize split]]
+            [clojure.string :refer [split]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             ;;[boutros.matsu.sparql :refer :all]
@@ -17,7 +17,11 @@
 
 (defn pvlgpr []
   (let [langlist (slurp "pvlists/langlist.txt")
-        languages (split langlist #"\n")]
+        languages (split langlist #"\n")
+        ldomlist (slurp "pvlists/ldomainlist.txt")
+        ldoms (split ldomlist #"\n")
+        lproplist (slurp "pvlists/langprops.txt")
+        lprops (split lproplist #"\n")]
   (layout/common 
    [:h3 "Language-Property-Value Cooccurrences"]
    [:p "Choose Language Domain and Property"]
@@ -27,33 +31,37 @@
             [:table
              [:tr [:td "Language Domain: " ]
               [:td 
-               ;;[:select#ldomain.required
-               ;;{:title "Choose a language domain.", :name "ldomain"}
-               ;;(for [language languages]
-               ;;[:option  language ])
-               ;;]
-               (text-field {:placeholder "Enter a language domain"} "ldomain")
-               ]
-              ]
+               [:select#ldomain.required
+               {:title "Choose a language domain.", :name "ldomain"}
+                [:optgroup {:label "Languages"} 
+                (for [language languages]
+                (let [opts (split language #" ")]
+               [:option {:value (first opts)} (last opts) ]))]
+                [:optgroup {:label "Language Families"} 
+               (for [ldom ldoms]
+                (let [opts (split ldom #" ")]
+               [:option {:value (last opts)} (first opts) ]))
+                 [:option {:disabled "disabled"} "Other"]]]]]
              [:tr [:td "Property: " ]
               [:td 
-               ;;[:select#prop.required
-               ;;{:title "Choose a property.", :name "[prop"}
-               ;;(for [prop props]
-               ;;[:option  prop])
-               ;;]
-               (text-field {:placeholder "Enter a property"} "prop")
-               ]]
-             ;;(submit-button "Get pdgm")
+               [:select#prop.required
+               {:title "Select a property.", :name "prop"}
+                (for [lprop lprops]
+               [:option lprop ])
+                 [:option {:disabled "disabled"} "Other"]]]
+               ;;[:td 
+              ;; (text-field {:placeholder "Enter a property"} "prop")
+              ;; ]
+              ]
+             ;;(submit-button "Get values")
              [:tr [:td ]
               [:td [:input#submit
-                    {:value "Get language domain and property", :name "submit", :type "submit"}]]]]
+                    {:value "Get language domain values", :name "submit", :type "submit"}]]]]
             )
    [:hr])))
 
 (defn handle-lgprdisplay
   [ldomain prop]
-  ;; How do we handle this if ldomain is > 1?
   ;; send SPARQL over HTTP request
   (let [query-sparql (sparql/lgpr-sparql ldomain prop)
         req (http/get aama
