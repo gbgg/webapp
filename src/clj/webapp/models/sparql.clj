@@ -410,3 +410,50 @@
       (str "}
        ORDER BY ?language ?predlabel  "))))
 
+(defn prvllg-sparql [ldomain qstring]
+  (let [ldoms (split ldomain #",")
+        pvals (split qstring #",")
+        selection ( "selection"   )
+        ]
+  (str
+    (str "
+       prefix aama:	 <http://id.oi.uchicago.edu/aama/2013/>
+       prefix aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
+       prefix rdf:	 <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+       prefix rdfs:	 <http://www.w3.org/2000/01/rdf-schema#>
+
+       SELECT DISTINCT ?language {{selection}}
+       WHERE { ")
+      (apply str  
+             (for [ldom ldoms]
+               (tmpl/render-string 
+                  (str "
+         {GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{lang}}> {
+          ?s ?p ?o ;
+               (for [pval pvals]
+                 (if (.contains (last pval) "?")
+         ( ?s <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{selprop}}> 
+                (str "?" {{selprop}}) .
+           (str "?" {{selprop}}) rdfs:label (str "?" {{selprop}} "Label") .
+                 )
+         ( ?s <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{specprop}}>
+	  <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{specval}}> .
+                ))
+          aamas:lang ?lng .
+        ?lng rdfs:label ?language .
+          }}  "
+                       (if (not (= (last ldoms) ldom))
+                         (str " 
+          UNION"))
+      (str "}
+       ORDER BY ?language {{selection}}  "))
+    {:selection selection
+     :lang ldom
+     :selprop (first pval)
+     :specprop (first pval)
+     :specval (last pval)
+     }))))))
+
+;;(if (.contains (last pvec) "?")
+;;	    (str "Q" (first pvec) " " (last pvec))
+;;	    (str "NQ" (first pvec) " " (last pvec)))))

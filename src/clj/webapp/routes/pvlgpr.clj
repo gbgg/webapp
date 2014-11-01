@@ -23,7 +23,7 @@
         lproplist (slurp "pvlists/langprops.txt")
         lprops (split lproplist #"\n")]
   (layout/common 
-   [:h3 "Language-Property-Value Cooccurrences"]
+   [:h3 "Language-Property=>Value Cooccurrences"]
    [:p "Choose Language Domain and Property"]
    ;; [:p error]
    [:hr]

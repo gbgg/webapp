@@ -23,7 +23,7 @@
         lvallist (slurp "pvlists/langvals.txt")
         lvals (split lvallist #"\n")]
   (layout/common 
-   [:h3 "Language-Property-Value Cooccurrences"]
+   [:h3 "Language-Value=>Property Cooccurrences"]
    [:p "Choose Language Domain and Value"]
    ;; [:p error]
    [:hr]
