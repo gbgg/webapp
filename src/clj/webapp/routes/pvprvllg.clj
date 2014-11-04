@@ -25,7 +25,7 @@
    [:p "Choose Language Domain and Enter qstring: prop=Val,...prop=?prop,..."]
    ;; [:p error]
    [:hr]
-   (form-to [:post "/lgprdisplay"]
+   (form-to [:post "/prvllgdisplay"]
             [:table
              [:tr [:td "Language Domain: " ]
               [:td 
@@ -65,7 +65,7 @@
          (log/info "sparql result status: " (:status req))
          (layout/common
           [:body
-           [:h3#clickable "Language-Property-Values: " ldomain " / " prop]
+           [:h3#clickable "Language-Property-Values: " ldomain " / " qstring]
            [:pre (:body req)]
            [:hr]
            [:h3#clickable "Query:"]
@@ -79,7 +79,7 @@
 (defroutes pvprvllg-routes
   (GET "/pvprvllg" [] (pvprvllg))
   ;;(POST "/pdgmqry" [language pos] (handle-pdgmqry language pos))
-  (POST "/prvllgdisplay" [ldomain qstring] (handle-lgprdisplay ldomain qstring))
+  (POST "/prvllgdisplay" [ldomain qstring] (handle-prvllgdisplay ldomain qstring))
   )
 
 

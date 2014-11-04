@@ -413,10 +413,16 @@
 (defn prvllg-sparql [ldomain qstring]
   (let [ldoms (split ldomain #",")
         pvals (split qstring #",")
-        selection ( "selection"   )
+        selection (apply str
+		      (for [pval pvals]
+                        (if (re-find #"\?" pval)
+                          (let [qpval (clojure.string/split pval #"=")
+                                qval (clojure.string/replace (last qpval) #"-" "")]
+                            (str qval "Label ")))))   
         ]
   (str
-    (str "
+               (tmpl/render-string 
+                  (str "
        prefix aama:	 <http://id.oi.uchicago.edu/aama/2013/>
        prefix aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
        prefix rdf:	 <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -424,35 +430,51 @@
 
        SELECT DISTINCT ?language {{selection}}
        WHERE { ")
-      (apply str  
-             (for [ldom ldoms]
-               (tmpl/render-string 
+                  {:selection selection})
+               (apply str 
+                      (for [ldom ldoms]
+                        (str
+                        (tmpl/render-string 
                   (str "
          {GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{lang}}> {
-          ?s ?p ?o ;
-               (for [pval pvals]
-                 (if (.contains (last pval) "?")
-         ( ?s <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{selprop}}> 
-                (str "?" {{selprop}}) .
-           (str "?" {{selprop}}) rdfs:label (str "?" {{selprop}} "Label") .
-                 )
-         ( ?s <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{specprop}}>
-	  <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{specval}}> .
-                ))
-          aamas:lang ?lng .
+          ?s ?p ?o .")
+                  {:lang ldom})
+      (apply str  
+             (for [pval pvals]
+                 (let [selpval (split pval #"=")
+                       selprop (first selpval)
+                       selval (last selpval)
+]
+               (if (re-find #"\?" selval)
+                 (let [qselval (clojure.string/replace selval "-" "")
+                       qselvalLabel (str qselval "Label")]
+                   (tmpl/render-string 
+                  (str "
+         ?s <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{selprop}}> 
+                {{qselval}} .
+           {{qselval}} rdfs:label {{qselvalLabel}} ." )
+                  {:lang ldom
+                   :selprop selprop
+                   :qselval qselval
+                   :qselvalLabel qselvalLabel}))
+                   (tmpl/render-string 
+                  (str "
+         ?s <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{selprop}}>
+	  <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{selval}}> . ")
+                  {:lang ldom
+                   :selprop selprop
+                   :selval selval})))))
+                  (str "
+        ?s  aamas:lang ?lng .
         ?lng rdfs:label ?language .
           }}  "
                        (if (not (= (last ldoms) ldom))
                          (str " 
-          UNION"))
-      (str "}
-       ORDER BY ?language {{selection}}  "))
-    {:selection selection
-     :lang ldom
-     :selprop (first pval)
-     :specprop (first pval)
-     :specval (last pval)
-     }))))))
+          UNION"))))))
+                   (tmpl/render-string 
+                    (str "}
+       ORDER BY ?language {{selection}}  ")
+    {:selection selection}))))
 
 ;;(if (.contains (last pvec) "?")
 ;;	    (str "Q" (first pvec) " " (last pvec))
