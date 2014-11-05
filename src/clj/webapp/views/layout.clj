@@ -36,6 +36,7 @@
   (make-menu 
     (link-to "/" "home")
     (link-to "/pdgm" "paradigm choice")
+    (link-to "/pdgmcmp" "paradigm comparison")
     (link-to "/propval" "property-value displays")
     (link-to "/lists" "property-vaue lists")))
 
@@ -44,6 +45,7 @@
     [:div#usermenu 
    [:div.menuitem (link-to "/" "Home")]
    [:div.menuitem (link-to "/pdgm" "Paradigms")]
+   [:div.menuitem (link-to "/pdgmcmp" "Paradigm Comparison")]
    [:div.menuitem (link-to "/pvdisp" "Property-value displays")]
    [:div.menuitem (link-to "/pvlists" "Property-value lists")]]
     [:div.content content]))

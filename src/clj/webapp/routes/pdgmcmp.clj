@@ -1,11 +1,11 @@
-(ns webapp.routes.pdgm
+(ns webapp.routes.pdgmcmp
  (:refer-clojure :exclude [filter concat group-by max min count])
   (:require [compojure.core :refer :all]
             [webapp.views.layout :as layout]
             [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [clojure.string :refer [capitalize replace split]]
+            [clojure.string :refer [capitalize split replace]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             ;;[boutros.matsu.sparql :refer :all]
@@ -15,7 +15,7 @@
 
 (def aama "http://localhost:3030/aama/query")
 
-(defn pdgm []
+(defn pdgmcmp []
   (let [langlist (slurp "pvlists/langlist.txt")
         languages (split langlist #"\n")]
   (layout/common 
@@ -51,6 +51,17 @@
                     {:value "Get PDGM Value Clusters", :name "submit", :type "submit"}]]]]
             )
    [:hr])))
+
+(defn view-input []
+    (view-layout
+     [:h2 "Find"]
+     [:form {:method "post" :action "/"}
+     ( for [category ["Cat1" "Cat2" "Cat3"]]
+      [:input {:type "checkbox" :id category } category ] )       
+      [:br]
+     [:input {:type "text" :id "a" :value "insert manga name"}] [:br]
+     [:input.action {:type "submit" :value "Find"}]
+     [:a {:href "/downloads"} "Downloads"]]))
 
 (defn display-valclusters
   [language pos]
@@ -94,7 +105,7 @@
     (finally (println (str language " has no paradigms of type " pos))))
    (display-valclusters language pos)))
 
-(defn handle-pdgmdisplay
+(defn handle-pdgmcmpdisplay
   [language valstring pos]
   ;; send SPARQL over HTTP request
   (let [Language (capitalize language)
@@ -127,8 +138,8 @@
            [:script {:type "text/javascript"}
             "goog.require('webapp.core');"]])))
 
-(defroutes pdgm-routes
-  (GET "/pdgm" [] (pdgm))
+(defroutes pdgmcmp-routes
+  (GET "/pdgmcmp" [] (pdgmcmp))
   (POST "/pdgmqry" [language pos] (handle-pdgmqry language pos))
-  (POST "/pdgmdisplay" [language valstring pos] (handle-pdgmdisplay language valstring pos))
+  (POST "/pdgmcmpdisplay" [language valstring pos] (handle-pdgmcmpdisplay language valstring pos))
   )

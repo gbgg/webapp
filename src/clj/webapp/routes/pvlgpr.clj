@@ -5,7 +5,7 @@
             [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [clojure.string :refer [split]]
+            [clojure.string :refer [split replace]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             ;;[boutros.matsu.sparql :refer :all]
@@ -64,6 +64,7 @@
   [ldomain prop]
   ;; send SPARQL over HTTP request
   (let [query-sparql (sparql/lgpr-sparql ldomain prop)
+        query-sparql-pr (replace query-sparql #"<" "&lt;")
         req (http/get aama
                       {:query-params
                        {"query" query-sparql ;;generated sparql
@@ -76,7 +77,7 @@
            [:pre (:body req)]
            [:hr]
            [:h3#clickable "Query:"]
-           [:pre query-sparql]
+           [:pre query-sparql-pr]
            [:script {:src "js/goog/base.js" :type "text/javascript"}]
            [:script {:src "js/webapp.js" :type "text/javascript"}]
            [:script {:type "text/javascript"}
