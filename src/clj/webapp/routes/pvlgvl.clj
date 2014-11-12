@@ -1,5 +1,5 @@
 (ns webapp.routes.pvlgvl
- (:refer-clojure :exclude [filter concat group-by max min count])
+ (:refer-clojure :exclude [filter concat group-by max min count replace])
   (:require [compojure.core :refer :all]
             [webapp.views.layout :as layout]
             [webapp.models.sparql :as sparql]

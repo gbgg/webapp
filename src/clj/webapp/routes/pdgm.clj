@@ -1,5 +1,5 @@
 (ns webapp.routes.pdgm
- (:refer-clojure :exclude [filter concat group-by max min count])
+ (:refer-clojure :exclude [filter concat group-by max min count replace])
   (:require [compojure.core :refer :all]
             [webapp.views.layout :as layout]
             [webapp.models.sparql :as sparql]
@@ -101,13 +101,14 @@
         lprefmap (read-string (slurp "pvlists/lprefs.clj"))
         lang (read-string (str ":" language))
         lpref (lang lprefmap)
-        query-sparql (if (= pos "pro")
+        query-sparql (cond 
+                      (= pos "pro")
                       (sparql/pdgmqry-sparql-pro language lpref valstring)
-                      (if (= pos "nfv")
+                      (= pos "nfv")
                       (sparql/pdgmqry-sparql-nfv language lpref valstring)
-                      (if (= pos "noun")
+                      (= pos "noun")
                       (sparql/pdgmqry-sparql-noun language lpref valstring)
-                      (sparql/pdgmqry-sparql-fv language lpref valstring))))
+                      :else (sparql/pdgmqry-sparql-fv language lpref valstring))
         query-sparql-pr (replace query-sparql #"<" "&lt;")
         req (http/get aama
                       {:query-params

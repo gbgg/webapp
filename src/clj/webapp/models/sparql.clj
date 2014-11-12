@@ -13,69 +13,8 @@
   (:use [hiccup.page :only [html5]])
 )
 
-;;generate standard SPARQL query using stencil/render-string. 
-;;This version contains in the "for [value values]" section
-;;the triple "?Q{{value}} rdfs:label ?{{value}} .", which
-;;essentially stipulates that the property to which the value
-;;in question belongs has in fact an rdfs:label. At present
-;;not certain why this seemed necessary at some point.
-(defn pdgmqry-sparql-alt [language lpref valstring]
-    (let [values (split valstring #",")
-          Language (capitalize language)
-          ]
-      (str
-      (tmpl/render-string 
-       (str
-	"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
-	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
-	PREFIX aama: <http://id.oi.uchicago.edu/aama/2013/> 
-	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
-	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
-	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
-	SELECT ?lex ?num ?pers ?gen ?token  
-	WHERE\n{ 
-	 { 
-	  GRAPH aamag:{{language}}\n  { 
-	   ?s {{lpref}}:pos {{lpref}}:Verb .  
-	   ?s aamas:lang aama:{{Language}} . 
-	   ?s aamas:lang ?lang . 
-	   ?lang rdfs:label ?langLabel .  ")
-       {:lpref lpref
-        :language language
-        :Language Language})
-      (apply str  
-             (for [value values]
-        (tmpl/render-string 
-         (str
-          "?s ?Q{{value}}  {{lpref}}:{{value}} .  
-	   ?Q{{value}} rdfs:label ?{{value}} .  
-          ")
-         {:value value
-          :lpref lpref})
-          )
-      )
-      (tmpl/render-string
-       (str
-       "   OPTIONAL { ?s aamas:lexeme ?lex . }  
-	   OPTIONAL { ?s {{lpref}}:number ?number .  
-	   ?number rdfs:label ?num . } 
-	   {   ?s {{lpref}}:pngShapeClass ?person .}  
-	   UNION  
-	   {   ?s {{lpref}}:person ?person .}  
-	   ?person rdfs:label ?pers .  
-	   OPTIONAL { ?s {{lpref}}:gender ?gender .  
-	   ?gender rdfs:label ?gen . } 
-	   ?s {{lpref}}:token ?token .  
-	  } 
-	 } 
-	} 
-	ORDER BY ?lex DESC(?num) ?pers DESC(?gen) ")
-       {:lpref lpref})
-       );;str
-))
-
 ;; see notes/query-ext.clj for matsu and other formats
-
+;; and for pdgmqry-sparql-alt
 
 ;;generate standard SPARQL query using stencil/render-string. 
 ;;In this version the "for [value values]" section does not
@@ -349,6 +288,273 @@
        );;str
 ))
 
+(defn pdgmqry-sparql-fv-cmp [language1 lpref1 valstring1 language2 lpref2 valstring2]
+    (let [values (split valstring1 #",")
+          Language1 (capitalize language1)
+          ]
+      (str
+      (tmpl/render-string 
+       (str "
+	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+	PREFIX aama: <http://id.oi.uchicago.edu/aama/2013/> 
+	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
+	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
+        PREFIX {{lpref1}}:   <http://id.oi.uchicago.edu/aama/2013/{{language1}}/> 
+	SELECT ?lex ?num ?pers ?gen ?token  
+	WHERE
+        { 
+	 { 
+	  GRAPH aamag:{{language1}}  
+          { 
+	   ?s {{lpref1}}:pos {{lpref1}}:Verb .  
+	   ?s aamas:lang aama:{{Language1}} . 
+	   ?s aamas:lang ?lang . 
+	   ?lang rdfs:label ?langLabel .  ")
+       {:lpref1 lpref1
+        :language1 language1
+        :Language1 Language1})
+      (apply str  
+             (for [value values]
+        (tmpl/render-string 
+         (str "
+           ?s ?Q{{value}}  {{lpref1}}:{{value}} .  ")
+         {:value value
+          :lpref1 lpref1})))
+      (tmpl/render-string
+       (str " 
+           OPTIONAL { ?s aamas:lexeme ?lex . }  
+	   OPTIONAL { ?s {{lpref1}}:number ?number .  
+	   ?number rdfs:label ?num . } 
+	   {   ?s {{lpref1}}:pngShapeClass ?person .}  
+	   UNION  
+	   {   ?s {{lpref1}}:person ?person .}  
+	   ?person rdfs:label ?pers .  
+	   OPTIONAL { ?s {{lpref1}}:gender ?gender .  
+	   ?gender rdfs:label ?gen . } 
+	   ?s {{lpref1}}:token ?token .  
+	  } 
+	 } 
+	} 
+	ORDER BY ?lex DESC(?num) ?pers DESC(?gen) ")
+       {:lpref1 lpref1})
+       );;str
+))
+
+(defn pdgmqry-sparql-pro-cmp [language1 lpref1 valstring1 language2 lpref2 valstring2]
+    (let [values (split valstring1 #"[:,]")
+          proclass (first values)
+          props (vec (rest values))
+          propstring (clojure.string/replace valstring1 #"^.*?:" ",")
+          qpropstring (clojure.string/replace propstring #"-|," {"-" "" "," " ?"})
+          ;;qprops (clojure.string/replace propstring "-" "")]
+          ;;qpropstring (clojure.string/replace qprops "," " ?")
+          Language1 (capitalize language1)
+          ]
+      (str
+      (tmpl/render-string 
+       (str "
+	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+	PREFIX aama: <http://id.oi.uchicago.edu/aama/2013/> 
+	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
+	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
+	PREFIX {{lpref1}}:   <http://id.oi.uchicago.edu/aama/2013/{{language1}}/> 
+	SELECT {{selection}}  ?token  
+	WHERE
+        { 
+	 { 
+	  GRAPH aamag:{{language1}}  
+          { 
+	   ?s {{lpref1}}:pos {{lpref1}}:Pronoun .  
+	   ?s aamas:lang aama:{{Language1}} .
+           ?s {{lpref1}}:proClass {{lpref1}}:{{proclass}} .
+	   ?s aamas:lang ?lang . 
+	   ?lang rdfs:label ?langLabel .  ")
+       {:lpref1 lpref1
+        :language1 language1
+        :Language1 Language1
+        :selection qpropstring
+        :proclass proclass})
+      (apply str  
+             (for [prop props]
+               (let [qprop (clojure.string/replace prop "-" "")]
+               (if (re-find #"token" prop)
+                 (tmpl/render-string 
+                  (str "
+           OPTIONAL { ?s {{lpref1}}:{{prop}} ?{{qprop}} . }")
+                  {:lpref1 lpref1
+                   :prop prop
+                   :qprop qprop})
+                 (tmpl/render-string 
+                  (str "
+           OPTIONAL { ?s {{lpref1}}:{{prop}} ?Q{{qprop}} .
+                      ?Q{{qprop}} rdfs:label ?{{qprop}} . }") 
+                  {:lpref1 lpref1
+                   :prop prop
+                   :qprop qprop})
+                 );;if
+               );;let
+               ))
+      (tmpl/render-string
+       (str " 
+	   OPTIONAL { ?s {{lpref1}}:number ?number .  
+	   ?number rdfs:label ?num . } 
+	   OPTIONAL {?s {{lpref1}}:person ?person .  
+	   ?person rdfs:label ?pers .  }
+	   OPTIONAL { ?s {{lpref1}}:gender ?gender .  
+	   ?gender rdfs:label ?gen . } 
+	   ?s {{lpref1}}:token ?token .  
+	  } 
+	 } 
+	} 
+	ORDER BY {{selection}} DESC(?num) ?pers DESC(?gen) ")
+       {:lpref1 lpref1
+        :selection qpropstring})
+       );;str
+))
+
+(defn pdgmqry-sparql-nfv-cmp [language1 lpref1 valstring1 language2 lpref2 valstring2]
+    (let [values (split valstring1 #"[:,]")
+          morphclass (first values)
+          props (vec (rest values))
+          propstring (clojure.string/replace valstring1 #"^.*?:" ",")
+          qpropstring (clojure.string/replace propstring #"-|," {"-" "" "," " ?"})
+          ;;qprops (clojure.string/replace propstring "-" "")]
+          ;;qpropstring (clojure.string/replace qprops "," " ?")
+          Language1 (capitalize language1)
+          ]
+      (str
+      (tmpl/render-string 
+       (str "
+	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+	PREFIX aama: <http://id.oi.uchicago.edu/aama/2013/> 
+	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
+	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
+	PREFIX {{lpref1}}:   <http://id.oi.uchicago.edu/aama/2013/{{language1}}/> 
+	SELECT {{selection}}  ?token  
+	WHERE
+        { 
+	 { 
+	  GRAPH aamag:{{language1}}  
+          { 
+	   ?s {{lpref1}}:pos {{lpref1}}:Verb .  
+           NOT EXISTS {?s {{lpref1}}:person ?person } .
+	   ?s aamas:lang aama:{{Language1}} .
+           ?s {{lpref1}}:morphClass {{lpref1}}:{{morphclass}} .
+	   ?s aamas:lang ?lang . 
+	   ?lang rdfs:label ?langLabel .  ")
+       {:lpref1 lpref1
+        :language1 language1
+        :Language1 Language1
+        :selection qpropstring
+        :morphclass morphclass})
+      (apply str  
+             (for [prop props]
+               (let [qprop (clojure.string/replace prop "-" "")]
+               (if (re-find #"token" prop)
+                 (tmpl/render-string 
+                  (str "
+           OPTIONAL { ?s {{lpref1}}:{{prop}} ?{{qprop}} . }")
+                  {:lpref1 lpref1
+                   :prop prop
+                   :qprop qprop})
+                 (tmpl/render-string 
+                  (str "
+           OPTIONAL { ?s {{lpref1}}:{{prop}} ?Q{{qprop}} .
+                      ?Q{{qprop}} rdfs:label ?{{qprop}} . }") 
+                  {:lpref1 lpref1
+                   :prop prop
+                   :qprop qprop})
+                 );;if
+               );;let
+               ))
+      (tmpl/render-string
+       (str " 
+	   ?s {{lpref1}}:token ?token .  
+	  } 
+	 } 
+	} 
+	ORDER BY {{selection}} ")
+       {:lpref1 lpref1
+        :selection qpropstring})
+       );;str
+))
+
+(defn pdgmqry-sparql-noun-cmp [language1 lpref1 valstring1 language2 lpref2 valstring2]
+    (let [values (split valstring1 #"[:,]")
+          morphclass (first values)
+          props (vec (rest values))
+          propstring (clojure.string/replace valstring1 #"^.*?:" ",")
+          qpropstring (clojure.string/replace propstring #"-|," {"-" "" "," " ?"})
+          ;;qprops (clojure.string/replace propstring "-" "")]
+          ;;qpropstring (clojure.string/replace qprops "," " ?")
+          Language1 (capitalize language1)
+          ]
+      (str
+      (tmpl/render-string 
+       (str "
+	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+	PREFIX aama: <http://id.oi.uchicago.edu/aama/2013/> 
+	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
+	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
+	PREFIX {{lpref1}}:   <http://id.oi.uchicago.edu/aama/2013/{{language1}}/> 
+	SELECT {{selection}}  ?token  
+	WHERE
+        { 
+	 { 
+	  GRAPH aamag:{{language1}}  
+          { 
+	   ?s {{lpref1}}:pos {{lpref1}}:Noun .  
+	   ?s aamas:lang aama:{{Language1}} .
+           ?s {{lpref1}}:morphClass {{lpref1}}:{{morphclass}} .
+	   ?s aamas:lang ?lang . 
+	   ?lang rdfs:label ?langLabel .  ")
+       {:lpref1 lpref1
+        :language1 language1
+        :Language1 Language1
+        :selection qpropstring
+        :morphclass morphclass})
+      (apply str  
+             (for [prop props]
+               (let [qprop (clojure.string/replace prop "-" "")]
+               (if (re-find #"token" prop)
+                 (tmpl/render-string 
+                  (str "
+           OPTIONAL { ?s {{lpref1}}:{{prop}} ?{{qprop}} . }")
+                  {:lpref1 lpref1
+                   :prop prop
+                   :qprop qprop})
+                 (tmpl/render-string 
+                  (str "
+           OPTIONAL { ?s {{lpref1}}:{{prop}} ?Q{{qprop}} .
+                      ?Q{{qprop}} rdfs:label ?{{qprop}} . }") 
+                  {:lpref1 lpref1
+                   :prop prop
+                   :qprop qprop})
+                 );;if
+               );;let
+               ))
+      (tmpl/render-string
+       (str " 
+	   OPTIONAL { ?s {{lpref1}}:number ?number .  
+	   ?number rdfs:label ?num . } 
+	   OPTIONAL {?s {{lpref1}}:person ?person .  
+	   ?person rdfs:label ?pers .  }
+	   OPTIONAL { ?s {{lpref1}}:gender ?gender .  
+	   ?gender rdfs:label ?gen . } 
+	   ?s {{lpref1}}:token ?token .  
+	  } 
+	 } 
+	} 
+	ORDER BY {{selection}} DESC(?num) ?pers DESC(?gen) ")
+       {:lpref1 lpref1
+        :selection qpropstring})
+       );;str
+))
+
 (defn lgpr-sparql [ldomain prop]
   (let [ldoms (split ldomain #",")]
   (str
@@ -418,7 +624,7 @@
                         (if (re-find #"\?" pval)
                           (let [qpval (clojure.string/split pval #"=")
                                 qval (clojure.string/replace (last qpval) #"-" "")]
-                            (str qval "Label ")))))   
+                            (str qval "Label ")))))
         ]
   (str
                (tmpl/render-string 
