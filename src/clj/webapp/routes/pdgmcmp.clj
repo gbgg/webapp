@@ -150,7 +150,7 @@
              req (http/get aama
                       {:query-params
                        {"query" query-sparql ;;generated sparql
-                        "format" "tsv"}})
+                        "format" "csv"}})
                         ;;"format" "application/sparql-results+json"}})
                         ;;"format" "text"}})
              req-pr (replace (:body req) #"<" "&lt;")
@@ -176,7 +176,6 @@
         Language2 (capitalize language2)
         lang2 (read-string (str ":" language2))
         lpref2 (lang2 lprefmap)
-        pnames (str language1":"valstring1"+"language2":"valstring2)
         query-sparql1 (cond 
                        (= pos "pro")
                        (sparql/pdgmqry-sparql-pro language1 lpref1 valstring1)
@@ -189,13 +188,17 @@
         req1 (http/get aama
                        {:query-params
                         {"query" query-sparql1 ;;generated sparql
-                         "format" "tsv"}})
+                         "format" "csv"}})
                          ;;"format" "application/sparql-results+json"}})
                          ;;"format" "text"}})
-        req-pr1 (replace (:body req1) #"<" "&lt;")
-        req-pr3 ( -> (:body req1)
-                     (replace #"[<>]" "\"")
-                     (replace #"\n" "%%"))
+        ;;req-pr1 (replace (:body req1) #"<" "&lt;")
+        ;;req-pr3 ( -> (:body req1)
+        ;;             (replace #"[<>]" "\"")
+        ;;             (replace #"\n" " "))
+        ;;lex-form1 (split req-pr3 #" " 2)
+        ;;lex1 (first lex-form1)
+        ;;pdgm1 (rest lex-form1)
+        pdgm1 (replace (:body req1) #"\r\n" "%%")
         query-sparql2 (cond 
                        (= pos "pro")
                        (sparql/pdgmqry-sparql-pro language2 lpref2 valstring2)
@@ -208,25 +211,33 @@
         req2 (http/get aama
                        {:query-params
                         {"query" query-sparql2 ;;generated sparql
-                         "format" "tsv"}})
+                         "format" "csv"}})
                          ;;"format" "application/sparql-results+json"}})
                          ;;"format" "text"}})
-        req-pr2 (replace (:body req2) #"<" "&lt;")
-        req-pr4 ( -> (:body req2)
-                     (replace #"[<>]" "\"")
-                     (replace #"\n" "%%"))
-        pdgms-pr (str req-pr1  req-pr2)
-        pdgms-pr2 (str req-pr3  req-pr4)
+        ;;req-pr2 (replace (:body req2) #"<" "&lt;")
+        ;;req-pr4 ( -> (:body req2)
+        ;;             (replace #"[<>]" "\"")
+        ;;             (replace #"\n" " "))
+        ;;lex-form2 (split req-pr4 #" " 2)
+        ;;lex2 (first lex-form2)
+        ;;pdgm2 (rest lex-form2)
+        pdgm2 (replace (:body req2) #"\r\n" "%%")
+        ;;pdgmnames (str language1":"valstring1"("lex1")+"language2":"valstring2"("lex2")")
+        pdgmnames (str language1":"valstring1"+"language2":"valstring2)
+        pdgmstr1 (str pdgm1 pdgm2)
+        pdgmstr2 (replace pdgmstr1 #"," "_")
+        ;;pdgms-pr2 (str req-pr3  req-pr4)
+        ;;pdgms-pr2 (str pdgm1  pdgm2)
              ]
   (layout/common
    [:body
       [:h3 "PNames:"]
-       [:pre pnames]
+       [:pre pdgmnames]
        ;;[:pre req-pr1]
        ;;[:pre req-pr2]
       [:h3 "Paradigms:"]
-      [:p "(tsv format)"]
-      [:pre pdgms-pr]
+      [:p "(csv format)"]
+      [:pre pdgmstr2]
     [:hr]
       [:h3 "Parallel Display"]
      [:p "Choose PNG Values (comma-separated list)"]
@@ -235,27 +246,17 @@
      (form-to [:post "/pdgmprlldisplay"]
         [:table
          [:tr [:td "PNames: "]
-          [:td [:select#pnames.required
-                {:title "Chosen PDGMS", :name "pnames"}
-                [:option {:value pnames} "PNames"] 
+          [:td [:select#pdgmnames.required
+                {:title "Chosen PDGMS", :name "pdgmnames"}
+                [:option {:value pdgmnames} "PdgmNames"] 
                 ]]]
          [:tr [:td "PDGMS: "]
-          [:td [:select#pdgms-pr.required
-                {:title "PDGMS", :name "pdgms-pr"}
-                [:option {:value pdgms-pr2} "Paradigms"]
+          [:td [:select#pdgmstr.required
+                {:title "PDGMS", :name "pdgmstr"}
+                [:option {:value pdgmstr2} "Paradigms"]
                 ]]]
-         [:tr [:td "Number: "]
-          [:td [:input#num.required
-                {:title "Choose Number Values.", :name "num"}
-                ]]]
-         [:tr [:td "Person: " ]
-          [:td [:input#pers.required
-               {:title "Choose Person Values.", :name "pers"}
-                ]]]
-         [:tr [:td "Gender: " ]
-          [:td [:input#gen.required
-                {:title "Choose Gender Values.", :name "gen"}
-                ]]]
+         [:tr [:td ]
+          [:td [:pre pdgmstr2]]]
          ;;(submit-button "Get pdgm")
          [:tr [:td ]
           [:td [:input#submit
@@ -266,33 +267,142 @@
     [:script {:type "text/javascript"}
             "goog.require('webapp.core');"]])))
 
+(defn pstring2map
+  [pdgm]
+  (let [pdgm1  (replace pdgm #"(.*?_.*?_.*?)_(.*?%%)" "$1 $2")
+        pdgm2 (replace pdgm1 #"%%" " ")
+        plist (split pdgm2 #" ")
+        pmap (apply hash-map plist)
+        ]
+    (clojure.walk/keywordize-keys pmap)))
+
+(defn handle-pdgmprlldisplay2
+  [pdgmstr pdgmnames]
+  (let [
+        pngstring (slurp "pvlists/npg.clj")
+        pngs (split pngstring #" ")
+        pnames (split pdgmnames #"\+")
+        pdgms-sp (split pdgmstr #"%%" 2)
+        header (first pdgms-sp)
+        pbody (last pdgms-sp)
+        pdgms (split pbody (re-pattern (str header "%%")))
+        pmaps (for [pdgm pdgms] (pstring2map pdgm))
+        ]
+    (layout/common
+     [:body
+      [:h3 "Parallel Display" ]
+      (for [pname pnames]
+        [:pre pname])
+      [:p "Header: "
+      [:pre header]]
+      [:hr]
+      [:p "Body: "
+      [:pre pbody]]
+      [:hr]  
+      [:p "PMaps: "]
+      (for [pmap pmaps]
+        [:div
+         [:p pmap "PMap"]
+         ;; following prints map in terminal window (lein repl server) or
+         ;; *nrepl server webapp* buffer (emacs)
+         (println pmap )
+         [:hr]])
+      [:p "Enumeration of pngs and pmaps:"]
+      (for [png pngs]
+        [:pre png])
+      [:hr]
+      [:table
+      (for [png pngs]
+        (let [pngk (keyword png)]
+;;              pngprint (false)
+;;              pnum (0)]
+          (for [pmap pmaps]
+;;            (let [pnum (inc pnum)]
+            (if (pngk pmap)
+;;              (if (not pngprint)
+              [:tr
+                (let [
+                      ;;pngprint (true)
+                      npgs (split png #"_")]
+                  [:div
+                  (for [npg npgs]
+                    [:td npg])
+                  ;;needs to be 'while' for pnum > 2
+;;                  (if (> 1 pnum)
+;;                    ([:td ])
+                   [:td (pngk pmap)]])])
+;;              (if (pgnprint)
+;;                ([:td ])))))))
+            )))]
+;;          [:div
+;;           [:p "PNG + Pmap:"
+;;            [:ol
+;;             [:li "PNG = " pngk]
+;;             [:li "PMap = " [:p "(This key's value): " (pngk pmap)]]]]
+      
+      [:script {:src "js/goog/base.js" :type "text/javascript"}]
+      [:script {:src "js/webapp.js" :type "text/javascript"}]
+      [:script {:type "text/javascript"}
+       "goog.require('webapp.core');"]])))
+    
+(defn pdgmcomb
+  [pdgms header pnames pngs]
+    (layout/common
+     [:body
+      [:h3 "Parallel Display" ]
+      (for [pname pnames]
+        [:pre pname])
+      [:p "Header: "
+      [:pre header]]
+      [:hr][:hr]
+      [:p "Paradigms: "]
+      (for [pdgm pdgms]
+        (let [pdgm1  (replace pdgm #"(.*?,.*?,.*?),(.*?%%)" "$1 $2")
+              pdgm2 (replace pdgm1 #"%%" " ")
+              ;;pdgm3 (apply hash-map (split pdgm2 #" "))
+              ;;pdgm4 (clojure.walk/keywordize-keys pdgm3)
+              ]
+          [:p "Paradigm Base:"]
+          [:pre pdgm]
+          [:p "Paradigm => Map:"]
+        [:pre pdgm2][:hr]))
+      [:hr]
+      [:p "Enumeration of pngs:"]
+      (for [png pngs]
+        [:pre png])
+      [:hr]
+      (for [png pngs]
+        (for [pdgm pdgms]
+
+          [:pre pdgm]))
+      [:script {:src "js/goog/base.js" :type "text/javascript"}]
+      [:script {:src "js/webapp.js" :type "text/javascript"}]
+      [:script {:type "text/javascript"}
+       "goog.require('webapp.core');"]]))
+    
 (defn handle-pdgmprlldisplay
-  [pdgms-pr pnames num pers gen]
-  ;; format parallel display from combined tsv + comma-separated num pers gen strings
-  (let [numvals (split num #",")
-        persvals (split pers #",")
-        genvals (split gen #",")
-         pngs (for [numval numvals] (for [persval persvals] (for [genval genvals]
-          (conj [] (str numval "\t" persval "\t" genval)))))]
-  (layout/common
-   [:body
-      [:h3 "Parallel Display"]
-    [:p pnames]
-    [:p (str num " + " pers " + " gen)]
-    [:pre pdgms-pr]
-     [:hr]
-    [:p "Enumeration of pngs:"]
-    (for [png pngs]
-      [:p png])
-    [:script {:src "js/goog/base.js" :type "text/javascript"}]
-    [:script {:src "js/webapp.js" :type "text/javascript"}]
-    [:script {:type "text/javascript"}
-            "goog.require('webapp.core');"]])))
+  [pdgmstr pdgmnames]
+  ;; format parallel display from combined csv + comma-separated num pers gen strings
+  (let [
+        ;;numvals (split nmbr #",")
+        ;;persvals (split pers #",")
+        ;;genvals (split gen #",")
+        ;;pngs (for [numval (str numvals)] (for [persval persvals] (for [genval genvals] (conj [] (str numval "\t" persval "\t" genval)))))
+        pngstring (slurp "pvlists/npg.clj")
+        pngs (split pngstring #" ")
+        pnames (split pdgmnames #"\+")
+        ;;pdgms-sp (replace pdgms #"\?" " ")
+        ;;pdgms-sp1 (replace pdgms #"^%%" "")
+        pdgms-sp (split pdgmstr #"%%" 2)
+        header (first pdgms-sp)
+        pdgms (split (last pdgms-sp) (re-pattern (str header "%%")))
+        ]
+    (pdgmcomb pdgms header pnames pngs)))
 
 
 (defroutes pdgmcmp-routes
   (GET "/pdgmcmp" [] (pdgmcmp))
   (POST "/pdgmcmpqry" [language1 language2 pos] (handle-pdgmcmpqry language1 language2 pos))
   (POST "/pdgmcmpdisplay" [pos language1 valstring1 language2 valstring2] (handle-pdgmcmpdisplay2 pos language1 valstring1 language2 valstring2))
-  (POST "/pdgmprlldisplay" [pdgms-pr pnames num pers gen] (handle-pdgmprlldisplay pdgms-pr pnames num pers gen))
+  (POST "/pdgmprlldisplay" [pdgmstr pdgmnames] (handle-pdgmprlldisplay2 pdgmstr pdgmnames))
   )

@@ -34,7 +34,7 @@
 	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
 	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
 	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
-	SELECT ?lex ?num ?pers ?gen ?token  
+	SELECT ?num ?pers ?gen  ?token
 	WHERE
         { 
 	 { 
@@ -69,7 +69,7 @@
 	  } 
 	 } 
 	} 
-	ORDER BY ?lex DESC(?num) ?pers DESC(?gen) ")
+	ORDER BY DESC(?num) ?pers DESC(?gen) ")
        {:lpref lpref})
        );;str
 ))
