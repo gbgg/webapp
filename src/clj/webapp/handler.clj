@@ -7,13 +7,17 @@
             [compojure.handler :as handler]
             [compojure.route :as route]
             [webapp.routes.home :refer [home-routes]]
+            [webapp.routes.listgen :refer [listgen-routes]]
+            [webapp.routes.listlgpr :refer [listlgpr-routes]]
+            [webapp.routes.listvlcl :refer [listvlcl-routes]]
+            [webapp.routes.listlpv :refer [listlpv-routes]]
+            [webapp.routes.pdgm :refer [pdgm-routes]]            
+            [webapp.routes.pdgmcmp :refer [pdgmcmp-routes]]
+            [webapp.routes.pvdisp :refer [pvdisp-routes]]
             [webapp.routes.pvlgpr :refer [pvlgpr-routes]]
             [webapp.routes.pvprvllg :refer [pvprvllg-routes]]
             [webapp.routes.pvlgvl :refer [pvlgvl-routes]]
-            [webapp.routes.pvlists :refer [pvlists-routes]]
-            [webapp.routes.pvdisp :refer [pvdisp-routes]]
-            [webapp.routes.pdgmcmp :refer [pdgmcmp-routes]]
-            [webapp.routes.pdgm :refer [pdgm-routes]]))
+))
 
 (defn init []
   (println "webapp is starting"))
@@ -26,7 +30,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes home-routes pdgm-routes pdgmcmp-routes pvdisp-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes pvlists-routes app-routes)
+  (-> (routes home-routes pdgm-routes pdgmcmp-routes pvdisp-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes pvlists-routes listgen-routes listlgpr-routes listvlcl-routes listlpv-routes app-routes)
       (handler/site)
       (wrap-base-url)))
 

@@ -348,7 +348,7 @@
        "goog.require('webapp.core');"]])))
     
 ;; The following is a work-around, limiting the number of pdgms to 2;
-;; It will be necessare to generalize this (perhaps along the lines 
+;; It will be necessary to generalize this (perhaps along the lines 
 ;; initiated in handle-pdgmprlldisplay2) to n pdgms.
 (defn handle-pdgmprlldisplay3
   [pdgmstr pdgmnames]

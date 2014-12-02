@@ -46,7 +46,7 @@
    [:div.menuitem (link-to "/" "Home")]
    [:div.menuitem (link-to "/pdgm" "Paradigms")]
    [:div.menuitem (link-to "/pdgmcmp" "Paradigm Comparison")]
-   [:div.menuitem (link-to "/pvdisp" "Property-value displays")]
-   [:div.menuitem (link-to "/pvlists" "Property-value lists")]]
+   [:div.menuitem (link-to "/pvdisp" "Property-value Display")]
+   [:div.menuitem (link-to "/listgen" "Property-value List Generation")]]
     [:div.content content]))
 
