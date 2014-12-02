@@ -30,7 +30,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes home-routes pdgm-routes pdgmcmp-routes pvdisp-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes pvlists-routes listgen-routes listlgpr-routes listvlcl-routes listlpv-routes app-routes)
+  (-> (routes home-routes pdgm-routes pdgmcmp-routes pvdisp-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes listgen-routes listlgpr-routes listvlcl-routes listlpv-routes app-routes)
       (handler/site)
       (wrap-base-url)))
 
