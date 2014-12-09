@@ -86,7 +86,7 @@
                             {:query-params
                              {"query" query-sparql ;;generated sparql
                               ;;"format" "application/sparql-results+json"}})]
-                              "format" "text"}})]
+                              "format" "text"}})
                               ;;"format" "csv"}})
               ;;reqvec (csv/parse-csv req)
               reqvec (split (:body req) #"\n")
