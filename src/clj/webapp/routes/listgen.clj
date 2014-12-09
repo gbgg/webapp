@@ -28,7 +28,7 @@
      [:p (link-to "/listvlcl" "POS Paradigm Value-Clusters")
       [:ul [:li "This set of queries makes a list of the set of values ('Value Clusters', 'Paradigm Names') associated with each paradigm for a given language and part-of-speech. In the case of finite verbs these are the default person-number-gender subject agreement paradigms -- person-number-gender-case typically for pronoun. The relevant dimensions for noun and non-finite verb are less clear, and a suitable set of comparable dimensions remains to be worked out. Note that at present, noun paradigms are recorded only exceptionally in this archive."
             ]]]
-     [:p (link-to "/listlpv" "Language-Property-Value Co-occurrences")
+     [:p (link-to "/listlpv" "Property-Value Indices by Language Domain")
       [:ul [:li "This set of queries will generate for a given language, language-family, or set of languages, four tables with entries:"
        [:ol 
         [:li "lang prop: val, val, val, ..." [:br]
