@@ -23,13 +23,13 @@
     [:div
      [:p "Generate list of:"]
      [:p (link-to "/listlgpr"  "POS Properties")
-      [:ul [:li "This set of queries lists, for all languages in the datastore, the properties associated with the designated part of speech. "
+      [:ul [:li "This set of queries lists, for one or more languages or language families in the datastore, the properties associated with the designated part of speech. "
             ]]]
      [:p (link-to "/listvlcl" "POS Paradigm Value-Clusters")
       [:ul [:li "This set of queries makes a list of the set of values ('Value Clusters', 'Paradigm Names') associated with each paradigm for a given language and part-of-speech. In the case of finite verbs these are the default person-number-gender subject agreement paradigms -- person-number-gender-case typically for pronoun. The relevant dimensions for noun and non-finite verb are less clear, and a suitable set of comparable dimensions remains to be worked out. Note that at present, noun paradigms are recorded only exceptionally in this archive."
             ]]]
      [:p (link-to "/listlpv" "Language-Property-Value Co-occurrences")
-      [:ul [:li "This query will generate for a given language, language-family, or set of languages, four tables with entries:"
+      [:ul [:li "This set of queries will generate for a given language, language-family, or set of languages, four tables with entries:"
        [:ol 
         [:li "lang prop: val, val, val, ..." [:br]
             "(all the vals for each prop in each lang)"]

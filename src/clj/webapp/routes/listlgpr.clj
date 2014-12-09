@@ -24,16 +24,30 @@
         lvals (split lvallist #"\n")]
   (layout/common 
    [:h3 "Properties by POS for datastore languages"]
+   [:p "(Only 'Finite Verb' enabled at this time.)"]
    [:hr]
    (form-to [:post "/listlgpr-gen"]
             [:table
+             [:tr [:td "Language Domain: " ]
+              [:td 
+               [:select#ldomain.required
+               {:title "Choose a language domain.", :name "ldomain"}
+                [:optgroup {:label "Languages"} 
+                (for [language languages]
+                (let [opts (split language #" ")]
+               [:option {:value (first opts)} (last opts) ]))]
+                [:optgroup {:label "Language Families"} 
+               (for [ldom ldoms]
+                (let [opts (split ldom #" ")]
+               [:option {:value (last opts)} (first opts) ]))
+                 [:option {:disabled "disabled"} "Other"]]]]]
              [:tr [:td "Part of Speech: "]
               [:td [:select#pos.required
                     {:title "Choose a pdgm type.", :name "pos"}
                     [:option {:value "fv" :label "Finite Verb"}]
-                    [:option {:value "nfv" :label "Non-finite Verb"}]
-                    [:option {:value "pro" :label "Pronoun"}]
-                    [:option {:value "noun" :label "Noun"}]
+                    [:option {:disabled "disabled" :value "nfv" :label "Non-finite Verb"}]
+                    [:option {:disabled "disabled" :value "pro" :label "Pronoun"}]
+                    [:option {:disabled "disabled" :value "noun" :label "Noun"}]
                     ]]]
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
@@ -41,31 +55,39 @@
                     {:value "Make Language-Property List", :name "submit", :type "submit"}]]]]))))
 
 (defn handle-listlgpr-gen
-  [pos]
-  ;; send SPARQL over HTTP request
-  (let [query-sparql (sparql/lgpr-sparql pos)
-        query-sparql-pr (replace query-sparql #"<" "&lt;")
-        req (http/get aama
-                      {:query-params
-                       {"query" query-sparql ;;generated sparql
-                        ;;"format" "application/sparql-results+json"}})]
-                        "format" "text"}})]
-         (log/info "sparql result status: " (:status req))
-         (layout/common
-          [:body
-           [:h3#clickable "Part of speech: " pos]
-           [:pre (:body req)]
-           [:hr]
-           [:h3#clickable "Query:"]
-           [:pre query-sparql-pr]
-           [:script {:src "js/goog/base.js" :type "text/javascript"}]
-           [:script {:src "js/webapp.js" :type "text/javascript"}]
-           [:script {:type "text/javascript"}
-            "goog.require('webapp.core');"]])))
+  [ldomain pos]
+  (layout/common
+   [:body
+    [:h3#clickable "Properties used in " pos " pdgms for: "]
+      (let [lprefmap (read-string (slurp "pvlists/lprefs.clj"))
+            langs (split ldomain #",")]
+            (for [language langs]
+              (let [lang (read-string (str ":" language))
+                    lpref (lang lprefmap)
+                    ;; send SPARQL over HTTP request
+                    query-sparql (sparql/listlgpr-fv-sparql language lpref)
+                    query-sparql-pr (replace query-sparql #"<" "&lt;")
+                    req (http/get aama
+                                  {:query-params
+                                   {"query" query-sparql ;;generated sparql
+                                    ;;"format" "application/sparql-results+json"}})]
+                                    "format" "text"}})]
+                (log/info "sparql result status: " (:status req))
+                [:div
+                 [:h4 "Language: " language]
+                  [:pre (:body req)]
+                 [:hr]
+                 ;;[:h3#clickable "Query:"]
+                 ;;[:pre query-sparql-pr]
+                 ])))
+                [:script {:src "js/goog/base.js" :type "text/javascript"}]
+                [:script {:src "js/webapp.js" :type "text/javascript"}]
+                [:script {:type "text/javascript"}
+                 "goog.require('webapp.core');"]]))
 
 (defroutes listlgpr-routes
   (GET "/listlgpr" [] (listlgpr))
-  (POST "/listlgpr-gen" [pos] (handle-listlgpr-gen pos))
+  (POST "/listlgpr-gen" [ldomain pos] (handle-listlgpr-gen ldomain pos))
   ;;(POST "/lgvldisplay" [ldomain lval] (handle-lgvldisplay ldomain lval))
   )
 

@@ -10,7 +10,9 @@
                  [clj-http "1.0.0"] ;; http client lib
                  [org.clojure/clojurescript "0.0-2311"]
                  [lib-noir "0.7.6"]
-                 [ring-server "0.3.1"]]
+                 [ring-server "0.3.1"]
+                 ;;[clojure-csv/clojure-csv "2.0.1"]
+                 ]
   :source-paths ["src/clj"]
   :cljsbuild {
     :builds [{:id "webapp"

@@ -11,7 +11,9 @@
             ;;[boutros.matsu.sparql :refer :all]
             ;;[boutros.matsu.core :refer [register-namespaces]]
             [clojure.tools.logging :as log]
-            [hiccup.form :refer :all]))
+            [hiccup.form :refer :all]
+            ;;[clojure-csv.core :as csv]
+            ))
 
 (def aama "http://localhost:3030/aama/query")
 
@@ -40,37 +42,75 @@
                 (let [opts (split ldom #" ")]
                [:option {:value (last opts)} (first opts) ]))
                  [:option {:disabled "disabled"} "Other"]]]]]
+             [:tr [:td "Column Order: "]
+              [:td [:select#colorder.required
+                    {:title "Choose a column order.", :name "colorder"}
+                    [:option {:value "lpv" :label "Language-Property-Value"}]
+                    [:option {:value "pvl" :label "Property-Value-Language"}]
+                    [:option {:value "vpl" :label "Value-Property-Language"}]
+                    [:option {:value "plv" :label "Property-Language-Value"}]
+                    ]]]
+
              ;;(submit-button "Get values")
              [:tr [:td ]
               [:td [:input#submit
                     {:value "Make Language-Property-Value Lists", :name "submit", :type "submit"}]]]]))))
 
+(defn csv2table 
+"Takes sorted 3-col csv list and outputs html table with empty [:td]  for repeated col1 and vec of col3 vals for repeated col2. [IN PROGRESS!]"
+ [lpvs]
+ [:table
+  (for [lpv lpvs]
+    (let [categs (split lpv #",")
+          catmap (zipmap [:cat1 :cat2 :cat3] categs)
+          curmap (zipmap [:cur1 :cur2] ["" ""])]
+      [:tr [:td (:cat1 catmap)] [:td (:cat2 catmap)]]))])
+
+
 (defn handle-listlpv-gen
-  [ldomain]
-  ;; send SPARQL over HTTP request
-  (let [query-sparql (sparql/lgpr-sparql ldomain)
-        query-sparql-pr (replace query-sparql #"<" "&lt;")
-        req (http/get aama
-                      {:query-params
-                       {"query" query-sparql ;;generated sparql
-                        ;;"format" "application/sparql-results+json"}})]
-                        "format" "text"}})]
-         (log/info "sparql result status: " (:status req))
-         (layout/common
-          [:body
-           [:h3#clickable "Language Domain: " ldomain]
-           [:pre (:body req)]
+  [ldomain colorder]
+  (layout/common
+   [:h3#clickable "List Type: " colorder]
+    [:h3#clickable "Language Domain: " ldomain]
+        ;; send SPARQL over HTTP request"
+        (let [query-sparql (cond 
+                      (= colorder "pvl")
+                      (sparql/listpvl-sparql ldomain)
+                      (= colorder "vpl")
+                      (sparql/listvpl-sparql ldomain)
+                      (= colorder "plv")
+                      (sparql/listplv-sparql ldomain)
+                      :else (sparql/listlpv-sparql ldomain))
+              query-sparql-pr (replace query-sparql #"<" "&lt;")
+              req (http/get aama
+                            {:query-params
+                             {"query" query-sparql ;;generated sparql
+                              ;;"format" "application/sparql-results+json"}})]
+                              ;;"format" "text"}})]
+                              "format" "csv"}})
+              ;;reqvec (csv/parse-csv req)
+              reqvec (split (:body req) #"\n")
+              header (first reqvec)
+              lpvs (rest reqvec)
+              lpvtable (csv2table lpvs)
+              ]
+          (log/info "sparql result status: " (:status req))
+          [:div
+          [:pre (:body req)]
+           [:p header]
            [:hr]
-           [:h3#clickable "Query:"]
-           [:pre query-sparql-pr]
-           [:script {:src "js/goog/base.js" :type "text/javascript"}]
-           [:script {:src "js/webapp.js" :type "text/javascript"}]
-           [:script {:type "text/javascript"}
-            "goog.require('webapp.core');"]])))
+           ;;[:pre reqvec]
+          [:hr]
+          [:h3#clickable "Query:"]
+          [:pre query-sparql-pr]])
+          [:script {:src "js/goog/base.js" :type "text/javascript"}]
+          [:script {:src "js/webapp.js" :type "text/javascript"}]
+          [:script {:type "text/javascript"}
+           "goog.require('webapp.core');"]))
 
 (defroutes listlpv-routes
   (GET "/listlpv" [] (listlpv))
-  (POST "/listlpv-gen" [ldomain] (handle-listlpv-gen ldomain))
+  (POST "/listlpv-gen" [ldomain colorder] (handle-listlpv-gen ldomain colorder))
   ;;(POST "/lgvldisplay" [ldomain lval] (handle-lgvldisplay ldomain lval))
   )
 
