@@ -97,7 +97,7 @@
           (log/info "sparql result status: " (:status req))
           [:div
           [:pre (:body req)]
-           [:p header]
+           ;;[:p header]
            [:hr]
            ;;[:pre reqvec]
           [:hr]
