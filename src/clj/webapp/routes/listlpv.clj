@@ -60,12 +60,19 @@
 "Takes sorted 3-col csv list and outputs html table with empty [:td]  for repeated col1 and vec of col3 vals for repeated col2. [IN PROGRESS!]"
  [lpvs]
  [:table
-  (for [lpv lpvs]
-    (let [categs (split lpv #",")
-          catmap (zipmap [:cat1 :cat2 :cat3] categs)
-          curmap (zipmap [:cur1 :cur2] ["" ""])]
-      [:tr [:td (:cat1 catmap)] [:td (:cat2 catmap)]]))])
-
+(doseq [lpv lpvs]
+ (let [curmap (zipmap [:cat1 :cat2 :cat3] (split (first lpvs) #","))
+       nextmap (zipmap [:cat1 :cat2 :cat3] (split (first (rest lpvs)) #","))
+       ;;cur3str (str "")
+       cur3vec (vector "")
+       ]
+   (if (= (:cat1 curmap) (:cat1 nextmap))
+     
+     (if (= (:cat2 curmap) (:cat2 nextmap))
+       (conj cur3vec (:cat3 curmap))
+       [:tr [:td] [:td (:cat2 curmap)] [:td (str cur3vec " " (:cat3 curmap))]])
+             
+     [:tr [:td (:cat1 curmap)] [:td (:cat2 curmap)] [:td (str cur3vec " " (:cat3 curmap))]])))])
 
 (defn handle-listlpv-gen
   [ldomain colorder]
@@ -100,6 +107,7 @@
            [:p header]
            [:hr]
            ;;[:pre reqvec]
+           [:pre lpvtable]
           [:hr]
           [:h3#clickable "Query:"]
           [:pre query-sparql-pr]])
