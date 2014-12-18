@@ -108,7 +108,7 @@
               reqvec (split (:body req) #"\n")
               header (first reqvec)
               lpvs (rest reqvec)
-              lpvtable (csv2table lpvs)
+              ;;lpvtable (csv2table lpvs)
               ]
           (log/info "sparql result status: " (:status req))
           [:div
@@ -116,7 +116,7 @@
            ;;[:p header]
            [:hr]
            ;;[:pre reqvec]
-           [:pre lpvtable]
+           ;;[:pre lpvtable]
           [:hr]
           [:h3#clickable "Query:"]
           [:pre query-sparql-pr]])
