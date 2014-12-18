@@ -350,6 +350,8 @@
 ;; The following is a work-around, limiting the number of pdgms to 2;
 ;; It will be necessary to generalize this (perhaps along the lines 
 ;; initiated in handle-pdgmprlldisplay2) to n pdgms.
+;; To generate cartesian product of npgs (instead of reading from cache)
+;; cf. https://clojuredocs.org/clojure.core/doseq
 (defn handle-pdgmprlldisplay3
   [pdgmstr pdgmnames]
   (let [

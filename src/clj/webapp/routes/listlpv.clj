@@ -59,13 +59,29 @@
 (defn csv2table 
 "Takes sorted 3-col csv list and outputs html table with empty [:td]  for repeated col1 and vec of col3 vals for repeated col2. [IN PROGRESS!]"
  [lpvs]
+(let [curcat1 (atom "")
+      curcat2 (atom "")
+      curcat3 (atom [])]
  [:table
-  (for [lpv lpvs]
-    (let [categs (split lpv #",")
-          catmap (zipmap [:cat1 :cat2 :cat3] categs)
-          curmap (zipmap [:cur1 :cur2] ["" ""])]
-      [:tr [:td (:cat1 catmap)] [:td (:cat2 catmap)]]))])
-
+(for [lpv lpvs]
+ (let [catmap (zipmap [:cat1 :cat2 :cat3] (split lpv #","))
+       ;;nextmap (zipmap [:cat1 :cat2 :cat3] (split (first (rest lpvs)) #","))
+       ]
+   (if (= (:cat1 catmap) curcat1)
+     
+     (if (= (:cat2 catmap) curcat2)
+       (swap! curcat3 conj (str (:cat3 catmap)))
+       ([:tr [:td] [:td curcat2] [:td curcat3]]
+          (reset! curcat2 (str (:cat2 catmap)))))
+             
+     ((if (clojure.string/blank? @curcat1)
+        ((reset! curcat1 (str (:cat1 catmap)))
+         (reset! curcat2 (str (:cat2 catmap)))
+         (swap! curcat3 conj (str (:cat3 catmap))))
+        ([:tr [:td curcat1] [:td curcat2] [:td curcat3]]
+           (reset! curcat1 (str (:cat1 catmap)))
+           (reset! curcat2 (str (:cat2 catmap)))
+           (reset! curcat3 (str (:cat3 catmap)))))))))]))
 
 (defn handle-listlpv-gen
   [ldomain colorder]
@@ -100,6 +116,7 @@
            ;;[:p header]
            [:hr]
            ;;[:pre reqvec]
+           [:pre lpvtable]
           [:hr]
           [:h3#clickable "Query:"]
           [:pre query-sparql-pr]])
