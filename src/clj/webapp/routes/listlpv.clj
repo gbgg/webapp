@@ -48,26 +48,20 @@
                     [:option {:value "lpv" :label "Language-Property-Value"}]
                     [:option {:value "pvl" :label "Property-Value-Language"}]
                     [:option {:value "vpl" :label "Value-Property-Language"}]
-                    [:option {:value "plv" :label "Property-Language-Value"}]
-                    ]]]
-
+                    [:option {:value "plv" :label "Property-Language-Value"}]]]]
              ;;(submit-button "Get values")
              [:tr [:td ]
               [:td [:input#submit
                     {:value "Make Language-Property-Value Lists", :name "submit", :type "submit"}]]]]))))
 
-(defn csv2table
-"Takes sorted 3-col csv list and outputs html table with empty [:td]  for repeated col1 and vec of col3 vals for repeated col2. [IN PROGRESS!]"
+(defn csv2table2
+"Takes sorted 3-col csv list and outputs html table with empty [:td]  for repeated col1 and rows of col3 vals for repeated col2."
  [lpvs]
 (let  [curcat1 (atom "")
-      curcat2 (atom "")
-      curcat3 (atom [])
-       ]
+      curcat2 (atom "")]
  [:table
 (for [lpv lpvs]
- (let [catmap (zipmap [:cat1 :cat2 :cat3] (split lpv #","))
-       ;;nextmap (zipmap [:cat1 :cat2 :cat3] (split (first (rest lpvs)) #","))
-       ]
+ (let [catmap (zipmap [:cat1 :cat2 :cat3] (split lpv #","))]
    (if (= (:cat1 catmap) @curcat1)
 
      (if (= (:cat2 catmap) @curcat2)
@@ -77,11 +71,28 @@
        
      (do (reset! curcat1 (:cat1 catmap))
          (reset! curcat2 (:cat2 catmap))
-         [:tr [:td @curcat1][:td @curcat2][:td (:cat3 catmap)]]
-         ))))]))
+         [:tr [:td @curcat1][:td @curcat2][:td (:cat3 catmap)]]))))]))
 
-;; try (while) -- 
-;; cf. "(while (pos? @a) (do (println @a) (swap! a dec)))"
+(defn csv2table
+"Takes sorted 3-col csv list and outputs html table with empty [:td]  for repeated col1 and string of col3 vals for repeated col2."
+ [lpvs]
+(let  [curcat1 (atom "")
+      curcat2 (atom "")]
+  ;; For visible borders set {:border "1"}.
+ [:table {:border "0"}
+(for [lpv lpvs]
+ (let [catmap (zipmap [:cat1 :cat2 :cat3] (split lpv #","))]
+   (if (= (:cat1 catmap) @curcat1)
+
+     (if (= (:cat2 catmap) @curcat2)
+       (str (:cat3 catmap) " ")
+       (do (reset! curcat2 (:cat2 catmap))
+           (str "</td></tr><tr><td></td><td valign=top>"@curcat2"</td><td>" (:cat3 catmap) " ")))
+       
+     (do (reset! curcat1 (:cat1 catmap))
+         (reset! curcat2 (:cat2 catmap))
+         (str "</td></tr><tr><td>" @curcat1 "</td><td valign=top>" @curcat2 "</td><td>" (:cat3 catmap) " ")))))
+  (str "</td></tr>")]))
 
 (defn handle-listlpv-gen
   [ldomain colorder]
@@ -108,15 +119,12 @@
               reqvec (split (:body req) #"\n")
               header (first reqvec)
               lpvs (rest reqvec)
-              lpvtable (csv2table lpvs)
-              ]
+              lpvtable (csv2table lpvs)]
           (log/info "sparql result status: " (:status req))
           [:div
-          ;;[:pre (:body req)]
-           [:p header]
+           [:p "Column Order: " header]
            [:hr]
-           ;;[:pre reqvec]
-          lpvtable
+           lpvtable
           [:hr]
           [:h3#clickable "Query:"]
           [:pre query-sparql-pr]])
@@ -127,8 +135,6 @@
 
 (defroutes listlpv-routes
   (GET "/listlpv" [] (listlpv))
-  (POST "/listlpv-gen" [ldomain colorder] (handle-listlpv-gen ldomain colorder))
-  ;;(POST "/lgvldisplay" [ldomain lval] (handle-lgvldisplay ldomain lval))
-  )
+  (POST "/listlpv-gen" [ldomain colorder] (handle-listlpv-gen ldomain colorder)))
 
 

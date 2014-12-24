@@ -15,6 +15,14 @@ label {
     float:left;
 }
 
+table, th, td {
+    border-collapse: collapse;
+}
+    
+td {
+    vertical-align: top;
+}
+
 .error {
     color: red;
 }
