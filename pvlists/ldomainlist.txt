@@ -1,7 +1,7 @@
 Beja beja-arteiga,beja-atmaan,beja-beniamer,beja-bishari,beja-hadendowa
 Agaw awngi,bilin,kemant,khamtanga
 Saho-Afar afar,saho
-Omo-Tana standard-somali,rendille,bayso,boni-jara,boni-kijee-bala,boni-kilii,arbore,dhaasanac,elmolo
+Omo-Tana somali-standard,rendille,bayso,boni-jara,boni-kijee-bala,boni-kilii,arbore,dhaasanac,elmolo
 Highland-East-Cushitic alaaba,burji,gedeo,hadiyya,kambaata,sidaama
 Oromoid oromo
 South-East-Cushitic tsamakko,gawwada,yaaku,dahalo

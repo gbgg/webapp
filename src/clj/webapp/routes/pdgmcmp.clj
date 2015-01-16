@@ -236,7 +236,8 @@
          [:tr [:td "PDGMS: "]
           [:td [:select#pdgmstr.required
                 {:title "PDGMS", :name "pdgmstr"}
-                [:option {:value pdgmstr2} "Paradigms"]
+                ;;[:option {:value pdgmstr2} "Paradigms"]
+                [:option {:value pdgmstr2} pdgmstr2]
                 ]]]
          [:tr [:td "Number: "]
           [:td [:input#num.required

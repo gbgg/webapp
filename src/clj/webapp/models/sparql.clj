@@ -769,7 +769,7 @@ ORDER BY ASC(?prop) ASC(?val)
        PREFIX aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
        PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/>
        PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/>
-       SELECT DISTINCT ?langLabel {{selection}}
+       SELECT DISTINCT ?langLabel {{selection}} ?lex
        WHERE{
          {   
           GRAPH aamag:{{language}} {
@@ -779,6 +779,8 @@ ORDER BY ASC(?prop) ASC(?val)
              {?s {{lpref}}:person ?person .} 
        ?s aamas:lang aama:{{Language}} .
        ?s aamas:lang ?lang .
+       ?s aamas:lexeme ?lexeme .
+       ?lexeme rdfs:label ?lex .
        ?lang rdfs:label ?langLabel . ")
       {:language language
        :Language Language
