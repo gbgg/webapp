@@ -19,9 +19,7 @@
   (let [langlist (slurp "pvlists/langlist.txt")
         languages (split langlist #"\n")
         ldomlist (slurp "pvlists/ldomainlist.txt")
-        ldoms (split ldomlist #"\n")
-        lvallist (slurp "pvlists/langvals.txt")
-        lvals (split lvallist #"\n")]
+        ldoms (split ldomlist #"\n")]
   (layout/common 
    [:h3 "Properties by POS for datastore languages"]
    [:p "(Only 'Finite Verb' enabled at this time.)"]
@@ -58,7 +56,7 @@
   [ldomain pos]
   (layout/common
    [:body
-    [:h3#clickable "Properties used in " pos " pdgms for: "]
+    [:h3#clickable "Properties used in " pos " pdgms for: " ldomain]
       (let [lprefmap (read-string (slurp "pvlists/lprefs.clj"))
             langs (split ldomain #",")]
             (for [language langs]

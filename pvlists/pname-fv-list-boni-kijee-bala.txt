@@ -1,6 +1,7 @@
-Suffix2,Affirmative,Imperative
-Suffix2,Affirmative,Imperfect
-Suffix2,Affirmative,Perfect
-Suffix2,Negative,Imperative
-Suffix2,Negative,Imperfect
-Suffix2,Negative,Perfect
+conjClass,polarity,tam,lex
+Suffix2,Affirmative,Imperative,obed
+Suffix2,Affirmative,Imperfect,obed
+Suffix2,Affirmative,Perfect,obed
+Suffix2,Negative,Imperative,obed
+Suffix2,Negative,Imperfect,obed
+Suffix2,Negative,Perfect,obed

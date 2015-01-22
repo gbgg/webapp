@@ -1,180 +1,353 @@
-Absolutive,Full,Suffix,C1,Affirmative,PastGeneral
-Absolutive,Full,Suffix,C1,Affirmative,PastProgressive
-Absolutive,Full,Suffix,C1,Affirmative,PresentGeneral
-Absolutive,Full,Suffix,C1,Affirmative,PresentProgressive
-Absolutive,Full,Suffix,C2A,Affirmative,PastGeneral
-Absolutive,Full,Suffix,C2A,Affirmative,PastProgressive
-Absolutive,Full,Suffix,C2A,Affirmative,PresentGeneral
-Absolutive,Full,Suffix,C2A,Affirmative,PresentProgressive
-Absolutive,Full,Suffix,C2B,Affirmative,PastGeneral
-Absolutive,Full,Suffix,C2B,Affirmative,PastProgressive
-Absolutive,Full,Suffix,C2B,Affirmative,PresentGeneral
-Absolutive,Full,Suffix,C2B,Affirmative,PresentProgressive
-Absolutive,Full,Suffix,C3A,Affirmative,PastGeneral
-Absolutive,Full,Suffix,C3A,Affirmative,PastProgressive
-Absolutive,Full,Suffix,C3A,Affirmative,PresentGeneral
-Absolutive,Full,Suffix,C3A,Affirmative,PresentProgressive
-Absolutive,Full,Suffix,C3B,Affirmative,PastGeneral
-Absolutive,Full,Suffix,C3B,Affirmative,PastProgressive
-Absolutive,Full,Suffix,C3B,Affirmative,PresentGeneral
-Absolutive,Full,Suffix,C3B,Affirmative,PresentProgressive
-Absolutive,Reduced,Prefix,Affirmative,PastGeneral
-Absolutive,Reduced,Prefix,Affirmative,PastProgressive
-Absolutive,Reduced,Prefix,Affirmative,PresentGeneral
-Absolutive,Reduced,Prefix,Affirmative,PresentProgressive
-Absolutive,Reduced,Suffix,C1,Affirmative,PastGeneral
-Absolutive,Reduced,Suffix,C1,Affirmative,PastProgressive
-Absolutive,Reduced,Suffix,C1,Affirmative,PresentGeneral
-Absolutive,Reduced,Suffix,C1,Affirmative,PresentProgressive
-Absolutive,Reduced,Suffix,C2A,Affirmative,PastGeneral
-Absolutive,Reduced,Suffix,C2B,Affirmative,PastGeneral
-Absolutive,Reduced,Suffix,C3A,Affirmative,PastGeneral
-Absolutive,Reduced,Suffix,C3B,Affirmative,PastGeneral
-Absolutive,Reduced,prefix exponents,Affirmative,PastGeneral
-Absolutive,Reduced,prefix exponents,Affirmative,PastProgressive
-Absolutive,Reduced,prefix exponents,Affirmative,PresentGeneral
-Absolutive,Reduced,prefix exponents,Affirmative,PresentProgressive
-Main,Prefix,Affirmative,Conditional
-Main,Prefix,Affirmative,Imperative
-Main,Prefix,Affirmative,Optative
-Main,Prefix,Affirmative,PastGeneral
-Main,Prefix,Affirmative,PastHabitual
-Main,Prefix,Affirmative,PastIndependent
-Main,Prefix,Affirmative,PastProgressive
-Main,Prefix,Affirmative,Potential
-Main,Prefix,Affirmative,PresentGeneral
-Main,Prefix,Affirmative,PresentProgressive
-Main,Prefix,Compound,Affirmative,Conditional
-Main,Prefix,Compound,Affirmative,Future
-Main,Prefix,Compound,Affirmative,Optative
-Main,Prefix,Compound,Affirmative,PastHabitual
-Main,Prefix,Compound,Negative,Future
-Main,Prefix,Compound,Negative,Optative
-Main,Prefix,Compound,Negative,PresentProgressive
-Main,Prefix,Negative,Conditional
-Main,Prefix,Negative,Imperative
-Main,Prefix,Negative,PresentGeneral
-Main,Prefix,Negative,PresentProgressive2
-Main,Suffix,C1,Affirmative,Imperative
-Main,Suffix,C1,Affirmative,Optative
-Main,Suffix,C1,Affirmative,PastGeneral
-Main,Suffix,C1,Affirmative,PastIndependent
-Main,Suffix,C1,Affirmative,PastProgressive
-Main,Suffix,C1,Affirmative,Potential
-Main,Suffix,C1,Affirmative,PresentGeneral
-Main,Suffix,C1,Affirmative,PresentProgressive
-Main,Suffix,C1,Compound,Affirmative,Conditional
-Main,Suffix,C1,Compound,Affirmative,Future
-Main,Suffix,C1,Compound,Affirmative,PastHabitual
-Main,Suffix,C1,Compound,Negative,Future
-Main,Suffix,C1,Compound,Negative,Imperative
-Main,Suffix,C1,Compound,Negative,Optative
-Main,Suffix,C1,Compound,Negative,PresentProgressive
-Main,Suffix,C1,Negative,Conditional
-Main,Suffix,C1,Negative,PresentGeneral
-Main,Suffix,C1,Negative,PresentProgressive2
-Main,Suffix,C2A,Affirmative,Imperative
-Main,Suffix,C2A,Affirmative,PastGeneral
-Main,Suffix,C2A,Affirmative,PastIndependent
-Main,Suffix,C2A,Affirmative,PastProgressive
-Main,Suffix,C2A,Affirmative,Potential
-Main,Suffix,C2A,Affirmative,PresentGeneral
-Main,Suffix,C2A,Affirmative,PresentProgressive
-Main,Suffix,C2A,Compound,Affirmative,Conditional
-Main,Suffix,C2A,Compound,Affirmative,Future
-Main,Suffix,C2A,Compound,Affirmative,Optative
-Main,Suffix,C2A,Compound,Affirmative,PastHabitual
-Main,Suffix,C2A,Compound,Negative,Future
-Main,Suffix,C2A,Compound,Negative,Optative
-Main,Suffix,C2A,Compound,Negative,PresentProgressive
-Main,Suffix,C2A,Negative,Conditional
-Main,Suffix,C2A,Negative,Imperative
-Main,Suffix,C2A,Negative,PresentGeneral
-Main,Suffix,C2A,Negative,PresentProgressive2
-Main,Suffix,C2B,Affirmative,Conditional
-Main,Suffix,C2B,Affirmative,Future
-Main,Suffix,C2B,Affirmative,Optative
-Main,Suffix,C2B,Affirmative,PastHabitual
-Main,Suffix,C2B,Affirmative,PastIndependent
-Main,Suffix,C2B,Affirmative,PastProgressive
-Main,Suffix,C2B,Affirmative,Potential
-Main,Suffix,C2B,Affirmative,PresentProgressive
-Main,Suffix,C2B,Compound,Affirmative,Imperative
-Main,Suffix,C2B,Compound,Affirmative,PastGeneral
-Main,Suffix,C2B,Compound,Affirmative,PresentGeneral
-Main,Suffix,C2B,Compound,Negative,Imperative
-Main,Suffix,C2B,Compound,Negative,PresentGeneral
-Main,Suffix,C2B,Negative,Conditional
-Main,Suffix,C2B,Negative,Future
-Main,Suffix,C2B,Negative,Optative
-Main,Suffix,C2B,Negative,PresentProgressive
-Main,Suffix,C2B,Negative,PresentProgressive2
-Main,Suffix,C3A,Affirmative,Imperative
-Main,Suffix,C3A,Affirmative,Optative
-Main,Suffix,C3A,Affirmative,PastGeneral
-Main,Suffix,C3A,Affirmative,PastIndependent
-Main,Suffix,C3A,Affirmative,PastProgressive
-Main,Suffix,C3A,Affirmative,Potential
-Main,Suffix,C3A,Affirmative,PresentGeneral
-Main,Suffix,C3A,Affirmative,PresentProgressive
-Main,Suffix,C3A,Compound,Affirmative,Conditional
-Main,Suffix,C3A,Compound,Affirmative,Future
-Main,Suffix,C3A,Compound,Affirmative,PastHabitual
-Main,Suffix,C3A,Compound,Negative,Future
-Main,Suffix,C3A,Compound,Negative,Optative
-Main,Suffix,C3A,Compound,Negative,PresentProgressive
-Main,Suffix,C3A,Negative,Conditional
-Main,Suffix,C3A,Negative,Imperative
-Main,Suffix,C3A,Negative,PresentGeneral
-Main,Suffix,C3A,Negative,PresentProgressive2
-Main,Suffix,C3B,Affirmative,Conditional
-Main,Suffix,C3B,Affirmative,Future
-Main,Suffix,C3B,Affirmative,Imperative
-Main,Suffix,C3B,Affirmative,Optative
-Main,Suffix,C3B,Affirmative,PastGeneral
-Main,Suffix,C3B,Affirmative,PastHabitual
-Main,Suffix,C3B,Affirmative,PastIndependent
-Main,Suffix,C3B,Affirmative,PastProgressive
-Main,Suffix,C3B,Affirmative,Potential
-Main,Suffix,C3B,Affirmative,PresentGeneral
-Main,Suffix,C3B,Affirmative,PresentProgressive
-Main,Suffix,C3B,Negative,Conditional
-Main,Suffix,C3B,Negative,Future
-Main,Suffix,C3B,Negative,Imperative
-Main,Suffix,C3B,Negative,Optative
-Main,Suffix,C3B,Negative,PresentGeneral
-Main,Suffix,C3B,Negative,PresentProgressive
-Main,Suffix,C3B,Negative,PresentProgressive2
-Main,prefix exponents,Affirmative,Conditional
-Main,prefix exponents,Affirmative,Imperative
-Main,prefix exponents,Affirmative,Optative
-Main,prefix exponents,Affirmative,PastGeneral
-Main,prefix exponents,Affirmative,PastHabitual
-Main,prefix exponents,Affirmative,PastIndependent
-Main,prefix exponents,Affirmative,PastProgressive
-Main,prefix exponents,Affirmative,Potential
-Main,prefix exponents,Affirmative,PresentGeneral
-Main,prefix exponents,Affirmative,PresentProgressive
-Main,prefix exponents,Compound,Affirmative,Conditional
-Main,prefix exponents,Compound,Affirmative,Future
-Main,prefix exponents,Compound,Affirmative,Optative
-Main,prefix exponents,Compound,Affirmative,PastHabitual
-Main,prefix exponents,Compound,Negative,Future
-Main,prefix exponents,Compound,Negative,Optative
-Main,prefix exponents,Compound,Negative,PresentProgressive
-Main,prefix exponents,Negative,Conditional
-Main,prefix exponents,Negative,Imperative
-Main,prefix exponents,Negative,PresentGeneral
-Main,prefix exponents,Negative,PresentProgressive2
-Subject,Reduced,Prefix,Affirmative,PastGeneral
-Subject,Reduced,Prefix,Affirmative,PastProgressive
-Subject,Reduced,Prefix,Affirmative,PresentGeneral
-Subject,Reduced,Prefix,Affirmative,PresentProgressive
-Subject,Reduced,Suffix,C1,Affirmative,PastGeneral
-Subject,Reduced,Suffix,C1,Affirmative,PastProgressive
-Subject,Reduced,Suffix,C1,Affirmative,PresentGeneral
-Subject,Reduced,Suffix,C1,Affirmative,PresentProgressive
-Subject,Reduced,prefix exponents,Affirmative,PastGeneral
-Subject,Reduced,prefix exponents,Affirmative,PastProgressive
-Subject,Reduced,prefix exponents,Affirmative,PresentGeneral
-Subject,Reduced,prefix exponents,Affirmative,PresentProgressive
+clauseCase,clauseType,conjClass,conjSubClass,pdgmType,polarity,tam,lex
+Main,Prefix,Affirmative,Conditional,yiil
+Main,Prefix,Affirmative,Imperative,yahay
+Main,Prefix,Affirmative,Imperative,yidi
+Main,Prefix,Affirmative,Imperative,yiil
+Main,Prefix,Affirmative,Imperative,yimi
+Main,Prefix,Affirmative,Imperative,yiqiin
+Main,Prefix,Affirmative,Optative,yahay
+Main,Prefix,Affirmative,Optative,yidi
+Main,Prefix,Affirmative,Optative,yiqiin
+Main,Prefix,Affirmative,PastGeneral,yahay
+Main,Prefix,Affirmative,PastGeneral,yidi
+Main,Prefix,Affirmative,PastGeneral,yiil
+Main,Prefix,Affirmative,PastGeneral,yimi
+Main,Prefix,Affirmative,PastGeneral,yiqiin
+Main,Prefix,Affirmative,PastHabitual,yahay
+Main,Prefix,Affirmative,PastIndependent,yidi
+Main,Prefix,Affirmative,PastIndependent,yiil
+Main,Prefix,Affirmative,PastIndependent,yimi
+Main,Prefix,Affirmative,PastIndependent,yiqiin
+Main,Prefix,Affirmative,PastProgressive,yidi
+Main,Prefix,Affirmative,PastProgressive,yiil
+Main,Prefix,Affirmative,PastProgressive,yimi
+Main,Prefix,Affirmative,PastProgressive,yiqiin
+Main,Prefix,Affirmative,Potential,yahay
+Main,Prefix,Affirmative,Potential,yidi
+Main,Prefix,Affirmative,Potential,yiil
+Main,Prefix,Affirmative,Potential,yimi
+Main,Prefix,Affirmative,Potential,yiqiin
+Main,Prefix,Affirmative,PresentGeneral,yahay
+Main,Prefix,Affirmative,PresentGeneral,yidi
+Main,Prefix,Affirmative,PresentGeneral,yiil
+Main,Prefix,Affirmative,PresentGeneral,yimi
+Main,Prefix,Affirmative,PresentGeneral,yiqiin
+Main,Prefix,Affirmative,PresentProgressive,yidi
+Main,Prefix,Affirmative,PresentProgressive,yiil
+Main,Prefix,Affirmative,PresentProgressive,yimi
+Main,Prefix,Affirmative,PresentProgressive,yiqiin
+Main,Prefix,Negative,Conditional,yahay
+Main,Prefix,Negative,Conditional,yidi
+Main,Prefix,Negative,Conditional,yiil
+Main,Prefix,Negative,Conditional,yimi
+Main,Prefix,Negative,Conditional,yiqiin
+Main,Prefix,Negative,Imperative,yahay
+Main,Prefix,Negative,Imperative,yidi
+Main,Prefix,Negative,Imperative,yiil
+Main,Prefix,Negative,Imperative,yimi
+Main,Prefix,Negative,Imperative,yiqiin
+Main,Prefix,Negative,PresentGeneral,yahay
+Main,Prefix,Negative,PresentGeneral,yidi
+Main,Prefix,Negative,PresentGeneral,yiil
+Main,Prefix,Negative,PresentGeneral,yimi
+Main,Prefix,Negative,PresentGeneral,yiqiin
+Main,Prefix,Negative,PresentProgressive2,yidi
+Main,Prefix,Negative,PresentProgressive2,yimi
+Main,Prefix,Compound,Affirmative,Conditional,yahay
+Main,Prefix,Compound,Affirmative,Conditional,yidi
+Main,Prefix,Compound,Affirmative,Conditional,yimi
+Main,Prefix,Compound,Affirmative,Conditional,yiqiin
+Main,Prefix,Compound,Affirmative,Future,yahay
+Main,Prefix,Compound,Affirmative,Future,yidi
+Main,Prefix,Compound,Affirmative,Future,yiil
+Main,Prefix,Compound,Affirmative,Future,yimi
+Main,Prefix,Compound,Affirmative,Future,yiqiin
+Main,Prefix,Compound,Affirmative,Optative,yiil
+Main,Prefix,Compound,Affirmative,Optative,yimi
+Main,Prefix,Compound,Affirmative,PastHabitual,yidi
+Main,Prefix,Compound,Affirmative,PastHabitual,yiil
+Main,Prefix,Compound,Affirmative,PastHabitual,yimi
+Main,Prefix,Compound,Affirmative,PastHabitual,yiqiin
+Main,Prefix,Compound,Negative,Future,yahay
+Main,Prefix,Compound,Negative,Future,yidi
+Main,Prefix,Compound,Negative,Future,yiil
+Main,Prefix,Compound,Negative,Future,yimi
+Main,Prefix,Compound,Negative,Future,yiqiin
+Main,Prefix,Compound,Negative,Optative,yahay
+Main,Prefix,Compound,Negative,Optative,yidi
+Main,Prefix,Compound,Negative,Optative,yiil
+Main,Prefix,Compound,Negative,Optative,yimi
+Main,Prefix,Compound,Negative,Optative,yiqiin
+Main,Prefix,Compound,Negative,PresentProgressive,yidi
+Main,Prefix,Compound,Negative,PresentProgressive,yimi
+Main,Suffix,C1,Affirmative,Imperative,sug
+Main,Suffix,C1,Affirmative,Optative,sug
+Main,Suffix,C1,Affirmative,PastGeneral,sug
+Main,Suffix,C1,Affirmative,PastIndependent,sug
+Main,Suffix,C1,Affirmative,PastProgressive,sug
+Main,Suffix,C1,Affirmative,Potential,sug
+Main,Suffix,C1,Affirmative,PresentGeneral,sug
+Main,Suffix,C1,Affirmative,PresentProgressive,sug
+Main,Suffix,C1,Negative,Conditional,sug
+Main,Suffix,C1,Negative,PresentGeneral,sug
+Main,Suffix,C1,Negative,PresentProgressive2,sug
+Main,Suffix,C1,Compound,Affirmative,Conditional,sug
+Main,Suffix,C1,Compound,Affirmative,Future,sug
+Main,Suffix,C1,Compound,Affirmative,PastHabitual,sug
+Main,Suffix,C1,Compound,Negative,Future,sug
+Main,Suffix,C1,Compound,Negative,Imperative,sug
+Main,Suffix,C1,Compound,Negative,Optative,sug
+Main,Suffix,C1,Compound,Negative,PresentProgressive,sug
+Main,Suffix,C2A,Affirmative,Imperative,kari
+Main,Suffix,C2A,Affirmative,PastGeneral,kari
+Main,Suffix,C2A,Affirmative,PastIndependent,kari
+Main,Suffix,C2A,Affirmative,PastProgressive,kari
+Main,Suffix,C2A,Affirmative,Potential,kari
+Main,Suffix,C2A,Affirmative,PresentGeneral,kari
+Main,Suffix,C2A,Affirmative,PresentProgressive,kari
+Main,Suffix,C2A,Negative,Conditional,kari
+Main,Suffix,C2A,Negative,Imperative,kari
+Main,Suffix,C2A,Negative,PresentGeneral,kari
+Main,Suffix,C2A,Negative,PresentProgressive2,kari
+Main,Suffix,C2A,Compound,Affirmative,Conditional,kari
+Main,Suffix,C2A,Compound,Affirmative,Future,kari
+Main,Suffix,C2A,Compound,Affirmative,Optative,kari
+Main,Suffix,C2A,Compound,Affirmative,PastHabitual,kari
+Main,Suffix,C2A,Compound,Negative,Future,kari
+Main,Suffix,C2A,Compound,Negative,Optative,kari
+Main,Suffix,C2A,Compound,Negative,PresentProgressive,kari
+Main,Suffix,C2B,Affirmative,Conditional,yar
+Main,Suffix,C2B,Affirmative,Future,yar
+Main,Suffix,C2B,Affirmative,Optative,yar
+Main,Suffix,C2B,Affirmative,PastHabitual,yar
+Main,Suffix,C2B,Affirmative,PastIndependent,yar
+Main,Suffix,C2B,Affirmative,PastProgressive,yar
+Main,Suffix,C2B,Affirmative,Potential,yar
+Main,Suffix,C2B,Affirmative,PresentProgressive,yar
+Main,Suffix,C2B,Negative,Conditional,yar
+Main,Suffix,C2B,Negative,Future,yar
+Main,Suffix,C2B,Negative,Optative,yar
+Main,Suffix,C2B,Negative,PresentProgressive,yar
+Main,Suffix,C2B,Negative,PresentProgressive2,yar
+Main,Suffix,C2B,Compound,Affirmative,Imperative,yar
+Main,Suffix,C2B,Compound,Affirmative,PastGeneral,yar
+Main,Suffix,C2B,Compound,Affirmative,PresentGeneral,yar
+Main,Suffix,C2B,Compound,Negative,Imperative,yar
+Main,Suffix,C2B,Compound,Negative,PresentGeneral,yar
+Main,Suffix,C3A,Affirmative,Imperative,joogso
+Main,Suffix,C3A,Affirmative,Optative,joogso
+Main,Suffix,C3A,Affirmative,PastGeneral,joogso
+Main,Suffix,C3A,Affirmative,PastIndependent,joogso
+Main,Suffix,C3A,Affirmative,PastProgressive,joogso
+Main,Suffix,C3A,Affirmative,Potential,joogso
+Main,Suffix,C3A,Affirmative,PresentGeneral,joogso
+Main,Suffix,C3A,Affirmative,PresentProgressive,joogso
+Main,Suffix,C3A,Negative,Conditional,joogso
+Main,Suffix,C3A,Negative,Imperative,joogso
+Main,Suffix,C3A,Negative,PresentGeneral,joogso
+Main,Suffix,C3A,Negative,PresentProgressive2,joogso
+Main,Suffix,C3A,Compound,Affirmative,Conditional,joogso
+Main,Suffix,C3A,Compound,Affirmative,Future,joogso
+Main,Suffix,C3A,Compound,Affirmative,PastHabitual,joogso
+Main,Suffix,C3A,Compound,Negative,Future,joogso
+Main,Suffix,C3A,Compound,Negative,Optative,joogso
+Main,Suffix,C3A,Compound,Negative,PresentProgressive,joogso
+Main,Suffix,C3B,Affirmative,Conditional,qaado
+Main,Suffix,C3B,Affirmative,Future,qaado
+Main,Suffix,C3B,Affirmative,Imperative,qaado
+Main,Suffix,C3B,Affirmative,Optative,qaado
+Main,Suffix,C3B,Affirmative,PastGeneral,qaado
+Main,Suffix,C3B,Affirmative,PastHabitual,qaado
+Main,Suffix,C3B,Affirmative,PastIndependent,qaado
+Main,Suffix,C3B,Affirmative,PastProgressive,qaado
+Main,Suffix,C3B,Affirmative,Potential,qaado
+Main,Suffix,C3B,Affirmative,PresentGeneral,qaado
+Main,Suffix,C3B,Affirmative,PresentProgressive,qaado
+Main,Suffix,C3B,Negative,Conditional,qaado
+Main,Suffix,C3B,Negative,Future,qaado
+Main,Suffix,C3B,Negative,Imperative,qaado
+Main,Suffix,C3B,Negative,Optative,qaado
+Main,Suffix,C3B,Negative,PresentGeneral,qaado
+Main,Suffix,C3B,Negative,PresentProgressive,qaado
+Main,Suffix,C3B,Negative,PresentProgressive2,qaado
+Main,prefix exponents,Affirmative,Conditional,yiil
+Main,prefix exponents,Affirmative,Imperative,yahay
+Main,prefix exponents,Affirmative,Imperative,yidi
+Main,prefix exponents,Affirmative,Imperative,yiil
+Main,prefix exponents,Affirmative,Imperative,yimi
+Main,prefix exponents,Affirmative,Imperative,yiqiin
+Main,prefix exponents,Affirmative,Optative,yahay
+Main,prefix exponents,Affirmative,Optative,yidi
+Main,prefix exponents,Affirmative,Optative,yiqiin
+Main,prefix exponents,Affirmative,PastGeneral,yahay
+Main,prefix exponents,Affirmative,PastGeneral,yidi
+Main,prefix exponents,Affirmative,PastGeneral,yiil
+Main,prefix exponents,Affirmative,PastGeneral,yimi
+Main,prefix exponents,Affirmative,PastGeneral,yiqiin
+Main,prefix exponents,Affirmative,PastHabitual,yahay
+Main,prefix exponents,Affirmative,PastIndependent,yidi
+Main,prefix exponents,Affirmative,PastIndependent,yiil
+Main,prefix exponents,Affirmative,PastIndependent,yimi
+Main,prefix exponents,Affirmative,PastIndependent,yiqiin
+Main,prefix exponents,Affirmative,PastProgressive,yidi
+Main,prefix exponents,Affirmative,PastProgressive,yiil
+Main,prefix exponents,Affirmative,PastProgressive,yimi
+Main,prefix exponents,Affirmative,PastProgressive,yiqiin
+Main,prefix exponents,Affirmative,Potential,yahay
+Main,prefix exponents,Affirmative,Potential,yidi
+Main,prefix exponents,Affirmative,Potential,yiil
+Main,prefix exponents,Affirmative,Potential,yimi
+Main,prefix exponents,Affirmative,Potential,yiqiin
+Main,prefix exponents,Affirmative,PresentGeneral,yahay
+Main,prefix exponents,Affirmative,PresentGeneral,yidi
+Main,prefix exponents,Affirmative,PresentGeneral,yiil
+Main,prefix exponents,Affirmative,PresentGeneral,yimi
+Main,prefix exponents,Affirmative,PresentGeneral,yiqiin
+Main,prefix exponents,Affirmative,PresentProgressive,yidi
+Main,prefix exponents,Affirmative,PresentProgressive,yiil
+Main,prefix exponents,Affirmative,PresentProgressive,yimi
+Main,prefix exponents,Affirmative,PresentProgressive,yiqiin
+Main,prefix exponents,Negative,Conditional,yahay
+Main,prefix exponents,Negative,Conditional,yidi
+Main,prefix exponents,Negative,Conditional,yiil
+Main,prefix exponents,Negative,Conditional,yimi
+Main,prefix exponents,Negative,Conditional,yiqiin
+Main,prefix exponents,Negative,Imperative,yahay
+Main,prefix exponents,Negative,Imperative,yidi
+Main,prefix exponents,Negative,Imperative,yiil
+Main,prefix exponents,Negative,Imperative,yimi
+Main,prefix exponents,Negative,Imperative,yiqiin
+Main,prefix exponents,Negative,PresentGeneral,yahay
+Main,prefix exponents,Negative,PresentGeneral,yidi
+Main,prefix exponents,Negative,PresentGeneral,yiil
+Main,prefix exponents,Negative,PresentGeneral,yimi
+Main,prefix exponents,Negative,PresentGeneral,yiqiin
+Main,prefix exponents,Negative,PresentProgressive2,yidi
+Main,prefix exponents,Negative,PresentProgressive2,yimi
+Main,prefix exponents,Compound,Affirmative,Conditional,yahay
+Main,prefix exponents,Compound,Affirmative,Conditional,yidi
+Main,prefix exponents,Compound,Affirmative,Conditional,yimi
+Main,prefix exponents,Compound,Affirmative,Conditional,yiqiin
+Main,prefix exponents,Compound,Affirmative,Future,yahay
+Main,prefix exponents,Compound,Affirmative,Future,yidi
+Main,prefix exponents,Compound,Affirmative,Future,yiil
+Main,prefix exponents,Compound,Affirmative,Future,yimi
+Main,prefix exponents,Compound,Affirmative,Future,yiqiin
+Main,prefix exponents,Compound,Affirmative,Optative,yiil
+Main,prefix exponents,Compound,Affirmative,Optative,yimi
+Main,prefix exponents,Compound,Affirmative,PastHabitual,yidi
+Main,prefix exponents,Compound,Affirmative,PastHabitual,yiil
+Main,prefix exponents,Compound,Affirmative,PastHabitual,yimi
+Main,prefix exponents,Compound,Affirmative,PastHabitual,yiqiin
+Main,prefix exponents,Compound,Negative,Future,yahay
+Main,prefix exponents,Compound,Negative,Future,yidi
+Main,prefix exponents,Compound,Negative,Future,yiil
+Main,prefix exponents,Compound,Negative,Future,yimi
+Main,prefix exponents,Compound,Negative,Future,yiqiin
+Main,prefix exponents,Compound,Negative,Optative,yahay
+Main,prefix exponents,Compound,Negative,Optative,yidi
+Main,prefix exponents,Compound,Negative,Optative,yiil
+Main,prefix exponents,Compound,Negative,Optative,yimi
+Main,prefix exponents,Compound,Negative,Optative,yiqiin
+Main,prefix exponents,Compound,Negative,PresentProgressive,yidi
+Main,prefix exponents,Compound,Negative,PresentProgressive,yimi
+Absolutive,Full,Suffix,C1,Affirmative,PastGeneral,sug
+Absolutive,Full,Suffix,C1,Affirmative,PastProgressive,sug
+Absolutive,Full,Suffix,C1,Affirmative,PresentGeneral,sug
+Absolutive,Full,Suffix,C1,Affirmative,PresentProgressive,sug
+Absolutive,Full,Suffix,C2A,Affirmative,PastGeneral,kari
+Absolutive,Full,Suffix,C2A,Affirmative,PastProgressive,kari
+Absolutive,Full,Suffix,C2A,Affirmative,PresentGeneral,kari
+Absolutive,Full,Suffix,C2A,Affirmative,PresentProgressive,kari
+Absolutive,Full,Suffix,C2B,Affirmative,PastGeneral,yar
+Absolutive,Full,Suffix,C2B,Affirmative,PastProgressive,yar
+Absolutive,Full,Suffix,C2B,Affirmative,PresentGeneral,yar
+Absolutive,Full,Suffix,C2B,Affirmative,PresentProgressive,yar
+Absolutive,Full,Suffix,C3A,Affirmative,PastGeneral,joogso
+Absolutive,Full,Suffix,C3A,Affirmative,PastProgressive,joogso
+Absolutive,Full,Suffix,C3A,Affirmative,PresentGeneral,joogso
+Absolutive,Full,Suffix,C3A,Affirmative,PresentProgressive,joogso
+Absolutive,Full,Suffix,C3B,Affirmative,PastGeneral,qaado
+Absolutive,Full,Suffix,C3B,Affirmative,PastProgressive,qaado
+Absolutive,Full,Suffix,C3B,Affirmative,PresentGeneral,qaado
+Absolutive,Full,Suffix,C3B,Affirmative,PresentProgressive,qaado
+Absolutive,Reduced,Prefix,Affirmative,PastGeneral,yahay
+Absolutive,Reduced,Prefix,Affirmative,PastGeneral,yidi
+Absolutive,Reduced,Prefix,Affirmative,PastGeneral,yiil
+Absolutive,Reduced,Prefix,Affirmative,PastGeneral,yimi
+Absolutive,Reduced,Prefix,Affirmative,PastGeneral,yiqiin
+Absolutive,Reduced,Prefix,Affirmative,PastProgressive,yidi
+Absolutive,Reduced,Prefix,Affirmative,PastProgressive,yiil
+Absolutive,Reduced,Prefix,Affirmative,PastProgressive,yimi
+Absolutive,Reduced,Prefix,Affirmative,PastProgressive,yiqiin
+Absolutive,Reduced,Prefix,Affirmative,PresentGeneral,yidi
+Absolutive,Reduced,Prefix,Affirmative,PresentGeneral,yiil
+Absolutive,Reduced,Prefix,Affirmative,PresentGeneral,yimi
+Absolutive,Reduced,Prefix,Affirmative,PresentGeneral,yiqiin
+Absolutive,Reduced,Prefix,Affirmative,PresentProgressive,yidi
+Absolutive,Reduced,Prefix,Affirmative,PresentProgressive,yiil
+Absolutive,Reduced,Prefix,Affirmative,PresentProgressive,yimi
+Absolutive,Reduced,Prefix,Affirmative,PresentProgressive,yiqiin
+Absolutive,Reduced,Suffix,C1,Affirmative,PastGeneral,sug
+Absolutive,Reduced,Suffix,C1,Affirmative,PastProgressive,keen
+Absolutive,Reduced,Suffix,C1,Affirmative,PresentGeneral,keen
+Absolutive,Reduced,Suffix,C1,Affirmative,PresentProgressive,keen
+Absolutive,Reduced,Suffix,C2A,Affirmative,PastGeneral,kari
+Absolutive,Reduced,Suffix,C2B,Affirmative,PastGeneral,yar
+Absolutive,Reduced,Suffix,C3A,Affirmative,PastGeneral,joogso
+Absolutive,Reduced,Suffix,C3B,Affirmative,PastGeneral,qaado
+Absolutive,Reduced,prefix exponents,Affirmative,PastGeneral,yahay
+Absolutive,Reduced,prefix exponents,Affirmative,PastGeneral,yidi
+Absolutive,Reduced,prefix exponents,Affirmative,PastGeneral,yiil
+Absolutive,Reduced,prefix exponents,Affirmative,PastGeneral,yimi
+Absolutive,Reduced,prefix exponents,Affirmative,PastGeneral,yiqiin
+Absolutive,Reduced,prefix exponents,Affirmative,PastProgressive,yidi
+Absolutive,Reduced,prefix exponents,Affirmative,PastProgressive,yiil
+Absolutive,Reduced,prefix exponents,Affirmative,PastProgressive,yimi
+Absolutive,Reduced,prefix exponents,Affirmative,PastProgressive,yiqiin
+Absolutive,Reduced,prefix exponents,Affirmative,PresentGeneral,yidi
+Absolutive,Reduced,prefix exponents,Affirmative,PresentGeneral,yiil
+Absolutive,Reduced,prefix exponents,Affirmative,PresentGeneral,yimi
+Absolutive,Reduced,prefix exponents,Affirmative,PresentGeneral,yiqiin
+Absolutive,Reduced,prefix exponents,Affirmative,PresentProgressive,yidi
+Absolutive,Reduced,prefix exponents,Affirmative,PresentProgressive,yiil
+Absolutive,Reduced,prefix exponents,Affirmative,PresentProgressive,yimi
+Absolutive,Reduced,prefix exponents,Affirmative,PresentProgressive,yiqiin
+Subject,Reduced,Prefix,Affirmative,PastGeneral,yahay
+Subject,Reduced,Prefix,Affirmative,PastGeneral,yidi
+Subject,Reduced,Prefix,Affirmative,PastGeneral,yiil
+Subject,Reduced,Prefix,Affirmative,PastGeneral,yimi
+Subject,Reduced,Prefix,Affirmative,PastGeneral,yiqiin
+Subject,Reduced,Prefix,Affirmative,PastProgressive,yidi
+Subject,Reduced,Prefix,Affirmative,PastProgressive,yiil
+Subject,Reduced,Prefix,Affirmative,PastProgressive,yimi
+Subject,Reduced,Prefix,Affirmative,PastProgressive,yiqiin
+Subject,Reduced,Prefix,Affirmative,PresentGeneral,yidi
+Subject,Reduced,Prefix,Affirmative,PresentGeneral,yiil
+Subject,Reduced,Prefix,Affirmative,PresentGeneral,yimi
+Subject,Reduced,Prefix,Affirmative,PresentGeneral,yiqiin
+Subject,Reduced,Prefix,Affirmative,PresentProgressive,yidi
+Subject,Reduced,Prefix,Affirmative,PresentProgressive,yiil
+Subject,Reduced,Prefix,Affirmative,PresentProgressive,yimi
+Subject,Reduced,Prefix,Affirmative,PresentProgressive,yiqiin
+Subject,Reduced,Suffix,C1,Affirmative,PastGeneral,keen
+Subject,Reduced,Suffix,C1,Affirmative,PastProgressive,keen
+Subject,Reduced,Suffix,C1,Affirmative,PresentGeneral,keen
+Subject,Reduced,Suffix,C1,Affirmative,PresentProgressive,keen
+Subject,Reduced,prefix exponents,Affirmative,PastGeneral,yahay
+Subject,Reduced,prefix exponents,Affirmative,PastGeneral,yidi
+Subject,Reduced,prefix exponents,Affirmative,PastGeneral,yiil
+Subject,Reduced,prefix exponents,Affirmative,PastGeneral,yimi
+Subject,Reduced,prefix exponents,Affirmative,PastGeneral,yiqiin
+Subject,Reduced,prefix exponents,Affirmative,PastProgressive,yidi
+Subject,Reduced,prefix exponents,Affirmative,PastProgressive,yiil
+Subject,Reduced,prefix exponents,Affirmative,PastProgressive,yimi
+Subject,Reduced,prefix exponents,Affirmative,PastProgressive,yiqiin
+Subject,Reduced,prefix exponents,Affirmative,PresentGeneral,yidi
+Subject,Reduced,prefix exponents,Affirmative,PresentGeneral,yiil
+Subject,Reduced,prefix exponents,Affirmative,PresentGeneral,yimi
+Subject,Reduced,prefix exponents,Affirmative,PresentGeneral,yiqiin
+Subject,Reduced,prefix exponents,Affirmative,PresentProgressive,yidi
+Subject,Reduced,prefix exponents,Affirmative,PresentProgressive,yiil
+Subject,Reduced,prefix exponents,Affirmative,PresentProgressive,yimi
+Subject,Reduced,prefix exponents,Affirmative,PresentProgressive,yiqiin

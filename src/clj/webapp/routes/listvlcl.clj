@@ -19,22 +19,26 @@
   (let [langlist (slurp "pvlists/langlist.txt")
         languages (split langlist #"\n")
         ldomlist (slurp "pvlists/ldomainlist.txt")
-        ldoms (split ldomlist #"\n")
-        lvallist (slurp "pvlists/langvals.txt")
-        lvals (split lvallist #"\n")]
+        ldoms (split ldomlist #"\n")]
   (layout/common 
    [:h3 "PDGM Value-Cluster List"]
    [:p "(Only 'Finite Verb' enabled at this time.)"]
    [:hr]
    (form-to [:post "/listvlcl-gen"]
             [:table
-             [:tr [:td "PDGM Language: " ]
-              [:td [:select#language.required
-                    {:title "Choose a language.", :name "language"}
+             [:tr [:td "PDGM Language Domain: " ]
+              [:td [:select#ldomain.required
+                    {:title "Choose a language domain.", :name "ldomain"}
+                    [:optgroup {:label "Languages"} 
                     (for [language languages]
                       (let [opts (split language #" ")]
-                        [:option {:value (first opts)} (last opts) ]))]]]
-             [:tr [:td "Part of Speech: "]
+                        [:option {:value (first opts)} (last opts) ]))]
+                [:optgroup {:label "Language Families"} 
+               (for [ldom ldoms]
+                (let [opts (split ldom #" ")]
+               [:option {:value (last opts)} (first opts) ]))
+                 [:option {:disabled "disabled"} "Other"]]]]]
+              [:tr [:td "Part of Speech: "]
               [:td [:select#pos.required
                     {:title "Choose a pdgm type.", :name "pos"}
                     [:option {:value "fv" :label "Finite Verb"}]
@@ -48,11 +52,18 @@
                     {:value "Make PDGM Value-Clusters List", :name "submit", :type "submit"}]]]]))))
 
 (defn handle-listvlcl-gen
-  [language pos]
-    ;; send SPARQL over HTTP request
+  [ldomain pos]
+  (layout/common
+   [:body
+    [:h3#clickable "Properties used in " pos " pdgms for: " ldomain]
       (let [lprefmap (read-string (slurp "pvlists/lprefs.clj"))
+            langs (split ldomain #",")]
+        (for [language langs]
+          (let [
             lang (read-string (str ":" language))
             lpref (lang lprefmap)
+            ;; send SPARQL over HTTP request
+            outfile (str "pvlists/pname-" pos "-list-" language ".txt")
             query-sparql1 (sparql/listlgpr-fv-sparql language lpref)
             query-sparql1-pr (replace query-sparql1 #"<" "&lt;")
             req1 (http/get aama
@@ -69,27 +80,27 @@
                            {"query" query-sparql2 ;;generated sparql
                             ;;"format" "application/sparql-results+json"}})]
                             "format" "csv"}})
-            req2-pr (replace (:body req2) #",+" ",")
+            req2-pr1 (replace (:body req2) #",+" ",")
+            req2-pr2 (replace req2-pr1 #"\B," "")
               ]
         (log/info "sparql result status: " (:status req2))
-        (layout/common
-         [:body
-          [:h3#clickable "Properties used in " pos " pdgms for: " language]
+        (spit outfile req2-pr2)
           [:div
            [:h4 "Language: " language]
-           [:pre req2-pr]
+           [:p "File: " outfile]
+           [:pre req2-pr2]
            [:hr]
-           [:h3#clickable "Query:"]
-           [:pre query-sparql2-pr]
-           ]
+           ;;[:h3#clickable "Query:"]
+           ;;[:pre query-sparql2-pr]
+           ])))
           [:script {:src "js/goog/base.js" :type "text/javascript"}]
           [:script {:src "js/webapp.js" :type "text/javascript"}]
           [:script {:type "text/javascript"}
-           "goog.require('webapp.core');"]])))
+           "goog.require('webapp.core');"]]))
 
 (defroutes listvlcl-routes
   (GET "/listvlcl" [] (listvlcl))
-  (POST "/listvlcl-gen" [language pos] (handle-listvlcl-gen language pos))
+  (POST "/listvlcl-gen" [ldomain pos] (handle-listvlcl-gen ldomain pos))
   ;;(POST "/lgvldisplay" [ldomain lval] (handle-lgvldisplay ldomain lval))
   )
 

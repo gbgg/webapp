@@ -3,7 +3,7 @@
   (:require [compojure.core :refer :all]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [clojure.string :refer [capitalize split ]]
+            [clojure.string :refer [capitalize split]]
 
             [stencil.core :as tmpl]
             [clj-http.client :as http]
@@ -22,7 +22,10 @@
 ;;have an rdfs:label. See sparql/pdgmqry-sparql-alt for
 ;;older version.
 (defn pdgmqry-sparql-fv [language lpref valstring]
-    (let [values (split valstring #",")
+    (let [;; if assume last value is lex (generalize to other pos?)
+          lex (clojure.string/replace valstring #".*,(.*?)$" "$1")
+          vals (clojure.string/replace valstring #"(.*),.*?$" "$1")
+          values (split vals #",")
           Language (capitalize language)
           ]
       (str
@@ -56,7 +59,8 @@
           :lpref lpref})))
       (tmpl/render-string
        (str " 
-           OPTIONAL { ?s aamas:lexeme ?lex . }  
+           ?s aamas:lexeme ?lexeme .
+           ?lexeme rdfs:label \"{{lex}}\" .
 	   OPTIONAL { ?s {{lpref}}:number ?number .  
 	   ?number rdfs:label ?num . } 
 	   {   ?s {{lpref}}:pngShapeClass ?person .}  
@@ -70,7 +74,8 @@
 	 } 
 	} 
 	ORDER BY DESC(?num) ?pers DESC(?gen) ")
-       {:lpref lpref})
+       {:lpref lpref
+        :lex lex})
        );;str
 ))
 
@@ -769,7 +774,7 @@ ORDER BY ASC(?prop) ASC(?val)
        PREFIX aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
        PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/>
        PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/>
-       SELECT DISTINCT ?langLabel {{selection}} ?lex
+       SELECT DISTINCT  {{selection}} ?lex
        WHERE{
          {   
           GRAPH aamag:{{language}} {
@@ -796,7 +801,7 @@ ORDER BY ASC(?prop) ASC(?val)
                 :lpref lpref})))
             (tmpl/render-string 
              (str "}}}
-       ORDER BY ?langLabel {{selection}}  ")
+       ORDER BY  {{selection}}  ")
              {:selection selection})
      )))
 
