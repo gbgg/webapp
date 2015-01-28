@@ -176,9 +176,11 @@
         Language2 (capitalize language2)
         lang2 (read-string (str ":" language2))
         lpref2 (lang2 lprefmap)
-        query-sparql1 (cond 
+        valstr1 (clojure.string/replace valstring1 #",*person|,*gender|,*number" "")
+        valstr2 (clojure.string/replace valstring2 #",*person|,*gender|,*number" "")
+    query-sparql1 (cond 
                        (= pos "pro")
-                       (sparql/pdgmqry-sparql-pro language1 lpref1 valstring1)
+                       (sparql/pdgmqry-sparql-pro language1 lpref1 valstr1)
                        (= pos "nfv")
                        (sparql/pdgmqry-sparql-nfv language1 lpref1 valstring1)
                        (= pos "noun")
@@ -193,7 +195,7 @@
         pdgm1 (replace (:body req1) #"\r\n" "%%")
         query-sparql2 (cond 
                        (= pos "pro")
-                       (sparql/pdgmqry-sparql-pro language2 lpref2 valstring2)
+                       (sparql/pdgmqry-sparql-pro language2 lpref2 valstr2)
                        (= pos "nfv")
                        (sparql/pdgmqry-sparql-nfv language2 lpref2 valstring2)
                        (= pos "noun")
@@ -206,10 +208,10 @@
                          ;;"format" "application/sparql-results+json"}})
                          ;;"format" "text"}})
         pdgm2 (replace (:body req2) #"\r\n" "%%")
-        pdgm3 (replace (:body req2) #"," "\t\t")
+        ;;pdgm3 (replace (:body req2) #"," "\t\t")
         pdgmnames (str language1":"valstring1"+"language2":"valstring2)
         pdgmstr1 (str pdgm1 pdgm2)
-        pdgmstr2 (replace pdgmstr1 #"," "_")
+        pdgmstr2 (replace pdgmstr1 #",([^,]*%%)" "&$1")
              ]
   (layout/common
    [:body
@@ -263,9 +265,12 @@
 
 (defn pstring2map
   [pdgm]
-  (let [pdgm1  (replace pdgm #"(.*?_.*?_.*?)_(.*?%%)" "$1 $2")
-        pdgm2 (replace pdgm1 #"%%" " ")
-        plist (split pdgm2 #" ")
+  (let [pdgm1 (replace pdgm #" " "+") ;; for compound tokens
+        ;;pdgm2  (replace pdgm1 #"(.*?_.*?_.*?)_(.*?%%)" "$1 $2")
+        ;;pdgm2  (replace pdgm1 #"(.*)_([^_]*?%%)" "$1 $2")
+        pdgm2 (replace pdgm1 #"&" " ")
+        pdgm3 (replace pdgm2 #"%%" " ")
+        plist (split pdgm3 #" ")
         pmap (apply hash-map plist)
         ]
     (clojure.walk/keywordize-keys pmap)))
@@ -347,7 +352,7 @@
       [:script {:src "js/webapp.js" :type "text/javascript"}]
       [:script {:type "text/javascript"}
        "goog.require('webapp.core');"]])))
-    
+
 ;; The following is a work-around, limiting the number of pdgms to 2;
 ;; It will be necessary to generalize this (perhaps along the lines 
 ;; initiated in handle-pdgmprlldisplay2) to n pdgms.
@@ -361,8 +366,12 @@
         pnames (split pdgmnames #"\+")
         pdgms-sp (split pdgmstr #"%%" 2)
         header (first pdgms-sp)
+        header2 (replace header #"&" ",")
         pbody (last pdgms-sp)
         pdgms (split pbody (re-pattern (str header "%%")))
+        ;;pdgms (split pbody  (re-pattern header))
+        pdgms1 (first pdgms)
+        pdgms2 (last pdgms)
         pmaps (for [pdgm pdgms] (pstring2map pdgm))
         pmap1 (first pmaps)
         pmap2 (last pmaps)
@@ -373,9 +382,18 @@
       [:ol
       (for [pname pnames]
         [:li pname])]
+      [:ol
+       [:li "header: " [:pre header]]
+       [:li "header2: " [:pre header2]]
+       [:li "pdgms1: " [:pre pdgms1]]
+       [:li "pdgms2: " [:pre pdgms2]]
+       [:li "pbody: " [:pre pbody]]
+       [:li "pmaps: " [:pre pmaps]]
+       [:li "pmap1: " [:pre pmap1]]
+       [:li "pmap2: " [:pre pmap2]]]
       [:hr]
       [:table
-       (let [heads (split header #"_")]
+       (let [heads (split header2 #",")]
          (for [head heads]
            [:th head]))
       (for [png pngs]
@@ -383,14 +401,14 @@
          (let [pngk (keyword png)]
             (if (pngk pmap1)
                   [:div
-                   (let [npgs (split png #"_")]
+                   (let [npgs (split png #",")]
                      (for [npg npgs]
                        [:td npg]))
                    [:td (pngk pmap1)]
                    [:td (pngk pmap2)]]
               (if (pngk pmap2)
                   [:div
-                   (let [npgs (split png #"_")]
+                   (let [npgs (split png #",")]
                      (for [npg npgs]
                        [:td npg]))
                    [:td (pngk pmap1)]

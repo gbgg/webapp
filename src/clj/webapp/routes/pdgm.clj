@@ -101,9 +101,11 @@
         lprefmap (read-string (slurp "pvlists/lprefs.clj"))
         lang (read-string (str ":" language))
         lpref (lang lprefmap)
+        valstrng (clojure.string/replace valstring #",*person|,*gender|,*number" "")
+        valstr (clojure.string/replace valstrng #":," ":")
         query-sparql (cond 
                       (= pos "pro")
-                      (sparql/pdgmqry-sparql-pro language lpref valstring)
+                      (sparql/pdgmqry-sparql-pro language lpref valstr)
                       (= pos "nfv")
                       (sparql/pdgmqry-sparql-nfv language lpref valstring)
                       (= pos "noun")

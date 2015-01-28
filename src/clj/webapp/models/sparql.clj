@@ -79,14 +79,17 @@
        );;str
 ))
 
-(defn pdgmqry-sparql-pro [language lpref valstring]
-    (let [values (split valstring #"[:,]")
+(defn pdgmqry-sparql-pro [language lpref valstr]
+    (let [values (split valstr #"[:,]")
           proclass (first values)
           props (vec (rest values))
-          propstring (clojure.string/replace valstring #"^.*?:" ",")
-          qpropstring (clojure.string/replace propstring #"-|," {"-" "" "," " ?"})
-          ;;qprops (clojure.string/replace propstring "-" "")]
-          ;;qpropstring (clojure.string/replace qprops "," " ?")
+          propstring (clojure.string/replace valstr #"^.*?:" "")
+          propstr (clojure.string/replace propstring #"^," "")
+          ;;qpropstring (clojure.string/replace propstring #"-|," {"-" "" "," " ?"})
+          qprops (clojure.string/replace propstr "-" "")
+          qpropstring (if (re-find #"\S" qprops)
+                        (str "?" (clojure.string/replace qprops "," " ?"))
+                        qprops)
           Language (capitalize language)
           ]
       (str
@@ -98,7 +101,7 @@
 	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
 	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
 	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
-	SELECT {{selection}}  ?token  
+	SELECT {{selection}}  ?num ?pers ?gen ?token  
 	WHERE
         { 
 	 { 
