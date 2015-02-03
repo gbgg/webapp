@@ -44,7 +44,7 @@
                     {:title "Choose a pdgm type.", :name "pos"}
                     [:option {:value "fv" :label "Finite Verb"}]
                     [:option {:disabled "disabled" :value "nfv" :label "Non-finite Verb"}]
-                    [:option {:disabled "disabled" :value "pro" :label "Pronoun"}]
+                    [:option {:value "pro" :label "Pronoun"}]
                     [:option {:disabled "disabled" :value "noun" :label "Noun"}]
                     ]]]
              ;;(submit-button "Get pdgm")
@@ -63,7 +63,14 @@
               (let [lang (read-string (str ":" language))
                     lpref (lang lprefmap)
                     ;; send SPARQL over HTTP request
-                    query-sparql (sparql/listlgpr-fv-sparql language lpref)
+                    query-sparql (cond 
+                      (= pos "pro")
+                      (sparql/listlgpr-sparql-pro language lpref)
+                      ;;(= pos "nfv")
+                      ;;(sparql/listlgpr-sparql-nfv language lpref)
+                      ;;(= pos "noun")
+                      ;;(sparql/listlgpr-sparql-noun language lpref)
+                      :else (sparql/listlgpr-sparql-fv language lpref))
                     query-sparql-pr (replace query-sparql #"<" "&lt;")
                     req (http/get aama
                                   {:query-params

@@ -7,7 +7,9 @@
             [compojure.handler :as handler]
             [compojure.route :as route]
             [webapp.routes.home :refer [home-routes]]
-            [webapp.routes.listgen :refer [listgen-routes]]
+            [webapp.routes.utilities :refer [utilities-routes]]
+            [webapp.routes.update :refer [update-routes]]
+            [webapp.routes.upload :refer [upload-routes]]
             [webapp.routes.listlgpr :refer [listlgpr-routes]]
             [webapp.routes.listvlcl :refer [listvlcl-routes]]
             [webapp.routes.listlpv :refer [listlpv-routes]]
@@ -30,7 +32,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes home-routes pdgm-routes pdgmcmp-routes pvdisp-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes listgen-routes listlgpr-routes listvlcl-routes listlpv-routes app-routes)
+  (-> (routes home-routes pdgm-routes pdgmcmp-routes pvdisp-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes utilities-routes update-routes upload-routes listlgpr-routes listvlcl-routes listlpv-routes app-routes)
       (handler/site)
       (wrap-base-url)))
 

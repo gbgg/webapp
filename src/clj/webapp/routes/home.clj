@@ -11,7 +11,7 @@
     [:ol
     [:li "Paradigm Displays:"]
     [:li "Property-value Displays:"]
-    [:li "Property-value Lists:"]]
+    [:li "Utilities:"]]
     [:p "In each case the query parameters will be specified by pick-lists or text-input boxes, and the query response returned from the datastore will be followed by a listing of the query which produced that response."]
 ))
    

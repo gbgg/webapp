@@ -43,7 +43,7 @@
                     {:title "Choose a pdgm type.", :name "pos"}
                     [:option {:value "fv" :label "Finite Verb"}]
                     [:option {:disabled "disabled" :value "nfv" :label "Non-finite Verb"}]
-                    [:option {:disabled "disabled" :value "pro" :label "Pronoun"}]
+                    [:option {:value "pro" :label "Pronoun"}]
                     [:option {:disabled "disabled" :value "noun" :label "Noun"}]
                     ]]]
              ;;(submit-button "Get pdgm")
@@ -64,7 +64,14 @@
             lpref (lang lprefmap)
             ;; send SPARQL over HTTP request
             outfile (str "pvlists/pname-" pos "-list-" language ".txt")
-            query-sparql1 (sparql/listlgpr-fv-sparql language lpref)
+            query-sparql1 (cond 
+                          (= pos "pro")
+                          (sparql/listlgpr-sparql-pro language lpref)
+                          ;;(= pos "nfv")
+                          ;;(sparql/listlgpr-sparql-nfv language lpref)
+                          ;;(= pos "noun")
+                          ;;(sparql/listlgpr-sparql-noun language lpref)
+                          :else (sparql/listlgpr-sparql-fv language lpref))
             query-sparql1-pr (replace query-sparql1 #"<" "&lt;")
             req1 (http/get aama
                           {:query-params
@@ -73,7 +80,14 @@
                             ;;"format" "application/sparql-results+json"}})
                             ;;"format" "text"}})
             propstring (replace (:body req1) #"\r\n" ",")
-            query-sparql2 (sparql/listvlcl-fv-sparql language lpref propstring)
+            query-sparql2 (cond 
+                          (= pos "pro")
+                          (sparql/listvlcl-sparql-pro language lpref propstring)
+                          ;;(= pos "nfv")
+                          ;;(sparql/listvlcl-sparql-nfv language lpref propstring)
+                          ;;(= pos "noun")
+                          ;;(sparql/listvlcl-sparql-noun language lpref propstring)
+                          :else (sparql/listvlcl-sparql-fv language lpref propstring))
             query-sparql2-pr (replace query-sparql2 #"<" "&lt;")
             req2 (http/get aama
                           {:query-params

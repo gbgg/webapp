@@ -1,4 +1,4 @@
-(ns webapp.routes.listgen
+(ns webapp.routes.utilities
  (:refer-clojure :exclude [filter concat group-by max min count])
   (:require [compojure.core :refer :all]
             [webapp.views.layout :as layout]
@@ -17,7 +17,7 @@
 
 (def aama "http://localhost:3030/aama/query")
 
-(defn listgen []
+(defn utilities []
   (layout/common [:h1 "Utilities"]
                  [:hr]
     [:div
@@ -46,18 +46,22 @@
             ]]]
      [:hr]
      [:h3 "Update:"]
-     [:p "Update procedures are still in the process of being integrated into the current application. For the moment, note the following command-line versions:"
-      [:ul [:li [:em "Datastore Update "] "after a data/LANG/LANG-pdgms.edn has been edited. Usage:" 
+     [:p "Procedures to update local and remote datastore after an edn file has been edited:"
+      [:ul [:li (link-to "/update" "Update Local Datastore")]
+       [:li (link-to "/upload" "Upload to Remote Repository") " [Requires Access Privileges]"]]]
+     [:hr]
+     [:p "Note also the following command-line versions:"
+      [:ul [:li [:h4 "Datastore Update "] "(after a data/LANG/LANG-pdgms.edn has been edited.) Usage:" 
             [:ul 
-             [:li "bin/aama-datastore-update.sh data/LANG (for a single language)"]
-             [:li " bin/aama-datastore-setup.sh \"data/*\" (to [re-]initiate the whole datastore)"]]]
-       [:li [:em "Upload "] "to aama/ language repository and push to origin. Usage:"
-        [:ul [:li "bin/aama-cp2lngrepo.sh data/LANG (for a single language)"]
-             [:li " bin/aama-datastore-setup.sh \"data/*\" (to [re-]upload the whole datastore)"]]]]
+             [:li "aama-data/bin/aama-datastore-update.sh data/LANG (for a single language)"]
+             [:li " aama-data/bin/aama-datastore-setup.sh \"data/*\" (to [re-]initiate the whole datastore)"]]]
+       [:li [:h4 "Upload "] "(to aama/ language repository and push to origin). Usage:"
+        [:ul [:li "aama-data/bin/aama-cp2lngrepo.sh data/LANG (for a single language)"]
+             [:li "aama-data/bin/aama-datastore-setup.sh \"data/*\" (to [re-]upload the whole datastore)"]]]]
       "(cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")")"]]))
 
-(defroutes listgen-routes
-  (GET "/listgen" [] (listgen))
+(defroutes utilities-routes
+  (GET "/utilities" [] (utilities))
   ;;(POST "/pdgmqry" [language pos] (handle-pdgmqry language pos))
   ;;(POST "/pdgmdisplay" [language valstring] (handle-pdgmdisplay language valstring))
   )
