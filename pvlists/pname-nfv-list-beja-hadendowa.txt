@@ -1,3 +1,2 @@
-DervStemForm:conjClass,derivedStem,nonFiniteForm,polarity,tam,verbMorphClass
-VBNOMFORM:conjClass,nomForm,nonFiniteForm,polarity,verbMorphClass
-
+morphClassLabel,property,
+DervStemForm,conjClass,derivedStem,nonFiniteForm,polarity,tam,verbMorphClass,

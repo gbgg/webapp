@@ -5,7 +5,7 @@
             [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [clojure.string :refer [split replace]]
+            [clojure.string :refer [split replace join]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             ;;[boutros.matsu.sparql :refer :all]
@@ -42,20 +42,42 @@
               [:td [:select#pos.required
                     {:title "Choose a pdgm type.", :name "pos"}
                     [:option {:value "fv" :label "Finite Verb"}]
-                    [:option {:disabled "disabled" :value "nfv" :label "Non-finite Verb"}]
+                    [:option {:value "nfv" :label "Non-finite Verb"}]
                     [:option {:value "pro" :label "Pronoun"}]
-                    [:option {:disabled "disabled" :value "noun" :label "Noun"}]
+                    [:option {:value "noun" :label "Noun"}]
                     ]]]
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
               [:td [:input#submit
                     {:value "Make PDGM Value-Clusters List", :name "submit", :type "submit"}]]]]))))
 
+(defn req2vlist
+  [vlist]
+  (let [vlist1 (replace vlist #"\n$" "")
+;;        vlist2 (replace vlist1 #"\n" "%%\n")
+        reqq (split vlist1 #"\n")
+        reqqa (first reqq)
+        reqqb (rest reqq)
+        vvec (for [req reqqb] (split req #","))
+        vmap (for [vvc vvec] (apply hash-map vvc))
+        vmerge (apply merge-with str vmap)
+        reqq2 (into [] (for [vm vmerge] (join "," vm)))
+        ;; I have no idea why the following works
+        reqq3 (for [r2 reqq2] (replace r2 #"\r" ","))
+        reqq4 (into [] reqq3)
+        ]
+    (join "\n" reqq4)
+;;        (for [r2 reqq2] (replace r2 #"\r" ","))
+;;    (into [] (for [vm vmerge] (join "," vm)))
+;;    (for [req reqq] (split req #","))
+))
+
+
 (defn handle-listvlcl-gen
   [ldomain pos]
   (layout/common
    [:body
-    [:h3#clickable "Properties used in " pos " pdgms for: " ldomain]
+    [:h3#clickable "Value-clusters used in " pos " pdgms for: " ldomain]
       (let [lprefmap (read-string (slurp "pvlists/lprefs.clj"))
             langs (split ldomain #",")]
         (for [language langs]
@@ -67,12 +89,13 @@
             query-sparql1 (cond 
                           (= pos "pro")
                           (sparql/listlgpr-sparql-pro language lpref)
-                          ;;(= pos "nfv")
-                          ;;(sparql/listlgpr-sparql-nfv language lpref)
-                          ;;(= pos "noun")
-                          ;;(sparql/listlgpr-sparql-noun language lpref)
-                          :else (sparql/listlgpr-sparql-fv language lpref))
-            query-sparql1-pr (replace query-sparql1 #"<" "&lt;")
+                          (= pos "nfv")
+                          (sparql/listlgpr-sparql-nfv language lpref)
+                          (= pos "noun")
+                          (sparql/listlgpr-sparql-noun language lpref)
+                          (= pos "fv")
+                          (sparql/listlgpr-sparql-fv language lpref))
+            ;;query-sparql1-pr (replace query-sparql1 #"<" "&lt;")
             req1 (http/get aama
                           {:query-params
                            {"query" query-sparql1 ;;generated sparql
@@ -83,29 +106,35 @@
             query-sparql2 (cond 
                           (= pos "pro")
                           (sparql/listvlcl-sparql-pro language lpref propstring)
-                          ;;(= pos "nfv")
-                          ;;(sparql/listvlcl-sparql-nfv language lpref propstring)
-                          ;;(= pos "noun")
-                          ;;(sparql/listvlcl-sparql-noun language lpref propstring)
+                          (= pos "nfv")
+                          (sparql/listvlcl-sparql-nfv language lpref propstring)
+                          (= pos "noun")
+                          (sparql/listvlcl-sparql-noun language lpref propstring)
                           :else (sparql/listvlcl-sparql-fv language lpref propstring))
             query-sparql2-pr (replace query-sparql2 #"<" "&lt;")
             req2 (http/get aama
                           {:query-params
                            {"query" query-sparql2 ;;generated sparql
-                            ;;"format" "application/sparql-results+json"}})]
+                            ;;"format" "application/sparql-results+json"}})
                             "format" "csv"}})
-            req2-pr1 (replace (:body req2) #",+" ",")
-            req2-pr2 (replace req2-pr1 #"\B," "")
+            req2-body (replace (:body req2) #",+" ",")
+;;            req2-out (replace req2-body #"\B," "")
+            req2-out   (cond
+                        (or (= pos "fv") (= pos "pro"))
+                        (replace req2-body #"\B," "")
+                        :else (req2vlist req2-body))
               ]
         (log/info "sparql result status: " (:status req2))
-        (spit outfile req2-pr2)
+        (spit outfile req2-out)
           [:div
            [:h4 "Language: " language]
            [:p "File: " outfile]
-           [:pre req2-pr2]
+           ;;[:p "req2-body: " [:pre req2-body]]
+           [:p  [:pre req2-out]]
            [:hr]
-           ;;[:h3#clickable "Query:"]
-           ;;[:pre query-sparql2-pr]
+           [:p "propstring: " [:pre propstring]]
+           [:h3#clickable "Query:"]
+           [:pre query-sparql2-pr]
            ])))
           [:script {:src "js/goog/base.js" :type "text/javascript"}]
           [:script {:src "js/webapp.js" :type "text/javascript"}]

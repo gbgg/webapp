@@ -1,2 +1,2 @@
-PrefixIrregular:conjClass,rootClass
-
+PrefixIrregular,conjClass,rootClass,
+morphClassLabel,property,

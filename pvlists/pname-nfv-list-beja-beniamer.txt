@@ -1,8 +1,8 @@
-DERVSTEMCAUS:conjClass,derivedStem,pdgmType
-DERVSTEMCOLL:conjClass,derivedStem,pdgmType
-DERVSTEMPASS:conjClass,derivedStem,pdgmType
-DERVSTEMRECIP:conjClass,derivedStem,pdgmType
-DERVSTEMREFL:conjClass,derivedStem,pdgmType
-DERVSTEMVAR:conjClass,derivedStem,derivedStemAug,pdgmType
-TENSESTEMPLUP1:conjClass,derivedStem,pdgmType,polarity,stemType,tam
-
+TENSESTEMPLUP1,conjClass,derivedStem,pdgmType,polarity,stemType,tam,
+DERVSTEMVAR,conjClass,derivedStem,derivedStemAug,pdgmType,
+DERVSTEMPASS,conjClass,derivedStem,pdgmType,
+DERVSTEMCOLL,conjClass,derivedStem,pdgmType,
+DERVSTEMRECIP,conjClass,derivedStem,pdgmType,
+morphClassLabel,property,
+DERVSTEMREFL,conjClass,derivedStem,pdgmType,
+DERVSTEMCAUS,conjClass,derivedStem,pdgmType,

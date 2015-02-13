@@ -1,4 +1,3 @@
-DERVSTEMFORM:conjClass,derivedStem,derivedStemAug,pdgmType,rootClass
-TENSESTEM:conjClass,derivedStem,derivedStemAug,formType,rootClass,tamStemClass
-VERBALPARTICIPLES:conjClass,derivedStem,nonFiniteForm,participle
-
+DERVSTEMFORM,conjClass,derivedStem,derivedStemAug,pdgmType,rootClass,
+VERBALPARTICIPLES,conjClass,derivedStem,nonFiniteForm,participle,
+TENSESTEM,conjClass,derivedStem,derivedStemAug,formType,rootClass,tamStemClass,

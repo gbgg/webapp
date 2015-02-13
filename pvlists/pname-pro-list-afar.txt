@@ -1,4 +1,9 @@
-Independent:case,gender,number,person
-PossessiveDefinite:gender,number,person
-Reflexive:gender,number,person
-
+proClass,case
+PossessiveDefinite,
+Reflexive,
+Independent,Absolutive
+Independent,Emphatic
+Independent,Emphatic-m
+Independent,Nominative
+Independent,Possessive-m
+Independent,Reflexive

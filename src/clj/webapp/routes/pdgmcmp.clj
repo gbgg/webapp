@@ -382,15 +382,15 @@
       [:ol
       (for [pname pnames]
         [:li pname])]
-      [:ol
-       [:li "header: " [:pre header]]
-       [:li "header2: " [:pre header2]]
-       [:li "pdgms1: " [:pre pdgms1]]
-       [:li "pdgms2: " [:pre pdgms2]]
-       [:li "pbody: " [:pre pbody]]
-       [:li "pmaps: " [:pre pmaps]]
-       [:li "pmap1: " [:pre pmap1]]
-       [:li "pmap2: " [:pre pmap2]]]
+;;      [:ol
+;;       [:li "header: " [:pre header]]
+;;       [:li "header2: " [:pre header2]]
+;;       [:li "pdgms1: " [:pre pdgms1]]
+;;       [:li "pdgms2: " [:pre pdgms2]]
+;;       [:li "pbody: " [:pre pbody]]
+;;       [:li "pmaps: " [:pre pmaps]]
+;;       [:li "pmap1: " [:pre pmap1]]
+      ;;       [:li "pmap2: " [:pre pmap2]]]
       [:hr]
       [:table
        (let [heads (split header2 #",")]
@@ -413,7 +413,12 @@
                        [:td npg]))
                    [:td (pngk pmap1)]
                    [:td (pngk pmap2)]]
-                  )))])]
+                  )
+              )
+            )
+         ]
+        )
+       ]
       [:script {:src "js/goog/base.js" :type "text/javascript"}]
       [:script {:src "js/webapp.js" :type "text/javascript"}]
       [:script {:type "text/javascript"}

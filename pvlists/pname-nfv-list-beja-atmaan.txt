@@ -1,4 +1,4 @@
-AUX_OVERVIEW:pdgmType
-NOMINALIZATIONPATTERNS:conjClass,pdgmType
-VNOMFORM:conjClass,nonFiniteForm,polarity,rootClass
-
+VNOMFORM,conjClass,nonFiniteForm,polarity,rootClass,
+AUX_OVERVIEW,pdgmType,
+morphClassLabel,property,
+NOMINALIZATIONPATTERNS,conjClass,pdgmType,

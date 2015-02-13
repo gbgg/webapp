@@ -43,9 +43,9 @@
               [:td [:select#pos.required
                     {:title "Choose a pdgm type.", :name "pos"}
                     [:option {:value "fv" :label "Finite Verb"}]
-                    [:option {:disabled "disabled" :value "nfv" :label "Non-finite Verb"}]
+                    [:option {:value "nfv" :label "Non-finite Verb"}]
                     [:option {:value "pro" :label "Pronoun"}]
-                    [:option {:disabled "disabled" :value "noun" :label "Noun"}]
+                    [:option {:value "noun" :label "Noun"}]
                     ]]]
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
@@ -66,10 +66,10 @@
                     query-sparql (cond 
                       (= pos "pro")
                       (sparql/listlgpr-sparql-pro language lpref)
-                      ;;(= pos "nfv")
-                      ;;(sparql/listlgpr-sparql-nfv language lpref)
-                      ;;(= pos "noun")
-                      ;;(sparql/listlgpr-sparql-noun language lpref)
+                      (= pos "nfv")
+                      (sparql/listlgpr-sparql-nfv language lpref)
+                      (= pos "noun")
+                      (sparql/listlgpr-sparql-noun language lpref)
                       :else (sparql/listlgpr-sparql-fv language lpref))
                     query-sparql-pr (replace query-sparql #"<" "&lt;")
                     req (http/get aama
@@ -82,8 +82,8 @@
                  [:h4 "Language: " language]
                   [:pre (:body req)]
                  [:hr]
-                 ;;[:h3#clickable "Query:"]
-                 ;;[:pre query-sparql-pr]
+                 [:h3#clickable "Query:"]
+                 [:pre query-sparql-pr]
                  ])))
                 [:script {:src "js/goog/base.js" :type "text/javascript"}]
                 [:script {:src "js/webapp.js" :type "text/javascript"}]
