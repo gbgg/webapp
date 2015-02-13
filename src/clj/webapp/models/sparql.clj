@@ -4,7 +4,6 @@
             [compojure.handler :as handler]
             [compojure.route :as route]
             [clojure.string :refer [capitalize split]]
-
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             [boutros.matsu.sparql :refer :all]

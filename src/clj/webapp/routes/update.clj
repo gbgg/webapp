@@ -22,7 +22,7 @@
         ldoms (split ldomlist #"\n")]
   (layout/common 
    [:h3 "Update Datastore"]
-   [:p "(After edn paradigm-data file revised in one or more data/LANG directories .)"]
+   [:p "(This option will enable a user to update the datastore after an edn data file has been revised in one or more ~/aama-data/data/LANG directories .)"]
    [:hr]
    (form-to [:post "/update-make"]
             [:table

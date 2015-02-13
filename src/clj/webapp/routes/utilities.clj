@@ -26,7 +26,7 @@
       [:ul [:li "This set of queries lists, for one or more languages or language families in the datastore, the properties associated with the designated part of speech. "
             ]]]
      [:p (link-to "/listvlcl" "POS Paradigm Value-Clusters")
-      [:ul [:li "This set of queries makes a list of the set of values ('Value Clusters', 'Paradigm Names') associated with each paradigm for a given language and part-of-speech. In the case of finite verbs these are the default person-number-gender subject agreement paradigms -- person-number-gender-case typically for pronoun. The relevant dimensions for noun and non-finite verb are less clear, and a suitable set of comparable dimensions remains to be worked out. Note that at present, noun paradigms are recorded only exceptionally in this archive."
+      [:ul [:li [:p "This set of queries makes a list of the set of values ('Value Clusters', 'Paradigm Names') associated with each paradigm for a given language and part-of-speech. It then writes the list to a file pvlists/pname-POS-list-LANG.txt, where it is read-in to the various paradigm-selection menus."][:p "(In the case of finite verbs these values are those shared by the default person-number-gender paradigms for pronouns and person-number-gender subject agreement paradigms for finite verbs. The relevant dimensions for noun and non-finite verb are less clear, and a suitable set of comparable dimensions remains to be worked out. Note that at present, noun paradigms are recorded only exceptionally in this archive.)"]
             ]]]
      [:p (link-to "/listlpv" "Property-Value Indices by Language Domain")
       [:ul [:li "This set of queries will generate for a given language, language-family, or set of languages, four tables with entries:"
@@ -48,17 +48,19 @@
      [:h3 "Update:"]
      [:p "Procedures to update local and remote datastore after an edn file has been edited:"
       [:ul [:li (link-to "/update" "Update Local Datastore")]
-       [:li (link-to "/upload" "Upload to Remote Repository") " [Requires Access Privileges]"]]]
+       [:li (link-to "/upload" "Upload to Remote Repository") " [Requires Access Privileges]"]]
+      "(NB: These two procedures have not yet been incorporated into the webapp. For the moment, only the command-line versions can be used.)"]
      [:hr]
-     [:p "Note also the following command-line versions:"
-      [:ul [:li [:h4 "Datastore Update "] "(after a data/LANG/LANG-pdgms.edn has been edited.) Usage:" 
+     [:p "The following command-line versions presuppose that the edn data files are in the  ~/aama-data/data/[LANG} directories:"]
+     [:p
+      [:ul [:li [:h4 "Datastore Update "] "Usage:" 
             [:ul 
-             [:li "aama-data/bin/aama-datastore-update.sh data/LANG (for a single language)"]
-             [:li " aama-data/bin/aama-datastore-setup.sh \"data/*\" (to [re-]initiate the whole datastore)"]]]
-       [:li [:h4 "Upload "] "(to aama/ language repository and push to origin). Usage:"
-        [:ul [:li "aama-data/bin/aama-cp2lngrepo.sh data/LANG (for a single language)"]
-             [:li "aama-data/bin/aama-datastore-setup.sh \"data/*\" (to [re-]upload the whole datastore)"]]]]
-      "(cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")")"]]))
+             [:li "/bin/aama-datastore-update.sh ../aama-data/data/[LANGDOMAIN]  (from webapp dir)"]
+             [:li " ~/aama-data/bin/aama-datastore-setup.sh \"data/*\" (to [re-]initiate the whole datastore from ~/aama-data dir)"]]]
+       [:li [:h4 "Upload to aama/ language repository and push to origin)."] "Usage:"
+        [:ul [:li "~/aama-data/bin/aama-cp2lngrepo.sh data/LANG (for a single language)"]
+             [:li "~/aama-data/bin/aama-cp2lngrepo.sh \"data/*\" (to [re-]upload the whole datastore)"]]]]]
+      [:p "(Cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")")"]]))
 
 (defroutes utilities-routes
   (GET "/utilities" [] (utilities))

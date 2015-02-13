@@ -56,7 +56,7 @@
   (let [vlist1 (replace vlist #"\n$" "")
 ;;        vlist2 (replace vlist1 #"\n" "%%\n")
         reqq (split vlist1 #"\n")
-        reqqa (first reqq)
+        ;;reqqa (first reqq)
         reqqb (rest reqq)
         vvec (for [req reqqb] (split req #","))
         vmap (for [vvc vvec] (apply hash-map vvc))
@@ -64,14 +64,10 @@
         reqq2 (into [] (for [vm vmerge] (join "," vm)))
         ;; I have no idea why the following works
         reqq3 (for [r2 reqq2] (replace r2 #"\r" ","))
-        reqq4 (into [] reqq3)
+        ;;reqq4 (into [] reqq3)
         ]
-    (join "\n" reqq4)
-;;        (for [r2 reqq2] (replace r2 #"\r" ","))
-;;    (into [] (for [vm vmerge] (join "," vm)))
-;;    (for [req reqq] (split req #","))
+    (join "\n" reqq3)
 ))
-
 
 (defn handle-listvlcl-gen
   [ldomain pos]
