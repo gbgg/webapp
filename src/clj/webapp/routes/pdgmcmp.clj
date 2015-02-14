@@ -41,6 +41,7 @@
                         [:option {:value (first opts)} (last opts) ]))]]]
              [:tr [:td "First PDGM Value Clusters: " ]
               [:td [:select#valstring1.required
+
                     {:title "Choose a value.", :name "valstring1"}
                     ;;(for [valcluster valclusters]
                     ;; [:option  valcluster])
