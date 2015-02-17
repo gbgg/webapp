@@ -1,4 +1,4 @@
-(ns webapp.routes.upload
+(ns webapp.routes.langcheckbx
  (:refer-clojure :exclude [filter concat group-by max min count])
   (:require [compojure.core :refer :all]
             [webapp.views.layout :as layout]
@@ -17,12 +17,12 @@
 
 (def aama "http://localhost:3030/aama/query")
 
-(defn upload []
-  (layout/common [:h1 "Upload"]
+(defn langcheckbx []
+  (layout/common [:h1 "Language Check-box"]
                  [:hr]
     [:div
-     [:p "This option will enable a user with access privileges to push the current state of the designated LANG-pdgms.edn file(s) to the appropriate github repository."]]))
+     [:p "This option will display a checkbox menu of languages, which will yield a succession of (lang > pos > ) pdgm menus."]]))
 
-(defroutes upload-routes
-  (GET "/upload" [] (upload))
+(defroutes langcheckbx-routes
+  (GET "/langcheckbx" [] (langcheckbx))
   )
