@@ -6,13 +6,15 @@
 (defn home []
   (layout/common
    [:h1 "Afroasiatic Morphological Archive"]
-   [:h1 "Query and Display Demo"]
-   [:p "The purpose of this demo application is to test various general formats of SPARQL queries that can be used to explore the morphological data registered in the Afroasiatic Morphological Archive. For the purposes of this demo these queries are divided into three large groups:"]
+   [:h1 "Query and Display Tool"]
+   [:p "The purpose of this application is to develop and test various general formats of SPARQL queries that can be used to explore the morphological data registered in the Afroasiatic Morphological Archive. For the purposes of this provisional tool these queries are divided into four large groups, with an additional space for experimental displays:"]
     [:ol
     [:li "Paradigm Displays:"]
+    [:li "Paradigm Comparisons:"]
     [:li "Property-value Displays:"]
-    [:li "Utilities:"]]
-    [:p "In each case the query parameters will be specified by pick-lists or text-input boxes, and the query response returned from the datastore will be followed by a listing of the query which produced that response."]
+    [:li "Utilities:"]
+    [:li "Trial Query/Display Pages:"]]
+    [:p "In each case the query parameters will be specified by pick-lists or text-input boxes, and wherever feasible the query response returned from the datastore will be followed by a listing of the query which produced that response."]
 ))
    
 
