@@ -1,4 +1,4 @@
-(ns webapp.routes.pdgmcheckbx
+(ns webapp.routes.pdgmcbpll
  (:refer-clojure :exclude [filter concat group-by max min count])
   (:require [compojure.core :refer :all]
             [webapp.views.layout :as layout]
@@ -17,7 +17,7 @@
 
 (def aama "http://localhost:3030/aama/query")
 
-(defn pdgmcheckbx []
+(defn pdgmcbpll []
   (let [langlist (slurp "pvlists/langlist.txt")
         languages (split langlist #"\n")]
   (layout/common 
@@ -138,8 +138,8 @@
            [:script {:type "text/javascript"}
             "goog.require('webapp.core');"])))
 
-(defroutes pdgmcheckbx-routes
-  (GET "/pdgmcheckbx" [] (pdgmcheckbx))
+(defroutes pdgmcbpll-routes
+  (GET "/pdgmcbpll" [] (pdgmcbpll))
   (POST "/pdgmcbqry" [language pos] (handle-pdgmcbqry language pos))
   (POST "/pdgmsdisplay" [language valclusters pos] (handle-pdgmsdisplay language valclusters pos))
   )

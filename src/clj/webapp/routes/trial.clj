@@ -23,11 +23,12 @@
     [:div
      [:h3 "Trial Pages:"]
      [:p "These pages will be integrated (or not) into the core application as they are found to be feasible and to realize useful and significantly different display possibilities."]
-     [:p (link-to "/pdgmcmpn"  "Display of multiple paradigm menus.")]
-     [:p (link-to "/pdgmcheckbx"  "Display of multiple paradigms in succession.")]
-     [:p (link-to "/pdgmpll"  "Parallel display of multiple paradigms.")]
-     [:p (link-to "/pdgmmenu"  "Cascading menu: lang > pos > pdgm.")]
-     [:p (link-to "/langcheckbx"  "Checkbox for displaying succession of individual language menus.")]]))
-
+     [:p (link-to "/pdgmmenu"  "Parallel drop-down pdgm menus by pos.")]
+     [:p (link-to "/pdgmcheckbx"  "Checkbox for display of multiple paradigms from a given language.")]
+     [:p (link-to "/pdgmcbpll"  "Parallel display of paradigms from checkbox.")]
+     [:p (link-to "/langcheckbx"  "Checkbox for displaying succession of individual language menus.")]
+     [:p (link-to "/pdgmcmpn"  "Display of N paradigm menus.")]
+     [:p (link-to "/pdgmpll"  "Parallel display of N paradigms.")]
+     ]))
 (defroutes trial-routes
   (GET "/trial" [] (trial)))

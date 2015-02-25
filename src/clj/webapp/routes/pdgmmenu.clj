@@ -18,10 +18,10 @@
 (def aama "http://localhost:3030/aama/query")
 
 (defn pdgmmenu []
-  (layout/common [:h1 "Cascading Paradigm Menu"]
+  (layout/common [:h1 "Drop-down Paradigm Menus"]
                  [:hr]
     [:div
-     [:p "This option will display a cascading menu of lang > pos > pdgm."]]))
+     [:p "By this option, after selecting a language, user will have parallel dropw-down menus of the paradigms of each paradigm type."]]))
 
 (defroutes pdgmmenu-routes
   (GET "/pdgmmenu" [] (pdgmmenu))

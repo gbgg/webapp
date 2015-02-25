@@ -18,10 +18,10 @@
 (def aama "http://localhost:3030/aama/query")
 
 (defn pdgmpll []
-  (layout/common [:h1 "Parallel Paradigm Display"]
+  (layout/common [:h1 "Parallel Display of N Paradigms"]
                  [:hr]
     [:div
-     [:p "This option will enable a user to specify the paradigms to be displayed, and see them in horizontal alignment."]]))
+     [:p "This option will enable a user to choose a given number of  paradigms to be displayed, and see them in horizontal alignment."]]))
 
 (defroutes pdgmpll-routes
   (GET "/pdgmpll" [] (pdgmpll))

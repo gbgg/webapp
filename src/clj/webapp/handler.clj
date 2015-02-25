@@ -22,6 +22,7 @@
             [webapp.routes.trial :refer [trial-routes]]
             [webapp.routes.pdgmcmpn :refer [pdgmcmpn-routes]]
             [webapp.routes.pdgmcheckbx :refer [pdgmcheckbx-routes]]
+            [webapp.routes.pdgmcbpll :refer [pdgmcbpll-routes]]
             [webapp.routes.pdgmpll :refer [pdgmpll-routes]]
             [webapp.routes.pdgmmenu :refer [pdgmmenu-routes]]
             [webapp.routes.langcheckbx :refer [langcheckbx-routes]]
@@ -38,7 +39,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes home-routes pdgm-routes pdgmcmp-routes pvdisp-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes utilities-routes update-routes upload-routes listlgpr-routes listvlcl-routes listlpv-routes trial-routes pdgmcmpn-routes pdgmcheckbx-routes pdgmpll-routes pdgmmenu-routes langcheckbx-routes app-routes)
+  (-> (routes home-routes pdgm-routes pdgmcmp-routes pvdisp-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes utilities-routes update-routes upload-routes listlgpr-routes listvlcl-routes listlpv-routes trial-routes pdgmcmpn-routes pdgmcheckbx-routes pdgmcbpll-routes pdgmpll-routes pdgmmenu-routes langcheckbx-routes app-routes)
       (handler/site)
       (wrap-base-url)))
 

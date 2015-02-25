@@ -125,6 +125,7 @@
            [:hr]
            [:h3#clickable "Query:"]
            [:pre query-sparql-pr]
+
            [:script {:src "js/goog/base.js" :type "text/javascript"}]
            [:script {:src "js/webapp.js" :type "text/javascript"}]
            [:script {:type "text/javascript"}
