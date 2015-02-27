@@ -212,6 +212,7 @@
         ;;pdgm3 (replace (:body req2) #"," "\t\t")
         pdgmnames (str language1":"valstring1"+"language2":"valstring2)
         pdgmstr1 (str pdgm1 pdgm2)
+        ;; separate token from rest with "&"
         pdgmstr2 (replace pdgmstr1 #",([^,]*%%)" "&$1")
              ]
   (layout/common
@@ -224,6 +225,7 @@
       [:p "(csv format)"]
       [:pre (:body req1)]
       [:pre (:body req2)]
+      ;;[:pre pdgmstr1]
     [:hr]
       [:h3 "Parallel Display"]
      [:p "Choose PNG Values (comma-separated list)"]
