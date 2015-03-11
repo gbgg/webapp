@@ -21,7 +21,7 @@
   (layout/common [:h1 "Drop-down Paradigm Menus"]
                  [:hr]
     [:div
-     [:p "By this option, after selecting a language, user will have parallel dropw-down menus of the paradigms of each paradigm type."]]))
+     [:p "By this option, after selecting a language, user will have parallel drop-down menus of the paradigms of each paradigm type."]]))
 
 (defroutes pdgmmenu-routes
   (GET "/pdgmmenu" [] (pdgmmenu))

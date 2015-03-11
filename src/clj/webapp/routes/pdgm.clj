@@ -39,12 +39,6 @@
                     [:option {:value "pro" :label "Pronoun"}]
                     [:option {:value "noun" :label "Noun"}]
                     ]]]
-             [:tr [:td "PDGM Value Clusters: " ]
-              [:td [:select#valstring.required
-                    {:title "Choose a value.", :name "valstring"}
-                    ;;(for [valcluster valclusters]
-                    ;; [:option  valcluster])
-                    ]]]
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
               [:td [:input#submit
@@ -67,12 +61,12 @@
          [:tr [:td "PDGM Language: " ]
           [:td [:select#language.required
                {:title "Choose a language.", :name "language"}
-                [:option language]
+                [:option {:value language :label (clojure.string/capitalize language)}]
                 ]]]
          [:tr [:td "PDGM Type: "]
           [:td [:select#pos.required
                 {:title "Choose a pdgm type.", :name "pos"}
-                [:option pos]
+                [:option {:value pos :label (clojure.string/upper-case pos)}]
                 ]]]
          [:tr [:td "PDGM Value Clusters: " ]
           [:td [:select#valstring.required

@@ -39,25 +39,12 @@
                     (for [language languages]
                       (let [opts (split language #" ")]
                         [:option {:value (first opts)} (last opts) ]))]]]
-             [:tr [:td "First PDGM Value Clusters: " ]
-              [:td [:select#valstring1.required
-
-                    {:title "Choose a value.", :name "valstring1"}
-                    ;;(for [valcluster valclusters]
-                    ;; [:option  valcluster])
-                    ]]]
              [:tr [:td "Second PDGM Language: " ]
               [:td [:select#language2.required
                     {:title "Choose a language.", :name "language2"}
                     (for [language languages]
                       (let [opts (split language #" ")]
                         [:option {:value (first opts)} (last opts) ]))]]]
-             [:tr [:td "Second PDGM Value Clusters: " ]
-              [:td [:select#valstring2.required
-                    {:title "Choose a value.", :name "valstring2"}
-                    ;;(for [valcluster valclusters]
-                    ;; [:option  valcluster])
-                    ]]]
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
               [:td [:input#submit

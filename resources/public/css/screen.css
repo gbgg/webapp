@@ -7,20 +7,22 @@ body {
 }
 
 h1 {
-    text-align: center;
+    text-align: left;
 }
 
 label {
-    width:150px;
+    width:500px;
     float:left;
 }
 
 table, th, td {
     border-collapse: collapse;
+    text-align:  left;
 }
     
 td {
     vertical-align: top;
+
 }
 
 .error {
