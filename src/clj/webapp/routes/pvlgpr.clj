@@ -24,7 +24,8 @@
         lprops (split lproplist #"\n")]
   (layout/common 
    [:h3 "Language-Property=>Value Cooccurrences"]
-   [:p "Choose Language Domain and Property"]
+   [:h4 "Choose Language Domain and Property"]
+   [:p  "This family of queries returns the values, if any, associated with a specified property in a specified language or group/family of languages."]
    ;; [:p error]
    [:hr]
    (form-to [:post "/lgprdisplay"]

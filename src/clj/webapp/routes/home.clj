@@ -10,7 +10,6 @@
    [:p "The purpose of this application is to develop and test various general formats of SPARQL queries that can be used to explore the morphological data registered in the Afroasiatic Morphological Archive. For the purposes of this provisional tool these queries are divided into four large groups, with an additional space for experimental displays:"]
     [:ol
     [:li "Paradigm Displays:"]
-    [:li "Paradigm Comparisons:"]
     [:li "Property-value Displays:"]
     [:li "Utilities:"]
     [:li "Trial Query/Display Pages:"]]

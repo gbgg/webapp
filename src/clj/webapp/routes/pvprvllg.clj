@@ -22,7 +22,9 @@
         ldoms (split ldomlist #"\n")]
   (layout/common 
    [:h3 "Language-Property-Value Cooccurrences"]
-   [:p "Choose Language Domain and Enter qstring: prop=Val,...prop=?prop,..."]
+   [:h4 "Choose Language Domain and Enter qstring: prop=Val,...prop=?prop,..."]
+   [:p "This family of queries accepts a language or group/family of languages and a comma-separated string of prop=val statements (in which case it returns the languages having that set of prop=val), combined optionally with one or more prop=?val statements (in which case it also returns the values of properties which may be associated with the specified properties)."]
+   [:ul [:li "[For example the query \"person=Person2,gender=Fem\" with language group \"Beja\" returns the Beja languages which have 2f forms; while the query \"person=Person2,gender=Fem,pos=?pos,number=?number\" with \"Beja\" returns a table with the language(s) having 2f forms, along with the part-of-speech values, and number values associated with these forms.]"]]
    ;; [:p error]
    [:hr]
    (form-to [:post "/prvllgdisplay"]

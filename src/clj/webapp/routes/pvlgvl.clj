@@ -24,7 +24,8 @@
         lvals (split lvallist #"\n")]
   (layout/common 
    [:h3 "Language-Value=>Property Cooccurrences"]
-   [:p "Choose Language Domain and Value"]
+   [:h4 "Choose Language Domain and Value"]
+   [:p "This family of queries returns the properties, if any, associated with a specified value in a specified language or group/family of languages."]
    ;; [:p error]
    [:hr]
    (form-to [:post "/lgvldisplay"]

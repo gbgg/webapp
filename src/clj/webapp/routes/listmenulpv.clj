@@ -1,4 +1,4 @@
-(ns webapp.routes.trial
+(ns webapp.routes.listmenulpv
  (:refer-clojure :exclude [filter concat group-by max min count])
   (:require [compojure.core :refer :all]
             [webapp.views.layout :as layout]
@@ -17,16 +17,12 @@
 
 (def aama "http://localhost:3030/aama/query")
 
-(defn trial []
-  (layout/common [:h1 "Trial"]
+(defn listmenulpv []
+  (layout/common [:h1 "Language, Property, Value Lists for Selection Menus"]
                  [:hr]
-     [:h3 "Trial Pages:"]
-     [:p "These pages will be integrated (or not) into the core application as they are found to be feasible and to realize useful and significantly different display possibilities."]
-     [:ul
-     [:li (link-to "/pdgmmenu"  "Parallel drop-down pdgm menus by pos.")]
-     [:li (link-to "/pdgmcmpn"  "Display of N paradigm menus.")]
-     [:li (link-to "/pdgmpll"  "Parallel display of N paradigms.")]
-     ]))
+    [:div
+     [:p "This option will generate cached datastore-wide language, property, or value lists for use in selection drop-down menus.."]]))
 
-(defroutes trial-routes
-  (GET "/trial" [] (trial)))
+(defroutes listmenulpv-routes
+  (GET "/listmenulpv" [] (listmenulpv))
+  )

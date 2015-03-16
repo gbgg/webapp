@@ -29,23 +29,22 @@
   (RenderablePage. content
   ))
 
-(defn make-menu [& items]
-  [:div#usermenu (for [item items] [:div.menuitem item])])
+;;(defn make-menu [& items]
+;;  [:div#usermenu (for [item items] [:div.menuitem item])])
 
-(defn user-menu []
-  (make-menu 
-    (link-to "/" "home")
-    (link-to "/pdgm" "paradigm choice")
-    (link-to "/pdgmcmp" "paradigm comparison")
-    (link-to "/propval" "property-value displays")
-    (link-to "/lists" "property-vaue lists")))
+;;(defn user-menu []
+;;  (make-menu 
+;;    (link-to "/" "home")
+;;    (link-to "/pdgm" "paradigm choice")
+;;    (link-to "/pdgmcmp" "paradigm comparison")
+;;    (link-to "/propval" "property-value displays")
+;;    (link-to "/lists" "property-vaue lists")))
 
 (defn common [& content]
   (base    
     [:div#usermenu 
    [:div.menuitem (link-to "/" "Home")]
-   [:div.menuitem (link-to "/pdgm" "Paradigms")]
-   [:div.menuitem (link-to "/pdgmcmp" "Paradigm Comparison")]
+   [:div.menuitem (link-to "/pdgmpage" "Paradigms")]
    [:div.menuitem (link-to "/pvdisp" "Property-value Display")]
    [:div.menuitem (link-to "/utilities" "Utilities")]
    [:div.menuitem (link-to "/trial" "Trial")]]

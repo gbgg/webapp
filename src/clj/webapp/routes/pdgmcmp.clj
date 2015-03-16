@@ -20,7 +20,8 @@
         languages (split langlist #"\n")]
   (layout/common 
    [:h3 "Paradigm Comparison"]
-   [:p "Choose Type and Languages"]
+   [:h4 "Choose Type and Languages"]
+   [:p "This initial experiment with paradigm comparison prompts for a \"paradigm-type\" (Finite Verb, Non-finite Verb, Pronoun, Noun) and two language, it then shows two drop-down select lists of paradigms in those languages, and returns a csv-formatted display of the two paradigms. It then prompts for png-type (eventually will respond to specification of specific png-values), and returns a paradigm with parallel token display."]
    ;; [:p error]
    [:hr]
    (form-to [:post "/pdgmcmpqry"]
