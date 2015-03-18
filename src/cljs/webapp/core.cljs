@@ -5,7 +5,7 @@
 ;; (println "Hello howdy world!")
 
 (defn handle-click []
-  (js/alert "Cf. core.cljs"))
+  (js/alert "Cf. src/cljs/webapp/core.cljs"))
 
 (def clickable (.getElementById js/document "clickable"))
 
