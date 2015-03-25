@@ -113,6 +113,7 @@
     (finally (println (str language2 " has paradigms of type " pos))))
    (display-valclusters pos language1 language2)))
 
+;; not currently used
 (defn handle-pdgmcmpdisplay
   [pos language1 valstring1 language2 valstring2]
   (let [pdgms (defrecord Pdgm [language valstring forms])]
@@ -155,6 +156,7 @@
     [:script {:type "text/javascript"}
             "goog.require('webapp.core');"]])))
 
+;; this is the one currently used
 (defn handle-pdgmcmpdisplay2
   [pos language1 valstring1 language2 valstring2]
     ;; send SPARQL over HTTP request

@@ -22,7 +22,7 @@
         ldoms (split ldomlist #"\n")]
   (layout/common 
    [:h3 "PDGM Value-Cluster List"]
-   [:hr]
+   [:p "Will write list of paradigm-specifying value-clusters to file(s) pvlists/pname-POS-list-LANG.txt for selected language(s)."]   [:hr]
    (form-to [:post "/listvlcl-gen"]
             [:table
              [:tr [:td "PDGM Language Domain: " ]

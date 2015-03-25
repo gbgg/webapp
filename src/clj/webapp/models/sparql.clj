@@ -62,9 +62,9 @@
            ?lexeme rdfs:label \"{{lex}}\" .
 	   OPTIONAL { ?s {{lpref}}:number ?number .  
 	   ?number rdfs:label ?num . } 
-	   {   ?s {{lpref}}:pngShapeClass ?person .}  
-	   UNION  
-	   {   ?s {{lpref}}:person ?person .}  
+	   OPTIONAL { ?s {{lpref}}:pngShapeClass ?pngSC .
+           ?pngSC rdfs:label  ?shapeClass}  
+	   ?s {{lpref}}:person ?person .  
 	   ?person rdfs:label ?pers .  
 	   OPTIONAL { ?s {{lpref}}:gender ?gender .  
 	   ?gender rdfs:label ?gen . } 
@@ -318,9 +318,7 @@
            OPTIONAL { ?s aamas:lexeme ?lex . }  
 	   OPTIONAL { ?s {{lpref1}}:number ?number .  
 	   ?number rdfs:label ?num . } 
-	   {   ?s {{lpref1}}:pngShapeClass ?person .}  
-	   UNION  
-	   {   ?s {{lpref1}}:person ?person .}  
+           ?s {{lpref1}}:person ?person .
 	   ?person rdfs:label ?pers .  
 	   OPTIONAL { ?s {{lpref1}}:gender ?gender .  
 	   ?gender rdfs:label ?gen . } 
@@ -591,9 +589,7 @@ WHERE {
 GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{lang}}> {
 	?s ?p ?o ;
 	{{lpref}}:pos  {{lpref}}:Verb .
-    {?s {{lpref}}:pngShapeClass ?png .}
-    	UNION
-    {?s {{lpref}}:person ?person .}
+        ?s {{lpref}}:person ?person .
    ?p rdfs:label ?property .
  	FILTER (?p NOT IN ( aamas:lang, {{lpref}}:gender, {{lpref}}:number, {{lpref}}:pngShapeClass, {{lpref}}:person, {{lpref}}:pos, {{lpref}}:token, rdf:type, {{lpref}}:multiLex ) )
 }
@@ -616,9 +612,7 @@ WHERE {
 GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{lang}}> {
 	?s ?p ?o ;
 	{{lpref}}:pos  {{lpref}}:Pronoun .
-    {?s {{lpref}}:pngShapeClass ?png .}
-    	UNION
-    {?s {{lpref}}:person ?person .}
+        ?s {{lpref}}:person ?person .
    ?p rdfs:label ?property .
  	FILTER (?p NOT IN ( aamas:lang, {{lpref}}:gender, {{lpref}}:number, {{lpref}}:pngShapeClass, {{lpref}}:person, {{lpref}}:pos, {{lpref}}:token, rdf:type, {{lpref}}:multiLex ) )
 }
@@ -836,9 +830,7 @@ ORDER BY ASC(?prop) ASC(?val)
          {   
           GRAPH aamag:{{language}} {
              ?s {{lpref}}:pos {{lpref}}:Verb . 
-             {?s {{lpref}}:pngShapeClass ?png .} 
-             UNION 
-             {?s {{lpref}}:person ?person .} 
+             ?s {{lpref}}:person ?person .
        ?s aamas:lang aama:{{Language}} .
        ?s aamas:lang ?lang .
        ?s aamas:lexeme ?lexeme .
@@ -883,9 +875,7 @@ ORDER BY ASC(?prop) ASC(?val)
          {   
           graph aamag:{{language}} {
              ?s {{lpref}}:pos {{lpref}}:Pronoun . 
-             {?s {{lpref}}:pngShapeClass ?png .} 
-             UNION 
-             {?s {{lpref}}:person ?person .} 
+             ?s {{lpref}}:person ?person .
        ?s aamas:lang aama:{{Language}} .
        ?s aamas:lang ?lang .
        #?s aamas:lexeme ?lexeme .
