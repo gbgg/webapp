@@ -49,30 +49,33 @@
                     [:option {:value "lpv" :label "Language-Property-Value"}]
                     [:option {:value "pvl" :label "Property-Value-Language"}]
                     [:option {:value "vpl" :label "Value-Property-Language"}]
-                    [:option {:value "plv" :label "Property-Language-Value"}]]]]
+                    [:option {:value "plv" :label "Property-Language-Value"}]
+                    [:option {:value "cpvl" :label "PClass-Property-Value-Language"}]]]]
              ;;(submit-button "Get values")
              [:tr [:td ]
               [:td [:input#submit
                     {:value "Make Language-Property-Value Lists", :name "submit", :type "submit"}]]]]))))
 
-(defn csv2table2
-"Takes sorted 3-col csv list and outputs html table with empty [:td]  for repeated col1 and rows of col3 vals for repeated col2."
+(defn csv2cpvl
+"Takes sorted 3-col csv list and outputs 4-col html table with empty col1 for prop-class and string of col4 vals for repeated col3."
  [lpvs]
 (let  [curcat1 (atom "")
       curcat2 (atom "")]
- [:table
+  ;; For visible borders set {:border "1"}.
+ [:table {:border "0"}
 (for [lpv lpvs]
  (let [catmap (zipmap [:cat1 :cat2 :cat3] (split lpv #","))]
    (if (= (:cat1 catmap) @curcat1)
 
      (if (= (:cat2 catmap) @curcat2)
-       [:tr [:td] [:td][:td (:cat3 catmap)]]
+       (str (:cat3 catmap) " ")
        (do (reset! curcat2 (:cat2 catmap))
-           [:tr [:td] [:td @curcat2][:td (:cat3 catmap)]]))
+           (str "</td></tr><tr><td width=\"100\"></td><td></td><td valign=top>"@curcat2"</td><td>" (:cat3 catmap) " ")))
        
      (do (reset! curcat1 (:cat1 catmap))
          (reset! curcat2 (:cat2 catmap))
-         [:tr [:td @curcat1][:td @curcat2][:td (:cat3 catmap)]]))))]))
+         (str "</td></tr><tr><td width=\"100\">(other)</td><td>" @curcat1 "</td><td valign=top>" @curcat2 "</td><td>" (:cat3 catmap) " ")))))
+  (str "</td></tr>")]))
 
 (defn csv2table
 "Takes sorted 3-col csv list and outputs html table with empty [:td]  for repeated col1 and string of col3 vals for repeated col2."
@@ -80,7 +83,7 @@
 (let  [curcat1 (atom "")
       curcat2 (atom "")]
   ;; For visible borders set {:border "1"}.
- [:table {:border "0"}
+ [:table {:border "1"}
 (for [lpv lpvs]
  (let [catmap (zipmap [:cat1 :cat2 :cat3] (split lpv #","))]
    (if (= (:cat1 catmap) @curcat1)
@@ -102,13 +105,13 @@
     [:h3#clickable "Language Domain: " ldomain]
         ;; send SPARQL over HTTP request"
         (let [query-sparql (cond 
-                      (= colorder "pvl")
-                      (sparql/listpvl-sparql ldomain)
+                      (= colorder "lpv")
+                      (sparql/listlpv-sparql ldomain)
                       (= colorder "vpl")
                       (sparql/listvpl-sparql ldomain)
                       (= colorder "plv")
                       (sparql/listplv-sparql ldomain)
-                      :else (sparql/listlpv-sparql ldomain))
+                      :else (sparql/listpvl-sparql ldomain))
               query-sparql-pr (replace query-sparql #"<" "&lt;")
               req (http/get aama
                             {:query-params
@@ -120,10 +123,12 @@
               reqvec (split (:body req) #"\n")
               header (first reqvec)
               lpvs (rest reqvec)
-              lpvtable (csv2table lpvs)]
+              lpvtable (if (= colorder "cpvl")
+                         (csv2cpvl lpvs)
+                         (csv2table lpvs))]
           (log/info "sparql result status: " (:status req))
           [:div
-           [:p "Column Order: " header]
+           [:p "Column Order: " colorder]
            [:hr]
            lpvtable
           [:hr]

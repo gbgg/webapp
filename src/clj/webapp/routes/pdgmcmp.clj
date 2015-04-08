@@ -113,49 +113,6 @@
     (finally (println (str language2 " has paradigms of type " pos))))
    (display-valclusters pos language1 language2)))
 
-;; not currently used
-(defn handle-pdgmcmpdisplay
-  [pos language1 valstring1 language2 valstring2]
-  (let [pdgms (defrecord Pdgm [language valstring forms])]
-  (layout/common
-   [:body
-    (for [langvstr [(str language1 "+" valstring1) (str language2 "+" valstring2)]
-  ;; send SPARQL over HTTP request
-       :let [lprefmap (read-string (slurp "pvlists/lprefs.clj"))
-             lvstr (split langvstr #"\+")
-             language (first lvstr)
-             valstring (last lvstr)
-             Language (capitalize language)
-             lang (read-string (str ":" language))
-             lpref (lang lprefmap)
-             query-sparql (cond 
-                      (= pos "pro")
-                      (sparql/pdgmqry-sparql-pro language lpref valstring)
-                      (= pos "nfv")
-                      (sparql/pdgmqry-sparql-nfv language lpref valstring)
-                      (= pos "noun")
-                      (sparql/pdgmqry-sparql-noun language lpref valstring)
-                      :else (sparql/pdgmqry-sparql-fv language lpref valstring))
-             ;;query-sparql-pr (replace query-sparql #"<" "&lt;")
-             req (http/get aama
-                      {:query-params
-                       {"query" query-sparql ;;generated sparql
-                        "format" "csv"}})
-                        ;;"format" "application/sparql-results+json"}})
-                        ;;"format" "text"}})
-             req-pr (replace (:body req) #"<" "&lt;")
-             pdgms (->Pdgm language valstring req-pr)
-             ]]
-
-      [:p Language ": " valstring
-      [:pre req-pr "and then "(:forms pdgms)]])
-    [:hr]
-    [:pre "Here is the target: " (:forms pdgms)]
-    [:script {:src "js/goog/base.js" :type "text/javascript"}]
-    [:script {:src "js/webapp.js" :type "text/javascript"}]
-    [:script {:type "text/javascript"}
-            "goog.require('webapp.core');"]])))
-
 ;; this is the one currently used
 (defn handle-pdgmcmpdisplay2
   [pos language1 valstring1 language2 valstring2]
@@ -267,84 +224,6 @@
         pmap (apply hash-map plist)
         ]
     (clojure.walk/keywordize-keys pmap)))
-
-;; The following is an attempt (unsuccessful so far) to directly translate
-;; into clojure the perl PrintCompPdgm subroutine from 
-;; aama-data/pl/pdgm-fv-bil-tsv2table2.pl
-(defn handle-pdgmprlldisplay2
-  [pdgmstr pdgmnames]
-  (let [
-        pngstring (slurp "pvlists/npg.clj")
-        pngs (split pngstring #" ")
-        pnames (split pdgmnames #"\+")
-        pdgms-sp (split pdgmstr #"%%" 2)
-        header (first pdgms-sp)
-        pbody (last pdgms-sp)
-        pdgms (split pbody (re-pattern (str header "%%")))
-        pmaps (for [pdgm pdgms] (pstring2map pdgm))
-        ]
-    (layout/common
-     [:body
-      [:h3 "Parallel Display" ]
-      (for [pname pnames]
-        [:pre pname])
-      [:p "Header: "
-      [:pre header]]
-      [:hr]
-      [:p "Body: "
-      [:pre pbody]]
-      [:hr]  
-      [:p "PMaps: "]
-      (for [pmap pmaps]
-        [:div
-         [:p pmap "PMap"]
-         ;; following prints map in terminal window (lein repl server) or
-         ;; *nrepl server webapp* buffer (emacs)
-         (println pmap )
-         [:hr]])
-;;      [:p "Enumeration of pngs and pmaps:"]
-;;      (for [png pngs]
-;;        [:pre png])
-;;      [:hr]
-      (def npgprint #{})
-      [:table
-      (for [png pngs]
-        [:tr
-         (let [pngk (keyword png)]
-           (def pngprint false)
-          (def pnum 0)
-          (for [pmap pmaps] 
-            [:div
-;;             (def pngprint false)
-           (println pngprint)
-;;            (let [pnum (inc pnum)]
-            (if (pngk pmap)
-               (if (false? pngprint)
-  ;;               [:div
-                (let [npgs (split png #"_")]
-                  [:div
-                  (for [npg npgs]
-                    [:td npg])
-;;                   (def pngprint true)
-                  ;;needs to be 'while' for pnum > 2
-;;                  (if (> pnum 1)
-;;                    [:div
-;;                    [:td ]
-;;                   [:td  (pngk pmap)]])
-                [:td (str "a: " (pngk pmap))]
-                   (def pngprint true)
-                ]
-                  )
-;;                  ]
-               [:td (str "b: " (pngk pmap))]))
-;;            )
-             ]))])]
-;;              (if (true? pgnprint)
-                ;;[:td ])]))])))
-      [:script {:src "js/goog/base.js" :type "text/javascript"}]
-      [:script {:src "js/webapp.js" :type "text/javascript"}]
-      [:script {:type "text/javascript"}
-       "goog.require('webapp.core');"]])))
 
 ;; The following is a work-around, limiting the number of pdgms to 2;
 ;; It will be necessary to generalize this (perhaps along the lines 

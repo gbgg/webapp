@@ -11,6 +11,7 @@
                  [org.clojure/clojurescript "0.0-2311"]
                  [lib-noir "0.7.6"]
                  [ring-server "0.3.1"]
+                 [jayq "2.5.4"]
                  ;;[clojure-csv/clojure-csv "2.0.1"]
                  ]
   :source-paths ["src/clj"]

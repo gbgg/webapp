@@ -36,7 +36,7 @@
 	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
 	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
 	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
-	SELECT ?num ?pers ?gen  ?token
+	SELECT ?num ?pers ?gen  ?token 
 	WHERE
         { 
 	 { 
@@ -68,7 +68,13 @@
 	   ?person rdfs:label ?pers .  
 	   OPTIONAL { ?s {{lpref}}:gender ?gender .  
 	   ?gender rdfs:label ?gen . } 
-	   ?s {{lpref}}:token ?token .  
+	   ?s {{lpref}}:token ?tkn .
+           BIND ((IF(BOUND(?pngSC),
+                            CONCAT(?tkn,\"[\",SUBSTR(?shapeClass,4,1),\"]\"),
+                            ?tkn))
+                 AS ?token 
+                ) .
+                
 	  } 
 	 } 
 	} 

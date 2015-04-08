@@ -51,7 +51,7 @@
             )
    [:hr])))
 
-(defn display-valcluster-checkbox
+(defn handle-pdgmcbpllqry
   [language pos]
    (let [valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")
         valclusterlist (slurp valclusterfile)
@@ -87,13 +87,13 @@
                 {:value "Display pdgms", :name "submit", :type "submit"}]]]]
      [:hr]))))
 
-(defn handle-pdgmcbpllqry
+(defn handle-pdgmcbpllqry2
   [language pos]
   (let [valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")]
    (try
     (slurp valclusterfile)
     (finally (println (str language " has no paradigms of type " pos))))
-   (display-valcluster-checkbox language pos)))
+   (handle-pdgmcbpllqry language pos)))
 
 (defn vc2req
  [language valclusters pos]
@@ -125,6 +125,39 @@
         (clojure.string/replace (:body req) #" " ""))
     )))
 
+(defn csv2pdgm
+"Takes sorted 4-col csv list with vectors of pnames and headers, and outputs 5-col html table with first col for pname ref."
+ [pdgmstr2 valclusters headers]
+(let  [pdgms (str valclusters)
+       pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
+       pnames (split pnamestr #" ")
+       pstrings (split pdgmstr2 #" ")
+       pdgmnum (atom 0)
+       ]
+  [:div
+      [:p "Paradigms:"
+      [:ol
+      (for [pname pnames]
+        [:li pname])]]
+      [:hr]
+      ;; For visible borders set {:border "1"}.
+      [:table {:border "0"}
+       [:tr
+       (for [header headers]
+         [:th header])]
+       (for [pdgm pstrings]
+         (let [pdgm-sp (split pdgm #"\\r\\n" 2) 
+              pbody (last pdgm-sp)
+              pdgmrows (split pbody #"\\r\\n")
+               pnum (swap! pdgmnum inc)
+               ]
+           (for [pdgmrow pdgmrows]
+             [:tr
+              [:td (str "P-" pnum)]
+             (let [pdgmcells (split pdgmrow #",")]
+               (for [pdgmcell pdgmcells]
+                 [:td pdgmcell]))])))]]))
+
 (defn handle-pdgmscmpdisplay
   [language valclusters pos]
   ;; send SPARQL over HTTP request
@@ -132,24 +165,29 @@
         lprefmap (read-string (slurp "pvlists/lprefs.clj"))
         lang (read-string (str ":" language))
         lpref (lang lprefmap)
-        headerset (str "number " "person " "gender ")
-        headers (split headerset #" ")
+        headerset1 (str "Paradigm " "Number " "Person " "Gender " "Token ")
+        headerset2 (str "Number " "Person " "Gender " "Token ")
+        headers (split headerset1 #" ")
         pdgmvec (map #(vc2req language % pos) valclusters)
         pdgmstr1 (apply pr-str pdgmvec)
         pdgmstr2 (clojure.string/replace pdgmstr1 #"[\(\)\"]" "")
+        pdgmtable (csv2pdgm pdgmstr2 valclusters headers)
         ]
          (layout/common
            [:h3#clickable "Paradigm " Language " -  " pos ": "  ]
-           [:p "(CSV Format)"]
-           (for [pdgmreq pdgmvec]
+           ;;[:p "(CSV Format)"]
+           ;;(for [pdgmreq pdgmvec]
                    ;; (log/info "sparql result status: " (:status req))
-                    [:div
-                     [:hr]
-                     [:pre pdgmreq]
-                     ]
-                     )
+             ;;       [:div
+               ;;      [:hr]
+                 ;;    [:pre pdgmreq]
+                   ;;  ]
+                     ;;)
+           ;;[:hr]
+           ;;[:p "pdgmvec: " [:pre pdgmvec]]
            [:hr]
-           [:p "pdgmvec: " [:pre pdgmvec]]
+           pdgmtable
+           [:hr]
            [:h3 "Parallel Display"]
            [:p "Choose PNG Values (comma-separated list)"]
            [:hr]
@@ -163,7 +201,7 @@
                      [:tr [:td "Header: "]
                       [:td [:select#header.required
                             {:title "Header", :name "header"}
-                            [:option {:value headerset} headerset] 
+                            [:option {:value headerset2} headerset2] 
                             ]]]
                      [:tr [:td "PString: "]
                       [:td [:select#pdgms.required
@@ -175,6 +213,7 @@
                       [:td [:select#pos.required
                             {:title "Choose a png type.", :name "pngtype"}
                             [:option {:value "pngbeja" :label "Beja"}]
+                            [:option {:value "pngota" :label "Omo-Tana"}]
                             [:option {:value "pngcush" :label "Cushitic"}]
                             [:option {:value "pngaa" :label "Afroasiatic"}]
                             [:option {:value "pnggen" :label "General"}]
@@ -202,7 +241,7 @@
       "goog.require('webapp.core');"])))
 
 (defn pstring2map
-  [pdgm pngset]
+  [pdgm]
   (let [pdgm1 (clojure.string/replace pdgm #"^.*?\\r\\n" "") ;; header out
         pdgmstring (clojure.string/replace pdgm1 #"\\r\\n" "%%") 
         pdgmstr (clojure.string/replace pdgmstring #",([^,]*%%)" "&$1")
@@ -215,54 +254,41 @@
     ))
 
 (defn handle-pdgmsplldisplay
-  [pdgms header pdgmstr2 pngtype]
-  (let [pngfile (str "pvlists/" pngtype ".clj")
-        pngstring (slurp pngfile)
+  [pdgms headerset2 pdgmstr2 pngtype]
+  (let [pngstring (slurp "pvlists/npg.clj")
         pngs (split pngstring #" ")
-        pngset (atom #{})
         pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
         pnames (split pnamestr #" ")
         pstrings (split pdgmstr2 #" ")
-        pmaps (for [pdgm pstrings] (pstring2map pdgm pngset))
-        
+        pmaps (for [pdgm pstrings] (pstring2map pdgm))
+        headerset (str "Number " "Person " "Gender ")
+        heads (split headerset #" ")
+        pdgmnums (into [] (take (clojure.core/count pnames) (iterate inc 1)))
+        ;; There has to be an easier way to get to keyset!
+        keylists (set (for [pmap pmaps] (keys pmap)))
+        keystring (clojure.string/replace (str keylists) #"[#(){}]" "")
+        keyvec (split keystring #" ")
+        keyset (set keyvec)
         ]
     (layout/common
      [:body
       [:h3 "Parallel Display of Paradigms:" ]
-      ;;[:p "pdgmstr2: " [:pre pdgmstr2]]
-      ;;[:p "pheader: " [:pre pheader]]
-      ;;[:p "pstrings: " [:pre pstrings]]
-      ;;[:p "pdgms:"
-      ;;[:ol
-       ;;(for [pdgm pstrings]
-         ;;[:li pdgm])]]
-      ;;[:p "pmaps: " 
-       ;;[:ol 
-        ;;(for [pmap pmaps]
-          ;;(let [pngkeys (keys map)]
-            ;;(for [pngkey pngkeys]
-              ;;(swap! pngset pngkey))
-            ;;[:li @pngset]
-            ;;[:li (keys map)]
-          ;;[:li pmap]
-          ;;)
-        ]
-      ;;[:p "pdgmnames: " [:pre pdgms]]
-      [:p "Paradigms:"
+      ;;[:p "keylists: " [:pre keylists]]
+      ;;[:p "keystring: " [:pre keystring]]
+      ;;[:p "keyset: " [:pre keyset]]
+     [:p "Paradigms:"
       [:ol
       (for [pname pnames]
         [:li pname])]]
       [:hr]
       [:table
-       (let [heads (split header #" ")
-             pdgmnums (into [] (take (clojure.core/count pnames) (iterate inc 1)))]
          [:span
           (for [head heads]
-           [:th  head])
-       (for [pdgmnum pdgmnums]
-         [:th (str "P-" pdgmnum)])])
-      (for [png pngs]
-        ;;(if (contains? pngset png)
+            [:th  head])
+          (for [pdgmnum pdgmnums]
+            [:th (str "P-" pdgmnum)])]
+       (for [png pngs]
+         (if (contains? keyset (str (keyword png)))
         [:tr
          (let [npgs (split png #",")
                pngk (keyword png)]
@@ -270,14 +296,11 @@
            (for [npg npgs]
              [:td npg])
              (for [pmap pmaps]
-               [:td (pngk pmap)])
-           ])]
-        ;;)
-        )]
+               [:td (pngk pmap)])])]))]
       [:script {:src "js/goog/base.js" :type "text/javascript"}]
       [:script {:src "js/webapp.js" :type "text/javascript"}]
       [:script {:type "text/javascript"}
-       "goog.require('webapp.core');"])))
+       "goog.require('webapp.core');"]])))
     
 
 (defroutes pdgmcbpll-routes
