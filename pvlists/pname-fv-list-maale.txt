@@ -1,1 +1,1 @@
-clauseType,modal,polarity,tam,lex
+clojure.lang.PersistentList$EmptyList@1

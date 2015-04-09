@@ -1,4 +1,3 @@
-ablautClass,derivedStem,morphClass,rootClass,tam,lex
 IClass,B,CCC,Imperative,ark
 IClass,B,CCC,Imperative,srq
 IClass,B,CCC,Perfect,ark

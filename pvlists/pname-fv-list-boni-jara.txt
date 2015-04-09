@@ -1,4 +1,3 @@
-aspect,conjClass,formType,mood,polarity,tam,verbMorphClass,lex
 Prefix,Affirmative,Imperative,aak
 Prefix,Affirmative,Imperative,aal
 Prefix,Affirmative,Imperative,ahang

@@ -1,4 +1,3 @@
-clauseType,conjClass,derivedStem,formType,patternClass,pdgmType,polarity,stemClass,subconjClass,tam,lex
 Main,Exemplary,Affirmative,Imperfect,raf
 Main,Exemplary,Affirmative,Perfect,raf
 Main,Exemplary,Negative,Imperfect,raf

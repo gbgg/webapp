@@ -1,4 +1,3 @@
-aspect,cliticClass,cliticType,conjClass,deAdjClass,formType,mood,polarity,tam,type,verbMorphClass,lex
 Affirmative,Imperfect,Copula,ahai
 Affirmative,Perfect,Copula,ahai
 Negative,Imperfect,Copula,ahai

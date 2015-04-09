@@ -1,4 +1,3 @@
-clauseConjugation,clauseType,formClass,polarity,stemClass,tam,lex
 Conditional,AbsoluteInfinitive,Affirmative,Conditional,rime
 Main,AbsoluteInfinitive,Affirmative,Aorist,rime
 Main,AbsoluteInfinitive,Affirmative,Injunct,rime

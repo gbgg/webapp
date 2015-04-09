@@ -1,4 +1,3 @@
-proClass,case,defClass,deixis
 DefMarker,Nom_obj,DefClass2,
 DefMarker,Nom_obj,DefClass3,
 Independent,Object,

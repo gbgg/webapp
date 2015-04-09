@@ -1,4 +1,3 @@
-aspect,clauseType,configuration,morphClass,pdgmType,polarity,tam,lex
 Connective,it
 Imperfect,haishsh
 Imperfect,it

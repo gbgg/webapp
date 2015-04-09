@@ -1,6 +1,8 @@
-Demonstrative:case,deixis,gender,number
-Interrogative:interrogClass
-Person:case,gender,number,person
-Possessive:caseHead,gender,genderHead,number,person
-person exponents:case,gender,number,person
-
+Possessive,Absolutive,Fem
+Possessive,Absolutive,Masc
+Person,Absolutive,
+person
+exponents,Absolutive,
+Person,Nominative,
+person
+exponents,Nominative,

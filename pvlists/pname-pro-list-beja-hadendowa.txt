@@ -1,4 +1,3 @@
-proClass,case,genHead,numHead,pdgmType
 PossInd,H_Plural,
 PossInd,H_Singular,
 Gen_PossPred,H_Fem,H_Plural,

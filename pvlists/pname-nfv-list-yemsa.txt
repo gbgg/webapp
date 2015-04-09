@@ -1,3 +1,2 @@
-DervStem:derived
-Monosyllablic:conjClass,polarity,tam
-
+Monosyllablic,conjClass,polarity,tam,
+DervStem,derived,

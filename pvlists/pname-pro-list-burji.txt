@@ -1,6 +1,10 @@
-Demonstrative:case,deixis,gender,number
-Independent:gender,number,person,type
-Interrogative:interrogClass
-Personal:gender,number,person,type
-Possessive:caseHead,gender,genderHead,number,person
-
+Independent,Absolutive
+Independent,Nominative
+Independent,Object
+Personal,Abs
+Personal,Nom
+Personal,Obj
+Possessive,Absolutive,Fem,
+Possessive,Absolutive,Masc,
+Possessive,Nominative,Fem,
+Possessive,Nominative,Masc,

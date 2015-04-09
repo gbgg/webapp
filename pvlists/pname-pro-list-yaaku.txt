@@ -1,4 +1,2 @@
-Demonstrative:conjClass,gender,headNoun,number
-Independent:number,person
-Possessive:gender,number,person
-
+Independent
+Possessive

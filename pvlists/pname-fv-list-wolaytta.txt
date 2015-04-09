@@ -1,4 +1,3 @@
-complement,mood,morphClass,polarity,tam,lex
 Compound,Desiderative,Affirmative,Aorist,oott
 Compound,Desiderative,Affirmative,Past,oott
 Compound,Desiderative,Negative,Aorist,oott

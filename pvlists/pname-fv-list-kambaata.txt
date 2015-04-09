@@ -1,4 +1,3 @@
-morphClass,polarity,tam,lex
 Aff,Imperfect,mar
 Aff,Imprtv,mar
 Aff,Jussive,mar

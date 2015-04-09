@@ -1,5 +1,5 @@
-Bound:gender,number,person
-Independent:gender,number,person
-Possessive:gender,number,person,type
-Reduced:gender,number,person
-
+Bound,
+Independent,
+Possessive,Fem
+Possessive,M-or-pl
+Reduced,

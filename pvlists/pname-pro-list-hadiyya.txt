@@ -1,4 +1,3 @@
-Demonstrative:case,deixis,numgen
-Independent:case,gender,number,person
-Interr:interrogClass
-
+Independent,Accusative
+Independent,Nominative
+Independent,Possessive

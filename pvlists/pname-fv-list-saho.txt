@@ -1,4 +1,3 @@
-conjClass,derivedStem,nonFiniteForm,polarity,tam,lex
 Irregular,Copula,li
 Prefix,Copula,inni
 Prefix,Imperfect,inni

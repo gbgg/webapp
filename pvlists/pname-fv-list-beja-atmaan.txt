@@ -1,4 +1,3 @@
-conjClass,conjSubType,derivedStemAug,morphClass,pdgmType,polarity,rootClass,stemClass,strength,tam,lex
 Affirmative,Future,kay
 Affirmative,Future,kta
 Negative,Future,kay

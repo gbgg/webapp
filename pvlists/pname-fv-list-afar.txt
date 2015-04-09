@@ -1,4 +1,3 @@
-conjClass,formType,pdgmSubType,pdgmType,polarity,tam,lex
 CompoundIntransitive,Compound,Affirmative,Anticipatory,ruffa-edh
 CompoundIntransitive,Compound,Affirmative,Conditional1,ruffa-edh
 CompoundIntransitive,Compound,Affirmative,Conditional2,ruffa-edh

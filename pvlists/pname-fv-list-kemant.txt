@@ -1,4 +1,3 @@
-aspect,formType,genderHeadRel,morphClass,numHeadRel,pdgmSubType,pdgmType,polarity,tam,vSubjectSet,lex
 PerfectiveComp,fay
 PerfectiveComp,was
 RelativeSubject,fay

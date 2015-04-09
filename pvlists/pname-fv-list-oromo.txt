@@ -1,4 +1,3 @@
-clauseType,derivedStem,formType,polarity,tam,lex
 CompoundTense,Affirmative,Conditional,adeem
 CompoundTense,Affirmative,FutureDefinite,adeem
 CompoundTense,Affirmative,FutureIndefinite,adeem

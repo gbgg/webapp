@@ -1,3 +1,2 @@
-NonFinite:conjClass,polarity,tam
-VSTEM:conjClass,polarity,tam
-
+NonFinite,conjClass,polarity,tam,
+VSTEM,conjClass,polarity,tam,

@@ -1,5 +1,6 @@
-Independent:gender,number,person
-ObjClitic:case,conjSubType,gender,number,person
-Possessive:gender,genderPoss,number,person
-SubjClit:case,gender,number,person
-
+Independent,
+Possessive,Fem
+Possessive,Masc
+SubjClit,Nominative,
+ObjClitic,Object,SubClass1,
+ObjClitic,Object,SubClass2,

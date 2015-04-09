@@ -1,2 +1,1 @@
-Numeral:morphClass,numClass
-
+Numeral,morphClass,numClass,

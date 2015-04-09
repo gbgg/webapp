@@ -1,3 +1,4 @@
-Independent:case,gender,number,person
-PossPref:gender,number,person
-
+PossPref,
+Independent,Accusative
+Independent,Nominative
+Independent,Vocative

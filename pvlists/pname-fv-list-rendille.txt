@@ -1,4 +1,3 @@
-clauseType,conjClaspdgmLexs,conjClass,conjSubType,derivedStem,polarity,tam,lex
 Prefix,Affirmative,Concessive,mi
 Prefix,Affirmative,Imperative,mi
 Prefix,Affirmative,Optative,mi

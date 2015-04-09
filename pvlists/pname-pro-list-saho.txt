@@ -1,2 +1,5 @@
-Independent:case,gender,number,person
-
+Independent,Emphatic
+Independent,Independent
+Independent,Object
+Independent,ObjectIndirect
+Independent,Possessive

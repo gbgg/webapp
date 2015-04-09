@@ -1,5 +1,4 @@
-INFINITIVEPREF:conjClass,nonFiniteForm
-INFINITIVESUFF:clauseType,conjClass,conjSubClass,nonFiniteForm
-PREFMAINNEGPASTINVAR:clauseType,conjClass,numPersGender,pdgmSubType,pdgmType,polarity,tam
-SUFFC1MAINNEGPASTINVAR:clauseType,conjClass,conjSubClass,numPersGender,pdgmSubType,pdgmType,polarity,tam
-
+INFINITIVESUFF,clauseType,conjClass,conjSubClass,nonFiniteForm,
+SUFFC1MAINNEGPASTINVAR,clauseType,conjClass,conjSubClass,numPersGender,pdgmSubType,pdgmType,polarity,tam,
+INFINITIVEPREF,conjClass,nonFiniteForm,
+PREFMAINNEGPASTINVAR,clauseType,conjClass,numPersGender,pdgmSubType,pdgmType,polarity,tam,

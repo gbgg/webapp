@@ -1,5 +1,9 @@
-Independent:form,gender,number,person
-Object:gender,number,person
-Pers_dem:demonstrative,gender,number,person
-Possessive:headGen,number,person
-
+Object,
+Possessive,Fem
+Possessive,Masc
+Independent,Full,
+Independent,Short,
+Pers_dem,Far,
+Pers_dem,Midway,
+Pers_dem,Near1,
+Pers_dem,Near2,

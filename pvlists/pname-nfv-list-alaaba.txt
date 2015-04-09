@@ -1,3 +1,2 @@
-DervStem:derivedStem
-causativeAllomorph:causativeAllomorph,stemFinalC
-
+DervStem,derivedStem,
+causativeAllomorph,causativeAllomorph,stemFinalC,

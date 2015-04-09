@@ -1,3 +1,2 @@
-DervStemFormation:derivedClass,derivedStem
-SubjMarkers:conjClass,polarity,suffixSet,tam
-
+DervStemFormation,derivedClass,derivedStem,
+SubjMarkers,conjClass,polarity,suffixSet,tam,

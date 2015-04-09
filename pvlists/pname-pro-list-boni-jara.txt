@@ -1,7 +1,6 @@
-Focus:gender,number,person
-Independent:gender,number,person
-Object:gender,number,person
-Possessive:formType,gender,number,person
-SubjPrefV:gender,number,person
-SubjSuffV:gender,number,person
-
+Focus,
+Independent,
+Object,
+SubjPrefV,
+SubjSuffV,
+Possessive,Suffix

@@ -50,10 +50,19 @@
               [:td [:input#submit
                     {:value "Make PDGM Value-Clusters List", :name "submit", :type "submit"}]]]]))))
 
-(defn req2vlist
+(defn req2vlist1
+  [vlist]
+  (let [vlist1 (replace vlist #"\r\n$" "")
+        reqq (split vlist1 #"\r\n")
+        ;;reqqa (first reqq)
+        reqqb (rest reqq)
+        reqqc  (replace reqqb #"\B,|[\(\)\"]" "")
+        reqqd (replace reqqc #"[\]\[\"]" "")]
+    (replace reqqd #" " "\n")))
+
+(defn req2vlist2
   [vlist]
   (let [vlist1 (replace vlist #"\n$" "")
-;;        vlist2 (replace vlist1 #"\n" "%%\n")
         reqq (split vlist1 #"\n")
         ;;reqqa (first reqq)
         reqqb (rest reqq)
@@ -62,9 +71,7 @@
         vmerge (apply merge-with str vmap)
         reqq2 (into [] (for [vm vmerge] (join "," vm)))
         ;; I have no idea why the following works
-        reqq3 (for [r2 reqq2] (replace r2 #"\r" ","))
-        ;;reqq4 (into [] reqq3)
-        ]
+        reqq3 (for [r2 reqq2] (replace r2 #"\r" ","))]
     (join "\n" reqq3)
 ))
 
@@ -77,11 +84,11 @@
             langs (split ldomain #",")]
         (for [language langs]
           (let [
-            lang (read-string (str ":" language))
-            lpref (lang lprefmap)
-            ;; send SPARQL over HTTP request
-            outfile (str "pvlists/pname-" pos "-list-" language ".txt")
-            query-sparql1 (cond 
+                lang (read-string (str ":" language))
+                lpref (lang lprefmap)
+                ;; send SPARQL over HTTP request
+                outfile (str "pvlists/pname-" pos "-list-" language ".txt")
+                query-sparql1 (cond 
                           (= pos "pro")
                           (sparql/listlgpr-sparql-pro language lpref)
                           (= pos "nfv")
@@ -90,15 +97,17 @@
                           (sparql/listlgpr-sparql-noun language lpref)
                           (= pos "fv")
                           (sparql/listlgpr-sparql-fv language lpref))
-            ;;query-sparql1-pr (replace query-sparql1 #"<" "&lt;")
-            req1 (http/get aama
+                ;;query-sparql1-pr (replace query-sparql1 #"<" "&lt;")
+                req1 (http/get aama
                           {:query-params
                            {"query" query-sparql1 ;;generated sparql
                             "format" "csv"}})
                             ;;"format" "application/sparql-results+json"}})
                             ;;"format" "text"}})
-            propstring (replace (:body req1) #"\r\n" ",")
-            query-sparql2 (cond 
+                propstring (replace (:body req1) #"\r\n" ",")
+                pstring (replace propstring #"property,|,$" "")
+                plist (replace pstring #"," ", ")
+                query-sparql2 (cond 
                           (= pos "pro")
                           (sparql/listvlcl-sparql-pro language lpref propstring)
                           (= pos "nfv")
@@ -106,28 +115,32 @@
                           (= pos "noun")
                           (sparql/listvlcl-sparql-noun language lpref propstring)
                           :else (sparql/listvlcl-sparql-fv language lpref propstring))
-            query-sparql2-pr (replace query-sparql2 #"<" "&lt;")
-            req2 (http/get aama
+                query-sparql2-pr (replace query-sparql2 #"<" "&lt;")
+                req2 (http/get aama
                           {:query-params
                            {"query" query-sparql2 ;;generated sparql
                             ;;"format" "application/sparql-results+json"}})
                             "format" "csv"}})
-            req2-body (replace (:body req2) #",+" ",")
-;;            req2-out (replace req2-body #"\B," "")
-            req2-out   (cond
-                        (or (= pos "fv") (= pos "pro"))
-                        (replace req2-body #"\B," "")
-                        :else (req2vlist req2-body))
+                req2-body (replace (:body req2) #",+" ",")
+                req2-out   (cond
+                       (or (= pos "fv") (= pos "pro"))
+                       (req2vlist1 req2-body)
+                       :else (req2vlist2 req2-body))
               ]
         (log/info "sparql result status: " (:status req2))
         (spit outfile req2-out)
           [:div
-           [:h4 "Language: " language]
-           [:p "File: " outfile]
+           [:h4 "Language: "]
+           [:li language]
+           [:h4 "File: "]
+           [:li outfile]
            ;;[:p "req2-body: " [:pre req2-body]]
-           [:p  [:pre req2-out]]
+           [:h4 "Property List: " ]
+           [:li plist]
+           [:h4  "Value Clusters: " ]
+           [:pre req2-out]
            [:hr]
-           [:p "propstring: " [:pre propstring]]
+           ;;[:p "propstring: " [:pre propstring]]
            [:h3#clickable "Query:"]
            [:pre query-sparql2-pr]
            ])))

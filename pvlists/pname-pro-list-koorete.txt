@@ -1,6 +1,8 @@
-DemPro:case,gender,number,person
-Demonstrative:dimension
-Interrogative:case
-ProInd:case,gender,number,person
-Vocative:gender,number,person
-
+Vocative,
+DemPro,Absolutive
+ProInd,Absolutive
+ProInd,Dative
+ProInd,Instrumental
+DemPro,Nominative
+ProInd,Nominative
+ProInd,Possessive

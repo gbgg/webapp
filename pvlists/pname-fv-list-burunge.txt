@@ -1,4 +1,3 @@
-affirmationType,clauseTypeSel,derivedStem,genderHead,genderObj,morphClass,numObj,numSubj,orientationSel,polarity,predType,stemClass,stemInflCategory,stemInflMorpheme,tam,tenseSel,lex
 DentalStem,Imperfect,ibiid
 DentalStem,Imperfect,qaat
 DentalStem,Imperfect,qadid

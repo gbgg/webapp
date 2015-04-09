@@ -1,4 +1,3 @@
-clauseType,defClass,morphClass,polarity,tam,varB,varClass,lex
 SuffAlternate,Imperative,VarB1,des
 SuffAlternate,Imperative,VarB2,des
 SuffAlternate,Imperative,VarB3,des

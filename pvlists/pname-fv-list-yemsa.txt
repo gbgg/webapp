@@ -1,4 +1,3 @@
-conjClass,morphClass,polarity,tam,lex
 Conj1,Affirmative,Cond1,am
 Conj1,Affirmative,Desiderative,am
 Conj1,Affirmative,FutIngr,am
@@ -165,75 +164,147 @@ Conj3b,Monosyllablic,Affirmative,PretDubit,i
 Conj3b,Monosyllablic,Affirmative,PretEgr,i
 Conj3b,Monosyllablic,Affirmative,PretIngr,i
 Conj3b,Monosyllablic,Affirmative,PretProgr,i
-conj2 exponents,Affirmative,Cond1,shol
-conj2 exponents,Affirmative,Desiderative,shol
-conj2 exponents,Affirmative,FutProgr,shol
-conj2 exponents,Affirmative,FutPunct,shol
-conj2 exponents,Affirmative,GerPres,shol
-conj2 exponents,Affirmative,GerPret,shol
-conj2 exponents,Affirmative,Imperative,shol
-conj2 exponents,Affirmative,Imperfect,shol
-conj2 exponents,Affirmative,Jussive,shol
-conj2 exponents,Affirmative,Perfect,shol
-conj2 exponents,Affirmative,Potential,shol
-conj2 exponents,Affirmative,PresProgr,shol
-conj2 exponents,Affirmative,PresPunct,shol
-conj2 exponents,Affirmative,PretProgr,shol
-conj2 exponents,Negative,Desiderative,shol
-conj2 exponents,Negative,FutIngr,shol
-conj2 exponents,Negative,FutPunct,shol
-conj2 exponents,Negative,Jussive,shol
-conj2 exponents,Negative,Perfect,shol
-conj2 exponents,Negative,PresPunct,shol
-conj2 exponents,Monosyllablic,Affirmative,FutPunct,yoo
-conj2 exponents,Monosyllablic,Affirmative,GerPres,ya
-conj2 exponents,Monosyllablic,Affirmative,GerPret,ya
-conj2 exponents,Monosyllablic,Affirmative,Imperative,ya
-conj2 exponents,Monosyllablic,Affirmative,Imperfect,ya
-conj2 exponents,Monosyllablic,Affirmative,Jussive,ya
-conj2 exponents,Monosyllablic,Affirmative,Perfect,ya
-conj2 exponents,Monosyllablic,Affirmative,PresIngr,ya
-conj2 exponents,Monosyllablic,Affirmative,PresPunct,ya
-conj2 exponents,Monosyllablic,Affirmative,PretDubit,ya
-conj2 exponents,Monosyllablic,Affirmative,PretEgr,ya
-conj2 exponents,Monosyllablic,Affirmative,PretIngr,ya
-conj2 exponents,Monosyllablic,Affirmative,PretProgr,ya
-conj3 exponents,Affirmative,Cond1,zag
-conj3 exponents,Affirmative,Desiderative,zag
-conj3 exponents,Affirmative,FutProgr,zag
-conj3 exponents,Affirmative,FutPunct,zag
-conj3 exponents,Affirmative,GerPres,zag
-conj3 exponents,Affirmative,GerPret,zag
-conj3 exponents,Affirmative,Imperative,zag
-conj3 exponents,Affirmative,Imperfect,zag
-conj3 exponents,Affirmative,Jussive,zag
-conj3 exponents,Affirmative,Perfect,zag
-conj3 exponents,Affirmative,Potential,zag
-conj3 exponents,Affirmative,PresProgr,zag
-conj3 exponents,Affirmative,PresPunct,zag
-conj3 exponents,Affirmative,PretProgr,zag
-conj3 exponents,Negative,FutProgr,zag
-conj3 exponents,Negative,FutPunct,zag
-conj3 exponents,Negative,FutPunctSub,zag
-conj3 exponents,Negative,Gerund,zag
-conj3 exponents,Negative,Jussive,zag
-conj3 exponents,Negative,Perfect,zag
-conj3 exponents,Negative,Potential,zag
-conj3 exponents,Negative,PresHab,zag
-conj3 exponents,Negative,PresPunct,zag
-conj3 exponents,Negative,PretDubit,zag
-conj3 exponents,Negative,PretHab,zag
-conj3 exponents,Negative,PretProgr,zag
-conj3 exponents,Monosyllablic,Affirmative,FutPunct,ma
-conj3 exponents,Monosyllablic,Affirmative,GerPres,ma
-conj3 exponents,Monosyllablic,Affirmative,GerPret,ma
-conj3 exponents,Monosyllablic,Affirmative,Imperative,ma
-conj3 exponents,Monosyllablic,Affirmative,Imperfect,ma
-conj3 exponents,Monosyllablic,Affirmative,Jussive,ma
-conj3 exponents,Monosyllablic,Affirmative,Perfect,ma
-conj3 exponents,Monosyllablic,Affirmative,PresIngr,ma
-conj3 exponents,Monosyllablic,Affirmative,PresPunct,ma
-conj3 exponents,Monosyllablic,Affirmative,PretDubit,ma
-conj3 exponents,Monosyllablic,Affirmative,PretEgr,ma
-conj3 exponents,Monosyllablic,Affirmative,PretIngr,ma
-conj3 exponents,Monosyllablic,Affirmative,PretProgr,ma
+conj2
+exponents,Affirmative,Cond1,shol
+conj2
+exponents,Affirmative,Desiderative,shol
+conj2
+exponents,Affirmative,FutProgr,shol
+conj2
+exponents,Affirmative,FutPunct,shol
+conj2
+exponents,Affirmative,GerPres,shol
+conj2
+exponents,Affirmative,GerPret,shol
+conj2
+exponents,Affirmative,Imperative,shol
+conj2
+exponents,Affirmative,Imperfect,shol
+conj2
+exponents,Affirmative,Jussive,shol
+conj2
+exponents,Affirmative,Perfect,shol
+conj2
+exponents,Affirmative,Potential,shol
+conj2
+exponents,Affirmative,PresProgr,shol
+conj2
+exponents,Affirmative,PresPunct,shol
+conj2
+exponents,Affirmative,PretProgr,shol
+conj2
+exponents,Negative,Desiderative,shol
+conj2
+exponents,Negative,FutIngr,shol
+conj2
+exponents,Negative,FutPunct,shol
+conj2
+exponents,Negative,Jussive,shol
+conj2
+exponents,Negative,Perfect,shol
+conj2
+exponents,Negative,PresPunct,shol
+conj2
+exponents,Monosyllablic,Affirmative,FutPunct,yoo
+conj2
+exponents,Monosyllablic,Affirmative,GerPres,ya
+conj2
+exponents,Monosyllablic,Affirmative,GerPret,ya
+conj2
+exponents,Monosyllablic,Affirmative,Imperative,ya
+conj2
+exponents,Monosyllablic,Affirmative,Imperfect,ya
+conj2
+exponents,Monosyllablic,Affirmative,Jussive,ya
+conj2
+exponents,Monosyllablic,Affirmative,Perfect,ya
+conj2
+exponents,Monosyllablic,Affirmative,PresIngr,ya
+conj2
+exponents,Monosyllablic,Affirmative,PresPunct,ya
+conj2
+exponents,Monosyllablic,Affirmative,PretDubit,ya
+conj2
+exponents,Monosyllablic,Affirmative,PretEgr,ya
+conj2
+exponents,Monosyllablic,Affirmative,PretIngr,ya
+conj2
+exponents,Monosyllablic,Affirmative,PretProgr,ya
+conj3
+exponents,Affirmative,Cond1,zag
+conj3
+exponents,Affirmative,Desiderative,zag
+conj3
+exponents,Affirmative,FutProgr,zag
+conj3
+exponents,Affirmative,FutPunct,zag
+conj3
+exponents,Affirmative,GerPres,zag
+conj3
+exponents,Affirmative,GerPret,zag
+conj3
+exponents,Affirmative,Imperative,zag
+conj3
+exponents,Affirmative,Imperfect,zag
+conj3
+exponents,Affirmative,Jussive,zag
+conj3
+exponents,Affirmative,Perfect,zag
+conj3
+exponents,Affirmative,Potential,zag
+conj3
+exponents,Affirmative,PresProgr,zag
+conj3
+exponents,Affirmative,PresPunct,zag
+conj3
+exponents,Affirmative,PretProgr,zag
+conj3
+exponents,Negative,FutProgr,zag
+conj3
+exponents,Negative,FutPunct,zag
+conj3
+exponents,Negative,FutPunctSub,zag
+conj3
+exponents,Negative,Gerund,zag
+conj3
+exponents,Negative,Jussive,zag
+conj3
+exponents,Negative,Perfect,zag
+conj3
+exponents,Negative,Potential,zag
+conj3
+exponents,Negative,PresHab,zag
+conj3
+exponents,Negative,PresPunct,zag
+conj3
+exponents,Negative,PretDubit,zag
+conj3
+exponents,Negative,PretHab,zag
+conj3
+exponents,Negative,PretProgr,zag
+conj3
+exponents,Monosyllablic,Affirmative,FutPunct,ma
+conj3
+exponents,Monosyllablic,Affirmative,GerPres,ma
+conj3
+exponents,Monosyllablic,Affirmative,GerPret,ma
+conj3
+exponents,Monosyllablic,Affirmative,Imperative,ma
+conj3
+exponents,Monosyllablic,Affirmative,Imperfect,ma
+conj3
+exponents,Monosyllablic,Affirmative,Jussive,ma
+conj3
+exponents,Monosyllablic,Affirmative,Perfect,ma
+conj3
+exponents,Monosyllablic,Affirmative,PresIngr,ma
+conj3
+exponents,Monosyllablic,Affirmative,PresPunct,ma
+conj3
+exponents,Monosyllablic,Affirmative,PretDubit,ma
+conj3
+exponents,Monosyllablic,Affirmative,PretEgr,ma
+conj3
+exponents,Monosyllablic,Affirmative,PretIngr,ma
+conj3
+exponents,Monosyllablic,Affirmative,PretProgr,ma

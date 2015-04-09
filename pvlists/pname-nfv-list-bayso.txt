@@ -1,2 +1,1 @@
-TnsAspModStem:formType,tam,tamStemForm
-
+TnsAspModStem,formType,tam,tamStemForm,

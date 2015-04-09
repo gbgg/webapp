@@ -1,4 +1,3 @@
-conjClass,derivedCategory,patternClass,polarity,position,tam,verbMorphClass,lex
 Prefix,Affirmative,Imperative,aac
 Prefix,Affirmative,Imperative,aam
 Prefix,Affirmative,Imperative,al

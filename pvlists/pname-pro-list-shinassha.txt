@@ -1,6 +1,10 @@
-IndepCase:case,gender,number,person
-Independent:gender,number,person
-PossAdj:gender,number,person
-PossNoun:gender,number,person
-Subject:gender,number,person
-
+Independent,
+PossAdj,
+PossNoun,
+Subject,
+IndepCase,Ablative
+IndepCase,Benefactive
+IndepCase,Comitative
+IndepCase,Dative
+IndepCase,Directive
+IndepCase,Locative

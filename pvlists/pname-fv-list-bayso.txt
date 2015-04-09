@@ -1,4 +1,3 @@
-conjClass,morphClass,polarity,tam,lex
 Conjugation1,Affirmative,DubitativePast,dub
 Conjugation1,Affirmative,Future1,dub
 Conjugation1,Affirmative,Future2,dub

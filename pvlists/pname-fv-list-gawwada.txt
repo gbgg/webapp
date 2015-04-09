@@ -1,4 +1,3 @@
-inflClass,morphClass,pdgmType,polarity,tam,tense2,lex
 Imperfective,ass
 Affirmative,Jussive,ass
 Negative,Jussive,ass

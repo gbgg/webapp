@@ -1,4 +1,3 @@
-clauseMarker,conjClass,derivedStem,focus,formType,morphClass,pdgmType,polarity,proType,tam,verbClass,lex
 Affirmative,Imperative,it
 Affirmative,Imperfect,ba
 Affirmative,Imperfect,duw
@@ -47,14 +46,17 @@ Compound,Affirmative,WoPro,Pluperfect,mar
 Compound,Affirmative,WoPro,PresentPerfect,mar
 Defective,Affirmative,Common,SimplePerfect,mar
 Free,Affirmative,Common,SimplePerfect,Focus,mar
-Free,Affirmative,Common,SimplePerfect,focus exponents,mar
+Free,Affirmative,Common,SimplePerfect,focus
+exponents,mar
 Free,Affirmative,Id,SimplePerfect,Focus,mar
-Free,Affirmative,Id,SimplePerfect,focus exponents,mar
+Free,Affirmative,Id,SimplePerfect,focus
+exponents,mar
 Full,Affirmative,Common,SimplePerfect,mar
 Full,Affirmative,WPro,SimplePerfect,mar
 Full,Affirmative,WoPro,SimplePerfect,mar
 Subject,Affirmative,Common,SimplePerfect,Focus,mar
-Subject,Affirmative,Common,SimplePerfect,focus exponents,mar
+Subject,Affirmative,Common,SimplePerfect,focus
+exponents,mar
 Passive,Affirmative,PresentPerfect,nak
 Irreg,IMPERFREG-IRREG,Exemplary,Affirmative,Common,Imperfect,hayy
 Irreg,IMPERFREG-IRREG,Exemplary,Affirmative,WPro,Imperfect,hayy

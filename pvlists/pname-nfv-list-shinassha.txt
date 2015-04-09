@@ -1,7 +1,6 @@
-DervStem:derivedStem
-Gerund:complement,conjClass,polarity,tam
-Infinitive:complement,conjClass,polarity,tam
-InfinitiveInflect:polarity,tam
-InflClass:conjClass
-Stem:polarity,tam
-
+InfinitiveInflect,polarity,tam,
+DervStem,derivedStem,
+Infinitive,complement,conjClass,polarity,tam,
+InflClass,conjClass,
+Gerund,complement,conjClass,polarity,tam,
+Stem,polarity,tam,

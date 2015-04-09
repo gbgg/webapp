@@ -1,4 +1,3 @@
-proClass,case,genHead,numHead
 ObjSuff,
 PersSuff,
 PossSuff,H_Plural

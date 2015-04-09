@@ -1,4 +1,3 @@
-conjClass,derivedStem,derivedStemAug,extended,polarity,tam,verbMorphClass,lex
 Prefix,Base,Intensive,Reduced,Affirmative,Imperative,al
 Prefix,Base,Intensive,Reduced,Affirmative,Imperative,as
 Prefix,Base,Intensive,Reduced,Affirmative,Imperfect,as

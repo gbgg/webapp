@@ -1,4 +1,3 @@
-conjClass,focus,pdgmClass,polarity,tam,lex
 PersonClass1,Aff,ImprtvOpt,woon
 PersonClass2,Aff,ImprtvOpt,bee
 Decl,PersonClass1,Aff,PastHab,woon

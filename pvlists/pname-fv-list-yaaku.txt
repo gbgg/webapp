@@ -1,4 +1,3 @@
-aspect,case,conjClass,copForm,morphClass,polarity,tam,lex
 IMPRTV,Imperative,deet
 IMPRTV,Imperative,ek
 IMPRTV,Imperative,eq

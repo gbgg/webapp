@@ -1,4 +1,3 @@
-morphClass,polarity,tam,lex
 Affirmative,Imperative,baasl
 Affirmative,Jussive,baasl
 Affirmative,Past,baasl

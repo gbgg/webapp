@@ -1,4 +1,3 @@
-proClass,case,genHead,numHead,stemFinal
 ObjectSuffix,
 IndependentPossessive,H_Fem,H_Plural,
 PossCop,H_Fem,H_Plural,

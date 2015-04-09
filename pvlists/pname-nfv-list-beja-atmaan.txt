@@ -1,4 +1,3 @@
 VNOMFORM,conjClass,nonFiniteForm,polarity,rootClass,
 AUX_OVERVIEW,pdgmType,
-morphClassLabel,property,
 NOMINALIZATIONPATTERNS,conjClass,pdgmType,

@@ -1,4 +1,3 @@
-proClass,case
 PossessiveDefinite,
 Reflexive,
 Independent,Absolutive

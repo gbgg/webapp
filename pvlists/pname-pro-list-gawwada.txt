@@ -1,5 +1,7 @@
-Independent:gender,number,person
-ObjProclitic:gender,number,person
-PossSuff:gender,genderHead,number,person
-SubjProclitic:number,person,polarity
-
+Independent,
+ObjProclitic,
+SubjProclitic,Affirmative
+SubjProclitic,Common
+SubjProclitic,Negative
+PossSuff,Fem,
+PossSuff,Masc,

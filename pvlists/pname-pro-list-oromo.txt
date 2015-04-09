@@ -1,4 +1,3 @@
-proClass,case
 Independent,Absolutive
 ProSuff,Possessive
 Independent,Subject

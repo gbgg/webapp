@@ -1,4 +1,3 @@
-morphClass,polarity,tam,lex
 Affirmative,Imperative,mass
 Affirmative,Imperfect,mass
 Affirmative,Jussive,mass

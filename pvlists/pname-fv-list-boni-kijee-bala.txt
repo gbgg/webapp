@@ -1,4 +1,3 @@
-conjClass,polarity,tam,lex
 Suffix2,Affirmative,Imperative,obed
 Suffix2,Affirmative,Imperfect,obed
 Suffix2,Affirmative,Perfect,obed

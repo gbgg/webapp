@@ -1,4 +1,3 @@
-proClass,case,caseHead,genHead,numHead,numPoss,pdgmType
 DatInd,
 Independent,
 ObjSuff,

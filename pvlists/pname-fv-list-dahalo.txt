@@ -1,4 +1,3 @@
-aspect,polarity,tam,lex
 Imperfective,Affirmative,Imperative,lub
 Imperfective,Affirmative,Jussive,lub
 Imperfective,Affirmative,PastGen,lub

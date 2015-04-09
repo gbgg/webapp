@@ -1,7 +1,6 @@
-ComponentAnalysis:imprtvComponent,tam
-DervStem:derivedStem
-InterrGen:affirmationType,gramFunction
-Participle:tam
-SubjRelClause-subjMarking:genderHead,tenseSel
-Suffixes:derivedStem,orientationSel,tam
-
+Participle,tam,
+Suffixes,derivedStem,orientationSel,tam,
+SubjRelClause-subjMarking,genderHead,tenseSel,
+DervStem,derivedStem,
+InterrGen,affirmationType,gramFunction,
+ComponentAnalysis,imprtvComponent,tam,

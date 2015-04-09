@@ -1,2 +1,1 @@
 PrefixIrregular,conjClass,rootClass,
-morphClassLabel,property,

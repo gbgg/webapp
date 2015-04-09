@@ -1,4 +1,3 @@
-conjClass,morphClass,polarity,stemShape,suffixSet,tam,lex
 ConjA,Affirmative,CVC,Aorist,ug
 ConjA,Affirmative,CVC,Consecutive,ug
 ConjA,Affirmative,CVC,Future,ug

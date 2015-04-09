@@ -1,4 +1,3 @@
-aspect,clauseType,conjClass,morphClass,numberGenderHead,pdgmType,pngSet,polarity,tam,verbMorphClass,lex
 Imperfective,VREL,Comparative,RelativeOblique,gab
 Imperfective,VREL,Comparative,RelativeOblique,was
 Imperfective,VREL,Comparative,RelativeSubject,gab

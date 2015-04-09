@@ -1,4 +1,3 @@
-aspect,derivedStem,mood,tam,voice,lex
 Imperfect,Form1,Imperative,Nonpast,Active,nsr
 Imperfect,Form1,Indicative,Nonpast,Active,nsr
 Imperfect,Form1,Indicative,Nonpast,Passive,nsr

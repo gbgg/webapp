@@ -1,4 +1,3 @@
-conjClass,derivedStem,derivedStemAug,formType,morphClass,pdgmType,polarity,rootClass,tam,lex
 Affirmative,Future,tam
 Auxiliary,Negative,Past,tam
 Copula,COPULA

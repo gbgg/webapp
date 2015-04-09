@@ -1,6 +1,5 @@
-Infinitive-me:conjClass,infinitiveClass,nonFiniteForm
-Infinitive-um:conjClass,infinitiveClass,nonFiniteForm
-PrefPatternClasses:conjClass,patternClass,pdgmType
-SuppletivePdgms:conjClass,morphoSynEnv,pdgmType
-VRadicalExt:derivedStem,pdgmType,stemAltClass
-
+Infinitive-um,conjClass,infinitiveClass,nonFiniteForm,
+SuppletivePdgms,conjClass,morphoSynEnv,pdgmType,
+PrefPatternClasses,conjClass,patternClass,pdgmType,
+VRadicalExt,derivedStem,pdgmType,stemAltClass,
+Infinitive-me,conjClass,infinitiveClass,nonFiniteForm,

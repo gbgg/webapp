@@ -1,4 +1,3 @@
-conjClass,derivedStem,morphClass,nonFiniteForm,polarity,proClass,rootClass,tam,lex
 Prefix2,Base,Affirmative,CC,Aorist,at
 Prefix2,Base,Affirmative,CC,Aorist,din
 Prefix2,Base,Affirmative,CC,Aorist,tu

@@ -61,39 +61,37 @@
 (defn handle-langcbpllqry
   [languages pos]
   (layout/common 
-   (for [language languages]
-     (let [valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")
-           valclusterlist (slurp valclusterfile)
-           valclusters (clojure.string/split valclusterlist #"\r\n")]
        ;;[:h3 "Paradigms"]
-       [:p "Choose Value Clusters For: " language "/" pos]
+       ;;[:p "Choose Value Clusters For: " language "/" pos]
        ;;[:p error]
-       [:hr]
-       (form-to [:post "/langcbcmpdisplay"]
-                [:table
-                 [:tr [:td "PDGM Language: " ]
-                  ;; change language & pos selects to checked checkbox
-                  [:td
-                   (check-box {:name "language" :value language :checked "true"} language) (str language)]]
-                 [:tr [:td "PDGM Type: " ]
-                  [:td
-                   (check-box {:name "pos" :value pos :checked "true"} pos) (str pos)]]
+       ;;[:hr]
+   (form-to [:post "/langcbcmpdisplay"]
+            [:table
+             [:tr [:td "PDGM Type: " ]
+              [:td
+               (check-box {:name "pos" :value pos :checked "true"} pos) (str pos)]]
+              [:tr [:td [:hr]]]
+             (for [language languages]
+               (let [valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")
+                     valclusterlist (slurp valclusterfile)
+                     valclusters (clojure.string/split valclusterlist #"\r\n")]
+                 [:div [:tr [:td "PDGM Language: " ]
+                  [:td (capitalize language)]]
                  [:tr [:td "PDGM Value Clusters: " ]
                   [:td 
                    {:title "Choose a value.", :name "valcluster"}
                    (for [valcluster valclusters]
                      [:div {:class "form-group"}
                       [:label 
-                       (check-box {:name "valclusters[]" :value valcluster} valcluster) (str valcluster)]
-                      ]
+                       (check-box {:name "valclusters[]" :value (str language "," valcluster)} valcluster) (str valcluster)]
+                      ])]]]))
                      ;; from https://groups.google.com/forum/#!topic/compojure/5Vm8QCQLsaQ
                      ;; (check-box "valclusters[]" false valcluster) (str valcluster)]]
-                     )]]
+                     
                  ;;(submit-button "Get pdgm")
                  [:tr [:td ]
                   [:td [:input#submit
-                        {:value "Display pdgms", :name "submit", :type "submit"}]]]]
-                [:hr])))))
+                        {:value "Display pdgms", :name "submit", :type "submit"}]]]])))
 
 (defn vc2req
  [valclusters pos]
@@ -114,7 +112,7 @@
                           (sparql/pdgmqry-sparql-nfv language lpref valcluster)
                           (= pos "noun")
                           (sparql/pdgmqry-sparql-noun language lpref valcluster)
-                          :else (sparql/pdgmqry-sparql-fv language lpref valcluster))
+                          :else (sparql/pdgmqry-sparql-fv language lpref vcluster))
             req (http/get aama
                       {:query-params
                        {"query" query-sparql ;;generated sparql
@@ -159,7 +157,7 @@
                  [:td pdgmcell]))])))]]))
 
 (defn handle-langcbcmpdisplay
-  [language valclusters pos]
+  [valclusters pos]
   ;; send SPARQL over HTTP request
   (let [headerset1 (str "Paradigm " "Number " "Person " "Gender " "Token ")
         headerset2 (str "Number " "Person " "Gender " "Token ")
@@ -300,5 +298,5 @@
 (defroutes langcheckbx-routes
   (GET "/langcheckbx" [] (langcheckbx))
   (POST "/langcbpllqry" [languages pos] (handle-langcbpllqry languages pos))
-  (POST "/langcbcmpdisplay" [language valclusters pos] (handle-langcbcmpdisplay language valclusters pos))
-  (POST "/langcbplldisplay" [pdgmnames header pdgmstr2 pngtype] (handle-langcbplldisplay pdgmnames header pdgmstr2 pngtype)))
+  (POST "/langcbcmpdisplay" [valclusters pos] (handle-langcbcmpdisplay valclusters pos))
+  (POST "/langcbplldisplay" [pdgmnames header pdgmstr2] (handle-langcbplldisplay pdgmnames header pdgmstr2)))

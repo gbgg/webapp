@@ -1,4 +1,3 @@
-conjClass,mood,morphClass,polarity,selectorBE,tam,lex
 Conj1,Affirmative,Past,firiim
 Conj1,Affirmative,Present,koom
 Conj1,TenseFormation1,Negative,Present,firiim

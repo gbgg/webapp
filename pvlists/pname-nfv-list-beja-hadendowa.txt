@@ -1,2 +1,1 @@
-morphClassLabel,property,
 DervStemForm,conjClass,derivedStem,nonFiniteForm,polarity,tam,verbMorphClass,

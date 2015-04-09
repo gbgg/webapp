@@ -1,4 +1,3 @@
-clause,clauseType,conjClass,derivedStem,nonFiniteForm,polarity,rootClass,tam,verbMorphClass,lex
 Prefix,Affirmative,Imperative,i
 Prefix,Affirmative,CCC,Optative,kitim
 Prefix,Affirmative,CCC,Past,kitim

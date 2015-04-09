@@ -1,3 +1,2 @@
 POSTPOSITION,case,morphClass,postpositionClass,
-morphClassLabel,property,
 PLMARK,morphClass,pdgmType,pluralClass,

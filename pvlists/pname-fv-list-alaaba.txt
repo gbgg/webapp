@@ -1,4 +1,3 @@
-clauseType,morphClass,polarity,tam,lex
 Converb,ameet
 Converb,gaf
 Converb,ke

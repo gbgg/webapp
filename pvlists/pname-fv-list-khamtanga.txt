@@ -1,4 +1,3 @@
-clauseType,conjClass,genderHead,genderPoss,numHead,polarity,tam,lex
 Main,Conjugation1,Affirmative,Future,kab
 Main,Conjugation1,Affirmative,Imperative,kab
 Main,Conjugation1,Affirmative,Jussive,kab

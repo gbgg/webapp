@@ -1,4 +1,3 @@
-complement,conjClass,mood,morphClass,polarity,tam,lex
 Existence,ConjClass,fa
 Existence,Present,fa
 Gerund,Affirmative,ImperfectPreterite,maa

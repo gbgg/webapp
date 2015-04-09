@@ -1,4 +1,3 @@
-conjClass,conjSubType,morphClass,pdgmSubType,pdgmType,polarity,rootClass,stemClass,tam,type,lex
 Prefix,Affirmative,Imperative,dir
 Prefix,Affirmative,Imperative,fedig
 Prefix,Affirmative,Imperative,harid
