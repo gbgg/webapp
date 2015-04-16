@@ -7,7 +7,7 @@
             [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [clojure.string :refer [capitalize split]]
+            [clojure.string :refer [capitalize split upper-case]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             ;;[boutros.matsu.sparql :refer :all]
@@ -69,25 +69,23 @@
             [:table
              [:tr [:td "PDGM Type: " ]
               [:td
-               (check-box {:name "pos" :value pos :checked "true"} pos) (str pos)]]
+               (check-box {:name "pos" :value pos :checked "true"} pos) (str (upper-case pos))]]
               [:tr [:td [:hr]]]
-             (for [language languages]
-               (let [valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")
-                     valclusterlist (slurp valclusterfile)
-                     valclusters (clojure.string/split valclusterlist #"\r\n")]
-                 [:div [:tr [:td "PDGM Language: " ]
-                  [:td (capitalize language)]]
+                 [:tr [:td "PDGM Language(s): " ]
+                  [:td 
+                   (for [language languages]
+                     [:div (str (capitalize language) " ")])]]
                  [:tr [:td "PDGM Value Clusters: " ]
                   [:td 
                    {:title "Choose a value.", :name "valcluster"}
-                   (for [valcluster valclusters]
-                     [:div {:class "form-group"}
-                      [:label 
-                       (check-box {:name "valclusters[]" :value (str language "," valcluster)} valcluster) (str valcluster)]
-                      ])]]]))
-                     ;; from https://groups.google.com/forum/#!topic/compojure/5Vm8QCQLsaQ
-                     ;; (check-box "valclusters[]" false valcluster) (str valcluster)]]
-                     
+                   (for [language languages]
+                     (let [valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")
+                           valclusterlist (slurp valclusterfile)
+                           valclusters (split valclusterlist #"\n")]
+                       (for [valcluster valclusters]
+                         [:div {:class "form-group"}
+                          [:label
+                           (check-box {:name "valclusters[]" :value (str language "," valcluster) } valcluster) (str (capitalize language) ": " valcluster)]])))]]
                  ;;(submit-button "Get pdgm")
                  [:tr [:td ]
                   [:td [:input#submit
