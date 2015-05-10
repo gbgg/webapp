@@ -1,9 +1,11 @@
 // Compiled by ClojureScript 0.0-2311
 goog.provide('webapp.core');
 goog.require('cljs.core');
-webapp.core.handle_click = (function handle_click(){return alert("Cf. src/cljs/webapp/core.cljs");
-});
-webapp.core.clickable = document.getElementById("clickable");
-webapp.core.clickable.addEventListener("click",webapp.core.handle_click);
+goog.require('jayq.core');
+goog.require('jayq.core');
+goog.require('jayq.core');
+webapp.core.$clickable = jayq.core.$.call(null,new cljs.core.Keyword(null,"#clickable","#clickable",-209051651));
+jayq.core.bind.call(null,webapp.core.$clickable,new cljs.core.Keyword(null,"click","click",1912301393),(function (evt){return alert("Cf. cljs code in  src/cljs/webapp/core.cljs");
+}));
 
 //# sourceMappingURL=core.js.map
