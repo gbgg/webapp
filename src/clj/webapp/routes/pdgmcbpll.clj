@@ -24,7 +24,7 @@
         languages (split langlist #"\n")]
   (layout/common 
    [:h3 "Paradigm Checkbox"]
-     [:p "Use this option to pick a number of paradigms from a given language to be displayed in vertical succession."]
+     [:p "Use this option to pick a number of paradigms from a given language to be displayed in parallel."]
    [:p "Choose Language and Type"]
    ;; [:p error]
    [:hr]
@@ -55,9 +55,9 @@
   [language pos]
    (let [valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")
         valclusterlist (slurp valclusterfile)
-        valclusters (clojure.string/split valclusterlist #"\r\n")]
+        valclusters (clojure.string/split valclusterlist #"\n")]
     (layout/common 
-     [:h3 "Paradigms"]
+     [:h3 "Checkbox: Monolingual Parallel"]
      [:p "Choose Value Clusters For: " language "/" pos]
      ;;[:p error]
      [:hr]

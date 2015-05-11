@@ -19,7 +19,7 @@
   (let [langlist (slurp "pvlists/langlist.txt")
         languages (split langlist #"\n")]
   (layout/common 
-   [:h3 "Paradigms"]
+   [:h3 "Individual Paradigms"]
    [:h4 "Choose Language and Type"]
    [:p  "This query-type prompts for a \"paradigm-type\" (Finite Verb, Non-finite Verb, Pronoun, Noun) and a language; it then shows a drop-down select list of paradigms in that language of that type, and returns a table-formatted display of the selected paradigm."]
    ;; [:p error]

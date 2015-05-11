@@ -1,4 +1,4 @@
-/*  [This version selectively substitutes screen.css values for some sm-simple.css Menu Box and Menu items: GG 05/10/15]
+/* [This version substitutes screen.css values for all sm-simple.css Menu Box and Menu items: GG 05/10/15]
 ---------------------------------------------------------------
   Note that styles you apply to the main menu items are inherited by the sub menus items too.
   If you'd like to avoid this, you could use child selectors (not supported by IE6) - for example:
@@ -11,13 +11,26 @@
 
 	.sm-simple,
 	.sm-simple ul {
-	    border:1px solid #bbb;
-	    /*background:#fff;*/
+	    /*border:1px solid #bbb;
+	    background:#fff;
 	    -moz-box-shadow:0 1px 1px rgba(0,0,0,0.2);
 	    -webkit-box-shadow:0 1px 1px rgba(0,0,0,0.2);
-	    box-shadow:0 1px 1px rgba(0,0,0,0.2);
+	    box-shadow:0 1px 1px rgba(0,0,0,0.2);*/
 	    
 	    background-color: #878C87;    
+	    width: 100%;
+	    
+	    border-bottom-color: #dedede;
+	    line-height: 25px;
+	    border:1px solid;
+	    border-color:#ccc;
+	    
+	    -webkit-box-shadow: 0 8px 6px -6px #555;
+	    -moz-box-shadow: 0 8px 6px -6px #555;
+	    box-shadow: 0 8px 6px -6px #555;
+	    
+	    margin-bottom: 25px;
+	    display: inline-block;
 	}
 
 
@@ -25,16 +38,18 @@
 ===================*/
 
 	.sm-simple a {
-		padding:11px 20px;
-		color:#D1F0DA;
+		/*padding:11px 20px;
+		color:#555;
 		font-size:14px;
 		line-height:17px;
 		font-family:'Lucida Sans Unicode','Lucida Sans','Lucida Grande',Arial,sans-serif;
-		text-decoration:none;
+		text-decoration:none;*/
 
-		/*font-weight:bold;
+		color: #D1F0DA;
+		font-size: 15px;
+		font-weight:bold;
 		padding: 5px;
-		margin: 5px;    */
+		margin: 5px;    
 	}
 	.sm-simple a:hover, .sm-simple a:focus, .sm-simple a:active,
 	.sm-simple a.highlighted {

@@ -25,12 +25,12 @@
        [:ul [:li [:p "This query-type prompts for a \"paradigm-type\" (Finite Verb, Non-finite Verb, Pronoun, Noun) and a language; it then shows a drop-down select list of paradigms in that language of that type, and returns a table-formatted display of the selected paradigm."]]]]
       [:li (link-to "/pdgmcmp" "Paradigm Comparison")
        [:ul [:li [:p "This initial experiment with paradigm comparison prompts for a \"paradigm-type\" (Finite Verb, Non-finite Verb, Pronoun, Noun) and two language, it then shows two drop-down select lists of paradigms in those languages, and returns a csv-formatted display of the two paradigms. It then prompts for png-type (eventually will respond to specification of specific png-values), and returns a paradigm with parallel token display."]]]]
-      [:li (link-to "/pdgmcheckbx"  "Checkbox: Monolingual Seq")
+      [:li (link-to "/pdgmcheckbx"  "Checkbox: Monolingual Sequential")
        [:ul [:li [:p "Use this option to pick a number of paradigms from a given language to be displayed in vertical succession."]]]]
       [:li (link-to "/pdgmcbpll"  "Checkbox: Monolingual Parallel")
-       [:ul [:li [:p "Use this option to pick a number of paradigms from a given language to be displayed in vertical succession."]]]]
-      [:li (link-to "/langcheckbx"  "Checkbox: Multilingual Dispaly")
-       [:ul [:li [:p "Use this option to pick one or more  paradigms from a given language or set of languages to be displayed initially in vertical succession"]]]]
+       [:ul [:li [:p "Use this option to pick a number of paradigms from a given language to be displayed in parallel."]]]]
+      [:li (link-to "/langcheckbx"  "Checkbox: Multilingual Display")
+       [:ul [:li [:p "Use this option to pick one or more  paradigms from a given language or set of languages to be displayed initially in vertical succession and then in parallel."]]]]
      ]
     [:hr]
     [:h2 "Property Value Displays"]

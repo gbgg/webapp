@@ -23,8 +23,8 @@
   (let [langlist (slurp "pvlists/langlist.txt")
         languages (split langlist #"\n")]
   (layout/common 
-   [:h3 "Paradigm Checkbox"]
-     [:p "Use this option to pick one or more  paradigms from a given language or set of languages to be displayed initially in vertical succession."]
+   [:h3 "Checkbox: Multilingual Display"]
+     [:p "Use this option to pick one or more  paradigms from a given language or set of languages to be displayed initially in vertical succession and then in parallel."]
    [:p "Choose Languages and Type"]
    ;; [:p error]
    [:hr]

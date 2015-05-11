@@ -77,3 +77,12 @@
 
     [:div.content content]))
 
+;;(defn common [& content]
+;;  (base
+;;    [:div#usermenu
+;;   [:div.menuitem (link-to "/" "Home")]
+;;   [:div.menuitem (link-to "/pdgmpage" "Paradigms")]
+;;   [:div.menuitem (link-to "/pvdisp" "Property-value Display")]
+;;   [:div.menuitem (link-to "/utilities" "Utilities")]
+;;   [:div.menuitem (link-to "/trial" "Trial")]]
+;;    [:div.content content]))

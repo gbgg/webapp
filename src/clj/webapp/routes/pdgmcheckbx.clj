@@ -55,7 +55,7 @@
         valclusterlist (slurp valclusterfile)
         valclusters (clojure.string/split valclusterlist #"\n")]
     (layout/common 
-     [:h3 "Paradigms"]
+     [:h3 "Checkbox: Monolingual Sequential"]
      [:p "Choose Value Clusters For: " language "/" pos]
      ;;[:p error]
      [:hr]
