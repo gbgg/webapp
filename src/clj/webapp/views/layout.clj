@@ -17,10 +17,14 @@
         [:head
          [:title "Welcome to the Afroasiatic Morphological Archive"]
          (include-css "/css/screen.css")
-         (include-css "/js/smartmenus/sm-core.css")
-         (include-css "/js/smartmenus/sm-simple.css")
+         (include-css "/css/sm-core.css")
+         (include-css "/css/sm-simple.css")
+         (include-css "/css/dragtable.css")
          (include-js "/js/jquery-1.11.3.min.js")
-         (include-js "/js/smartmenus/jquery.smartmenus.min.js")
+         (include-js "/js/jquery-ui.min.js")
+         (include-js "/js/jquery.smartmenus.min.js")
+         (include-js "/js/jquery.dragtable.js")
+         (include-js "/js/jquery.tablesorter.min.js")
          [:script {:type "text/javascript"}
           (str 
            "$(document).ready(function() {
@@ -32,6 +36,8 @@
                 $ul.slideUp(250, complete);
               }
              }); 
+             $('#handlerTable').dragtable({dragHandle:'.some-handle'});
+             $('#handlerTable').tablesorter();
            });")]
          ;;[:script {:type "text/javascript"} 
          ;; (str "var context=\"" (:context request) "\";")]

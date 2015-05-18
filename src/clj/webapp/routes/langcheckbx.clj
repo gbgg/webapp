@@ -122,7 +122,7 @@
     )))
 
 (defn csv2pdgm
-"Takes sorted 4-col csv list with vectors of pnames and headers, and outputs 5-col html table with first col for pname ref."
+"Takes sorted 4-col csv list with vectors of pnames and headers, and outputs 5-col html table with first col for pname ref; cols are draggable and sortable."
  [pdgmstr2 valclusters headers]
 (let  [pdgms (str valclusters)
        pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
@@ -137,22 +137,24 @@
         [:li pname])]]
       [:hr]
       ;; For visible borders set {:border "1"}.
-      [:table {:border "0"}
-       [:tr
-       (for [header headers]
-         [:th header])]
-       (for [pdgm pstrings]
-         (let [pdgm-sp (split pdgm #"\\r\\n" 2) 
-              pbody (last pdgm-sp)
-              pdgmrows (split pbody #"\\r\\n")
-               pnum (swap! pdgmnum inc)
-               ]
-           (for [pdgmrow pdgmrows]
-             [:tr
-              [:td (str "P-" pnum)]
-             (let [pdgmcells (split pdgmrow #",")]
-               (for [pdgmcell pdgmcells]
-                 [:td pdgmcell]))])))]]))
+      [:table {:id "handlerTable" :class "tablesorter sar-table"}
+       [:thead
+        [:tr
+         (for [header headers]
+           [:th [:div {:class "some-handle"}] header])]]
+       [:tbody 
+        (for [pdgm pstrings]
+          (let [pdgm-sp (split pdgm #"\\r\\n" 2) 
+                pbody (last pdgm-sp)
+                pdgmrows (split pbody #"\\r\\n")
+                pnum (swap! pdgmnum inc)
+                ]
+            (for [pdgmrow pdgmrows]
+              [:tr
+               [:td (str "P-" pnum)]
+               (let [pdgmcells (split pdgmrow #",")]
+                 (for [pdgmcell pdgmcells]
+                   [:td pdgmcell]))])))]]]))
 
 (defn handle-langcbcmpdisplay
   [valclusters pos]
