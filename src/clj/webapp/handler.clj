@@ -8,10 +8,10 @@
             [compojure.route :as route]
             [webapp.routes.home :refer [home-routes]]
             [webapp.routes.pdgm :refer [pdgm-routes]]            
-            [webapp.routes.pdgmcmp :refer [pdgmcmp-routes]]
-            [webapp.routes.pdgmcheckbx :refer [pdgmcheckbx-routes]]
-            [webapp.routes.langcheckbx :refer [langcheckbx-routes]]
-            [webapp.routes.pdgmcbpll :refer [pdgmcbpll-routes]]
+            ;;[webapp.routes.pdgmcmp :refer [pdgmcmp-routes]]
+            [webapp.routes.multipdgmseq :refer [multipdgmseq-routes]]
+            [webapp.routes.multipdgmmod :refer [multipdgmmod-routes]]
+            ;;[webapp.routes.pdgmcbpll :refer [pdgmcbpll-routes]]
             [webapp.routes.pvlgpr :refer [pvlgpr-routes]]
             [webapp.routes.pvprvllg :refer [pvprvllg-routes]]
             [webapp.routes.pvlgvl :refer [pvlgvl-routes]]
@@ -35,7 +35,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes home-routes pdgm-routes pdgmcmp-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes listmenulpv-routes update-routes upload-routes listlgpr-routes listvlcl-routes listlpv-routes helppage-routes pdgmcheckbx-routes pdgmcbpll-routes langcheckbx-routes app-routes)
+  (-> (routes home-routes pdgm-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes listmenulpv-routes update-routes upload-routes listlgpr-routes listvlcl-routes listlpv-routes helppage-routes multipdgmseq-routes multipdgmmod-routes app-routes)
       (handler/site)
       (wrap-base-url)))
 

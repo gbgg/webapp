@@ -57,11 +57,11 @@
    [:li (link-to "/" "Home")]
    [:li (link-to "#" "Paradigms")
      [:ul
-      [:li (link-to "/pdgm" "Individual Paradigms")]
-      [:li (link-to "/pdgmcmp" "Paradigm Comparison")]
-      [:li (link-to "/pdgmcheckbx"  "Checkbox: Monolingual Seq")]
-      [:li (link-to "/pdgmcbpll"  "Checkbox: Monolingual Parallel")]
-      [:li (link-to "/langcheckbx"  "Checkbox: Multilingual Display")]]]
+      [:li (link-to "/pdgm" "Single Paradigm")]
+      [:li (link-to "#" "Multiple Paradigms")
+       [:ul
+        [:li (link-to "/multipdgmseq" "Sequential Display")]
+        [:li (link-to "/multipdgmmod" "Modifiable Display")]]]]]
    [:li (link-to "#" "Property-value Display")
     [:ul
      [:li (link-to "/pvlgpr" "Language-property")]
