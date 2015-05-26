@@ -672,6 +672,51 @@ ORDER BY ASC(?property) ")
 {:lang language
  :lpref lpref}))
 
+(defn listmenu-sparql-prop []
+  (str "
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX aama: <http://oi.uchicago.edu/aama/schema/2010#>
+PREFIX aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
+PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/>
+SELECT DISTINCT  ?property
+WHERE {
+	?s ?p ?o .
+        ?p rdfs:label ?property .
+ 	FILTER (?p NOT IN ( aamas:lang) )
+}
+ORDER BY ASC(?property) "))
+
+(defn listmenu-sparql-val []
+  (str "
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX aama: <http://oi.uchicago.edu/aama/schema/2010#>
+PREFIX aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
+PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/>
+SELECT DISTINCT  ?value
+WHERE {
+	?s ?p ?o .
+        ?o rdfs:label ?value .
+ 	FILTER (?o NOT IN ( aamas:lang) )
+}
+ORDER BY ASC(?value) "))
+
+(defn listmenu-sparql-lang []
+  (str "
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX aama: <http://oi.uchicago.edu/aama/schema/2010#>
+PREFIX aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
+PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/>
+SELECT DISTINCT  ?language
+WHERE {
+	?s aamas:lang ?lang .
+        ?lang rdfs:label ?language .
+}
+ORDER BY ASC(?language) "))
+
+
 (defn listlpv-sparql2 [language]
   (tmpl/render-string
    (str "

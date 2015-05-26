@@ -289,11 +289,11 @@
                 (for [npg npgs]
                   [:td npg])
                 (for [pmap pmaps]
-                  [:td (pngk pmap)])])]))]]
+               [:td (pngk pmap)])])]))]
       [:script {:src "js/goog/base.js" :type "text/javascript"}]
       [:script {:src "js/webapp.js" :type "text/javascript"}]
       [:script {:type "text/javascript"}
-       "goog.require('webapp.core');"]])))
+       "goog.require('webapp.core');"]]])))
     
 
 (defroutes multipdgmmod-routes

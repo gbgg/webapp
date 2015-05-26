@@ -16,11 +16,11 @@
 (def aama "http://localhost:3030/aama/query")
 
 (defn pvlgvl []
-  (let [langlist (slurp "pvlists/langlist.txt")
+  (let [langlist (slurp "pvlists/menu-langs.txt")
         languages (split langlist #"\n")
         ldomlist (slurp "pvlists/ldomainlist.txt")
         ldoms (split ldomlist #"\n")
-        lvallist (slurp "pvlists/langvals.txt")
+        lvallist (slurp "pvlists/menu-vals.txt")
         lvals (split lvallist #"\n")]
   (layout/common 
    [:h3 "Language-Value=>Property Cooccurrences"]

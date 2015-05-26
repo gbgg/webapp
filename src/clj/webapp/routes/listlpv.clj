@@ -50,14 +50,15 @@
                     [:option {:value "pvl" :label "Property-Value-Language"}]
                     [:option {:value "vpl" :label "Value-Property-Language"}]
                     [:option {:value "plv" :label "Property-Language-Value"}]
-                    [:option {:value "cpvl" :label "PClass-Property-Value-Language"}]]]]
+                    [:option {:value "cpvl" :label "PClass-Property-Value-Language"}]
+                    [:option {:value "lpvmod" :label "Drag/Sort Language-Property-Value"}]]]]
              ;;(submit-button "Get values")
              [:tr [:td ]
               [:td [:input#submit
                     {:value "Make Language-Property-Value Lists", :name "submit", :type "submit"}]]]]))))
 
 (defn csv2cpvl
-"Takes sorted 3-col csv list and outputs 4-col html table with empty col1 for prop-class and string of col4 vals for repeated col3."
+"Takes sorted 3-col csv list and outputs 4-col html table with empty col1 for prop-class and string of col4 vals for repeated col3. [ONLY USEFUL WHEN PROPERTY CLASSES HAVE BEEN ESTABLISHED.]"
  [lpvs]
 (let  [curcat1 (atom "")
       curcat2 (atom "")]
@@ -98,6 +99,24 @@
          (str "</td></tr><tr><td>" @curcat1 "</td><td valign=top>" @curcat2 "</td><td>" (:cat3 catmap) " ")))))
   (str "</td></tr>")]))
 
+(defn csv2tablemod
+"Takes sorted 3-col csv list and outputs sortable, draggable html table."
+ [header lpvs]
+(let  [curcat1 (atom "")
+      curcat2 (atom "")
+       heads (split header #",")]
+  ;; For visible borders set {:border "1"}.
+  [:table {:id "handlerTable" :class "tablesorter sar-table"}
+   [:thead
+    (for [head heads]
+      [:th [:div {:class "some-handle"}] head])]
+   [:tbody
+    (for [lpv lpvs]
+      [:tr
+      (let [cats (split lpv #",")]
+        (for [cat cats]
+          [:td cat]))])]]))
+
 (defn handle-listlpv-gen
   [ldomain colorder]
   (layout/common
@@ -106,6 +125,8 @@
         ;; send SPARQL over HTTP request"
         (let [query-sparql (cond 
                       (= colorder "lpv")
+                      (sparql/listlpv-sparql ldomain)
+                      (= colorder "lpvmod")
                       (sparql/listlpv-sparql ldomain)
                       (= colorder "vpl")
                       (sparql/listvpl-sparql ldomain)
@@ -123,9 +144,12 @@
               reqvec (split (:body req) #"\n")
               header (first reqvec)
               lpvs (rest reqvec)
-              lpvtable (if (= colorder "cpvl")
-                         (csv2cpvl lpvs)
-                         (csv2table lpvs))]
+              lpvtable (cond
+                        (= colorder "cpvl")
+                        (csv2cpvl lpvs)
+                        (= colorder "lpvmod")
+                        (csv2tablemod header lpvs)
+                        :else (csv2table lpvs))]
           (log/info "sparql result status: " (:status req))
           [:div
            [:p "Column Order: " colorder]
