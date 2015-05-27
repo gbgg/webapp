@@ -16,7 +16,7 @@
 (def aama "http://localhost:3030/aama/query")
 
 (defn pvlgvl []
-  (let [langlist (slurp "pvlists/menu-langs.txt")
+  (let [langlist (slurp "pvlists/langlist.txt")
         languages (split langlist #"\n")
         ldomlist (slurp "pvlists/ldomainlist.txt")
         ldoms (split ldomlist #"\n")
