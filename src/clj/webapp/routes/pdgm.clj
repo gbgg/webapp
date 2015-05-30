@@ -49,7 +49,8 @@
 
 (defn display-valclusters
   [language pos]
-   (let [valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")
+   (let [;;valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")
+         valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")
         valclusterlist (slurp valclusterfile)
         valclusters (clojure.string/split valclusterlist #"\n")]
     (layout/common 
@@ -98,6 +99,8 @@
         lpref (lang lprefmap)
         valstrng (clojure.string/replace valstring #",*person|,*gender|,*number" "")
         valstr (clojure.string/replace valstrng #":," ":")
+;;5/29/15 REFORMULATE BY SPLITTING VALSTR INTO VALS AND LEX 
+;; AND ITERATING THROUGH LEXVALS
         query-sparql (cond 
                       (= pos "pro")
                       (sparql/pdgmqry-sparql-pro language lpref valstr)

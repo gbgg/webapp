@@ -20,6 +20,7 @@
             [webapp.routes.listmenulpv :refer [listmenulpv-routes]]
             [webapp.routes.listlgpr :refer [listlgpr-routes]]
             [webapp.routes.listvlcl :refer [listvlcl-routes]]
+            [webapp.routes.listvlclplex :refer [listvlclplex-routes]]
             [webapp.routes.listlpv :refer [listlpv-routes]]
             [webapp.routes.helppage :refer [helppage-routes]]
 ))
@@ -35,7 +36,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes home-routes pdgm-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes listmenulpv-routes update-routes upload-routes listlgpr-routes listvlcl-routes listlpv-routes helppage-routes multipdgmseq-routes multipdgmmod-routes app-routes)
+  (-> (routes home-routes pdgm-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes listmenulpv-routes update-routes upload-routes listlgpr-routes listvlcl-routes listvlclplex-routes listlpv-routes helppage-routes multipdgmseq-routes multipdgmmod-routes app-routes)
       (handler/site)
       (wrap-base-url)))
 

@@ -72,7 +72,7 @@
       [:li (link-to "#" "List Generation:")
        [:ul
         [:li (link-to "/listlgpr"  "POS Properties")]
-        [:li (link-to "/listvlcl" "POS Paradigm Value-Clusters")]
+        [:li (link-to "/listvlclplex" "POS Paradigm Value-Clusters")]
         [:li (link-to "/listmenulpv" "Lists for Menus")]
         [:li (link-to "/listlpv" "Prop-Val Indices by L-Domain")]]]
       [:li (link-to "#" "Update:")
