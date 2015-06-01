@@ -70,22 +70,29 @@
              [:tr [:td "PDGM Type: " ]
               [:td
                (check-box {:name "pos" :value pos :checked "true"} pos) (str (upper-case pos))]]
-              [:tr [:td [:hr]]]
+              [:tr [:td ]]
                  [:tr [:td "PDGM Language(s): " ]
-                  [:td 
                    (for [language languages]
-                     [:div (str (capitalize language) " ")])]]
+                  [:td 
+                     [:div (str (capitalize language) " ")]])]
                  [:tr [:td "PDGM Value Clusters: " ]
+                   (for [language languages]
                   [:td 
                    {:title "Choose a value.", :name "valcluster"}
-                   (for [language languages]
-                     (let [valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")
+                     (let [valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")
                            valclusterlist (slurp valclusterfile)
                            valclusters (split valclusterlist #"\n")]
                        (for [valcluster valclusters]
-                         [:div {:class "form-group"}
-                          [:label
-                           (check-box {:name "valclusters[]" :value (str language "," valcluster) } valcluster) (str (capitalize language) ": " valcluster)]])))]]
+                     (let [clusters (split valcluster #":")
+                           clustername (first clusters)
+                           plex (last clusters)
+                           lexitems (split plex #",")]
+                       [:div {:class "form-group"}
+                        [:label (str clustername ": ")
+                         (for [lex lexitems]
+                           [:span (check-box {:name "valclusters[]" :value (str language "," clustername ":" lex) } lex) lex]
+                              )]])))])]
+;;                              )]])))])]
                  ;;(submit-button "Get pdgm")
                  [:tr [:td ]
                   [:td [:input#submit

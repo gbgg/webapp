@@ -23,6 +23,7 @@
 (defn pdgmqry-sparql-fv [language lpref valstring]
     (let [;; if assume last value is lex (generalize to other pos?)
           vals (clojure.string/replace valstring #"(.*):.*?$" "$1")
+          lex (clojure.string/replace valstring #".*:(.*?)$" "$1")
           values (split vals #",")
           Language (capitalize language)
           ]
@@ -58,8 +59,8 @@
           :lpref lpref})))
       (tmpl/render-string
        (str " 
-           #?s aamas:lexeme ?lexeme .
-           #?lexeme rdfs:label \"{{lex}}\" .
+           ?s aamas:lexeme ?lexeme .
+           ?lexeme rdfs:label \"{{lex}}\" .
 	   OPTIONAL { ?s {{lpref}}:number ?number .  
 	   ?number rdfs:label ?num . } 
 	   OPTIONAL { ?s {{lpref}}:pngShapeClass ?pngSC .
@@ -79,7 +80,8 @@
 	 } 
 	} 
 	ORDER BY DESC(?num) ?pers DESC(?gen) ")
-       {:lpref lpref})
+       {:lpref lpref
+        :lex lex})
        );;str
 ))
 
