@@ -5,7 +5,7 @@
             [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [clojure.string :refer [capitalize split replace]]
+            [clojure.string :refer [capitalize lower-case split replace]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             ;;[boutros.matsu.sparql :refer :all]
@@ -16,7 +16,7 @@
 (def aama "http://localhost:3030/aama/query")
 
 (defn pvprvllg []
-  (let [langlist (slurp "pvlists/langlist.txt")
+  (let [langlist (slurp "pvlists/menu-langs.txt")
         languages (split langlist #"\n")
         ldomlist (slurp "pvlists/ldomainlist.txt")
         ldoms (split ldomlist #"\n")]
@@ -35,8 +35,7 @@
                {:title "Choose a language domain.", :name "ldomain"}
                 [:optgroup {:label "Languages"} 
                 (for [language languages]
-                (let [opts (split language #" ")]
-               [:option {:value (first opts)} (last opts) ]))]
+                  [:option {:value (lower-case language)} language])]
                 [:optgroup {:label "Language Families"} 
                (for [ldom ldoms]
                 (let [opts (split ldom #" ")]

@@ -124,7 +124,6 @@ position
 possType
 postpositionClass
 predType
-prefix
 present
 proClass
 proSet
@@ -152,7 +151,6 @@ stemInflMorpheme
 stemShape
 stemType
 strength
-subConj
 subconjClass
 subjectTypeSelector
 suffixSet

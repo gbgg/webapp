@@ -7,7 +7,7 @@
             [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [clojure.string :refer [capitalize split upper-case]]
+            [clojure.string :refer [capitalize lower-case split upper-case]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             ;;[boutros.matsu.sparql :refer :all]
@@ -20,7 +20,7 @@
 (def aama "http://localhost:3030/aama/query")
 
 (defn multipdgmmod []
-  (let [langlist (slurp "pvlists/langlist.txt")
+  (let [langlist (slurp "pvlists/menu-langs.txt")
         languages (split langlist #"\n")]
   (layout/common 
    [:h3 "Checkbox: Multilingual Display"]
@@ -42,15 +42,12 @@
              [:td 
                {:title "Choose one or more languages.", :name "language"}
                (for [language languages]
-                 (let [choices (split language #" ")
-                       lang (first choices)
-                       Lang (last choices)]
+                 ;;[:option {:value (lower-case language)} language])]]]
                  [:div {:class "form-group"}
                   [:label 
-                   (check-box {:name "languages[]" :value lang} lang) (str Lang)]
+                   (check-box {:name "languages[]" :value (lower-case language)} language) language]])]]
                  ;; from https://groups.google.com/forum/#!topic/compojure/5Vm8QCQLsaQ
                  ;; (check-box "valclusters[]" false valcluster) (str valcluster)]]
-                 ]))]]
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
               [:td [:input#submit
@@ -74,7 +71,7 @@
                  [:tr [:td "PDGM Language(s): " ]
                    (for [language languages]
                   [:td 
-                     [:div (str (capitalize language) " ")]])]
+                   [:div (str (capitalize language) " ")]])]
                  [:tr [:td "PDGM Value Clusters: " ]
                    (for [language languages]
                   [:td 
@@ -173,6 +170,9 @@
         pdgmstr1 (apply pr-str pdgmvec)
         pdgmstr2 (clojure.string/replace pdgmstr1 #"[\(\)\"]" "")
         pdgmtable (csv2pdgm pdgmstr2 valclusters headers)
+        pdgms (str valclusters)
+        pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
+        pnames (split pnamestr #" ")
         ]
          (layout/common
            [:h3#clickable "Paradigms " pos ": "  ]
@@ -189,25 +189,28 @@
            [:hr]
            pdgmtable
            [:hr]
-           [:h3 "Parallel Display"]
-           [:p "Choose PNG Values (comma-separated list)"]
+           [:h3 "Parallel Display of Paradigms (Finite Verb Only)"]
+           [:p "At present only accommodates parallel display of paradigms with columns 'Number Person Gender Token' -- to be generalized."]
            [:hr]
            (form-to [:post "/multimodplldisplay"]
                     [:table
                      [:tr [:td "PNames: "]
-                      [:td [:select#names.required
+                      [:td 
+                       ;;[:ol
+                       ;; (for [pname pnames]
+                       ;;   [:li pname])]]]
+                            [:select#names.required
                             {:title "Chosen PDGMS", :name "pdgmnames"}
-                            [:option {:value (str valclusters)} (str valclusters)] 
-                            ]]]
+                            [:option {:value (str valclusters)} "Paradigm Names (as above)"]]]]
                      [:tr [:td "Header: "]
                       [:td [:select#header.required
                             {:title "Header", :name "header"}
                             [:option {:value headerset2} headerset2] 
                             ]]]
                      [:tr [:td "PString: "]
-                      [:td [:select#pdgms.required
+                     [:td [:select#pdgms.required
                             {:title "PDGMS", :name "pdgmstr2"}
-                            [:option {:value pdgmstr2} pdgmstr2]
+                            [:option {:value pdgmstr2} "Paradigm Forms (as above)"]
                             ;;[:option {:value valclusters} (str valclusters)]
                             ]]]
                      ;; current algorithm will simply take png enumerations
@@ -217,22 +220,22 @@
                      ;; into png vector made on the fly
                      ;; third step is to allow choice of png vals as per
                      ;; text input fields below (for now can be left blank)
-                     [:tr [:td "Number: "]
-                      [:td [:input#num.required
-                            {:title "Choose Number Values.", :name "nmbr"}
-                            ]]]
-                     [:tr [:td "Person: " ]
-                      [:td [:input#pers.required
-                            {:title "Choose Person Values.", :name "pers"}
-                            ]]]
-                     [:tr [:td "Gender: " ]
-                      [:td [:input#gen.required
-                            {:title "Choose Gender Values.", :name "gen"}
-                            ]]]
+                     ;;[:tr [:td "Number: "]
+                     ;; [:td [:input#num.required
+                     ;;       {:title "Choose Number Values.", :name "nmbr"}
+                     ;;       ]]]
+                     ;;[:tr [:td "Person: " ]
+                     ;; [:td [:input#pers.required
+                     ;;       {:title "Choose Person Values.", :name "pers"}
+                     ;;       ]]]
+                     ;;[:tr [:td "Gender: " ]
+                     ;; [:td [:input#gen.required
+                     ;;       {:title "Choose Gender Values.", :name "gen"}
+                     ;;       ]]]
                      ;;(submit-button "Get pdgm")
                      [:tr [:td ]
                       [:td [:input#submit
-                            {:value "Make Parallel Display", :name "submit", :type "submit"}]]]])
+                            {:value "Display Paradigms in Parallel", :name "submit", :type "submit"}]]]])
      [:hr]
      [:script {:src "js/goog/base.js" :type "text/javascript"}]
      [:script {:src "js/webapp.js" :type "text/javascript"}]

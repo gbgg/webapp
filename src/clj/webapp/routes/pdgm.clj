@@ -5,7 +5,7 @@
             [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [clojure.string :refer [capitalize replace split]]
+            [clojure.string :refer [capitalize lower-case replace split]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             ;;[boutros.matsu.sparql :refer :all]
@@ -16,7 +16,7 @@
 (def aama "http://localhost:3030/aama/query")
 
 (defn pdgm []
-  (let [langlist (slurp "pvlists/langlist.txt")
+  (let [langlist (slurp "pvlists/menu-langs.txt")
         languages (split langlist #"\n")]
   (layout/common 
    [:h3 "Individual Paradigms"]
@@ -30,8 +30,7 @@
               [:td [:select#language.required
                     {:title "Choose a language.", :name "language"}
                     (for [language languages]
-                      (let [opts (split language #" ")]
-                        [:option {:value (first opts)} (last opts) ]))]]]
+                        [:option {:value (lower-case language)} language])]]]
              [:tr [:td "PDGM Type: "]
               [:td [:select#pos.required
                     {:title "Choose a pdgm type.", :name "pos"}

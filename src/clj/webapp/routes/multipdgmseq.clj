@@ -7,7 +7,7 @@
             [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [clojure.string :refer [capitalize split upper-case]]
+            [clojure.string :refer [capitalize lower-case split upper-case]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             ;;[boutros.matsu.sparql :refer :all]
@@ -20,7 +20,7 @@
 (def aama "http://localhost:3030/aama/query")
 
 (defn multipdgmseq []
-  (let [langlist (slurp "pvlists/langlist.txt")
+  (let [langlist (slurp "pvlists/menu-langa.txt")
         languages (split langlist #"\n")]
   (layout/common 
    [:h3 "Multi-Paradigm: Fixed Sequential Display"]
@@ -42,15 +42,11 @@
              [:td 
                {:title "Choose one or more languages.", :name "language"}
                (for [language languages]
-                 (let [choices (split language #" ")
-                       lang (first choices)
-                       Lang (last choices)]
                  [:div {:class "form-group"}
                   [:label 
-                   (check-box {:name "languages[]" :value lang} lang) (str Lang)]
+                   (check-box {:name "languages[]" :value (lower-case language)}language) language]])]]
                  ;; from https://groups.google.com/forum/#!topic/compojure/5Vm8QCQLsaQ
                  ;; (check-box "valclusters[]" false valcluster) (str valcluster)]]
-                 ]))]]
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
               [:td [:input#submit

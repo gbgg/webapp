@@ -77,7 +77,7 @@
      [:p "The following command-line versions presuppose that the edn data files are in the  ~/aama-data/data/[LANG} directories:"]
       [:ul [:li [:h4 "Datastore Update "] "Usage:" 
             [:ul 
-             [:li "/bin/aama-datastore-update.sh ../aama-data/data/[LANGDOMAIN]  (from webapp dir)"]
+             [:li "bin/aama-datastore-update.sh ../aama-data/data/[LANGDOMAIN]  (from webapp dir)"]
              [:li " ~/aama-data/bin/aama-datastore-setup.sh \"data/*\" (to [re-]initiate the whole datastore from ~/aama-data dir)"]]]
        [:li [:h4 "Upload to aama/ language repository and push to origin."] "Usage:"
         [:ul 
