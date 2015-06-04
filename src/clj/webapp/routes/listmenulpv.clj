@@ -29,9 +29,9 @@
              [:tr [:td "List: "]
               [:td [:select#pos.required
                     {:title "Choose a list type.", :name "listtype"}
-                    [:option {:value "lang" :label "General Language List"}]
-                    [:option {:value "prop" :label "General Property List"}]
                     [:option {:value "val" :label "General Value List"}]
+                    [:option {:value "prop" :label "General Property List"}]
+                    [:option {:value "lang" :label "General Language List"}]
                     ]]]
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
@@ -53,6 +53,9 @@
   (layout/common
    [:body
     [:h3#clickable "Datastore list for: " listtype]
+    [:h4 "Generated File:"]
+    [:li (str "pvlists/menu-" listtype "s.txt")]
+    [:hr]
                     ;; send SPARQL over HTTP request
     (let [outfile (str "pvlists/menu-" listtype "s.txt")
       query-sparql (cond 

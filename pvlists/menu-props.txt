@@ -6,7 +6,6 @@ caseHead
 category
 causativeAllomorph
 class
-clause
 clauseCase
 clauseConjugation
 clauseMarker
@@ -77,7 +76,6 @@ modal
 mood
 morphClass
 morphoSynEnv
-nomForm
 nonFiniteForm
 nonMainForm
 nounClass

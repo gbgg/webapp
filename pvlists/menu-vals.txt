@@ -1041,7 +1041,6 @@ PresentIngressiveA
 PresentIngressiveB
 PresentInterrog
 PresentParticiple
-PresentParticitpl
 PresentPerfect
 PresentPerfective
 PresentProgressive
@@ -1635,8 +1634,6 @@ exponents
 classification
 exponents
 classlabel
-exponents
-clause
 exponents
 clauseCase
 exponents
@@ -2273,8 +2270,6 @@ niy
 nks
 no
 nom-gen
-nomForm
-exponents
 nonFiniteForm
 exponents
 nonMainForm
@@ -2319,8 +2314,6 @@ exponents
 numberGenderHead
 exponents
 numberHead
-exponents
-numberPersonGender
 exponents
 numgen
 exponents
@@ -2406,8 +2399,6 @@ exponents
 postpositionClass
 exponents
 predType
-exponents
-prefix
 exponents
 present
 exponents
@@ -2556,8 +2547,6 @@ exponents
 stemType
 exponents
 strength
-exponents
-subConj
 exponents
 subconjClass
 exponents
