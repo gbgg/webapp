@@ -1,0 +1,15 @@
+Possessive,Common:Foc,Non-focus
+Possessive,Exclusive:Foc,Non-focus
+Possessive,Inclusive:Foc,Non-focus
+Independent,Long,Common:
+Independent,Long,Exclusive:
+Independent,Long,Inclusive:
+Independent,Object,Common:
+Independent,Object,Exclusive:
+Independent,Object,Inclusive:
+Independent,ObjectIndirect,Common:
+Independent,ObjectIndirect,Exclusive:
+Independent,ObjectIndirect,Inclusive:
+Independent,Short,Common:
+Independent,Short,Exclusive:
+Independent,Short,Inclusive:

@@ -1,0 +1,14 @@
+Converb:ameet,gaf,ke,mar
+PosteriorSub:orroo
+Affirmative,AnteriorPerfect:korj,ub,y
+Affirmative,FutureProximate:korj
+Affirmative,Imperative:orroo
+Affirmative,Imperfective:korj
+Affirmative,Perfective:korj,ub,y
+Affirmative,Progressive:korj
+Affirmative,TensefutProx:korj
+Negative,Imperative:orroo
+Negative,Imperfective:korj
+Negative,Perfective:korj,ub,y
+Negative,Progressive:korj
+DiffSubjSuff,Converb:hir

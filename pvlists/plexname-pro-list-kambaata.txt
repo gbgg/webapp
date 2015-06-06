@@ -1,0 +1,4 @@
+Independent:Accusative
+Suffix:Accusative
+Independent:Nominative,Possessive
+Suffix:Possessive

@@ -1,0 +1,10 @@
+DefMarker,Nom_obj,DefClass2:
+DefMarker,Nom_obj,DefClass3:
+Independent,Object:
+PossObj,Object:
+Demonstrative,Object:Far,Near
+DefMarker,Object,DefClass1:
+PossObj,Possessive:
+Independent,Subject:
+Demonstrative,Subject:Far,Near
+DefMarker,Subject,DefClass1:

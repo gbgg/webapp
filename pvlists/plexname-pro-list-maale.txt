@@ -1,0 +1,16 @@
+Restrictive:
+CaseMarking,Ablative:
+CaseMarking,Absolutive:
+Pro2ary,Absolutive:
+ProInd,Absolutive:
+BasicPro,Common:
+ProInd,Common:
+CaseMarking,Dative:
+CaseMarking,Instrumental:
+CaseMarking,Nominative:
+Pro2ary,Nominative:
+ProInd,Nominative:
+BasicPro,Possessive:
+Pro2ary,Possessive:
+ProInd,Possessive:
+Possessive,Possessive:Poss1,Poss2,PossNom1,PossNom2

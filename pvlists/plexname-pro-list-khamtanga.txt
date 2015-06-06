@@ -1,0 +1,5 @@
+Independent2:Comitative,Compound,Locative,Object
+Independent1:Oblique-posessive
+Independent2:Possessive,Relative
+Independent1:Subject
+Independent2:Subject

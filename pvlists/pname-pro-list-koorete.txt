@@ -1,8 +1,0 @@
-Vocative,
-DemPro,Absolutive
-ProInd,Absolutive
-ProInd,Dative
-ProInd,Instrumental
-DemPro,Nominative
-ProInd,Nominative
-ProInd,Possessive

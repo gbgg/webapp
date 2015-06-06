@@ -1,5 +1,0 @@
-Demonstrative:deixis,gender,number
-Independent:case,gender,number,person
-ObjClitic:case,gender,number,person,tenseHead
-lamedSuff:gender,numHead,number,person
-

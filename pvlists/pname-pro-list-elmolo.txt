@@ -1,4 +1,0 @@
-Independent:number,person,synEnv
-ObjAff:number,person
-Possessive:gender,number,person
-

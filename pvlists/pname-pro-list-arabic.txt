@@ -1,5 +1,0 @@
-Clitic:case,gender,number,person
-Demonstrative:case,deixis,gender,number
-Independent:gender,number,person
-Relative:case,gender,number
-

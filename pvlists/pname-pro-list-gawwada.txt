@@ -1,7 +1,0 @@
-Independent,
-ObjProclitic,
-SubjProclitic,Affirmative
-SubjProclitic,Common
-SubjProclitic,Negative
-PossSuff,Fem,
-PossSuff,Masc,

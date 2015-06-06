@@ -1,0 +1,13 @@
+Connective:it
+Imperfect:haishsh,it
+InfinitiveConj:it
+InfinitiveConn:it
+InfinitiveSub:it
+PresentPerfect:haishsh,it
+SimplePerfect:haishsh,it
+Affirmative,Imperative:it
+Negative,Imperative:it
+Compound,Continuous:hank
+Compound,PresentProgressive:it
+Existence:no
+SuffStructure,Structure,SimplePerfect:wil

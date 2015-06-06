@@ -1,0 +1,5 @@
+Independent:
+PossAdj:
+PossNoun:
+Subject:
+IndepCase:Ablative,Benefactive,Comitative,Dative,Directive,Locative

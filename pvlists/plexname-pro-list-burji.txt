@@ -1,0 +1,6 @@
+Independent:Absolutive,Nominative,Object
+Personal:Abs,Nom,Obj
+Possessive,Absolutive,Fem:
+Possessive,Absolutive,Masc:
+Possessive,Nominative,Fem:
+Possessive,Nominative,Masc:

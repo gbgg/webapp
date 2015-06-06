@@ -1,0 +1,14 @@
+Aff,Imperfect:mar
+Aff,Imprtv:mar
+Aff,Jussive:mar
+Aff,PastProg:mar
+Aff,PresPerf:mar
+Aff,PresProg:mar
+Aff,SimplePerf:mar
+Affirmative:mar
+Affirmative,PastProgressive:mar
+Affirmative,PresentPerfect:mar
+Affirmative,PresentProgressive:mar
+Affirmative,SimplePerfect:mar
+Neg,Imprtv:mar
+Negative:mar

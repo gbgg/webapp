@@ -1,6 +1,0 @@
-Possessive,Common,Plural
-Possessive,Fem,Singular
-Possessive,Masc,Singular
-Independent,Object,
-Independent,ObjectIndirect,
-Independent,Subject,

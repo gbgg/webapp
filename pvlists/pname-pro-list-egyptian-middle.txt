@@ -1,4 +1,0 @@
-Dependent:gender,number,person
-Independent:gender,number,person
-Suffix:gender,number,person
-

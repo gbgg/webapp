@@ -1,0 +1,3 @@
+PossessiveDefinite:
+Reflexive:
+Independent:Absolutive,Emphatic,Emphatic-m,Nominative,Possessive-m,Reflexive

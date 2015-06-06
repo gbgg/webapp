@@ -1,0 +1,13 @@
+Affirmative,Imperative:mass
+Affirmative,Imperfect:mass
+Affirmative,Jussive:mass
+Affirmative,PastPerfect:mass
+Affirmative,PastProgressive:mass
+Affirmative,PresenProgressive:mass
+Affirmative,PresentPerfect:mass
+Affirmative,SimplePerfect:mass
+Interrogative,PresentPerfect:mass
+Negative,Imperative:mass
+Negative,Imperfect:mass
+Negative,Jussive:mass
+Negative,SimplePerfect:mass

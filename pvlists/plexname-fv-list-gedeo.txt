@@ -1,0 +1,17 @@
+Affirmative,DependentConditional:mar
+Affirmative,DependentPurposive:mar
+Affirmative,HypothNonActual:mar
+Affirmative,HypothNonPres:mar
+Affirmative,ImperfectActual:mar
+Affirmative,ImperfectFuture:mar
+Affirmative,ImperfectNonActual:mar
+Affirmative,ImperfectNonPresent:mar
+Affirmative,ImperfectNonPresent2:mar
+Affirmative,PerfectActual:mar
+Affirmative,PerfectNonActual:mar
+Affirmative,PerfectNonPresent:mar
+Affirmative,PerfectNonPresent2:mar
+Interrogative,Perfect:mar
+Negative,Imperative:mar
+Negative,PerfectActual:mar
+Negative,PerfectNonPresent:mar

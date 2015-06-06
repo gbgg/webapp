@@ -1,0 +1,9 @@
+Independent:
+PersMarkersGen:ObjAgr,PossSuffBase,ProInd,SubjAgr,VerbSuff
+PossAnaph,Fem:
+PossAnaph,Masc:
+PossAnaph,Neut:
+RefSwitch,Ablative:
+RefSwitch,Allative:
+PossSuff,Declarative:
+PossSuff,Interrogative:

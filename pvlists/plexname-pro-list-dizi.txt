@@ -1,0 +1,2 @@
+PossPref:
+Independent:Accusative,Nominative,Vocative

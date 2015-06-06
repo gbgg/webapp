@@ -1,0 +1,4 @@
+Bound:
+Independent:
+Possessive:Fem,M-or-pl
+Reduced:

@@ -1,9 +1,0 @@
-Object,
-Possessive,Fem
-Possessive,Masc
-Independent,Full,
-Independent,Short,
-Pers_dem,Far,
-Pers_dem,Midway,
-Pers_dem,Near1,
-Pers_dem,Near2,

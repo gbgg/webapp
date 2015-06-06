@@ -1,0 +1,4 @@
+Independent:
+ObjCliticImprtv,Accusative:
+PossClitic,Genitive:Plural,Singular
+ObjCliticPerf,Object:

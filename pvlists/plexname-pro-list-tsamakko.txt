@@ -1,0 +1,15 @@
+PossSuff:
+PossInd,Common:Plural
+PossInd,Fem:Singular
+PossInd,Masc:Singular
+Independent,Comitative:
+Locative,Comitative:
+Independent,Dative:
+Locative,Dative:
+Independent,Directive:
+Locative,Directive:
+Independent,Locative:
+Locative,Locative:
+Independent,Obj-ka:
+Independent,Object:
+Independent,Subject:

@@ -1,0 +1,10 @@
+Affirmative,Imperative:baasl
+Affirmative,Jussive:baasl
+Affirmative,Past:baasl
+Negative,Imperative:baasl
+Negative,Jussive:baasl
+AuxNegSuff,Negative:baasl
+CommandForms,Aff,Imprtv:baasl
+CommandForms,Aff,Juss:baasl
+CommandForms,Neg,Imprtv:baasl-2
+CommandForms,Neg,Juss:baasl-2

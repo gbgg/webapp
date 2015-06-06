@@ -1,0 +1,9 @@
+ObjSuff:
+PersSuff:
+PossSuff:H_Plural,H_Singular
+Possessive,H_Fem:H_Plural,H_Singular
+Possessive,H_Masc:H_Plural,H_Singular
+Independent,Object:
+IndependentPersonal,Object:
+Independent,Subject:
+IndependentPersonal,Subject:

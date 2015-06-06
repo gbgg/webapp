@@ -1,0 +1,8 @@
+PossInd,Fem:Plural,Singular
+PossInd,Masc:Plural,Singular
+ObjClitic,Accusative:
+Independent,Dative:
+ObjClitic,Dative:
+Independent,GenAcc:
+Independent,Nominative:
+Possessive,Possessive:

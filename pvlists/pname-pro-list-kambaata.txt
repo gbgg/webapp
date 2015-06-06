@@ -1,3 +1,0 @@
-Demonstrative:case,deixis,gender,number
-Interrogative:interrogClass
-

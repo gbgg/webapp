@@ -1,6 +1,0 @@
-Independent,
-Possessive,Fem
-Possessive,Masc
-SubjClit,Nominative,
-ObjClitic,Object,SubClass1,
-ObjClitic,Object,SubClass2,

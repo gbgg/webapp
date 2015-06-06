@@ -1,0 +1,6 @@
+lamedSuff,Plural:
+lamedSuff,Singular:
+Independent,Accusative:
+Independent,Dative:
+Independent,Nominative:
+ObjClitic,Object:Imperfect,Jussive,Perfect

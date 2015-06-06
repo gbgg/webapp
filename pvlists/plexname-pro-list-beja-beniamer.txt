@@ -1,0 +1,17 @@
+ObjectSuffix:
+IndependentPossessive,H_Fem,H_Plural:
+PossCop,H_Fem,H_Plural:
+PossSuff,H_Fem,H_Plural:Common
+IndependentPossessive,H_Fem,H_Singular:
+PossCop,H_Fem,H_Singular:
+PossSuff,H_Fem,H_Singular:Common
+PossCop,H_Fem,Singular:
+IndependentPossessive,H_Masc,H_Plural:
+PossCop,H_Masc,H_Plural:
+PossSuff,H_Masc,H_Plural:Consonant,Vowel
+IndependentPossessive,H_Masc,H_Singular:
+PossCop,H_Masc,H_Singular:
+PossSuff,H_Masc,H_Singular:Consonant,Vowel
+PossCop,H_Masc,Singular:
+Independent,Object:
+Independent,Subject:

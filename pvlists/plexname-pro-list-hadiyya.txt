@@ -1,0 +1,1 @@
+Independent:Accusative,Nominative,Possessive

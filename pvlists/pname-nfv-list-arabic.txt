@@ -1,3 +1,0 @@
-Infinitive:derivedStem,infinitiveVar
-Participle:derivedStem,state,voice
-

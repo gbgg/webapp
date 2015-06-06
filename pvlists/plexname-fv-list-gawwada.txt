@@ -1,0 +1,10 @@
+Imperfective:ass
+Affirmative,Jussive:ass
+Negative,Jussive:ass
+Negative,Past:ass
+Negative,Present:ass
+NegImprtvExx,Negative,Imperative:ass
+Class1,Consecutive:sor
+Class1,Perfective:oggay,ug
+Class2,Consecutive:ass
+Class2,Template,Perfective:ass

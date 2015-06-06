@@ -1,0 +1,7 @@
+Possessive,Absolutive:Fem,Masc
+Person,Absolutive:
+person:
+exponents,Absolutive:
+Person,Nominative:
+person:
+exponents,Nominative:

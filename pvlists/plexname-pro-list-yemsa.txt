@@ -1,0 +1,4 @@
+PossAdj:
+PossSuff:
+Possessive:
+Independent:Ablative,Absolutive,Comitative,Dative,Directive,Exit,Genitive,Inessive,Locative,Object,Subject

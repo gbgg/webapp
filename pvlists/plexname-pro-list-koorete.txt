@@ -1,0 +1,5 @@
+Vocative:
+DemPro:Absolutive
+ProInd:Absolutive,Dative,Instrumental
+DemPro:Nominative
+ProInd:Nominative,Possessive

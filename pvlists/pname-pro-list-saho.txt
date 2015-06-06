@@ -1,5 +1,0 @@
-Independent,Emphatic
-Independent,Independent
-Independent,Object
-Independent,ObjectIndirect
-Independent,Possessive

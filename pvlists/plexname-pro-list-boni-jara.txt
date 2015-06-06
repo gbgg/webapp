@@ -1,0 +1,6 @@
+Focus:
+Independent:
+Object:
+SubjPrefV:
+SubjSuffV:
+Possessive:Suffix
