@@ -22,7 +22,7 @@
         languages (split langlist #"\n")
         ldomlist (slurp "pvlists/ldomainlist.txt")
         ldoms (split ldomlist #"\n")
-        lvallist (slurp "pvlists/langvals.txt")
+        lvallist (slurp "pvlists/menu-vals.txt")
         lvals (split lvallist #"\n")]
   (layout/common 
    [:h3 "Language-Property-Value Co-occurrences"]

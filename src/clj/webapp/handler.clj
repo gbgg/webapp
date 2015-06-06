@@ -17,6 +17,7 @@
             [webapp.routes.pvlgvl :refer [pvlgvl-routes]]
             [webapp.routes.update :refer [update-routes]]
             [webapp.routes.upload :refer [upload-routes]]
+            [webapp.routes.listlgpr :refer [listlgpr-routes]]
             [webapp.routes.listmenulpv :refer [listmenulpv-routes]]
             [webapp.routes.listvlclplex :refer [listvlclplex-routes]]
             [webapp.routes.listlpv :refer [listlpv-routes]]

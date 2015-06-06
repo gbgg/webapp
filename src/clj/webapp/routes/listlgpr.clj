@@ -89,9 +89,9 @@
             (log/info "sparql result status: " (:status req))
             (for [prop proplist]
               [:p prop])
-             ;;[:hr]
-             ;;[:h3#clickable "Query:"]
-             ;;[:pre query-sparql-pr]
+             [:hr]
+             [:h3#clickable "Query:"]
+             [:pre query-sparql-pr]
             [:pre (:body req)]
             [:pre props]
             )])]]

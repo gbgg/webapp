@@ -48,8 +48,7 @@
 
 (defn display-valclusters
   [language pos]
-   (let [;;valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")
-         valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")
+   (let [valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")
         valclusterlist (slurp valclusterfile)
         valclusters (clojure.string/split valclusterlist #"\n")]
     (layout/common 
@@ -83,7 +82,7 @@
 
 (defn handle-pdgmqry
   [language pos]
-  (let [valclusterfile (str "pvlists/pname-" pos "-list-" language ".txt")]
+  (let [valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")]
    (try
     (slurp valclusterfile)
     (finally (println (str language " has no paradigms of type " pos))))

@@ -30,12 +30,12 @@
                     {:title "Choose a language domain.", :name "ldomain"}
                     [:optgroup {:label "Languages"} 
                     (for [language languages]
-                      [:option {:value (lower-case language)} language])]]
+                      [:option {:value (lower-case language)} language])]
                 [:optgroup {:label "Language Families"} 
                (for [ldom ldoms]
                 (let [opts (split ldom #" ")]
                [:option {:value (last opts)} (first opts) ]))
-                 [:option {:disabled "disabled"} "Other"]]]]
+                 [:option {:disabled "disabled"} "Other"]]]]]
               [:tr [:td "Part of Speech: "]
               [:td [:select#pos.required
                     {:title "Choose a pdgm type.", :name "pos"}
@@ -71,7 +71,7 @@
         reqqc  (replace reqqb #"\B,|[\(\)\]\[\"]" "")
         reqqd (replace reqqc #" " "\n")
         reqqe (replace reqqd #"(.*),(.*?\n)" "$1:$2")]
-    (compact-list reqqe)
+    (apply str (compact-list reqqe))
 ))
 
 (defn req2vlist2
@@ -118,7 +118,9 @@
                             "format" "csv"}})
                             ;;"format" "application/sparql-results+json"}})
                             ;;"format" "text"}})
-                propstring (replace (:body req1) #"\r\n" ",")
+                propstring (if (= (:body req1) "property")
+                             (str "no_" pos)
+                             (replace (:body req1) #"\r\n" ","))
                 pstring (replace propstring #"property,|,$" "")
                 plist (replace pstring #"," ", ")
                 query-sparql2 (cond 
@@ -154,11 +156,13 @@
            [:h4 "Property List: " ]
            [:li plist]
            [:h4  "Value Clusters: " ]
-           [:pre req2-out]
+           [:pre req4-out]
            [:hr]
            ;;[:p "propstring: " [:pre propstring]]
            [:h3#clickable "Query:"]
            [:pre query-sparql2-pr]
+           [:hr]
+           [:hr]
            ])))
           [:script {:src "js/goog/base.js" :type "text/javascript"}]
           [:script {:src "js/webapp.js" :type "text/javascript"}]

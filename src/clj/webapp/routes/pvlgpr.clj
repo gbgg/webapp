@@ -20,7 +20,7 @@
         languages (split langlist #"\n")
         ldomlist (slurp "pvlists/ldomainlist.txt")
         ldoms (split ldomlist #"\n")
-        lproplist (slurp "pvlists/langprops.txt")
+        lproplist (slurp "pvlists/menu-props.txt")
         lprops (split lproplist #"\n")]
   (layout/common 
    [:h3 "Language-Property=>Value Cooccurrences"]
