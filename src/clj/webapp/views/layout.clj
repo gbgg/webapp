@@ -38,6 +38,18 @@
              }); 
              $('#handlerTable').dragtable({dragHandle:'.some-handle'});
              $('#handlerTable').tablesorter();
+             // http://www.sanwebe.com/2014/01/how-to-select-all-deselect-checkboxes-jquery
+             $('#selectall').click(function(event) {
+               if(this.checked) {
+                 $('.checkbox1').each(function() {
+                  this.checked = true;               
+                 });
+               }else{
+                 $('.checkbox1').each(function() {
+                   this.checked = false;                       
+                 });         
+               }
+             });
            });")]
          ;;[:script {:type "text/javascript"} 
          ;; (str "var context=\"" (:context request) "\";")]

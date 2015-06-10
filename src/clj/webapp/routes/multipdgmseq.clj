@@ -66,7 +66,10 @@
              [:tr [:td "PDGM Type: " ]
               [:td
                (check-box {:name "pos" :value pos :checked "true"} pos) (str (upper-case pos))]]
-              [:tr [:td ]]
+             ;; Following :tr can be commented out if not in proof-reading mode
+              [:tr [:td "Scope"]
+               [:td 
+                [:div {:class "scope"} [:span (check-box {:id "selectall"} "Select All") "Select All"]]]]
                  [:tr [:td "PDGM Language(s): " ]
                    (for [language languages]
                      [:td 
@@ -86,7 +89,7 @@
                        [:div {:class "form-group"}
                         [:label (str clustername ": ")
                          (for [lex lexitems]
-                           [:span (check-box {:name "valclusters[]" :value (str language "," clustername ":" lex) :checked "maybe" } lex) lex]
+                           [:span (check-box {:class "checkbox1" :name "valclusters[]" :value (str language "," clustername ":" lex) } lex) lex]
                               )]])))])]
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
