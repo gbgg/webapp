@@ -122,6 +122,8 @@ C3A
 C3B
 CAC
 CARDINALNUM
+CAUS2STEM
+CAUSINTENS
 CC
 CCA
 CCC
@@ -354,9 +356,11 @@ DentalStem
 Dependent
 DependentConditional
 DependentPurposive
+DervPatterns
 DervStem
 DervStemForm
 DervStemFormation
+DervStemMarker
 DervStemSuff
 DervSuff
 Desiderative
@@ -402,6 +406,7 @@ FarDist
 FarMid
 Fem
 Final-i-e
+Finite
 FiniteVerb
 Foc
 Focus
@@ -668,6 +673,7 @@ Monosyllablic
 Mood
 N
 N-subordinate
+NA
 NCC
 NEGAUX
 NEGFUTTEMPLATE
@@ -731,6 +737,7 @@ NonVerbal
 Nonpast
 Normal
 NotYet
+Not_in_datastore
 Noun
 Ntn
 NumNonPerf
@@ -1129,6 +1136,7 @@ RootForm
 RootStructure
 S
 S-Class
+S-Intens
 S-Recip
 S1
 S1-Intens
@@ -1177,6 +1185,7 @@ SELSUBJAFFIXES
 SELSUBJMARKERS
 SM
 ST
+STATSTEM
 STEMCLASSSUFF
 SUBJMARK
 SUBJMARKA
@@ -1360,6 +1369,7 @@ TENSESTEMPLUP1
 TENSESTEMPLUP2
 TENSESUFFSETS
 TERMINALVOWEL
+TOBEADDED
 TSuff
 TaSuff
 Template
@@ -1384,6 +1394,7 @@ Theme
 There
 ThisArea
 TnsAspModStem
+To_be_added
 Trans
 TransVerbPatterns
 Transitive
@@ -1398,6 +1409,9 @@ V
 V-non-a
 V2
 VASPECTAFF
+VBASENASALEXT
+VBASESTEMSUFF
+VCAUSSTEM
 VCLITICS
 VCONJ3AFF
 VERBALPARTICIPLES
@@ -1423,6 +1437,8 @@ VROOTSTRUCTURE
 VRadicalExt
 VSTEM
 VSTEMFORMATIVESUFF
+VSUFFDERVPATTERNS
+VSUFFMIDDLE
 VSubjSetA
 VSubjSetB
 Var
@@ -1467,12 +1483,12 @@ _md
 a
 a-a
 a-e
-a-iClass
 a-o
 a-subordinate
-a-uClass
 aCC
 aClass
+a_iClass
+a_uClass
 aa-stem
 aac
 aak
@@ -1766,7 +1782,7 @@ dur
 duw
 e-a
 e-stem
-e-uClass
+e_uClass
 ebh
 ed
 edeb
@@ -1848,6 +1864,7 @@ fayd
 fāyd
 fedig
 feen
+feffik
 felaH
 fenin
 feraH
@@ -1938,6 +1955,7 @@ exponents
 genderRef
 exponents
 gerib
+gewuk
 gey
 gid
 gig
@@ -2116,6 +2134,7 @@ kasshiy
 kay
 kbd
 ke
+kee
 keen
 keew
 kehan
@@ -2335,6 +2354,7 @@ oggay
 ogi
 oh
 oho
+ongornob
 onqoomot
 oofo
 ookom
@@ -2503,6 +2523,7 @@ sgy
 sha
 shol
 shuul
+shuun
 shuur
 shuwey
 si
@@ -2527,6 +2548,8 @@ sotp
 srq
 sryB
 state
+exponents
+status
 exponents
 statusClass
 exponents

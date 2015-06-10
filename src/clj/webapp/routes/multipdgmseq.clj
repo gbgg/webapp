@@ -20,7 +20,7 @@
 (def aama "http://localhost:3030/aama/query")
 
 (defn multipdgmseq []
-  (let [langlist (slurp "pvlists/menu-langa.txt")
+  (let [langlist (slurp "pvlists/menu-langs.txt")
         languages (split langlist #"\n")]
   (layout/common 
    [:h3 "Multi-Paradigm: Fixed Sequential Display"]
@@ -86,7 +86,7 @@
                        [:div {:class "form-group"}
                         [:label (str clustername ": ")
                          (for [lex lexitems]
-                           [:span (check-box {:name "valclusters[]" :value (str language "," clustername ":" lex) } lex) lex]
+                           [:span (check-box {:name "valclusters[]" :value (str language "," clustername ":" lex) :checked "maybe" } lex) lex]
                               )]])))])]
              ;;(submit-button "Get pdgm")
              [:tr [:td ]

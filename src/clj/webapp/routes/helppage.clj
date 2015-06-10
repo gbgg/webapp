@@ -23,15 +23,12 @@
     [:ul
       [:li (link-to "/pdgm" "Individual Paradigms")
        [:ul [:li [:p "This query-type prompts for a \"paradigm-type\" (Finite Verb, Non-finite Verb, Pronoun, Noun) and a language; it then shows a drop-down select list of paradigms in that language of that type, and returns a table-formatted display of the selected paradigm."]]]]
-      [:li (link-to "/pdgmcmp" "Paradigm Comparison")
-       [:ul [:li [:p "This initial experiment with paradigm comparison prompts for a \"paradigm-type\" (Finite Verb, Non-finite Verb, Pronoun, Noun) and two language, it then shows two drop-down select lists of paradigms in those languages, and returns a csv-formatted display of the two paradigms. It then prompts for png-type (eventually will respond to specification of specific png-values), and returns a paradigm with parallel token display."]]]]
-      [:li (link-to "/pdgmcheckbx"  "Checkbox: Monolingual Sequential")
-       [:ul [:li [:p "Use this option to pick a number of paradigms from a given language to be displayed in vertical succession."]]]]
-      [:li (link-to "/pdgmcbpll"  "Checkbox: Monolingual Parallel")
-       [:ul [:li [:p "Use this option to pick a number of paradigms from a given language to be displayed in parallel."]]]]
-      [:li (link-to "/langcheckbx"  "Checkbox: Multilingual Display")
-       [:ul [:li [:p "Use this option to pick one or more  paradigms from a given language or set of languages to be displayed initially in vertical succession and then in parallel."]]]]
-     ]
+      [:li "Multiple Paradigms"
+       [:ul
+      [:li (link-to "/multipdgmseq"  "Multiparadigm Fixed Sequential Display")
+       [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. A sequence of table-formatted displays of the selected paradigms is returned."]]]]
+      [:li (link-to "/multipdgmmod"  "Multiparadigm Modifiable Display")
+       [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. The routine first returns a single sortable table display of the selected paradigm(s) with draggable columns. A selection button permits the reformatting of this table into a (sortable, draggable) table with the paradigms in parallel columns. (Works currently only with finite-verb Number-Person-Gender-Token paradigms.) "]]]]]]]
     [:hr]
     [:h2 "Property Value Displays"]
     [:p "These pages are designed to permit querying for arbitrary combinations of language, property, and value."]
@@ -74,15 +71,28 @@
        [:li (link-to "/upload" "Upload to Remote Repository") " [Requires Access Privileges]"]]
       [:p "(NB: These two procedures have not yet been incorporated into the webapp. For the moment, only the command-line versions can be used.)"]
      [:hr]
-     [:p "The following command-line versions presuppose that the edn data files are in the  ~/aama-data/data/[LANG} directories:"]
-      [:ul [:li [:h4 "Datastore Update "] "Usage:" 
+     [:p "The following command-line versions presuppose that the edn data files are in the  ~/aama-data/data/[LANG] directories:"]
+      [:ul [:li [:h4 "Datastore Update "] 
+            [:p "The following script will:" 
+             [:ol 
+              [:li "Delete current LANG sub-graph(s) from the datastore"]
+              [:li "Run triple-count and sub-graph-list queries to verify deletion(s)"]
+              [:li "Transform the revised edn file to a ttl file"]
+              [:li "Insert revised LANG sub-graph(s) into datastore"]
+              [:li "Run triple-count and sub-graph-list queries to verify insertion(s)"]]]
+            [:p "Usage:" 
             [:ul 
-             [:li "bin/aama-datastore-update.sh ../aama-data/data/[LANGDOMAIN]  (from webapp dir)"]
-             [:li " ~/aama-data/bin/aama-datastore-setup.sh \"data/*\" (to [re-]initiate the whole datastore from ~/aama-data dir)"]]]
-       [:li [:h4 "Upload to aama/ language repository and push to origin."] "Usage:"
+             [:li "bin/aama-datastore-update.sh ../aama-data/data/[LANG]  (for a single language; from webapp dir)"]
+             [:li " ~/aama-data/bin/aama-datastore-setup.sh \"data/*\" (to [re-]initiate the whole datastore from ~/aama-data dir)"]]]]
+       [:li [:h4 "Datastore Upload."] 
+        [:p "The following script will:"
+         [:ol
+          [:li "Upload revised edn file(s) to aama/[LANG] repository"]
+          [:li "Push the new edn file(s) to origin"]]]
+        [:p "Usage:"
         [:ul 
-         [:li "~/aama-data/bin/aama-cp2lngrepo.sh data/LANG (for a single language)"]
-         [:li "~/aama-data/bin/aama-cp2lngrepo.sh \"data/*\" (to [re-]upload the whole datastore)"]]]]
+         [:li "bin/aama-cp2lngrepo.sh data/LANG (for a single language; from webapp dir)"]
+         [:li "~/aama-data/bin/aama-cp2lngrepo.sh \"data/*\" (to [re-]upload the whole datastore; from ~/aama-data dir)"]]]]]
        [:p "(Cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")")"]]))
 
 (defroutes helppage-routes
