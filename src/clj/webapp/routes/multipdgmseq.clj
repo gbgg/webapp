@@ -67,9 +67,10 @@
               [:td
                (check-box {:name "pos" :value pos :checked "true"} pos) (str (upper-case pos))]]
              ;; Following :tr can be commented out if not in proof-reading mode
+             ;; selectall jQuery script from  http://www.sanwebe.com/2014/01/how-to-select-all-deselect-checkboxes-jquery
               [:tr [:td "Scope"]
                [:td 
-                [:div {:class "scope"} [:span (check-box {:id "selectall"} "Select All") "Select All"]]]]
+                [:div {:class "scope"} (check-box {:id "selectall"} "Select All") "Select All"]]]
                  [:tr [:td "PDGM Language(s): " ]
                    (for [language languages]
                      [:td 

@@ -89,6 +89,16 @@
     (join "\n" reqq3)
 ))
 
+(defn normorder
+  "Takes property list output by listlgpr-sparql-POS and returns string with properties in (partial) order specified by porder."
+  [pstring porder]
+  (let [
+        pordervec (split porder #",")
+        pstringvec (split pstring #",")
+        diffset (clojure.set/difference (set pstringvec) (set pordervec))
+        diffvec (into [] diffset)]
+    (str porder "," (join "," diffvec))))
+
 (defn handle-listvlclplex-gen
   [ldomain pos]
   (layout/common
@@ -122,6 +132,8 @@
                              (str "no_" pos)
                              (replace (:body req1) #"\r\n" ","))
                 pstring (replace propstring #"property,|,$" "")
+                porder (str "conjClass,derivedStem,derivedStemAug,tam,polarity,rootClass")
+                normstring (normorder pstring porder)
                 plist (replace pstring #"," ", ")
                 query-sparql2 (cond 
                           (= pos "pro")
@@ -130,7 +142,7 @@
                           (sparql/listvlcl-sparql-nfv language lpref propstring)
                           (= pos "noun")
                           (sparql/listvlcl-sparql-noun language lpref propstring)
-                          :else (sparql/listvlcl-sparql-fv language lpref propstring))
+                          :else (sparql/listvlcl-sparql-fv language lpref normstring))
                 query-sparql2-pr (replace query-sparql2 #"<" "&lt;")
                 req2 (http/get aama
                           {:query-params
@@ -154,7 +166,9 @@
            [:li outfile]
            ;;[:p "req2-body: " [:pre req2-body]]
            [:h4 "Property List: " ]
-           [:li plist]
+           [:li pstring
+            [:p "porder: " porder]
+            [:p " normstring: " normstring]]
            [:h4  "Value Clusters: " ]
            [:pre req4-out]
            [:hr]

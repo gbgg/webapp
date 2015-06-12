@@ -22,13 +22,16 @@
     [:p "These pages experiment with different possibilities for display and comparison of paradigms. The comparisons for the moment are oriented to png-centered displays, and thus work reasonably well for finite verb and pronominal paradigms. Their application is less clear for non-finite verbs. Note that the present datastore contains " [:em "very "] "little material for nominal inflection."]
     [:ul
       [:li (link-to "/pdgm" "Individual Paradigms")
-       [:ul [:li [:p "This query-type prompts for a \"paradigm-type\" (Finite Verb, Non-finite Verb, Pronoun, Noun) and a language; it then shows a drop-down select list of paradigms in that language of that type, and returns a table-formatted display of the selected paradigm."]]]]
+       [:ul [:li [:p "This query-type prompts for a \"paradigm-type\" (Finite Verb, Non-finite Verb, Pronoun, Noun) and a language; it then shows a drop-down select list of paradigms in that language of that type, and returns a table-formatted display of the selected paradigm, followed by the query that produced it."]]]]
       [:li "Multiple Paradigms"
+       [:p
        [:ul
       [:li (link-to "/multipdgmseq"  "Multiparadigm Fixed Sequential Display")
-       [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. A sequence of table-formatted displays of the selected paradigms is returned."]]]]
+       [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. A sequence of table-formatted displays of the selected paradigms is returned."]
+             [:p "NB: The \"Select All\" option is principally to allow print-outs for proof-reading purposes."]]]
       [:li (link-to "/multipdgmmod"  "Multiparadigm Modifiable Display")
-       [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. The routine first returns a single sortable table display of the selected paradigm(s) with draggable columns. A selection button permits the reformatting of this table into a (sortable, draggable) table with the paradigms in parallel columns. (Works currently only with finite-verb Number-Person-Gender-Token paradigms.) "]]]]]]]
+       [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. The routine first returns a single sortable table display of the selected paradigm(s) with draggable columns. A selection button permits the reformatting of this table into a (sortable, draggable) table with the paradigms in parallel columns. (Works currently only with finite-verb Number-Person-Gender-Token paradigms.) "]]]]]]]]
+     [:p]
     [:hr]
     [:h2 "Property Value Displays"]
     [:p "These pages are designed to permit querying for arbitrary combinations of language, property, and value."]
@@ -40,6 +43,7 @@
      [:li (link-to "/pvprvllg" "Language-property-value")
        [:ul [:li [:p "This family of queries accepts a language or group/family of languages and a comma-separated string of prop=val statements (in which case it returns the languages having that set of prop=val), combined optionally with one or more prop=?val statements (in which case it also returns the values of properties which may be associated with the specified properties)."]
    [:ul [:li "[For example the query \"person=Person2,gender=Fem\" with language group \"Beja\" returns the Beja languages which have 2f forms; while the query \"person=Person2,gender=Fem,pos=?pos,number=?number\" with \"Beja\" returns a table with the language(s) having 2f forms, along with the part-of-speech values, and number values associated with these forms.]"]]]]]]
+     [:p]
     [:hr]
     [:h2 "Utilities"]
     [:div
@@ -83,7 +87,7 @@
             [:p "Usage:" 
             [:ul 
              [:li "bin/aama-datastore-update.sh ../aama-data/data/[LANG]  (for a single language; from webapp dir)"]
-             [:li " ~/aama-data/bin/aama-datastore-setup.sh \"data/*\" (to [re-]initiate the whole datastore from ~/aama-data dir)"]]]]
+             [:li " (~/aama-data/)bin/aama-datastore-setup.sh \"data/*\" (to [re-]initiate the whole datastore from ~/aama-data dir)"]]]]
        [:li [:h4 "Datastore Upload."] 
         [:p "The following script will:"
          [:ol
@@ -92,8 +96,8 @@
         [:p "Usage:"
         [:ul 
          [:li "bin/aama-cp2lngrepo.sh data/LANG (for a single language; from webapp dir)"]
-         [:li "~/aama-data/bin/aama-cp2lngrepo.sh \"data/*\" (to [re-]upload the whole datastore; from ~/aama-data dir)"]]]]]
-       [:p "(Cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")")"]]))
+         [:li "(~/aama-data/)bin/aama-cp2lngrepo.sh \"data/*\" (to [re-]upload the whole datastore; from ~/aama-data dir)"]]]]]
+       [:p "(Cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")")"]]]))
 
 (defroutes helppage-routes
   (GET "/helppage" [] (helppage)))

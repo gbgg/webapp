@@ -862,7 +862,8 @@ ORDER BY ASC(?prop) ASC(?val)
    ORDER BY  ASC(?prop) ASC(?lang) ASC(?val)"))))
 
 (defn listvlcl-sparql-fv [language lpref propstring]
-  (let [qpropstring1 (clojure.string/replace propstring #"^.*?," "?")
+  (let [;;qpropstring1 (clojure.string/replace propstring #"^.*?," "?")
+        qpropstring1 (str "?" propstring)
         qpropstring2 (clojure.string/replace qpropstring1 #",$" "")
         selection (clojure.string/replace qpropstring2 #"," " ?")
         propstring2 (clojure.string/replace qpropstring2 #"^\?" "")

@@ -1,6 +1,6 @@
-Suffix2,Affirmative,Imperative:obed
-Suffix2,Affirmative,Imperfect:obed
-Suffix2,Affirmative,Perfect:obed
-Suffix2,Negative,Imperative:obed
-Suffix2,Negative,Imperfect:obed
-Suffix2,Negative,Perfect:obed
+Suffix2,Imperative,Affirmative:obed
+Suffix2,Imperative,Negative:obed
+Suffix2,Imperfect,Affirmative:obed
+Suffix2,Imperfect,Negative:obed
+Suffix2,Perfect,Affirmative:obed
+Suffix2,Perfect,Negative:obed
