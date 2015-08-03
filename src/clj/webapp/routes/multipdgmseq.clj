@@ -82,16 +82,28 @@
                  (let [valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")
                        valclusterlist (slurp valclusterfile)
                        valclusters (split valclusterlist #"\n")]
+                   ;; For pdgm checkboxes, if pos is 'fv', there will be a
+                   ;; label for the valcluster, then actual checkboxes will be 
+                   ;; placed at different lexitems having the same valcluster. 
+                   ;; Otherwise each valcluster will be a separate checkbox.
+                   ;; The 'fv' type may be extended to other kinds of pdgms
+                   ;; showing identical valclusters with different lex items
+                   ;; (e.g., nominal paradigms with inflectional case of the
+                   ;; Latin or Greek type).
                    (for [valcluster valclusters]
-                     (let [clusters (split valcluster #":")
-                           clustername (first clusters)
-                           plex (last clusters)
-                           lexitems (split plex #",")]
+                     (if (= pos "fv")
+                       (let [clusters (split valcluster #":")
+                             clustername (first clusters)
+                             plex (last clusters)
+                             lexitems (split plex #",")]
+                         [:div {:class "form-group"}
+                          [:label (str clustername ": ")
+                           (for [lex lexitems]
+                             [:span 
+                             (check-box {:class "checkbox1" :name "valclusters[]" :value (str language "," clustername ":" lex) } lex) lex])]])
                        [:div {:class "form-group"}
-                        [:label (str clustername ": ")
-                         (for [lex lexitems]
-                           [:span (check-box {:class "checkbox1" :name "valclusters[]" :value (str language "," clustername ":" lex) } lex) lex]
-                              )]])))])]
+                         [:label
+                          (check-box {:class "checkbox1" :name "valclusters[]" :value (str language "," valcluster) } valcluster) valcluster]])))])]
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
               [:td [:input#submit
@@ -101,7 +113,6 @@
  [valclusters pos]
  (layout/common
   (let 
-      ;;[vcvec (split valclusters #" ")
       [lprefmap (read-string (slurp "pvlists/lprefs.clj"))]
     (for [valcluster valclusters]
       (let [vals (split valcluster #"," 2)
@@ -115,10 +126,11 @@
                           (= pos "pro")
                           (sparql/pdgmqry-sparql-pro language lpref valstr)
                           (= pos "nfv")
-                          (sparql/pdgmqry-sparql-nfv language lpref valcluster)
+                          (sparql/pdgmqry-sparql-nfv language lpref vcluster)
                           (= pos "noun")
-                          (sparql/pdgmqry-sparql-noun language lpref valcluster)
+                          (sparql/pdgmqry-sparql-noun language lpref vcluster)
                           :else (sparql/pdgmqry-sparql-fv language lpref vcluster))
+            query-sparql-pr (clojure.string/replace query-sparql #"<" "&lt;")
             req (http/get aama
                       {:query-params
                        {"query" query-sparql ;;generated sparql
@@ -128,7 +140,11 @@
         [:div
          [:hr]
          [:h4 "Valcluster: " valcluster]
-         [:pre (:body req)]])))
+         [:pre (:body req)]
+         ;;[:hr]
+         ;;[:h3#clickable "Query:"]
+         ;;[:pre query-sparql-pr]]
+        ])))
         [:script {:src "js/goog/base.js" :type "text/javascript"}]
         [:script {:src "js/webapp.js" :type "text/javascript"}]
         [:script {:type "text/javascript"}

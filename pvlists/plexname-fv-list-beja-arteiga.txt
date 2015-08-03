@@ -1,6 +1,4 @@
-Copula:COPULA
 Future,Affirmative:tam
-Past,Negative,Auxiliary:tam
 Prefix,Aorist,Affirmative,CCC:dbl
 Prefix,Aorist,Affirmative,CCY:dgy
 Prefix,Aorist,Affirmative,CVC:bis
@@ -34,7 +32,9 @@ Suffix,Imperative,Negative:tam
 Suffix,Optative,Affirmative:tam
 Suffix,Optative,Negative:tam
 Suffix,Past,Affirmative:tam
-Suffix,Past,Negative,Compound:tam
 Suffix,Present,Affirmative:tam
 Suffix,Present,Negative:tam
 Suffix,B,Simple,Imperative,Invar,Structure,IMPTVROOTCLASSES:ad,doob,gwa,kileew,nuun,raat,rih,suum,tam
+Auxiliary,Past,Negative:tam
+Compound,Suffix,Past,Negative:tam
+Copula:COPULA

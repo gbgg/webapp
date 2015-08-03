@@ -4,7 +4,7 @@
  "sources":["core.cljs"],
  "lineCount":11,
  "mappings":
- ";AAAA;;;;;AAcA,AAAKA,yBAAW,sBAAA,tBAACC;AAEjB,gDAAA,hDAACC,yBAAQF,8EAAkB,gBAAA,LAAKG,KAAK,aAAA,NAACC",
+ ";AAAA;;;;;AAWA,AAAKA,yBAAW,sBAAA,tBAACC;AAEjB,gDAAA,hDAACC,yBAAQF,8EAAkB,gBAAA,LAAKG,KAAK,aAAA,NAACC",
  "names":
  ["webapp.core/$clickable", "jayq.core/$", "jayq.core/bind", "evt",
   "js/alert"]}

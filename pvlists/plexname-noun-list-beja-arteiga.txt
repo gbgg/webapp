@@ -1,2 +1,2 @@
-POSTPOSITION,case,morphClass,postpositionClass,
-PLMARK,morphClass,pdgmType,pluralClass,
+POSTPOSITION,case,postpositionClass,
+PLMARK,pdgmType,pluralClass,

@@ -24,7 +24,7 @@
         languages (split langlist #"\n")]
   (layout/common 
    [:h3 "Checkbox: Multilingual Display"]
-     [:p "Use this option to pick one or more  paradigms from a given language or set of languages to be displayed initially in vertical succession and then in parallel."]
+     [:p "Use this option to pick one or more  paradigms from a given language or set of languages to be displayed as a single paradigm. (NB: Will only combine paradigms with identical headers.)"]
    [:p "Choose Languages and Type"]
    ;; [:p error]
    [:hr]
@@ -79,17 +79,28 @@
                      (let [valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")
                            valclusterlist (slurp valclusterfile)
                            valclusters (split valclusterlist #"\n")]
+                       ;; For pdgm checkboxes, if pos is 'fv', there will be a
+                       ;; label for the valcluster, then actual checkboxes will be 
+                       ;; placed at different lexitems having the same valcluster. 
+                       ;; Otherwise each valcluster will be a separate checkbox.
+                       ;; The 'fv' type may be extended to other kinds of pdgms
+                       ;; showing identical valclusters with different lex items
+                       ;; (e.g., nominal paradigms with inflectional case of the
+                       ;; Latin or Greek type).
                        (for [valcluster valclusters]
-                     (let [clusters (split valcluster #":")
-                           clustername (first clusters)
-                           plex (last clusters)
-                           lexitems (split plex #",")]
-                       [:div {:class "form-group"}
-                        [:label (str clustername ": ")
-                         (for [lex lexitems]
-                           [:span (check-box {:name "valclusters[]" :value (str language "," clustername ":" lex) } lex) lex]
-                              )]])))])]
-;;                              )]])))])]
+                         (if (= pos "fv")
+                           (let [clusters (split valcluster #":")
+                                 clustername (first clusters)
+                                 plex (last clusters)
+                                 lexitems (split plex #",")]
+                             [:div {:class "form-group"}
+                              [:label (str clustername ": ")
+                               (for [lex lexitems]
+                                 [:span 
+                                  (check-box {:name "valclusters[]" :value (str language "," clustername ":" lex) } lex) lex])]])
+                           [:div {:class "form-group"}
+                            [:label
+                             (check-box {:class "checkbox1" :name "valclusters[]" :value (str language "," valcluster) } valcluster) valcluster]])))])]
                  ;;(submit-button "Get pdgm")
                  [:tr [:td ]
                   [:td [:input#submit
@@ -111,9 +122,9 @@
                           (= pos "pro")
                           (sparql/pdgmqry-sparql-pro language lpref valstr)
                           (= pos "nfv")
-                          (sparql/pdgmqry-sparql-nfv language lpref valcluster)
+                          (sparql/pdgmqry-sparql-nfv language lpref vcluster)
                           (= pos "noun")
-                          (sparql/pdgmqry-sparql-noun language lpref valcluster)
+                          (sparql/pdgmqry-sparql-noun language lpref vcluster)
                           :else (sparql/pdgmqry-sparql-fv language lpref vcluster))
             req (http/get aama
                       {:query-params
@@ -127,38 +138,52 @@
 
 (defn csv2pdgm
 "Takes sorted 4-col csv list with vectors of pnames and headers, and outputs 5-col html table with first col for pname ref; cols are draggable and sortable."
- [pdgmstr2 valclusters headers]
+ [pdgmstr2 valclusters]
 (let  [pdgms (str valclusters)
        pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
        pnames (split pnamestr #" ")
+       ;; Take off the top header
+       ;; If pdgms are to be comparable
+       ;; all header strings will be same
+       psplit (split pdgmstr2 #"\\r\\n" 2)
+       header (first psplit)
+       header2 (str "pdgm," header)
+       pheads (split header2 #",")
        pstrings (split pdgmstr2 #" ")
        pdgmnum (atom 0)
        ]
   [:div
-      [:p "Paradigms:"
-      [:ol
-      (for [pname pnames]
-        [:li pname])]]
-      [:hr]
-      ;; For visible borders set {:border "1"}.
-      [:table {:id "handlerTable" :class "tablesorter sar-table"}
-       [:thead
-        [:tr
-         (for [header headers]
-           [:th [:div {:class "some-handle"}] header])]]
-       [:tbody 
-        (for [pdgm pstrings]
-          (let [pdgm-sp (split pdgm #"\\r\\n" 2) 
-                pbody (last pdgm-sp)
-                pdgmrows (split pbody #"\\r\\n")
-                pnum (swap! pdgmnum inc)
-                ]
-            (for [pdgmrow pdgmrows]
-              [:tr
-               [:td (str "P-" pnum)]
-               (let [pdgmcells (split pdgmrow #",")]
-                 (for [pdgmcell pdgmcells]
-                   [:td pdgmcell]))])))]]]))
+   [:p "Paradigms:"
+    [:ol
+     (for [pname pnames]
+       [:li pname])]]
+   ;;[:hr]
+   ;;[:pre pdgmstr2]
+   [:hr]
+   ;; For visible borders set {:border "1"}.
+   [:table {:id "handlerTable" :class "tablesorter sar-table"}
+    [:thead
+     [:tr
+      (for [head pheads]
+        [:th [:div {:class "some-handle"}] head])]]
+    [:tbody 
+     (for [pdgm pstrings]
+       (let [pdgm-sp (split pdgm #"\\r\\n" 2)
+             pheader (first pdgm-sp)
+             pbody (last pdgm-sp)
+             pdgmrows (split pbody #"\\r\\n")
+             pnum (swap! pdgmnum inc)
+             ]
+         (if (= header pheader)
+           (for [pdgmrow pdgmrows]
+             [:tr
+              [:td (str "P-" pnum)]
+              (let [pdgmcells (split pdgmrow #",")]
+                (for [pdgmcell pdgmcells]
+                  [:td pdgmcell]))])
+           ;;([:tr [:td (str "P-" pnum " does not have the header: " header)]])
+           )))]]]))
+        
 
 (defn handle-multimoddisplay
   [valclusters pos]
@@ -169,27 +194,18 @@
         pdgmvec (map #(vc2req  % pos) valclusters)
         pdgmstr1 (apply pr-str pdgmvec)
         pdgmstr2 (clojure.string/replace pdgmstr1 #"[\(\)\"]" "")
-        pdgmtable (csv2pdgm pdgmstr2 valclusters headers)
+        pdgmtable (csv2pdgm pdgmstr2 valclusters)
         pdgms (str valclusters)
         pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
         pnames (split pnamestr #" ")
         ]
          (layout/common
            [:h3#clickable "Paradigms " pos ": "  ]
-           ;;[:p "(CSV Format)"]
-           ;;(for [pdgmreq pdgmvec]
-                   ;; (log/info "sparql result status: " (:status req))
-             ;;       [:div
-               ;;      [:hr]
-                 ;;    [:pre pdgmreq]
-                   ;;  ]
-                     ;;)
-           ;;[:hr]
-           ;;[:p "pdgmvec: " [:pre pdgmvec]]
+           [:p "Click on column to sort (multiple sort by holding down shift key). Columns can be dragged by clicking and holding on 'drag-bar' at top of column."]
            [:hr]
            pdgmtable
            [:hr]
-           [:h3 "Parallel Display of Paradigms (Finite Verb Only)"]
+           [:h3 "Parallel Display of Paradigms (Personal Pronoun and Finite Verb Only)"]
            [:p "At present only accommodates parallel display of paradigms with columns 'Number Person Gender Token' -- to be generalized."]
            [:hr]
            (form-to [:post "/multimodplldisplay"]
@@ -256,6 +272,7 @@
     ))
 
 (defn handle-multimodplldisplay
+  "This version relies on external npg.clj file for sort order; can be eliminated as soon as is clear that handle-multimodplldisplay2 is adequate"
   [pdgms headerset2 pdgmstr2]
   (let [pngstring (slurp "pvlists/npg.clj")
         pngs (split pngstring #" ")
@@ -275,6 +292,7 @@
     (layout/common
      [:body
       [:h3 "Parallel Display of Paradigms:" ]
+      ;;[:p "pmaps: " [:pre pmaps]]
       ;;[:p "keylists: " [:pre keylists]]
       ;;[:p "keystring: " [:pre keystring]]
       ;;[:p "keyset: " [:pre keyset]]
@@ -305,9 +323,61 @@
       [:script {:type "text/javascript"}
        "goog.require('webapp.core');"]]])))
     
+(defn handle-multimodplldisplay2
+  "This version does not rely on external png file for sort order; keyset should be generalized beyond png to any sequence of cols between col-1 ('pivot', here limited to paradigms) and token column. Also need to 'presort' cols before initial display."
+  [pdgms headerset2 pdgmstr2]
+  (let [pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
+        pnames (split pnamestr #" ")
+        pstrings (split pdgmstr2 #" ")
+        pmaps (for [pdgm pstrings] (pstring2map pdgm))
+        ;; headerset should be derived from pdgm query (=headerset2)
+        headerset (str "Number " "Person " "Gender ")
+        heads (split headerset #" ")
+        pdgmnums (into [] (take (clojure.core/count pnames) (iterate inc 1)))
+        ;; There has to be an easier way to get to keyset!
+        keylists (set (for [pmap pmaps] (keys pmap)))
+        keystring (clojure.string/replace (str keylists) #"[#(){}]" "")
+        keyvec (split keystring #" ")
+        keyset (set keyvec)
+        ]
+    (layout/common
+     [:body
+      [:h3 "Parallel Display of Paradigms:" ]
+      [:p "Click on column to sort (multiple sort by holding down shift key). Columns can be dragged by clicking and holding on 'drag-bar' at top of column."]
+      ;;[:p "pmaps: " [:pre pmaps]]
+      ;;[:p "keylists: " [:pre keylists]]
+      ;;[:p "keystring: " [:pre keystring]]
+      ;;[:p "keyset: " [:pre keyset]]
+     [:p "Paradigms:"
+      [:ol
+      (for [pname pnames]
+        [:li pname])]]
+      [:hr]
+      [:table {:id "handlerTable" :class "tablesorter sar-table"}
+         [:thead
+          (for [head heads]
+            [:th [:div {:class "some-handle"}] head])
+          (for [pdgmnum pdgmnums]
+            [:th [:div {:class "some-handle"}] (str "P-" pdgmnum)])]
+       [:tbody
+        (for [keys keyset]
+          [:tr
+           (let [kstring (clojure.string/replace keys #"^:" "")
+                 npgs (split kstring #",")
+                 kstrkey (keyword kstring)]
+               [:div
+                (for [npg npgs]
+                  [:td npg])
+                (for [pmap pmaps]
+               [:td (kstrkey pmap)])])])]
+      [:script {:src "js/goog/base.js" :type "text/javascript"}]
+      [:script {:src "js/webapp.js" :type "text/javascript"}]
+      [:script {:type "text/javascript"}
+       "goog.require('webapp.core');"]]])))
+    
 
 (defroutes multipdgmmod-routes
   (GET "/multipdgmmod" [] (multipdgmmod))
   (POST "/multimodqry" [languages pos] (handle-multimodqry languages pos))
   (POST "/multimoddisplay" [valclusters pos] (handle-multimoddisplay valclusters pos))
-  (POST "/multimodplldisplay" [pdgmnames header pdgmstr2] (handle-multimodplldisplay pdgmnames header pdgmstr2)))
+  (POST "/multimodplldisplay" [pdgmnames header pdgmstr2] (handle-multimodplldisplay2 pdgmnames header pdgmstr2)))

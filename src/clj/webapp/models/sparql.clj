@@ -146,9 +146,10 @@
 
 (defn pdgmqry-sparql-nfv [language lpref valstring]
     (let [valstrng (clojure.string/replace valstring #",$" "")
-          values (split valstrng #"[:,]")
+          values (split valstrng #"," 2)
           morphclass (first values)
-          props (vec (rest values))
+          props (apply str (rest values))
+          propvec (split props #",")
           ;;propstring (clojure.string/replace valstrng #"^.*?:" ",")
           propstring (str "?" valstrng)
           qpropstring (clojure.string/replace propstring #"-|," {"-" "" "," " ?"})
@@ -183,7 +184,7 @@
         :selection qpropstring
         :morphclass morphclass})
       (apply str  
-             (for [prop props]
+             (for [prop propvec]
                (let [qprop (clojure.string/replace prop "-" "")]
                (if (re-find #"token" prop)
                  (tmpl/render-string 
@@ -215,11 +216,13 @@
 ))
 
 (defn pdgmqry-sparql-noun [language lpref valstring]
-    (let [values (split valstring #"[:,]")
+  (let [valstrng (clojure.string/replace valstring #",$" "")
+          values (split valstrng #"[:,]")
           morphclass (first values)
           props (vec (rest values))
-          propstring (clojure.string/replace valstring #"^.*?:" ",")
-          qpropstring (clojure.string/replace propstring #"-|," {"-" "" "," " ?"})
+          propstring (clojure.string/replace valstrng #"^.*?:" ",")
+          pstring (str "?" propstring)
+          qpropstring (clojure.string/replace pstring #"-|," {"-" "" "," " ?"})
           ;;qprops (clojure.string/replace propstring "-" "")]
           ;;qpropstring (clojure.string/replace qprops "," " ?")
           Language (capitalize language)
@@ -667,7 +670,7 @@ GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{lang}}> {
 	rdf:type aamas:Muterm ;
 	{{lpref}}:pos  {{lpref}}:Noun .
         ?p rdfs:label ?property .
-  	FILTER (?p NOT IN ( aamas:lang, {{lpref}}:pos, rdf:type))
+  	FILTER (?p NOT IN ( aamas:lang, {{lpref}}:pos, {{lpref}}:morphClass, rdf:type))
 }}
 ORDER BY ASC(?property) ")
 {:lang language
@@ -1000,7 +1003,7 @@ ORDER BY ASC(?prop) ASC(?val)
 	        {{lpref}}:pos  {{lpref}}:Noun .
 	        ?morphClass rdfs:label ?morphClassLabel .
                 ?p rdfs:label ?property .
-  	        FILTER (?p NOT IN ( aamas:lang, aamas:muterm, {{lpref}}:pos, rdf:type,                {{lpref}}:token))
+  	        FILTER (?p NOT IN ( aamas:lang, aamas:muterm, {{lpref}}:pos, {{lpref}}:morphClass, rdf:type,                {{lpref}}:token))
        }}
        }
        ORDER BY ASC(?morphClassLabel) ASC(?property) ")

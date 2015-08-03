@@ -61,8 +61,18 @@
              (do (reset! curpart1 (:part1 partmap))
                  (str "\n"  @curpart1 ":" (:part2 partmap))))))))
 
+(defn normorder
+  "Takes property list output by listlgpr-sparql-POS and returns string with properties in (partial) order specified by porder."
+  [pstring porder]
+  (let [
+        pordervec (split porder #",")
+        pstringvec (split pstring #",")
+        diffset (clojure.set/difference (set pstringvec) (set pordervec))
+        diffvec (into [] diffset)]
+    (str porder "," (join "," diffvec))))
+
 (defn req2vlist1
-  "Takes off header row, deletes interior brackets and quotes, makes into list, and separates plex from morpho-syntactic values with ':'"
+  "For fv: Takes off header row, deletes interior brackets and quotes, makes into list, and separates plex from morpho-syntactic values with ':'"
   [vlist]
   (let [vlist1 (replace vlist #"\r\n$" "")
         reqq (split vlist1 #"\r\n")
@@ -89,21 +99,22 @@
     (join "\n" reqq3)
 ))
 
-(defn normorder
-  "Takes property list output by listlgpr-sparql-POS and returns string with properties in (partial) order specified by porder."
-  [pstring porder]
-  (let [
-        pordervec (split porder #",")
-        pstringvec (split pstring #",")
-        diffset (clojure.set/difference (set pstringvec) (set pordervec))
-        diffvec (into [] diffset)]
-    (str porder "," (join "," diffvec))))
+(defn req2vlist3
+  "For pro: Takes off header row, deletes interior brackets and quotes, deletes line-final ','"
+  [vlist]
+  (let [reqq (split vlist #"\n" 2)
+        reqqa (rest reqq)
+        reqqb (apply str reqqa)
+        ;;same Q as in req2vlist2
+        reqqc (split reqqb #"\r")
+        reqqd (for [req reqqc] (replace req #"\B,|[\(\)\]\[\"]" ""))]
+    (for [req reqqd] (replace req #",$" ""))))
 
 (defn handle-listvlclplex-gen
   [ldomain pos]
   (layout/common
    [:body
-    [:h3#clickable "Value-clusters used in " pos " pdgms for: " ldomain]
+    ;;[:h3#clickable "Value-clusters used in " pos " pdgms for: " ldomain]
       (let [lprefmap (read-string (slurp "pvlists/lprefs.clj"))
             langs (split ldomain #",")]
         (for [language langs]
@@ -121,7 +132,7 @@
                           (sparql/listlgpr-sparql-noun language lpref)
                           (= pos "fv")
                           (sparql/listlgpr-sparql-fv language lpref))
-                ;;query-sparql1-pr (replace query-sparql1 #"<" "&lt;")
+                query-sparql1-pr (replace query-sparql1 #"<" "&lt;")
                 req1 (http/get aama
                           {:query-params
                            {"query" query-sparql1 ;;generated sparql
@@ -132,7 +143,7 @@
                              (str "no_" pos)
                              (replace (:body req1) #"\r\n" ","))
                 pstring (replace propstring #"property,|,$" "")
-                porder (str "conjClass,derivedStem,derivedStemAug,tam,polarity,rootClass")
+                porder (str "formType,conjClass,derivedStem,derivedStemAug,tam,polarity,rootClass")
                 normstring (normorder pstring porder)
                 plist (replace pstring #"," ", ")
                 query-sparql2 (cond 
@@ -150,32 +161,32 @@
                             ;;"format" "application/sparql-results+json"}})
                             "format" "csv"}})
                 req2-body (replace (:body req2) #",+" ",")
-                req2-out   (cond
-                       (or (= pos "fv") (= pos "pro"))
-                       (req2vlist1 req2-body)
-                       :else (req2vlist2 req2-body))
+                req2-out   (cond 
+                            (= pos "fv")
+                            (req2vlist1 req2-body)
+                            (= pos "pro")
+                            ;;(rest req2-body)
+                            (req2vlist3 req2-body)
+                            :else (req2vlist2 req2-body))
                 req3-out (apply str req2-out)
                 req4-out (replace req3-out #"^\s*\n" "")
               ]
         (log/info "sparql result status: " (:status req2))
         (spit outfile req4-out)
           [:div
-           [:h4 "Language: "]
-           [:li language]
-           [:h4 "File: "]
-           [:li outfile]
+           [:p [:b "Language: "] language]
+           [:p [:b "File:     "] outfile]
            ;;[:p "req2-body: " [:pre req2-body]]
-           [:h4 "Property List: " ]
-           [:li pstring
-            [:p "porder: " porder]
-            [:p " normstring: " normstring]]
+           [:p [:b "Pstring: " ] pstring]
+           [:p [:b "Porder:  " ] porder]
+           [:p [:b "Normstring: "] normstring]
            [:h4  "Value Clusters: " ]
            [:pre req4-out]
-           [:hr]
+           ;;[:hr]
            ;;[:p "propstring: " [:pre propstring]]
-           [:h3#clickable "Query:"]
-           [:pre query-sparql2-pr]
-           [:hr]
+           ;;[:h3#clickable "Query:"]
+           ;;[:pre query-sparql2-pr]
+           ;;[:hr]
            [:hr]
            ])))
           [:script {:src "js/goog/base.js" :type "text/javascript"}]
