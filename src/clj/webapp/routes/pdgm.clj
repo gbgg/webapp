@@ -26,11 +26,6 @@
    [:hr]
    (form-to [:post "/pdgmqry"]
             [:table
-             [:tr [:td "PDGM Language: " ]
-              [:td [:select#language.required
-                    {:title "Choose a language.", :name "language"}
-                    (for [language languages]
-                        [:option {:value (lower-case language)} language])]]]
              [:tr [:td "PDGM Type: "]
               [:td [:select#pos.required
                     {:title "Choose a pdgm type.", :name "pos"}
@@ -39,6 +34,11 @@
                     [:option {:value "pro" :label "Pronoun"}]
                     [:option {:value "noun" :label "Noun"}]
                     ]]]
+             [:tr [:td "PDGM Language: " ]
+              [:td [:select#language.required
+                    {:title "Choose a language.", :name "language"}
+                    (for [language languages]
+                        [:option {:value (lower-case language)} language])]]]
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
               [:td [:input#submit

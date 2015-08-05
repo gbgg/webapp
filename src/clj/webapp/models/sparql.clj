@@ -52,15 +52,20 @@
         :Language Language})
       (apply str  
              (for [value values]
-        (tmpl/render-string 
-         (str "
+               (tmpl/render-string 
+                (str "
            ?s ?Q{{value}}  {{lpref}}:{{value}} .  ")
-         {:value value
-          :lpref lpref})))
-      (tmpl/render-string
-       (str " 
+                {:value value
+                 :lpref lpref})))
+      ;; if not multi-lex pdgm
+      (if (not (.contains lex ","))
+        (tmpl/render-string
+         (str "
            ?s aamas:lexeme ?lexeme .
-           ?lexeme rdfs:label \"{{lex}}\" .
+           ?lexeme rdfs:label \"{{lex}}\" .")
+         {:lex lex}))
+      (tmpl/render-string
+       (str "
 	   OPTIONAL { ?s {{lpref}}:number ?number .  
 	   ?number rdfs:label ?num . } 
 	   OPTIONAL { ?s {{lpref}}:pngShapeClass ?pngSC .
@@ -80,8 +85,7 @@
 	 } 
 	} 
 	ORDER BY DESC(?num) ?pers DESC(?gen) ")
-       {:lpref lpref
-        :lex lex})
+       {:lpref lpref})
        );;str
 ))
 
