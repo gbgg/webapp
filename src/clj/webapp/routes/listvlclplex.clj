@@ -143,7 +143,7 @@
                              (str "no_" pos)
                              (replace (:body req1) #"\r\n" ","))
                 pstring (replace propstring #"property,|,$" "")
-                porder (str "formType,conjClass,derivedStem,derivedStemAug,tam,polarity,rootClass")
+                porder (str "formType,morphClass,pdgmType,conjClass,derivedStem,derivedStemAug,tam,polarity,stemClass,rootClass")
                 normstring (normorder pstring porder)
                 plist (replace pstring #"," ", ")
                 query-sparql2 (cond 

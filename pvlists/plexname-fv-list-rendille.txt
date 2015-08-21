@@ -94,7 +94,6 @@ Suffix,S,Perfect,Affirmative,Main:kar
 Suffix,S,Perfect,Affirmative,Subordinate:kar
 Suffix,S,Perfect,Negative,Main:kar
 Suffix,S,Perfect,Negative,Subordinate:kar
-Suffix,T,Affirmative,Subordinate:kar
 Suffix,T,Concessive,Affirmative:kar
 Suffix,T,Concessive,Negative:kar
 Suffix,T,Imperative,Affirmative:kar
@@ -106,4 +105,5 @@ Suffix,T,Imperfect,Negative,Subordinate:kar
 Suffix,T,Optative,Affirmative:kar
 Suffix,T,Optative,Negative:kar
 Suffix,T,Perfect,Affirmative,Main:kar
+Suffix,T,Perfect,Affirmative,Subordinate:kar
 Suffix,T,Perfect,Negative,Subordinate:kar

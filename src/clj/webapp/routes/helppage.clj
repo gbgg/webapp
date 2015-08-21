@@ -26,11 +26,11 @@
       [:li "Multiple Paradigms"
        [:p
        [:ul
-      [:li (link-to "/multipdgmseq"  "Multiparadigm Fixed Sequential Display")
+      [:li (link-to "/multipdgmseq"  "Multiparadigm Sequential Fixed Display")
        [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. A sequence of table-formatted displays of the selected paradigms is returned."]
              [:p "NB: The \"Select All\" option is principally to allow print-outs for proof-reading purposes."]]]
-      [:li (link-to "/multipdgmmod"  "Multiparadigm Modifiable Display")
-       [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. The routine first returns a single sortable table display of the selected paradigm(s) with draggable columns. A selection button permits the reformatting of this table into a (sortable, draggable) table with the paradigms in parallel columns. (Works currently only with finite-verb Number-Person-Gender-Token paradigms.) "]]]]]]]]
+      [:li (link-to "/multipdgmmod"  "Multiparadigm Combined Modifiable Display")
+       [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. The routine first returns a single sortable table display of the selected paradigm(s) with draggable columns. A selection button permits the reformatting of this table into a (sortable, draggable) table with the paradigms in parallel columns. (Defined currently only for finite-verb and pronominal Number-Person-Gender-Token paradigms.) "]]]]]]]]
      [:p]
     [:hr]
     [:h2 "Property Value Displays"]
@@ -69,12 +69,13 @@
          "(all the vals associated with a given prop in a given language, set of languages, or language family)"]]
             [:p "These tables provide in effect a set of complete lang-prop-val indices for the language(s) in question. The script uses the lang-prop-val-list.template to generate for each lang a tsv/jason file which is essentially the schemata of the lang in question."]]]
      [:hr]
-     [:h3 "Update:"]
+     [:h3 "Update [Webapp]:"]
      [:p "Procedures to update local and remote datastore after an edn file has been edited:"]
       [:ul [:li (link-to "/update" "Update Local Datastore")]
        [:li (link-to "/upload" "Upload to Remote Repository") " [Requires Access Privileges]"]]
-      [:p "(NB: These two procedures have not yet been incorporated into the webapp. For the moment, only the command-line versions can be used.)"]
+      [:p "(NB: These two procedures have not yet been incorporated into the webapp. For the moment, the following command-line versions have to be used.)"]
      [:hr]
+     [:h3 "Update [Command-line]:"]
      [:p "The following command-line versions presuppose that the edn data files are in the  ~/aama-data/data/[LANG] directories:"]
       [:ul [:li [:h4 "Datastore Update "] 
             [:p "The following script will:" 
@@ -92,10 +93,10 @@
         [:p "The following script will:"
          [:ol
           [:li "Upload revised edn file(s) to aama/[LANG] repository"]
-          [:li "Push the new edn file(s) to origin"]]]
+          [:li "Push the new edn file(s) to origin ("[:em "github.com/aama/[LANG]"]")"]]]
         [:p "Usage:"
         [:ul 
-         [:li "bin/aama-cp2lngrepo.sh data/LANG (for a single language; from webapp dir)"]
+         [:li "bin/aama-cp2lngrepo.sh ../aama-data/data/[LANG] (for a single language; from webapp dir)"]
          [:li "(~/aama-data/)bin/aama-cp2lngrepo.sh \"data/*\" (to [re-]upload the whole datastore; from ~/aama-data dir)"]]]]]
        [:p "(Cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")")"]]]))
 
