@@ -2,7 +2,6 @@ Prefix,Imperative,Affirmative:aak,aal,ahang,iraad,iyaad,iyaas,uwaad
 Prefix,Imperative,Negative:aak,aal,ahang,iraad,iyaad,iyaas,uwaad
 Prefix,Imperfect,Affirmative:aak,aal,ahang,ehe,erah,iraad,iyaad,iyaas,uwaad
 Prefix,Imperfect,Negative:aak,aal,ahang,ehe,erah,iraad,iyaad,iyaas,uwaad
-Prefix,Infinitive,U:iraad
 Prefix,Perfect,Affirmative:aak,aal,ahang,ehe,erah,iraad,iyaad,iyaas,uwaad
 Prefix,Perfect,Negative:aak,aal,ahang,ehe,erah,iraad,iyaad,iyaas,uwaad
 Suffix1,Present,Affirmative:ark,eeg,haawa,kas,kuf,maal,ooy
@@ -16,7 +15,7 @@ Suffix3,Imperative,Affirmative:siiy
 Suffix3,Imperative,Negative:siiy
 Suffix3,Imperfect,Affirmative:kar-iy,siiy
 Suffix3,Imperfect,Negative:siiy
-Suffix3,Infinitive,Common:siiy
+Suffix3,Infinitive:siiy
 Suffix3,Perfect,Affirmative:siiy
 Suffix3,Perfect,Negative:siiy
 Suffix4,Imperative,Affirmative:baarin
@@ -34,3 +33,8 @@ SuffixClass,Perfect,Affirmative,Progressive:kor
 SuffixClass,Perfect,Affirmative,SubjunctivepdgmLex:kas
 SuffixClass,Perfect,Negative,Progressive:kor
 SuffixClass,Perfect,Negative,SubjunctivepdgmLex:kas
+Partial,Prefix,Infinitive:iraad
+NonFinite,Partial,Prefix,Infinitive:aak,ahang,iyaad
+NonFinite,Partial,Suffix2,Infinitive:obed
+VSTEM,Partial,Prefix,Imperfect:aak,aal,ahang,ehe,erah,iraad,iyaad,iyaas,uwaad
+VSTEM,Partial,Prefix,Perfect:aak,aal,ahang,erah,iyaad,iyaas,uwaad

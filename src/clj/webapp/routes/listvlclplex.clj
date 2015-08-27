@@ -184,8 +184,8 @@
            [:pre req4-out]
            ;;[:hr]
            ;;[:p "propstring: " [:pre propstring]]
-           ;;[:h3#clickable "Query:"]
-           ;;[:pre query-sparql2-pr]
+           [:h3#clickable "Query:"]
+           [:pre query-sparql2-pr]
            ;;[:hr]
            [:hr]
            ])))

@@ -50,7 +50,6 @@ Suffix,Base,Imperfect,Affirmative,Nasal:buoi,gush,lab,veer
 Suffix,Base,Imperfect,Affirmative,NonCrnlDrop,Nasal:raf
 Suffix,Base,Imperfect,Negative,Nasal:lab,veer
 Suffix,Base,Perfect,Affirmative,Nasal:veer
-Suffix,Base,Common,Imperative,Affirmative,Common,CAUSINTENS:feffik,gewuk
 Suffix,Base,Intensive,Dependent,Affirmative:kuf
 Suffix,Base,Intensive,Dependent,Affirmative,DExtClass:geesh
 Suffix,Base,Intensive,Dependent,Affirmative,Nasal:bolob,dunguk,saanik
@@ -60,7 +59,6 @@ Suffix,Base,Intensive,Dependent,Affirmative,Suppletive:dok,sue
 Suffix,Base,Intensive,Imperative,Affirmative:arig
 Suffix,Base,Intensive,Imperative,Affirmative,DExtClass:geesh
 Suffix,Base,Intensive,Imperative,Affirmative,Nasal:bolob,dunguk,saanik
-Suffix,Base,Intensive,Imperative,Affirmative,Nasal,CAUSINTENS:feffik,gewuk
 Suffix,Base,Intensive,Imperative,Affirmative,Reduced:arig,ba,badab,fuor,fur,geget,kom
 Suffix,Base,Intensive,Imperative,Affirmative,ReducedNasal:buoi,guol,ik,kuf,lab,si,ufuk
 Suffix,Base,Intensive,Imperative,Affirmative,Suppletive:dok,sue
@@ -115,8 +113,6 @@ Suffix,S,Imperfect,Negative:edeb,iddik
 Suffix,S,Perfect,Affirmative:edeb,iddik
 Suffix,S,Perfect,Negative:edeb,iddik
 Suffix,S,Intensive,Imperative,Affirmative,Reduced:edeb
-Suffix,S-Intens,Common,Imperative,Affirmative,Common,CAUSINTENS:feffik,gewuk
-Suffix,S-Intens,Intensive,Imperative,Affirmative,Nasal,CAUSINTENS:feffik,gewuk
 Suffix,S2,Intensive,Imperative,Affirmative,Long:dunguk
 Suffix,S2,Intensive,Imperative,Affirmative,Nasal:saanik
 Suffix,S2,Intensive,Imperative,Affirmative,Reduced:ba,fuor,fur,geget,guol,ik
@@ -172,3 +168,7 @@ Suffix,T2,Neutral,Imperfect,Affirmative,Plain:eeb,fuor
 Suffix,T2,Neutral,Imperfect,Negative,Plain:eeb,fuor
 Suffix,T2,Neutral,Perfect,Affirmative,Plain:eeb,fuor
 Suffix,T2,Neutral,Perfect,Negative,Plain:eeb,fuor
+CAUSINTENS,Suffix,Base,Common,Imperative,Affirmative,Common:feffik,gewuk
+CAUSINTENS,Suffix,Base,Intensive,Imperative,Affirmative,Nasal:feffik,gewuk
+CAUSINTENS,Suffix,S_Intens,Common,Imperative,Affirmative,Common:feffik,gewuk
+CAUSINTENS,Suffix,S_Intens,Intensive,Imperative,Affirmative,Nasal:feffik,gewuk

@@ -1,6 +1,6 @@
-Possessive,Common:Plural
-Possessive,Fem:Singular
-Possessive,Masc:Singular
-Independent,Object:
-Independent,ObjectIndirect:
-Independent,Subject:
+Possessive,P_Common,P_Plural
+Possessive,P_Fem,P_Singular
+Possessive,P_Masc,P_Singular
+Independent,Object
+Independent,ObjectIndirect
+Independent,Subject
