@@ -66,7 +66,11 @@
 (defn common [& content]
   (base    
       [:ul {:class "sm sm-simple"}
-   [:li (link-to "/" "Home")]
+   [:li (link-to "#" "Home")
+     [:ul
+      [:li (link-to "/aamaApp" "The AAMA Application")]
+      [:li (link-to "/langInfo" "The Languages")]
+      [:li (link-to "/bibInfo" "Bibliography")]]]
    [:li (link-to "#" "Paradigms")
      [:ul
       [:li (link-to "/pdgm" "Single Paradigm")]

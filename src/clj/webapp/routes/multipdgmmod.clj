@@ -142,6 +142,8 @@
 (let  [pdgms (str valclusters)
        pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
        pnames (split pnamestr #" ")
+       ;; pdgmstr2 is a string of space-separated pdgmstrings, whose rows are
+       ;; separated by \r\n and cells separated by ","
        ;; Take off the top header
        ;; If pdgms are to be comparable
        ;; all header strings will be same

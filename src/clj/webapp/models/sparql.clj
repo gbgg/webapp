@@ -15,6 +15,35 @@
 ;; see notes/query-ext.clj for matsu and other formats
 ;; and for pdgmqry-sparql-alt
 
+;; Get bibref(s) and geo/demo URL(s) and TXT
+(defn langInfoqry-sparql [language lpref]
+  (let [Language (capitalize language)]
+    (str
+     (tmpl/render-string 
+      (str "
+	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+        PREFIX dc:    <http://purl.org/dc/elements>
+        PREFIX dcterms:    <http://purl.org/dc/terms>
+	PREFIX aama: <http://id.oi.uchicago.edu/aama/2013/> 
+	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
+	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
+	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
+	SELECT ?bibref ?lurl ?ldesc
+	WHERE
+        { 
+	 { 
+	  GRAPH aamag:{{language}}  
+          { 
+            aamas:dataSource dc:source ?bibref .
+            aamas:geodemoURL dcterms:isReferencedBy ?lurl  .
+            aamas:geodemoTXT rdfs:comment ?ldesc .
+          }}}
+           ")
+      {:lpref lpref
+       :language language
+       :Language Language}))))
+
 ;;generate standard SPARQL query using stencil/render-string. 
 ;;In this version the "for [value values]" section does not
 ;;stiplulate that the property to which the value belongs
@@ -37,7 +66,7 @@
 	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
 	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
 	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
-	SELECT ?num ?pers ?gen  ?token 
+	SELECT ?num ?pers ?gen  ?token
 	WHERE
         { 
 	 { 
@@ -74,6 +103,78 @@
 	   ?person rdfs:label ?pers .  
 	   OPTIONAL { ?s {{lpref}}:gender ?gender .  
 	   ?gender rdfs:label ?gen . } 
+	   ?s {{lpref}}:token ?tkn .
+           BIND ((IF(BOUND(?pngSC),
+                            CONCAT(?tkn,\"[\",SUBSTR(?shapeClass,4,1),\"]\"),
+                            ?tkn))
+                 AS ?token 
+                ) .
+                
+	  } 
+	 } 
+	} 
+	ORDER BY DESC(?num) ?pers DESC(?gen) ")
+       {:lpref lpref})
+       );;str
+))
+
+(defn pdgmqry-sparql-fv-note [language lpref valstring]
+  "This version, for the moment only called by the single pdgm display option, which is designed to give the most information about an individual paradigm, includes information about input paradigm notes. Note info should eventually be displayed in the paradigm-label listing."
+    (let [;; if assume last value is lex (generalize to other pos?)
+          vals (clojure.string/replace valstring #"(.*):.*?$" "$1")
+          lex (clojure.string/replace valstring #".*:(.*?)$" "$1")
+          values (split vals #",")
+          Language (capitalize language)
+          ]
+      ;;(for [lex lexvals]
+      (str
+      (tmpl/render-string 
+       (str "
+	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+	PREFIX aama: <http://id.oi.uchicago.edu/aama/2013/> 
+	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
+	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
+	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
+	SELECT ?comment ?num ?pers ?gen ?token
+	WHERE
+        { 
+	 { 
+	  GRAPH aamag:{{language}}  
+          { 
+	   ?s {{lpref}}:pos {{lpref}}:Verb .  
+	   ?s aamas:lang aama:{{Language}} . 
+	   ?s aamas:lang ?lang . 
+	   ?lang rdfs:label ?langLabel .  ")
+       {:lpref lpref
+        :language language
+        :Language Language})
+      (apply str  
+             (for [value values]
+               (tmpl/render-string 
+                (str "
+           ?s ?Q{{value}}  {{lpref}}:{{value}} .  ")
+                {:value value
+                 :lpref lpref})))
+      ;; if not multi-lex pdgm
+      (if (not (.contains lex ","))
+        (tmpl/render-string
+         (str "
+           ?s aamas:lexeme ?lexeme .
+           ?lexeme rdfs:label \"{{lex}}\" .")
+         {:lex lex}))
+      (tmpl/render-string
+       (str "
+	   OPTIONAL { ?s {{lpref}}:number ?number .  
+	   ?number rdfs:label ?num . } 
+	   OPTIONAL { ?s {{lpref}}:pngShapeClass ?pngSC .
+           ?pngSC rdfs:label  ?shapeClass}  
+	   ?s {{lpref}}:person ?person .  
+	   ?person rdfs:label ?pers .  
+	   OPTIONAL { ?s {{lpref}}:gender ?gender .  
+	   ?gender rdfs:label ?gen . } 
+	   OPTIONAL { ?s aamas:memberOf ?termcluster .  
+	   ?termcluster rdfs:comment ?comment . } 
 	   ?s {{lpref}}:token ?tkn .
            BIND ((IF(BOUND(?pngSC),
                             CONCAT(?tkn,\"[\",SUBSTR(?shapeClass,4,1),\"]\"),

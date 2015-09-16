@@ -1,5 +1,5 @@
 (ns webapp.routes.pdgm
- (:refer-clojure :exclude [filter concat group-by max min count replace])
+ (:refer-clojure :exclude [filter concat group-by max min replace])
   (:require [compojure.core :refer :all]
             [webapp.views.layout :as layout]
             [webapp.models.sparql :as sparql]
@@ -97,8 +97,8 @@
         lpref (lang lprefmap)
         valstrng (clojure.string/replace valstring #",*person|,*gender|,*number" "")
         valstr (clojure.string/replace valstrng #":," ":")
-;;5/29/15 REFORMULATE BY SPLITTING VALSTR INTO VALS AND LEX 
-;; AND ITERATING THROUGH LEXVALS
+        ;;5/29/15 REFORMULATE BY SPLITTING VALSTR INTO VALS AND LEX 
+        ;; AND ITERATING THROUGH LEXVALS
         query-sparql (cond 
                       (= pos "pro")
                       (sparql/pdgmqry-sparql-pro language lpref valstr)
@@ -106,22 +106,76 @@
                       (sparql/pdgmqry-sparql-nfv language lpref valstring)
                       (= pos "noun")
                       (sparql/pdgmqry-sparql-noun language lpref valstring)
-                      :else (sparql/pdgmqry-sparql-fv language lpref valstring))
+                      :else (sparql/pdgmqry-sparql-fv-note language lpref valstring))
         query-sparql-pr (replace query-sparql #"<" "&lt;")
         req (http/get aama
                       {:query-params
                        {"query" query-sparql ;;generated sparql
                         ;;"format" "application/sparql-results+json"}})]
-                        "format" "text"}})]
+                        "format" "csv"}})
+        ;; I have no idea why the following works; why it is necessary
+        ;; to replace \r\n by something else (here &&) in order to
+        ;; split (:body req).
+        pdgmstr (clojure.string/replace (:body req) #"\r\n" "&&")
+        psplit (split pdgmstr #"&&")
+        header (first psplit)
+        pdgmrows (rest psplit)
+        prow (first pdgmrows)
+        pvals (split prow #",")
+        note (first pvals)
+        pheader (split header #",")
+        pnote (first pheader)
+        pheads (rest pheader)
+        ;;notes (atom #{})
+        ]
          (log/info "sparql result status: " (:status req))
          (layout/common
           [:body
            [:h3#clickable "Paradigm: " Language " / " valstring]
+           [:table {:id "handlerTable" :class "tablesorter sar-table"}
+           ;;[:table
+            [:thead
+             [:tr
+              (for [head pheads]
+                [:th [:div {:class "some-handle"}] head])]]
+            ;;[:th head])]]
+            [:tbody 
+             (for [pdgmrow pdgmrows]
+               [:tr
+                (let [rowcells (split pdgmrow #",")
+                      note (first rowcells)
+                      pcells (rest rowcells)
+                      ]
+                  [:div
+                  (for [pcell pcells]
+                    [:td pcell])])])]]
+           ;; following does not work. Want to assemble all comments in
+           ;; atom notes. pnote has that in last iteration, but I seem
+           ;; to need to print out each iteration to get that. Following attempt
+           ;; to print out only on last row raises "java.lang.Long cannot be 
+           ;; cast to java.util.concurrent.Future" error.
+           ;;[:div
+           ;;(let [;;nrows (count pheads)
+           ;;      ;;rownum (atom 0)
+           ;;      notes (atom #{})]
+           ;;  (for [pdgmrow pdgmrows]
+           ;;    (let [rowcells (split pdgmrow #",")
+           ;;          note (first rowcells)
+           ;;          ;;nrow (swap! rownum inc)
+           ;;          pnote (swap! notes conj note)]
+           ;;      ;;(if (= nrow nrows)
+           ;;      [:p "NOTE: " @pnote]
+           ;;        ;;)
+           ;;      )))]
+           (if (re-find #"\w"  note)
+             [:p "NOTE: " note  ])
+           [:hr]
+           [:h3 "Query Response:"]
            [:pre (:body req)]
+           ;;[:pre pdgmstr]
            [:hr]
            [:h3#clickable "Query:"]
            [:pre query-sparql-pr]
-
            [:script {:src "js/goog/base.js" :type "text/javascript"}]
            [:script {:src "js/webapp.js" :type "text/javascript"}]
            [:script {:type "text/javascript"}

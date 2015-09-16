@@ -3,6 +3,9 @@
       [stencil.core :as tmpl ])
   (:gen-class :main true))
 
+;; This version of edn2ttl.core provides for inclusion of :note 
+;; and :termcluster in ttl file.
+
 (defn uuid
   "Generates random UUID for pdgm terms"
   []
@@ -13,19 +16,35 @@
   [inputfile pdgm-map]
   (let [lang (name (pdgm-map  :lang))
         Lang (clojure.string/capitalize lang)
-        sgpref (pdgm-map :sgpref)]
+        sgpref (pdgm-map :sgpref)
+        dtsource (pdgm-map :datasource)
+        dsource (clojure.string/replace dtsource #"," ";")
+        wbref (pdgm-map :geodemoURL)
+        webref (clojure.string/replace wbref #"," ";")
+        desc (pdgm-map :geodemoTXT)
+        description (clojure.string/replace desc #"," "%%")
+        ]
       (println
          (tmpl/render-string (str "#TTL FROM INPUT FILE:\n#{{inputfile}}\n\n"
           "@prefix rdf:	 <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n"
           "@prefix rdfs:	 <http://www.w3.org/2000/01/rdf-schema#> .\n"
+          "@prefix dc:    <http://purl.org/dc/elements>.\n"
+          "@prefix dcterms:    <http://purl.org/dc/terms>.\n"
           "@prefix aama:	 <http://id.oi.uchicago.edu/aama/2013/> .\n"
           "@prefix aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/> .\n"
-          "@prefix {{pfx}}   <http://id.oi.uchicago.edu/aama/2013/{{lang}}/> .\n\n"
-          "#SCHEMATA:\n"
-          "aama:{{lang}} a aamas:Language .\n"
-          "aama:{{lang}} rdfs:label \"{{lang}}\" .\n")
-           {:pfx sgpref 
+          "@prefix {{pfx}}:   <http://id.oi.uchicago.edu/aama/2013/{{lang}}/> .\n\n"
+          "#LANG INFO:\n\n"
+          "aama:{{Lang}} a aamas:Language .\n"
+          "aama:{{Lang}} rdfs:label \"{{Lang}}\" .\n"
+          "aamas:dataSource dc:source \"{{dsource}}\" .\n"
+          "aamas:geodemoURL dcterms:isReferencedBy \"{{webref}}\" .\n"
+          "aamas:geodemoTXT rdfs:comment \"{{desc}}\" .\n")
+           {:pfx sgpref
+            :dsource dsource
+            :webref webref
+            :desc description
             :lang lang
+            :Lang Lang
             :inputfile inputfile})
       )
    )
@@ -41,13 +60,13 @@
       (println
        (tmpl/render-string (str
                          (newline)
-                         "#schemata: {{prop}}\n"
+                         "#SCHEMATA: {{prop}}\n"
                          "{{pfx}}:{{prop}} aamas:lang aama:{{Lang}} .\n"
                          "{{pfx}}:{{Prop}} aamas:lang aama:{{Lang}} .\n"
                          "{{pfx}}:{{prop}} rdfs:domain aamas:Term .\n"
                          "{{pfx}}:{{Prop}} rdfs:label \"{{prop}} exponents\" .\n"
                          "{{pfx}}:{{prop}} rdfs:label \"{{prop}}\" .\n"
-                         "{{pfx}}:{{prop}} rdfs:range {{prop}}:{{Prop}} .\n"
+                         "{{pfx}}:{{prop}} rdfs:range {{pfx}}:{{Prop}} .\n"
                          "{{pfx}}:{{Prop}} rdfs:subClassOf {{pfx}}:MuExponent .\n"
                          "{{pfx}}:{{prop}} rdfs:subPropertyOf {{pfx}}:muProperty .")
                         {:pfx sgpref
@@ -64,6 +83,7 @@
                            "{{pfx}}:{{val}} rdfs:label \"{{val}}\" .")
                            {:pfx sgpref
                             :Lang Lang
+                            :Prop Prop
                             :val val})
            )
           )
@@ -157,26 +177,40 @@
   (doseq [termcluster lexterms]
     (let [label (:label termcluster)
           terms (:terms termcluster)
+          note (:note termcluster)
           schema (first terms)
           data (next terms)
           common (:common termcluster)]
-      (println "\n#TERMCLUSTER: " label)
-   ;; Need to build up string which can then be println-ed with each term of cluster
-    (doseq [term data]
-      (let [termid (uuid)]
-        (println
-         (tmpl/render-string (str (newline)
-                            "aama:ID{{termid}} a aamas:Term ;\n"
-                            "\taamas:lang aama:{{Lang}} ;")
-                          {:Lang Lang
-                           :uuid uuid})
-         )
-        )
-      (doseq [[feature value] common]
-        (let [cprop (name feature)
-              cval (name value)]
+          (println "\n#TERMCLUSTER: " label)
           (println
-            (cond (= cprop "lexeme")
+           (tmpl/render-string (str (newline)
+                                    "{{pfx}}:{{label}} a aamas:Termcluster ;\n"
+                                    "\trdfs:label \"{{label}}\" ;\n"
+                                    "\trdfs:comment \"{{note}}\" \n"
+                                    "\t.")
+                               {:pfx sgpref
+                                :label label
+                                :note note}))
+          ;; Need to build up string which can then be println-ed with each term of cluster
+          (doseq [term data]
+            (let [termid (uuid)]
+              (println
+               (tmpl/render-string (str (newline)
+                                        "aama:ID{{uuid}} a aamas:Term ;\n"
+                                        "\taamas:lang aama:{{Lang}} ;\n"
+                                        "\taamas:memberOf {{pfx}}:{{label}} ;"
+                                        )
+                                   {:Lang Lang
+                                    :uuid termid
+                                    :pfx sgpref
+                                    :label label})
+               )
+              )
+            (doseq [[feature value] common]
+              (let [cprop (name feature)
+                    cval (name value)]
+                (println
+                 (cond (= cprop "lexeme")
              (tmpl/render-string (str "\taamas:{{cprop}} aama:{{Lang}}-{{cval}} ;") 
                                   {:cprop cprop :Lang Lang :cval cval})
               (re-find #"^token" cprop)
