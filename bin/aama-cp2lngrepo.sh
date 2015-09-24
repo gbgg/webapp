@@ -30,4 +30,3 @@ do
     git push origin master
     cd ../../webapp
 done
-

@@ -18,6 +18,7 @@
   (layout/common 
    [:h1 "Help Page"]
    [:hr]
+   [:div
    [:h2 "Paradigms"]
     [:p "These pages experiment with different possibilities for display and comparison of paradigms. The comparisons for the moment are oriented to png-centered displays, and thus work reasonably well for finite verb and pronominal paradigms. Their application is less clear for non-finite verbs. Note that the present datastore contains " [:em "very "] "little material for nominal inflection."]
     [:ul
@@ -30,7 +31,7 @@
        [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. A sequence of table-formatted displays of the selected paradigms is returned."]
              [:p "NB: The \"Select All\" option is principally to allow print-outs for proof-reading purposes."]]]
       [:li (link-to "/multipdgmmod"  "Multiparadigm Combined Modifiable Display")
-       [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. The routine first returns a single sortable table display of the selected paradigm(s) with draggable columns. A selection button permits the reformatting of this table into a (sortable, draggable) table with the paradigms in parallel columns. (Defined currently only for finite-verb and pronominal Number-Person-Gender-Token paradigms.) "]]]]]]]]
+       [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. The routine first returns a single sortable table display of the selected paradigm(s) with draggable columns. A selection button permits the reformatting of this table into a (sortable, draggable) table with the paradigms in parallel columns. (Defined currently only for finite-verb and pronominal Number-Person-Gender-Token paradigms.) "]]]]]]]]]]
      [:p]
     [:hr]
     [:h2 "Property Value Displays"]
@@ -46,7 +47,8 @@
      [:p]
     [:hr]
     [:h2 "Utilities"]
-    [:div
+    [:ul
+     [:li
      [:h3 "List Generation:"]
      [:p (link-to "/listlgpr"  "POS Properties")
       [:ul [:li "This set of queries lists, for one or more languages or language families in the datastore, the properties associated with the designated part of speech. "]]]
@@ -68,13 +70,15 @@
         [:li " prop lang: val, val, val, ..." [:br]
          "(all the vals associated with a given prop in a given language, set of languages, or language family)"]]
             [:p "These tables provide in effect a set of complete lang-prop-val indices for the language(s) in question. The script uses the lang-prop-val-list.template to generate for each lang a tsv/jason file which is essentially the schemata of the lang in question."]]]
-     [:hr]
+     [:hr]]
+     [:li
      [:h3 "Update [Webapp]:"]
      [:p "Procedures to update local and remote datastore after an edn file has been edited:"]
       [:ul [:li (link-to "/update" "Update Local Datastore")]
        [:li (link-to "/upload" "Upload to Remote Repository") " [Requires Access Privileges]"]]
       [:p "(NB: These two procedures have not yet been incorporated into the webapp. For the moment, the following command-line versions have to be used.)"]
-     [:hr]
+     [:hr]]
+     [:li
      [:h3 "Update [Command-line]:"]
      [:p "The following command-line versions presuppose that the edn data files are in the  ~/aama-data/data/[LANG] directories:"]
       [:ul [:li [:h4 "Datastore Update "] 
@@ -90,15 +94,18 @@
              [:li "bin/aama-datastore-update.sh ../aama-data/data/[LANG]  (for a single language; from webapp dir)"]
              [:li " (~/aama-data/)bin/aama-datastore-setup.sh \"data/*\" (to [re-]initiate the whole datastore from ~/aama-data dir)"]]]]
        [:li [:h4 "Datastore Upload."] 
-        [:p "The following script will:"
+        [:p "The following scripts will:"
          [:ol
-          [:li "Upload revised edn file(s) to aama/[LANG] repository"]
-          [:li "Push the new edn file(s) to origin ("[:em "github.com/aama/[LANG]"]")"]]]
+          [:li "Upload revised edn/ttl file(s) to aama/[LANG] repository"]
+          [:li "Push the new edn/ttl file(s) to origin ("[:em "github.com/aama/[LANG]"]")"]
+          [:li "Upload and push a revised aama-edn2ttl jar and source file"]]]
         [:p "Usage:"
         [:ul 
          [:li "bin/aama-cp2lngrepo.sh ../aama-data/data/[LANG] (for a single language; from webapp dir)"]
-         [:li "(~/aama-data/)bin/aama-cp2lngrepo.sh \"data/*\" (to [re-]upload the whole datastore; from ~/aama-data dir)"]]]]]
-       [:p "(Cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")")"]]]))
+         [:li "(~/aama-data/)bin/aama-cp2lngrepo.sh \"data/*\" (to [re-]upload the whole datastore; from ~/aama-data dir)"]
+         [:li "bin/aama-cptools2lngrepo.sh"]]]]]]]
+   [:hr]
+   [:h4 "[For more detail on the above, cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")"]"]))
 
 (defroutes helppage-routes
   (GET "/helppage" [] (helppage)))

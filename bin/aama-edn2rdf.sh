@@ -16,7 +16,7 @@
     for f in $fs
 	do
 		echo "generating ${f%\.edn}.ttl  from  $f "
-		#java -jar ../.jar/aama-edn2ttl.jar $f > ${f%\.edn}.ttl
+		java -jar ../.jar/aama-edn2ttl.jar $f > ${f%\.edn}.ttl
 		tofile=${f%\.edn}.rdf
 		fromfile=${f%\.edn}.ttl
 		#lname=`basename ${f%-pdgms.edn`

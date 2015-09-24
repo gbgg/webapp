@@ -92,6 +92,20 @@
     )   
 )
 
+(defn do-pclass
+  [pclass sgpref]
+  (println  "\n#PCLASSES:\n")
+  (doseq [[propclass proplist] pclass]
+    (let [prpclass (name propclass)]
+      (doseq [prop proplist]
+        (let [property (name prop)]
+          (println
+           (tmpl/render-string (str
+                                "{{pfx}}:{{prop}} aamas:pclass aamas:{{prpclass}} .")
+                               {:pfx sgpref
+                                :prop property
+                                :prpclass prpclass})))))))
+
 (defn do-morphemes
   [morphemes sgpref Lang]
   (println  "\n#MORPHEMES:\n")
@@ -351,6 +365,8 @@
       (do-prelude inputfile pdgm-map)
 
       (do-props (pdgm-map :schemata) sgpref Lang)
+
+      (do-pclass (pdgm-map :pclass) sgpref)
 
       (do-morphemes (pdgm-map :morphemes) sgpref Lang)
 
