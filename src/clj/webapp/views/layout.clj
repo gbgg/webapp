@@ -70,6 +70,54 @@
      [:ul
       [:li (link-to "/aamaApp" "The AAMA Application")]
       [:li (link-to "/langInfo" "The Languages")]
+;;      [:li (link-to "#" "Languages2")
+;;       [:ul
+;;        [:li (link-to "/langInfo"  "Afar")]
+;;        [:li (link-to "/langInfo"  "Akkadian-ob")]
+;;        [:li (link-to "/langInfo"  "Alaaba")]
+;;        [:li (link-to "/langInfo"  "Arabic")]
+;;        [:li (link-to "/langInfo"  "Arbore")]
+;;        [:li (link-to "/langInfo"  "Awngi")]
+;;        [:li (link-to "/langInfo"  "Bayso")]
+;;        [:li (link-to "/langInfo"  "Beja-arteiga")]
+;;        [:li (link-to "/langInfo"  "Beja-atmaan")]
+;;        [:li (link-to "/langInfo"  "Beja-beniamer")]
+;;        [:li (link-to "/langInfo"  "Beja-bishari")]
+;;        [:li (link-to "/langInfo"  "Beja-hadendowa")]
+;;        [:li (link-to "/langInfo"  "Bilin")]
+;;        [:li (link-to "/langInfo"  "Boni-jara")]
+;;        [:li (link-to "/langInfo"  "Boni-kijee-bala")]
+;;        [:li (link-to "/langInfo"  "Boni-kilii")]
+;;        [:li (link-to "/langInfo"  "Burji")]
+;;        [:li (link-to "/langInfo"  "Burunge")]
+;;        [:li (link-to "/langInfo"  "Coptic-sahidic")]
+;;        [:li (link-to "/langInfo"  "Dahalo")]
+;;        [:li (link-to "/langInfo"  "Dhaasanac")]
+;;        [:li (link-to "/langInfo"  "Dizi")]
+;;        [:li (link-to "/langInfo"  "Egyptian-middle")]
+;;        [:li (link-to "/langInfo"  "Elmolo")]
+;;        [:li (link-to "/langInfo"  "Gawwada")]
+;;        [:li (link-to "/langInfo"  "Gedeo")]
+;;        [:li (link-to "/langInfo"  "Geez")]
+;;        [:li (link-to "/langInfo"  "Hadiyya")]
+;;        [:li (link-to "/langInfo"  "Hebrew")]
+;;        [:li (link-to "/langInfo"  "Iraqw")]
+;;        [:li (link-to "/langInfo"  "Kambaata")]
+;;        [:li (link-to "/langInfo"  "Kemant")]
+;;        [:li (link-to "/langInfo"  "Khamtanga")]
+;;        [:li (link-to "/langInfo"  "Koorete")]
+;;        [:li (link-to "/langInfo"  "Maale")]
+;;        [:li (link-to "/langInfo"  "Oromo")]
+;;        [:li (link-to "/langInfo"  "Rendille")]
+;;        [:li (link-to "/langInfo"  "Saho")]
+;;        [:li (link-to "/langInfo"  "Shinassha")]
+;;        [:li (link-to "/langInfo"  "Sidaama")]
+;;        [:li (link-to "/langInfo"  "Somali-standard")]
+;;        [:li (link-to "/langInfo"  "Syriac")]
+;;        [:li (link-to "/langInfo"  "Tsamakko")]
+;;        [:li (link-to "/langInfo"  "Wolaytta")]
+;;        [:li (link-to "/langInfo"  "Yaaku")]
+;;        [:li (link-to "/langInfo"  "Yemsa")]]]
       [:li (link-to "/bibInfo" "Bibliography")]]]
    [:li (link-to "#" "Paradigms")
      [:ul
@@ -95,7 +143,15 @@
        [:ul 
         [:li (link-to "/update" "Update Local Datastore")]
         [:li (link-to "/upload" "Upload to Remote Repository")]]]]]
-   [:li (link-to "/helppage" "Help")]]
+   [:li (link-to "#" "Help")
+    [:ul
+     [:li (link-to "/helppdgms" "Paradigms")]
+     [:li (link-to "/helppvdisp" "Property Value Displays")]
+     [:li (link-to "/helplistgen" "List Generation")]
+     [:li (link-to "#" "Update")
+      [:ul
+       [:li (link-to "/helpwebupdate" "Webapp")]
+       [:li (link-to "/helpclupdate" "Command Line")]]]]]]
 
     [:div.content content]))
 

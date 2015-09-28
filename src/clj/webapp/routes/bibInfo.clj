@@ -16,7 +16,7 @@
 (def aama "http://localhost:3030/aama/query")
 
 (defn bibInfo []
-  (let [reflist (slurp "pvlists/menu-bibrefs.txt")
+  (let [reflist (slurp "pvlists/bibref-list.txt")
         bibrefs (split reflist #"\n")]
   (layout/common 
    [:h1#clickable "Afroasiatic Morphological Archive"]
@@ -29,7 +29,7 @@
               [:td [:select#bibref.required
                     {:title "Choose a Bibliographic Reference.", :name "bibref"}
                     (for [bibref bibrefs]
-                      [:option {:value (lower-case bibref)} bibref])]]]
+                      [:option {:value bibref} bibref])]]]
              ;;(submit-button "Get pdgm")
              [:tr 
               [:td {:colspan "2"} [:input#submit
@@ -37,13 +37,19 @@
 
 (defn handle-bibInfo-make
   [bibref]
+  (let [bibrefmap (read-string (slurp "pvlists/bibrefs.clj"))
+        bref (keyword (str bibref))
+        ref (bref bibrefmap)]
   (layout/common
    [:body
-    [:h3#clickable "Displaying: " bibref]
+    [:h4#clickable  bibref]
+    ;;[:p "bref = "  [:pre bref]]
+    ;;[:p "bibkeys = " bibkeys]
+    [:h4 ref]
     [:script {:src "js/goog/base.js" :type "text/javascript"}]
     [:script {:src "js/webapp.js" :type "text/javascript"}]
     [:script {:type "text/javascript"}
-     "goog.require('webapp.core');"]]))
+     "goog.require('webapp.core');"]])))
 
 
 (defroutes bibInfo-routes

@@ -35,9 +35,9 @@
 	 { 
 	  GRAPH aamag:{{language}}  
           { 
-            aamas:dataSource dc:source ?bibref .
-            aamas:geodemoURL dcterms:isReferencedBy ?lurl  .
-            aamas:geodemoTXT rdfs:comment ?ldesc .
+            aama:{{Language}} aamas:dataSource ?bibref .
+            aama:{{Language}} aamas:geodemoURL ?lurl  .
+            aama:{{Language}} aamas:geodemoTXT ?ldesc .
           }}}
            ")
       {:lpref lpref

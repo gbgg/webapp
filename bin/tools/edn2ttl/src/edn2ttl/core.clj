@@ -17,10 +17,8 @@
   (let [lang (name (pdgm-map  :lang))
         Lang (clojure.string/capitalize lang)
         sgpref (pdgm-map :sgpref)
-        dtsource (pdgm-map :datasource)
-        dsource (clojure.string/replace dtsource #"," ";")
-        wbref (pdgm-map :geodemoURL)
-        webref (clojure.string/replace wbref #"," ";")
+        dsource (pdgm-map :datasource)
+        webref (pdgm-map :geodemoURL)
         desc (pdgm-map :geodemoTXT)
         description (clojure.string/replace desc #"," "%%")
         ]
@@ -36,9 +34,9 @@
           "#LANG INFO:\n\n"
           "aama:{{Lang}} a aamas:Language .\n"
           "aama:{{Lang}} rdfs:label \"{{Lang}}\" .\n"
-          "aamas:dataSource dc:source \"{{dsource}}\" .\n"
-          "aamas:geodemoURL dcterms:isReferencedBy \"{{webref}}\" .\n"
-          "aamas:geodemoTXT rdfs:comment \"{{desc}}\" .\n")
+          "aama:{{Lang}} aamas:dataSource \"{{dsource}}\" .\n"
+          "aama:{{Lang}} aamas:geodemoURL \"{{webref}}\" .\n"
+          "aama:{{Lang}} aamas:geodemoTXT \"{{desc}}\" .\n")
            {:pfx sgpref
             :dsource dsource
             :webref webref

@@ -58,9 +58,9 @@
         langInforow (str (rest psplit))
         langInforow2 (clojure.string/replace langInforow #"[\(\)\"]" "")
         lprops (split langInforow2 #",")
-        source (clojure.string/replace (first lprops) #";" ", ")
+        sources (split (first lprops) #" ")
         desc (next lprops)
-        descurl (first desc)
+        descurls (split (first desc) #" ")
         desctxt (clojure.string/replace (last desc) #"%%" ",")
         ]
          (log/info "sparql result status: " (:status req))
@@ -71,13 +71,17 @@
              [:tr
               [:th "Language:"] [:td Language]]
              [:tr 
-              [:th "Data Source:"] [:td source]
+              [:th "Data Source:"] [:td 
+                                    (for [source sources]
+                                      [:div (str source " ")])]
               ]
              [:tr
               [:th "Description:"] [:td desctxt]
               ]
              [:tr
-              [:th "Additional Information:"] [:td (link-to descurl descurl)]
+              [:th "Additional Information:"] [:td 
+                                               (for [descurl descurls]
+                                                 [:div (link-to descurl descurl)])]
               ]]]
            ;;[:hr]
            ;;[:h3 "Query Response:"]

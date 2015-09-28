@@ -22,8 +22,11 @@
             [webapp.routes.listvlclplex :refer [listvlclplex-routes]]
             [webapp.routes.listlpv :refer [listlpv-routes]]
             [webapp.routes.aamaApp :refer [aamaApp-routes]]
-            [webapp.routes.helppage :refer [helppage-routes]]
-))
+            [webapp.routes.helppdgms :refer [helppdgms-routes]]
+            [webapp.routes.helppvdisp :refer [helppvdisp-routes]]
+            [webapp.routes.helplistgen :refer [helplistgen-routes]]
+            [webapp.routes.helpwebupdate :refer [helpwebupdate-routes]]
+            [webapp.routes.helpclupdate :refer [helpclupdate-routes]]))
 
 (defn init []
   (println "webapp is starting"))
@@ -36,7 +39,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes home-routes  aamaApp-routes langInfo-routes bibInfo-routes pdgm-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes listmenulpv-routes update-routes upload-routes listlgpr-routes listvlclplex-routes listlpv-routes helppage-routes multipdgmseq-routes multipdgmmod-routes app-routes)
+  (-> (routes home-routes  aamaApp-routes langInfo-routes bibInfo-routes pdgm-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes listmenulpv-routes update-routes upload-routes listlgpr-routes listvlclplex-routes listlpv-routes multipdgmseq-routes multipdgmmod-routes helppdgms-routes helppvdisp-routes helplistgen-routes helpwebupdate-routes helpclupdate-routes app-routes)
       (handler/site)
       (wrap-base-url)))
 
