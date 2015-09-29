@@ -99,13 +99,14 @@
         valstr (clojure.string/replace valstrng #":," ":")
         ;;5/29/15 REFORMULATE BY SPLITTING VALSTR INTO VALS AND LEX 
         ;; AND ITERATING THROUGH LEXVALS
+        ;; In single pdgm query, always asking for note (9/29/15)
         query-sparql (cond 
                       (= pos "pro")
-                      (sparql/pdgmqry-sparql-pro language lpref valstr)
+                      (sparql/pdgmqry-sparql-pro-note language lpref valstr)
                       (= pos "nfv")
-                      (sparql/pdgmqry-sparql-nfv language lpref valstring)
+                      (sparql/pdgmqry-sparql-nfv-note language lpref valstring)
                       (= pos "noun")
-                      (sparql/pdgmqry-sparql-noun language lpref valstring)
+                      (sparql/pdgmqry-sparql-noun-note language lpref valstring)
                       :else (sparql/pdgmqry-sparql-fv-note language lpref valstring))
         query-sparql-pr (replace query-sparql #"<" "&lt;")
         req (http/get aama

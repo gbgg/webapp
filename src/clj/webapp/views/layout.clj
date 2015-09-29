@@ -124,7 +124,7 @@
       [:li (link-to "/pdgm" "Single Paradigm")]
       [:li (link-to "#" "Multiple Paradigms")
        [:ul
-        [:li (link-to "/multipdgmseq" "Sequential Display")]
+        [:li (link-to "/multipdgmseq" "Default Display")]
         [:li (link-to "/multipdgmmod" "Modifiable Display")]]]]]
    [:li (link-to "#" "Property-value Display")
     [:ul

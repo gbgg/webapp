@@ -287,10 +287,10 @@
 	(let [termid (uuid)]
           (println
            (tmpl/render-string (str (newline)
-                              "aama:ID{{termid}} a aamas:Muterm ;\n" 
+                              "aama:ID{{uuid}} a aamas:Muterm ;\n" 
 		              "\taamas:lang aama:{{Lang}} ;")
                           {:Lang Lang
-                           :uuid uuid})
+                           :uuid termid})
            )
         )
 	(doseq [[feature value] common]

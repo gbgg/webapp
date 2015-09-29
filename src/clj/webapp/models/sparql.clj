@@ -249,6 +249,67 @@
        );;str
 ))
 
+(defn pdgmqry-sparql-pro-note [language lpref valstr]
+    (let [values (split valstr #"[:,]")
+          proclass (first values)
+          vals (vec (rest values))
+          propstring (clojure.string/replace valstr #"^.*?:" "")
+          propstr (clojure.string/replace propstring #"^," "")
+          ;;qpropstring (clojure.string/replace propstring #"-|," {"-" "" "," " ?"})
+          qprops (clojure.string/replace propstr "-" "")
+          qpropstring (if (re-find #"\S" qprops)
+                        (str "?" (clojure.string/replace qprops "," " ?"))
+                        qprops)
+          Language (capitalize language)
+          ]
+      (str
+      (tmpl/render-string 
+       (str "
+	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+	PREFIX aama: <http://id.oi.uchicago.edu/aama/2013/> 
+	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
+	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
+	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
+	SELECT ?comment ?num ?pers ?gen ?token  
+	WHERE
+        { 
+	 { 
+	  GRAPH aamag:{{language}}  
+          { 
+	   ?s {{lpref}}:pos {{lpref}}:Pronoun .  
+	   ?s aamas:lang aama:{{Language}} .
+	   ?s aamas:lang ?lang . 
+	   ?lang rdfs:label ?langLabel .  ")
+       {:lpref lpref
+        :language language
+        :Language Language})
+      (apply str  
+             (for [value values]
+                 (tmpl/render-string 
+                  (str "
+                   ?s ?Q{{value}}  {{lpref}}:{{value}} .  ")
+                  {:lpref lpref
+                   :value value})))
+      (tmpl/render-string
+       (str " 
+	   OPTIONAL { ?s {{lpref}}:number ?number .  
+	   ?number rdfs:label ?num . } 
+	   OPTIONAL {?s {{lpref}}:person ?person .  
+	   ?person rdfs:label ?pers .  }
+	   OPTIONAL { ?s {{lpref}}:gender ?gender .  
+	   ?gender rdfs:label ?gen . } 
+	   OPTIONAL { ?s aamas:memberOf ?termcluster .  
+	   ?termcluster rdfs:comment ?comment . } 
+	   ?s {{lpref}}:token ?token .  
+	  } 
+	 } 
+	} 
+	ORDER BY DESC(?num) ?pers DESC(?gen) ")
+       {:lpref lpref})
+       );;str
+))
+
 (defn pdgmqry-sparql-nfv [language lpref valstring]
     (let [valstrng (clojure.string/replace valstring #",$" "")
           values (split valstrng #"," 2)
@@ -385,6 +446,156 @@
 	   ?person rdfs:label ?pers .  }
 	   OPTIONAL { ?s {{lpref}}:gender ?gender .  
 	   ?gender rdfs:label ?gen . } 
+	   ?s {{lpref}}:token ?token .  
+	  } 
+	 } 
+	} 
+	ORDER BY {{selection}} DESC(?num) ?pers DESC(?gen) ")
+       {:lpref lpref
+        :selection qpropstring})
+       );;str
+))
+
+(defn pdgmqry-sparql-nfv-note [language lpref valstring]
+    (let [valstrng (clojure.string/replace valstring #",$" "")
+          values (split valstrng #"," 2)
+          morphclass (first values)
+          props (apply str (rest values))
+          propvec (split props #",")
+          ;;propstring (clojure.string/replace valstrng #"^.*?:" ",")
+          propstring (str "?" valstrng)
+          qpropstring (clojure.string/replace propstring #"-|," {"-" "" "," " ?"})
+          ;;qprops (clojure.string/replace propstring "-" "")]
+          ;;qpropstring (clojure.string/replace qprops "," " ?")
+          Language (capitalize language)
+          ]
+      (str
+      (tmpl/render-string 
+       (str "
+	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+	PREFIX aama: <http://id.oi.uchicago.edu/aama/2013/> 
+	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
+	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
+	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
+	SELECT ?comment {{selection}}  ?token  
+	WHERE
+        { 
+	 { 
+	  GRAPH aamag:{{language}}  
+          { 
+	   ?s {{lpref}}:pos {{lpref}}:Verb .  
+           NOT EXISTS {?s {{lpref}}:person ?person } .
+	   ?s aamas:lang aama:{{Language}} .
+           ?s {{lpref}}:morphClass {{lpref}}:{{morphclass}} .
+	   ?s aamas:lang ?lang . 
+	   ?lang rdfs:label ?langLabel .  ")
+       {:lpref lpref
+        :language language
+        :Language Language
+        :selection qpropstring
+        :morphclass morphclass})
+      (apply str  
+             (for [prop propvec]
+               (let [qprop (clojure.string/replace prop "-" "")]
+               (if (re-find #"token" prop)
+                 (tmpl/render-string 
+                  (str "
+           OPTIONAL { ?s {{lpref}}:{{prop}} ?{{qprop}} . }")
+                  {:lpref lpref
+                   :prop prop
+                   :qprop qprop})
+                 (tmpl/render-string 
+                  (str "
+           OPTIONAL { ?s {{lpref}}:{{prop}} ?Q{{qprop}} .
+                      ?Q{{qprop}} rdfs:label ?{{qprop}} . }") 
+                  {:lpref lpref
+                   :prop prop
+                   :qprop qprop})
+                 );;if
+               );;let
+               ))
+      (tmpl/render-string
+       (str " 
+	   OPTIONAL { ?s aamas:memberOf ?termcluster .  
+	   ?termcluster rdfs:comment ?comment . } 
+	   ?s {{lpref}}:token ?token .  
+	  } 
+	 } 
+	} 
+	ORDER BY {{selection}} ")
+       {:lpref lpref
+        :selection qpropstring})
+       );;str
+))
+
+(defn pdgmqry-sparql-noun-note [language lpref valstring]
+  (let [valstrng (clojure.string/replace valstring #",$" "")
+          values (split valstrng #"[:,]")
+          morphclass (first values)
+          props (vec (rest values))
+          propstring (clojure.string/replace valstrng #"^.*?:" ",")
+          pstring (str "?" propstring)
+          qpropstring (clojure.string/replace pstring #"-|," {"-" "" "," " ?"})
+          ;;qprops (clojure.string/replace propstring "-" "")]
+          ;;qpropstring (clojure.string/replace qprops "," " ?")
+          Language (capitalize language)
+          ]
+      (str
+      (tmpl/render-string 
+       (str "
+	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+	PREFIX aama: <http://id.oi.uchicago.edu/aama/2013/> 
+	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
+	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
+	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
+	SELECT ?comment {{selection}}  ?token  
+	WHERE
+        { 
+	 { 
+	  GRAPH aamag:{{language}}  
+          { 
+	   ?s {{lpref}}:pos {{lpref}}:Noun .  
+	   ?s aamas:lang aama:{{Language}} .
+           ?s {{lpref}}:morphClass {{lpref}}:{{morphclass}} .
+	   ?s aamas:lang ?lang . 
+	   ?lang rdfs:label ?langLabel .  ")
+       {:lpref lpref
+        :language language
+        :Language Language
+        :selection qpropstring
+        :morphclass morphclass})
+      (apply str  
+             (for [prop props]
+               (let [qprop (clojure.string/replace prop "-" "")]
+               (if (re-find #"token" prop)
+                 (tmpl/render-string 
+                  (str "
+           OPTIONAL { ?s {{lpref}}:{{prop}} ?{{qprop}} . }")
+                  {:lpref lpref
+                   :prop prop
+                   :qprop qprop})
+                 (tmpl/render-string 
+                  (str "
+           OPTIONAL { ?s {{lpref}}:{{prop}} ?Q{{qprop}} .
+                      ?Q{{qprop}} rdfs:label ?{{qprop}} . }") 
+                  {:lpref lpref
+                   :prop prop
+                   :qprop qprop})
+                 );;if
+               );;let
+               ))
+      (tmpl/render-string
+       (str " 
+	   OPTIONAL { ?s {{lpref}}:number ?number .  
+	   ?number rdfs:label ?num . } 
+	   OPTIONAL {?s {{lpref}}:person ?person .  
+	   ?person rdfs:label ?pers .  }
+	   OPTIONAL { ?s {{lpref}}:gender ?gender .  
+	   ?gender rdfs:label ?gen . } 
+	   OPTIONAL { ?s aamas:memberOf ?termcluster .  
+	   ?termcluster rdfs:comment ?comment . } 
 	   ?s {{lpref}}:token ?token .  
 	  } 
 	 } 
