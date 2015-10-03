@@ -42,10 +42,15 @@
         ref (bref bibrefmap)]
   (layout/common
    [:body
-    [:h4#clickable  bibref]
+    [:h4#clickable "Bibliographic Information: "]
     ;;[:p "bref = "  [:pre bref]]
     ;;[:p "bibkeys = " bibkeys]
-    [:h4 ref]
+    [:table {:class "linfo-table"}
+     [:tbody
+      [:tr
+       [:th "Bibref:"] [:td bibref]]
+      [:tr 
+       [:th "Full Form:"] [:td ref]]]] 
     [:script {:src "js/goog/base.js" :type "text/javascript"}]
     [:script {:src "js/webapp.js" :type "text/javascript"}]
     [:script {:type "text/javascript"}
