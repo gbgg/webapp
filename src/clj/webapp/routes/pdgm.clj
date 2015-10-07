@@ -20,10 +20,6 @@
         languages (split langlist #"\n")]
   (layout/common 
    [:h3 "Individual Paradigms"]
-   ;;[:h4 "Choose Language and Type"]
-   ;;[:p  "This query-type prompts for a \"paradigm-type\" (Finite Verb, Non-finite Verb, Pronoun, Noun) and a language; it then shows a drop-down select list of paradigms in that language of that type, and returns a table-formatted display of the selected paradigm."]
-   ;; [:p error]
-   ;; [:hr]
    (form-to [:post "/pdgmqry"]
             [:table
              [:tr [:td "PDGM Type: "]
@@ -40,61 +36,69 @@
                     (for [language languages]
                         [:option {:value (lower-case language)} language])]]]
              ;;(submit-button "Get pdgm")
-             [:tr [:td ]
-              [:td [:input#submit
+             [:tr 
+              [:td {:colspan "2"} [:input#submit
                     {:value "Value Clusters: ", :name "submit", :type "submit"}]]]]
             )
-   [:hr])))
+   [:p])))
 
 (defn handle-pdgmqry
   [language pos]
-  (let [langlist (slurp "pvlists/menu-langs.txt")
-        languages (split langlist #"\n")
-        valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")
-        valclusterlist (slurp valclusterfile)
-        valclusters (clojure.string/split valclusterlist #"\n")]
-    (layout/common 
+   (let [langlist (slurp "pvlists/menu-langs.txt")
+         languages (split langlist #"\n")
+         valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")
+         valclusterlist (slurp valclusterfile)
+         valclusters (clojure.string/split valclusterlist #"\n")]
+     (layout/common 
      ;;[:h3 "Paradigms"]
      ;;[:p "Choose Value Clusters"]
-     (form-to [:post "/pdgmqry"]
-              [:table
-               [:tr [:td "PDGM Type: "]
-                [:td [:select#pos.required
-                      {:title "Choose a pdgm type.", :name "pos"}
-                      [:option {:value "fv" :label "Finite Verb"}]
-                      [:option {:value "nfv" :label "Non-finite Verb"}]
-                      [:option {:value "pro" :label "Pronoun"}]
-                      [:option {:value "noun" :label "Noun"}]
-                      ]]]
-               [:tr [:td "PDGM Language: " ]
-                [:td [:select#language.required
-                      {:title "Choose a language.", :name "language"}
-                      (for [language languages]
-                        [:option {:value (lower-case language)} language])]]]
-               ;;(submit-button "Get pdgm")
-               [:tr [:td ]
-                [:td [:input#submit
-                      {:value "Value Clusters: ", :name "submit", :type "submit"}]]]]
-            )
-     [:hr]
-     (form-to [:post "/pdgmdisplay"]
-        [:table
-         [:tr [:td "PDGM Value Clusters: " ]
-          [:td [:select#valstring.required
-                {:title "Choose a value.", :name "valstring"}
-                (for [valcluster valclusters]
-                  [:option  valcluster])
-                ]]]
-         ;;(submit-button "Get pdgm")
-         [:tr [:td ]
-          [:td [:input#submit
-                {:value "Display pdgm", :name "submit", :type "submit"}]]]]
-     [:hr]))))
+     ;;[:p error]
+      [:h3 "Individual Paradigms"]
+      (form-to [:post "/pdgmqry"]
+               [:table
+                [:tr [:td "PDGM Type: "]
+                 [:td [:select#pos.required
+                       {:title "Choose a pdgm type.", :name "pos"}
+                       [:option {:value "fv" :label "Finite Verb"}]
+                       [:option {:value "nfv" :label "Non-finite Verb"}]
+                       [:option {:value "pro" :label "Pronoun"}]
+                       [:option {:value "noun" :label "Noun"}]
+                       ]]]
+                [:tr [:td "PDGM Language: " ]
+                 [:td [:select#language.required
+                       {:title "Choose a language.", :name "language"}
+                       (for [language languages]
+                         [:option {:value (lower-case language)} language])]]]
+                ;;(submit-button "Get pdgm")
+                [:tr 
+                 [:td {:colspan "2"} [:input#submit
+                                      {:value "Value Clusters: ", :name "submit", :type "submit"}]]]])
+      ;;[:p]
+      (form-to [:post "/pdgmdisplay"]
+               [:table
+                [:tr 
+                 [:td "Value Clusters for: " 
+                  [:select#language.required {:title "Choose a language.", :name "language"} [:option {:value language :label (clojure.string/capitalize language)}]] " -- "
+                  [:select#pos.required {:title "Choose a pdgm type.", :name "pos"} [:option {:value pos :label (clojure.string/upper-case pos)}]]]]
+                [:tr 
+                 [:td [:select#valstring.required
+                       {:title "Choose a value.", :name "valstring"}
+                       (for [valcluster valclusters]
+                         [:option  valcluster])]]]
+                ;;(submit-button "Get pdgm")
+                [:tr
+                 [:td [:input#submit
+                       {:value "Paradigm: ", :name "submit", :type "submit"}]]]]))))
 
 (defn handle-pdgmdisplay
   [language valstring pos]
   ;; send SPARQL over HTTP request
-  (let [Language (capitalize language)
+  (let [langlist (slurp "pvlists/menu-langs.txt")
+        languages (split langlist #"\n")
+        valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")
+        valclusterlist (slurp valclusterfile)
+        valclusters (clojure.string/split valclusterlist #"\n")
+        Language (capitalize language)
         lprefmap (read-string (slurp "pvlists/lprefs.clj"))
         lang (read-string (str ":" language))
         lpref (lang lprefmap)
@@ -135,6 +139,41 @@
          (log/info "sparql result status: " (:status req))
          (layout/common
           [:body
+     (form-to [:post "/pdgmqry"]
+               [:table
+                [:tr [:td "PDGM Type: "]
+                 [:td [:select#pos.required
+                       {:title "Choose a pdgm type.", :name "pos"}
+                       [:option {:value "fv" :label "Finite Verb"}]
+                       [:option {:value "nfv" :label "Non-finite Verb"}]
+                       [:option {:value "pro" :label "Pronoun"}]
+                       [:option {:value "noun" :label "Noun"}]
+                       ]]]
+                [:tr [:td "PDGM Language: " ]
+                 [:td [:select#language.required
+                       {:title "Choose a language.", :name "language"}
+                       (for [language languages]
+                         [:option {:value (lower-case language)} language])]]]
+                ;;(submit-button "Get pdgm")
+                [:tr 
+                 [:td {:colspan "2"} [:input#submit
+                                      {:value "Value Clusters: ", :name "submit", :type "submit"}]]]])
+      ;;[:p]
+      (form-to [:post "/pdgmdisplay"]
+               [:table
+                [:tr 
+                 [:td "Value Clusters for: " 
+                  [:select#language.required {:title "Choose a language.", :name "language"} [:option {:value language :label (clojure.string/capitalize language)}]] " -- "
+                  [:select#pos.required {:title "Choose a pdgm type.", :name "pos"} [:option {:value pos :label (clojure.string/upper-case pos)}]]]]
+                [:tr 
+                 [:td [:select#valstring.required
+                       {:title "Choose a value.", :name "valstring"}
+                       (for [valcluster valclusters]
+                         [:option  valcluster])]]]
+                ;;(submit-button "Get pdgm")
+                [:tr
+                 [:td [:input#submit
+                       {:value "Paradigm: ", :name "submit", :type "submit"}]]]])
            [:h3#clickable "Paradigm: " Language " / " valstring]
            [:table {:id "handlerTable" :class "tablesorter sar-table"}
            ;;[:table
@@ -173,13 +212,13 @@
            ;;      )))]
            (if (re-find #"\w"  note)
              [:p "NOTE: " note  ])
-           [:hr]
-           [:h3 "Query Response:"]
-           [:pre (:body req)]
+           ;;[:hr]
+           ;;[:h3 "Query Response:"]
+           ;;[:pre (:body req)]
            ;;[:pre pdgmstr]
-           [:hr]
-           [:h3#clickable "Query:"]
-           [:pre query-sparql-pr]
+           ;;[:hr]
+           ;;[:h3#clickable "Query:"]
+           ;;[:pre query-sparql-pr]
            [:script {:src "js/goog/base.js" :type "text/javascript"}]
            [:script {:src "js/webapp.js" :type "text/javascript"}]
            [:script {:type "text/javascript"}

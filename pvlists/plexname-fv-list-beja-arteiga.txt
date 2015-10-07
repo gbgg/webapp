@@ -1,4 +1,3 @@
-Future,Affirmative:tam
 Prefix,Aorist,Affirmative,CCC:dbl
 Prefix,Aorist,Affirmative,CCY:dgy
 Prefix,Aorist,Affirmative,CVC:bis
@@ -23,10 +22,8 @@ Prefix,Present,Affirmative,CVC:bis
 Prefix,Present,Negative,CCC:dbl
 Prefix,Present,Negative,CCY:dgy
 Prefix,Present,Negative,CVC:bis
-Prefix,B,Simple,Imperative,CCC,Structure,IMPTVROOTCLASSES:dbl,dlb,fnk,ktb,ktm,kwbs
-Prefix,B,Simple,Imperative,CCY,Structure,IMPTVROOTCLASSES:dgy,fry,mry,sfy
-Prefix,B,Simple,Imperative,CVC,Structure,IMPTVROOTCLASSES:bid,dif,dir,liw,min,rib
 Suffix,Aorist,Affirmative:tam
+Suffix,Future,Affirmative:tam
 Suffix,Imperative,Affirmative:tam
 Suffix,Imperative,Negative:tam
 Suffix,Optative,Affirmative:tam
@@ -34,7 +31,10 @@ Suffix,Optative,Negative:tam
 Suffix,Past,Affirmative:tam
 Suffix,Present,Affirmative:tam
 Suffix,Present,Negative:tam
-Suffix,B,Simple,Imperative,Invar,Structure,IMPTVROOTCLASSES:ad,doob,gwa,kileew,nuun,raat,rih,suum,tam
-Auxiliary,Past,Negative:tam
-Compound,Suffix,Past,Negative:tam
+IMPTVROOTCLASSES,Structure,Prefix,B,Simple,Imperative,CCC:dbl,dlb,fnk,ktb,ktm,kwbs
+IMPTVROOTCLASSES,Structure,Prefix,B,Simple,Imperative,CCY:dgy,fry,mry,sfy
+IMPTVROOTCLASSES,Structure,Prefix,B,Simple,Imperative,CVC:bis,dif,dir,liw,min,rib
+IMPTVROOTCLASSES,Structure,Suffix,B,Simple,Imperative,Invar:ad,doob,gwa,kileew,nuun,raat,rih,suum,tam
+Auxiliary,Past,Negative:AUXILIARY
+Compound,Past,Negative:tam
 Copula:COPULA
