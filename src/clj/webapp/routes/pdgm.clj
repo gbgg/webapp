@@ -20,10 +20,10 @@
         languages (split langlist #"\n")]
   (layout/common 
    [:h3 "Individual Paradigms"]
-   [:h4 "Choose Language and Type"]
-   [:p  "This query-type prompts for a \"paradigm-type\" (Finite Verb, Non-finite Verb, Pronoun, Noun) and a language; it then shows a drop-down select list of paradigms in that language of that type, and returns a table-formatted display of the selected paradigm."]
+   ;;[:h4 "Choose Language and Type"]
+   ;;[:p  "This query-type prompts for a \"paradigm-type\" (Finite Verb, Non-finite Verb, Pronoun, Noun) and a language; it then shows a drop-down select list of paradigms in that language of that type, and returns a table-formatted display of the selected paradigm."]
    ;; [:p error]
-   [:hr]
+   ;; [:hr]
    (form-to [:post "/pdgmqry"]
             [:table
              [:tr [:td "PDGM Type: "]
@@ -42,32 +42,43 @@
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
               [:td [:input#submit
-                    {:value "Get PDGM Value Clusters", :name "submit", :type "submit"}]]]]
+                    {:value "Value Clusters: ", :name "submit", :type "submit"}]]]]
             )
    [:hr])))
 
-(defn display-valclusters
+(defn handle-pdgmqry
   [language pos]
-   (let [valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")
+  (let [langlist (slurp "pvlists/menu-langs.txt")
+        languages (split langlist #"\n")
+        valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")
         valclusterlist (slurp valclusterfile)
         valclusters (clojure.string/split valclusterlist #"\n")]
     (layout/common 
-     [:h3 "Paradigms"]
-     [:p "Choose Value Clusters"]
-     ;;[:p error]
+     ;;[:h3 "Paradigms"]
+     ;;[:p "Choose Value Clusters"]
+     (form-to [:post "/pdgmqry"]
+              [:table
+               [:tr [:td "PDGM Type: "]
+                [:td [:select#pos.required
+                      {:title "Choose a pdgm type.", :name "pos"}
+                      [:option {:value "fv" :label "Finite Verb"}]
+                      [:option {:value "nfv" :label "Non-finite Verb"}]
+                      [:option {:value "pro" :label "Pronoun"}]
+                      [:option {:value "noun" :label "Noun"}]
+                      ]]]
+               [:tr [:td "PDGM Language: " ]
+                [:td [:select#language.required
+                      {:title "Choose a language.", :name "language"}
+                      (for [language languages]
+                        [:option {:value (lower-case language)} language])]]]
+               ;;(submit-button "Get pdgm")
+               [:tr [:td ]
+                [:td [:input#submit
+                      {:value "Value Clusters: ", :name "submit", :type "submit"}]]]]
+            )
      [:hr]
      (form-to [:post "/pdgmdisplay"]
         [:table
-         [:tr [:td "PDGM Language: " ]
-          [:td [:select#language.required
-               {:title "Choose a language.", :name "language"}
-                [:option {:value language :label (clojure.string/capitalize language)}]
-                ]]]
-         [:tr [:td "PDGM Type: "]
-          [:td [:select#pos.required
-                {:title "Choose a pdgm type.", :name "pos"}
-                [:option {:value pos :label (clojure.string/upper-case pos)}]
-                ]]]
          [:tr [:td "PDGM Value Clusters: " ]
           [:td [:select#valstring.required
                 {:title "Choose a value.", :name "valstring"}
@@ -79,14 +90,6 @@
           [:td [:input#submit
                 {:value "Display pdgm", :name "submit", :type "submit"}]]]]
      [:hr]))))
-
-(defn handle-pdgmqry
-  [language pos]
-  (let [valclusterfile (str "pvlists/plexname-" pos "-list-" language ".txt")]
-   (try
-    (slurp valclusterfile)
-    (finally (println (str language " has no paradigms of type " pos))))
-   (display-valclusters language pos)))
 
 (defn handle-pdgmdisplay
   [language valstring pos]
