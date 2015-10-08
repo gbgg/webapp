@@ -213,12 +213,12 @@
            (if (re-find #"\w"  note)
              [:p "NOTE: " note  ])
            ;;[:hr]
-           ;;[:h3 "Query Response:"]
-           ;;[:pre (:body req)]
+           [:h3 "Query Response:"]
+           [:pre (:body req)]
            ;;[:pre pdgmstr]
-           ;;[:hr]
-           ;;[:h3#clickable "Query:"]
-           ;;[:pre query-sparql-pr]
+           [:hr]
+           [:h3#clickable "Query:"]
+           [:pre query-sparql-pr]
            [:script {:src "js/goog/base.js" :type "text/javascript"}]
            [:script {:src "js/webapp.js" :type "text/javascript"}]
            [:script {:type "text/javascript"}

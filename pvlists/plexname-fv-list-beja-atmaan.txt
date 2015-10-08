@@ -1,5 +1,3 @@
-Future,Affirmative:kay,kta
-Future,Negative:kay,kta
 Irregular,Aorist,Affirmative:bariy,fay,hiy
 Irregular,Past,Affirmative:bariy,fay,hiy,kay
 Irregular,Present,Negative:kay
@@ -23,7 +21,7 @@ Prefix,Aorist,Negative,CiCiC:sibib
 Prefix,Aorist,Negative,CiCiy:miriy
 Prefix,Aorist,Negative,Ciy:diy
 Prefix,Aorist,Negative,HaCiC:hariw
-Prefix,Future,Affirmative:dam
+Prefix,Future,Affirmative:dam,kay
 Prefix,Future,Affirmative,CHiy:dHiy
 Prefix,Future,Affirmative,CaC:naw
 Prefix,Future,Affirmative,Cay:bay
@@ -34,6 +32,7 @@ Prefix,Future,Affirmative,CiCiC:sibib
 Prefix,Future,Affirmative,CiCiy:miriy
 Prefix,Future,Affirmative,Ciy:diy
 Prefix,Future,Affirmative,HaCiC:hariw
+Prefix,Future,Negative:kay
 Prefix,Future,Negative,CHiy:dHiy
 Prefix,Future,Negative,CaC:naw
 Prefix,Future,Negative,Cay:bay

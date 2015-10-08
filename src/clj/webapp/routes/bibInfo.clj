@@ -33,7 +33,7 @@
              ;;(submit-button "Get pdgm")
              [:tr 
               [:td {:colspan "2"} [:input#submit
-                    {:value "Display Bibliographic Information", :name "submit", :type "submit"}]]]]))))
+                    {:value "Bibliographic Information: ", :name "submit", :type "submit"}]]]]))))
 
 (defn handle-bibInfo
   [bibref]
