@@ -119,10 +119,10 @@
 ))
 
 (defn pdgmqry-sparql-fv-note [language lpref valstring]
-  "This version, for the moment only called by the single pdgm display option, which is designed to give the most information about an individual paradigm, includes information about input paradigm notes. Note info should eventually be displayed in the paradigm-label listing."
+  "This version, for the moment only called by the single pdgm display option, which is designed to give the most information about an individual paradigm, includes information about input paradigm notes and lex. Note info should eventually be displayed in the paradigm-label listing."
     (let [;; if assume last value is lex (generalize to other pos?)
           vals (clojure.string/replace valstring #"(.*):.*?$" "$1")
-          lex (clojure.string/replace valstring #".*:(.*?)$" "$1")
+          ;;lex (clojure.string/replace valstring #".*:(.*?)$" "$1")
           values (split vals #",")
           Language (capitalize language)
           ]
@@ -136,7 +136,7 @@
 	PREFIX aamas: <http://id.oi.uchicago.edu/aama/2013/schema/> 
 	PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/> 
 	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
-	SELECT ?comment ?num ?pers ?gen ?token
+	SELECT ?comment ?num ?pers ?gen ?token ?lex
 	WHERE
         { 
 	 { 
@@ -145,7 +145,9 @@
 	   ?s {{lpref}}:pos {{lpref}}:Verb .  
 	   ?s aamas:lang aama:{{Language}} . 
 	   ?s aamas:lang ?lang . 
-	   ?lang rdfs:label ?langLabel .  ")
+	   ?lang rdfs:label ?langLabel .  
+           ?s aamas:lexeme ?lexeme .
+           ?lexeme rdfs:label ?lex . ")
        {:lpref lpref
         :language language
         :Language Language})
@@ -156,13 +158,6 @@
            ?s ?Q{{value}}  {{lpref}}:{{value}} .  ")
                 {:value value
                  :lpref lpref})))
-      ;; if not multi-lex pdgm
-      (if (not (.contains lex ","))
-        (tmpl/render-string
-         (str "
-           ?s aamas:lexeme ?lexeme .
-           ?lexeme rdfs:label \"{{lex}}\" .")
-         {:lex lex}))
       (tmpl/render-string
        (str "
 	   OPTIONAL { ?s {{lpref}}:number ?number .  
@@ -185,7 +180,7 @@
 	  } 
 	 } 
 	} 
-	ORDER BY DESC(?num) ?pers DESC(?gen) ")
+	ORDER BY DESC(?num) ?pers DESC(?gen) ?lex ")
        {:lpref lpref})
        );;str
 ))

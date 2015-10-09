@@ -5,7 +5,7 @@
 
 (defn home []
   (layout/common
-   [:h1#clickable "Afroasiatic Morphological Archive"]
+   ;;[:h1#clickable "Afroasiatic Morphological Archive"]
     [:script {:src "js/goog/base.js" :type "text/javascript"}]
     [:script {:src "js/webapp.js" :type "text/javascript"}]
     [:script {:type "text/javascript"}

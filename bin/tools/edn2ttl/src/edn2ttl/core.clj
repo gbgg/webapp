@@ -20,6 +20,7 @@
         dsource (pdgm-map :datasource)
         webref (pdgm-map :geodemoURL)
         desc (pdgm-map :geodemoTXT)
+        ;;because csv sparql req will be split by ","
         description (clojure.string/replace desc #"," "%%")
         ]
       (println
@@ -189,7 +190,8 @@
   (doseq [termcluster lexterms]
     (let [label (:label termcluster)
           terms (:terms termcluster)
-          note (:note termcluster)
+          ;;because csv sparql req will be split by ","
+          note (clojure.string/replace (:note termcluster) #"," "%%")
           schema (first terms)
           data (next terms)
           common (:common termcluster)]

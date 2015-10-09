@@ -5,7 +5,7 @@
 
 (defn aamaApp []
   (layout/common
-   [:h1#clickable "Afroasiatic Morphological Archive"]
+   ;;[:h1#clickable "Afroasiatic Morphological Archive"]
    [:h1 "Query & Display Tool"]
    [:p "The purpose of this application is to develop and test various general formats of SPARQL queries that can be used to explore the morphological data registered in the Afroasiatic Morphological Archive. For the purposes of this provisional tool these queries are divided into three large groups:"]
     [:ol

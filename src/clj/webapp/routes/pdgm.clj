@@ -54,6 +54,8 @@
      ;;[:p "Choose Value Clusters"]
      ;;[:p error]
       [:h3 "Individual Paradigms"]
+      
+      ;; repeat of language/pdgm-type choice form
       (form-to [:post "/pdgmqry"]
                [:table
                 [:tr [:td "PDGM Type: "]
@@ -69,17 +71,19 @@
                        {:title "Choose a language.", :name "language"}
                        (for [language languages]
                          [:option {:value (lower-case language)} language])]]]
-                ;;(submit-button "Get pdgm")
                 [:tr 
                  [:td {:colspan "2"} [:input#submit
-                                      {:value "Value Clusters: ", :name "submit", :type "submit"}]]]])
-      ;;[:p]
+                      {:value "Value Clusters: ", :name "submit", :type "submit"}]]]])
+
+      ;;main form
       (form-to [:post "/pdgmdisplay"]
                [:table
                 [:tr 
                  [:td "Value Clusters for: " 
-                  [:select#language.required {:title "Choose a language.", :name "language"} [:option {:value language :label (clojure.string/capitalize language)}]] " -- "
-                  [:select#pos.required {:title "Choose a pdgm type.", :name "pos"} [:option {:value pos :label (clojure.string/upper-case pos)}]]]]
+                  [:select#language.required {:title "Choose a language.", :name "language"} 
+                   [:option {:value language :label (clojure.string/capitalize language)}]] " -- "
+                  [:select#pos.required {:title "Choose a pdgm type.", :name "pos"} 
+                   [:option {:value pos :label (clojure.string/upper-case pos)}]]]]
                 [:tr 
                  [:td [:select#valstring.required
                        {:title "Choose a value.", :name "valstring"}
@@ -89,6 +93,15 @@
                 [:tr
                  [:td [:input#submit
                        {:value "Paradigm: ", :name "submit", :type "submit"}]]]]))))
+
+(defn pdgmnotes
+  [pdgmrows]
+  (let [notes (atom [])]
+    (for [pdgmrow pdgmrows]
+       (let [rowcells (split pdgmrow #",")
+             note (first rowcells)]
+          (if-not (.contains (str @notes) note)
+            (swap! notes conj note))))))
 
 (defn handle-pdgmdisplay
   [language valstring pos]
@@ -104,9 +117,7 @@
         lpref (lang lprefmap)
         valstrng (clojure.string/replace valstring #",*person|,*gender|,*number" "")
         valstr (clojure.string/replace valstrng #":," ":")
-        ;;5/29/15 REFORMULATE BY SPLITTING VALSTR INTO VALS AND LEX 
-        ;; AND ITERATING THROUGH LEXVALS
-        ;; In single pdgm query, always asking for note (9/29/15)
+        ;; In single pdgm query only, asking for note (9/29/15) and lex (10/9/15)
         query-sparql (cond 
                       (= pos "pro")
                       (sparql/pdgmqry-sparql-pro-note language lpref valstr)
@@ -130,7 +141,8 @@
         pdgmrows (rest psplit)
         prow (first pdgmrows)
         pvals (split prow #",")
-        note (first pvals)
+        note (clojure.string/replace (first pvals) #"%%" ",")
+        pnotes (pdgmnotes pdgmrows)
         pheader (split header #",")
         pnote (first pheader)
         pheads (rest pheader)
@@ -139,41 +151,46 @@
          (log/info "sparql result status: " (:status req))
          (layout/common
           [:body
-     (form-to [:post "/pdgmqry"]
-               [:table
-                [:tr [:td "PDGM Type: "]
-                 [:td [:select#pos.required
-                       {:title "Choose a pdgm type.", :name "pos"}
-                       [:option {:value "fv" :label "Finite Verb"}]
-                       [:option {:value "nfv" :label "Non-finite Verb"}]
-                       [:option {:value "pro" :label "Pronoun"}]
-                       [:option {:value "noun" :label "Noun"}]
-                       ]]]
-                [:tr [:td "PDGM Language: " ]
-                 [:td [:select#language.required
-                       {:title "Choose a language.", :name "language"}
-                       (for [language languages]
-                         [:option {:value (lower-case language)} language])]]]
-                ;;(submit-button "Get pdgm")
-                [:tr 
-                 [:td {:colspan "2"} [:input#submit
-                                      {:value "Value Clusters: ", :name "submit", :type "submit"}]]]])
-      ;;[:p]
-      (form-to [:post "/pdgmdisplay"]
-               [:table
-                [:tr 
-                 [:td "Value Clusters for: " 
-                  [:select#language.required {:title "Choose a language.", :name "language"} [:option {:value language :label (clojure.string/capitalize language)}]] " -- "
-                  [:select#pos.required {:title "Choose a pdgm type.", :name "pos"} [:option {:value pos :label (clojure.string/upper-case pos)}]]]]
-                [:tr 
-                 [:td [:select#valstring.required
-                       {:title "Choose a value.", :name "valstring"}
-                       (for [valcluster valclusters]
-                         [:option  valcluster])]]]
-                ;;(submit-button "Get pdgm")
-                [:tr
-                 [:td [:input#submit
-                       {:value "Paradigm: ", :name "submit", :type "submit"}]]]])
+
+           ;; insert repeat of language/pdgm-type choice form
+           (form-to [:post "/pdgmqry"]
+                    [:table
+                     [:tr [:td "PDGM Type: "]
+                      [:td [:select#pos.required
+                            {:title "Choose a pdgm type.", :name "pos"}
+                            [:option {:value "fv" :label "Finite Verb"}]
+                            [:option {:value "nfv" :label "Non-finite Verb"}]
+                            [:option {:value "pro" :label "Pronoun"}]
+                            [:option {:value "noun" :label "Noun"}]
+                            ]]]
+                     [:tr [:td "PDGM Language: " ]
+                      [:td [:select#language.required
+                            {:title "Choose a language.", :name "language"}
+                            (for [language languages]
+                              [:option {:value (lower-case language)} language])]]]
+                     [:tr 
+                      [:td {:colspan "2"} [:input#submit
+                        {:value "Value Clusters: ", :name "submit", :type "submit"}]]]])
+
+           ;;insert repeat of pdgm choice form
+           (form-to [:post "/pdgmdisplay"]
+                    [:table
+                     [:tr 
+                      [:td "Value Clusters for: " 
+                       [:select#language.required {:title "Choose a language.", :name "language"} 
+                        [:option {:value language :label (clojure.string/capitalize language)}]] " -- "
+                       [:select#pos.required {:title "Choose a pdgm type.", :name "pos"} 
+                        [:option {:value pos :label (clojure.string/upper-case pos)}]]]]
+                     [:tr 
+                      [:td [:select#valstring.required
+                            {:title "Choose a value.", :name "valstring"}
+                            (for [valcluster valclusters]
+                              [:option  valcluster])]]]
+                     [:tr
+                      [:td [:input#submit
+                            {:value "Paradigm: ", :name "submit", :type "submit"}]]]])
+
+           ;;back to main pdgm display
            [:h3#clickable "Paradigm: " Language " / " valstring]
            [:table {:id "handlerTable" :class "tablesorter sar-table"}
            ;;[:table
@@ -192,8 +209,12 @@
                   [:div
                   (for [pcell pcells]
                     [:td pcell])])])]]
-           ;; following does not work. Want to assemble all comments in
-           ;; atom notes. pnote has that in last iteration, but I seem
+           ;; following does not work. 
+           ;; Want to assemble all lex+comments in
+           ;; atom notes, so that same "parse" forms that differ only by lex
+           ;; and comment can be in same padgm.
+           ;; pnote has that in last iteration, but swap! in this context,
+           ;; or in the context of pdgmnotes above, seems
            ;; to need to print out each iteration to get that. Following attempt
            ;; to print out only on last row raises "java.lang.Long cannot be 
            ;; cast to java.util.concurrent.Future" error.
@@ -210,8 +231,12 @@
            ;;      [:p "NOTE: " @pnote]
            ;;        ;;)
            ;;      )))]
-           (if (re-find #"\w"  note)
-             [:p "NOTE: " note  ])
+           (if (re-find #"\w" note)
+             [:p "NOTE: " note  ]
+           )
+           ;;(if (re-find #"\w" pnotes)
+           [:p "PNOTE: " [:pre pnotes]  ]
+           ;;)
            ;;[:hr]
            [:h3 "Query Response:"]
            [:pre (:body req)]

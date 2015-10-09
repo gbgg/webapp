@@ -65,6 +65,7 @@
 
 (defn common [& content]
   (base    
+   [:h2#clickable "Afroasiatic Morphological Archive"]
       [:ul {:class "sm sm-simple"}
    [:li (link-to "#" "Home")
      [:ul
