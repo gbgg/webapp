@@ -25,9 +25,9 @@
   (layout/common 
    [:h3 "Language-Value=>Property Cooccurrences"]
    [:h4 "Choose Language Domain and Value"]
-   [:p "This family of queries returns the properties, if any, associated with a specified value in a specified language or group/family of languages."]
+   ;;[:p "This family of queries returns the properties, if any, associated with a specified value in a specified language or group/family of languages."]
    ;; [:p error]
-   [:hr]
+   ;;[:hr]
    (form-to [:post "/lgvldisplay"]
             [:table
              [:tr [:td "Language Domain: " ]
@@ -56,9 +56,7 @@
              ;;(submit-button "Get values")
              [:tr [:td ]
               [:td [:input#submit
-                    {:value "Get language domain properties", :name "submit", :type "submit"}]]]]
-            )
-   [:hr])))
+                    {:value "Get language domain properties", :name "submit", :type "submit"}]]]]))))
 
 (defn handle-lgvldisplay
   [ldomain lval]

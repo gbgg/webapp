@@ -24,10 +24,10 @@
         languages (split langlist #"\n")]
   (layout/common 
    [:h3 "Checkbox: Multilingual Display"]
-     [:p "Use this option to pick one or more  paradigms from a given language or set of languages to be displayed as a single paradigm. (NB: Will only combine paradigms with identical headers.)"]
+   ;;[:p "Use this option to pick one or more  paradigms from a given language or set of languages to be displayed as a single paradigm. (NB: Will only combine paradigms with identical headers.)"]
    [:p "Choose Languages and Type"]
    ;; [:p error]
-   [:hr]
+   ;;[:hr]
    (form-to [:post "/multimodqry"]
             [:table
              [:tr [:td "PDGM Type: "]

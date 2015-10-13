@@ -19,11 +19,11 @@
 
 (defn listmenulpv []
   (layout/common 
-   [:h1 "Language, Property, Value Lists for Selection Menus"]
-   [:hr]
-   [:div
-    [:p "This option will generate cached datastore-wide language, property, or value lists for use in selection drop-down menus.."]]
-   [:hr]
+   [:h3 "Language, Property, Value Lists for Selection Menus"]
+   ;;[:hr]
+   ;;[:div
+    ;;[:p "This option will generate cached datastore-wide language, property, or value lists for use in selection drop-down menus.."]]
+   ;;[:hr]
    (form-to [:post "/listmenu-gen"]
             [:table
              [:tr [:td "List: "]

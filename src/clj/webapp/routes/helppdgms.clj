@@ -16,6 +16,7 @@
 
 (defn helppdgms []
   (layout/common 
+   [:div {:class "help-page"}
    [:h3 "Help: Paradigms"]
     [:p "These pages experiment with different possibilities for display and comparison of paradigms. The comparisons for the moment are oriented to png-centered displays, and thus work reasonably well for finite verb and pronominal paradigms. Their application is less clear for non-finite verbs. Note that the present datastore contains " [:em "very "] "little material for nominal inflection."]
     [:ul
@@ -28,7 +29,7 @@
        [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. A sequence of table-formatted displays of the selected paradigms is returned."]
              [:p "NB: The \"Select All\" option is principally to allow print-outs for proof-reading purposes."]]]
       [:li (link-to "/multipdgmmod"  "Multiparadigm Combined Modifiable Display")
-       [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. The routine first returns a single sortable table display of the selected paradigm(s) with draggable columns. A selection button permits the reformatting of this table into a (sortable, draggable) table with the paradigms in parallel columns. (Defined currently only for finite-verb and pronominal Number-Person-Gender-Token paradigms.) "]]]]]]]]]))
+       [:ul [:li [:p "A first checkbox allows the selection of one or more languages, and a second the selection of one or more paradigms from each of these languages. The routine first returns a single sortable table display of the selected paradigm(s) with draggable columns. A selection button permits the reformatting of this table into a (sortable, draggable) table with the paradigms in parallel columns. (Defined currently only for finite-verb and pronominal Number-Person-Gender-Token paradigms.) "]]]]]]]]]]))
 
 (defroutes helppdgms-routes
   (GET "/helppdgms" [] (helppdgms)))

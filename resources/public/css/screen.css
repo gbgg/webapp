@@ -26,6 +26,13 @@ label {
     float:left;
 }
 
+.help-page {
+    font-weight:normal;
+    height:20px;
+    width:550px;
+    cursor:move;
+}
+
 
 .error {
     color: red;

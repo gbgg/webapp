@@ -180,7 +180,7 @@
 	  } 
 	 } 
 	} 
-	ORDER BY DESC(?num) ?pers DESC(?gen) ?lex ")
+	ORDER BY ?lex DESC(?num) ?pers DESC(?gen) ")
        {:lpref lpref})
        );;str
 ))

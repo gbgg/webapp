@@ -16,6 +16,7 @@
 
 (defn helpclupdate []
   (layout/common 
+   [:div {:class "help-page"}
      [:h3 "Help: Update [Command-line]"]
      [:p "The following command-line versions presuppose that the edn data files are in the  ~/aama-data/data/[LANG] directories:"]
       [:ul [:li [:h4 "Datastore Update "] 
@@ -42,7 +43,7 @@
          [:li "(~/aama-data/)bin/aama-cp2lngrepo.sh \"data/*\" (to [re-]upload the whole datastore; from ~/aama-data dir)"]
          [:li "bin/aama-cptools2lngrepo.sh"]]]]]
    [:hr]
-   [:h4 "[For more detail on the above, cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")"]"]))
+   [:h4 "[For more detail on the above, cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")"]"]]))
 
 (defroutes helpclupdate-routes
   (GET "/helpclupdate" [] (helpclupdate)))

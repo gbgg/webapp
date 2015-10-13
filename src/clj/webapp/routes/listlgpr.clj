@@ -22,8 +22,8 @@
         ldoms (split ldomlist #"\n")]
   (layout/common 
    [:h3 "Properties by POS for datastore languages"]
-   [:p "(Only 'Finite Verb' enabled at this time.)"]
-   [:hr]
+   ;;[:p "(Only 'Finite Verb' enabled at this time.)"]
+   ;;[:hr]
    (form-to [:post "/listlgpr-gen"]
             [:table
              [:tr [:td "Language Domain: " ]

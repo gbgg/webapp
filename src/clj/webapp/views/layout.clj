@@ -149,7 +149,7 @@
      [:li (link-to "/helppdgms" "Paradigms")]
      [:li (link-to "/helppvdisp" "Property Value Displays")]
      [:li (link-to "/helplistgen" "List Generation")]
-     [:li (link-to "#" "Update")
+     [:li (link-to "#" "Update/Upload")
       [:ul
        [:li (link-to "/helpwebupdate" "Webapp")]
        [:li (link-to "/helpclupdate" "Command Line")]]]]]]

@@ -99,9 +99,22 @@
   (let [notes (atom [])]
     (for [pdgmrow pdgmrows]
        (let [rowcells (split pdgmrow #",")
-             note (first rowcells)]
+             note (clojure.string/replace (first rowcells) #"%%" ",")
+             lex (last rowcells)]
           (if-not (.contains (str @notes) note)
-            (swap! notes conj note))))))
+            (let [newnote (str lex " : \"" note "\"// ")]
+              (reset! notes newnote)))))))
+
+(defn pdgmnotes2
+  [pdgmrows]
+  (let [notes (ref [])]
+    (for [pdgmrow pdgmrows]
+       (let [rowcells (split pdgmrow #",")
+             note (clojure.string/replace (first rowcells) #"%%" ",")
+             lex (last rowcells)]
+          (if-not (.contains (str @notes) note)
+            (dosync
+            (alter notes conj (str lex " : \"" note "\"// "))))))))
 
 (defn handle-pdgmdisplay
   [language valstring pos]
@@ -143,6 +156,7 @@
         pvals (split prow #",")
         note (clojure.string/replace (first pvals) #"%%" ",")
         pnotes (pdgmnotes pdgmrows)
+        notelist (split (apply str pnotes) #"// ")
         pheader (split header #",")
         pnote (first pheader)
         pheads (rest pheader)
@@ -209,34 +223,18 @@
                   [:div
                   (for [pcell pcells]
                     [:td pcell])])])]]
-           ;; following does not work. 
-           ;; Want to assemble all lex+comments in
-           ;; atom notes, so that same "parse" forms that differ only by lex
-           ;; and comment can be in same padgm.
-           ;; pnote has that in last iteration, but swap! in this context,
-           ;; or in the context of pdgmnotes above, seems
-           ;; to need to print out each iteration to get that. Following attempt
-           ;; to print out only on last row raises "java.lang.Long cannot be 
-           ;; cast to java.util.concurrent.Future" error.
-           ;;[:div
-           ;;(let [;;nrows (count pheads)
-           ;;      ;;rownum (atom 0)
-           ;;      notes (atom #{})]
-           ;;  (for [pdgmrow pdgmrows]
-           ;;    (let [rowcells (split pdgmrow #",")
-           ;;          note (first rowcells)
-           ;;          ;;nrow (swap! rownum inc)
-           ;;          pnote (swap! notes conj note)]
-           ;;      ;;(if (= nrow nrows)
-           ;;      [:p "NOTE: " @pnote]
-           ;;        ;;)
-           ;;      )))]
-           (if (re-find #"\w" note)
-             [:p "NOTE: " note  ]
+ 
+           ;; Note that following works only if  
+           ;; webpp.sparql.pdgmqry-sparql-fv-note has ?lex as first variable
+           ;; in "ORDER BY". Otherwise repeats notes for repeating lex. Has
+           ;; something to do with how ".contains" works in pdgmnotes. Note
+           ;; also that in pdgmnotes only reset! works (not swap! or 
+           ;; ref + alter, cf pdgmnotes2)
+          (if (re-find #"\w" (str pnotes))
+              [:ol "NOTE: "
+              (for [note notelist]
+                [:li note])]
            )
-           ;;(if (re-find #"\w" pnotes)
-           [:p "PNOTE: " [:pre pnotes]  ]
-           ;;)
            ;;[:hr]
            [:h3 "Query Response:"]
            [:pre (:body req)]

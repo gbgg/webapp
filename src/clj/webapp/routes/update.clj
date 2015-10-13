@@ -11,6 +11,7 @@
             ;;[boutros.matsu.sparql :refer :all]
             ;;[boutros.matsu.core :refer [register-namespaces]]
             [clojure.tools.logging :as log]
+            [hiccup.element :refer [link-to]]
             [hiccup.form :refer :all]))
 
 (def aama "http://localhost:3030/aama/query")
@@ -22,8 +23,10 @@
         ldoms (split ldomlist #"\n")]
   (layout/common 
    [:h3 "Update Datastore"]
-   [:p "(This option will enable a user to update the datastore after an edn data file has been revised in one or more ~/aama-data/data/LANG directories .)"]
-   [:hr]
+    [:div {:class "help-page"}
+     [:hr]
+   [:p "[This option will enable a user to update the datastore after an edn data file has been revised in one or more ~/aama-data/data/LANG directories. Webapp page under construction; in the meantime cf." (link-to "/helpclupdate" "Help>Update/Upload>Command Line")".]"]
+   ;;[:hr]
    (form-to [:post "/update-make"]
             [:table
              [:tr [:td "PDGM Language Domain: " ]
@@ -40,7 +43,7 @@
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
               [:td [:input#submit
-                    {:value "Make PDGM Value-Clusters List", :name "submit", :type "submit"}]]]]))))
+                    {:value "Update Datastore", :name "submit", :type "submit"}]]]])])))
 
 (defn edn2rdf
   [lang]
@@ -73,10 +76,10 @@
                 ;;                  "body" file}}) ;; new rdf-file
                 ]
             ;;(log/info "sparql result status: " (:status req2))
-          [:div
+          [:div {:class "help-page"}
            [:h3 "Language: " lang " updated."]
            [:p file " uploaded to " graph ]
-           [:hr]
+           [:hr ]
           ])))
           [:script {:src "js/goog/base.js" :type "text/javascript"}]
           [:script {:src "js/webapp.js" :type "text/javascript"}]

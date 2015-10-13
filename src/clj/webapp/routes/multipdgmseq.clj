@@ -24,10 +24,10 @@
         languages (split langlist #"\n")]
   (layout/common 
    [:h3 "Multi-Paradigm: Fixed Sequential Display"]
-     [:p "Use this option to pick one or more  paradigms from a given language or set of languages to be displayed in fixed format vertical succession."]
+     ;;[:p "Use this option to pick one or more  paradigms from a given language or set of languages to be displayed in fixed format vertical succession."]
    [:p "Choose Languages and Type"]
    ;; [:p error]
-   [:hr]
+   ;;[:hr]
    (form-to [:post "/multiseqqry"]
             [:table
              [:tr [:td "PDGM Type: "]

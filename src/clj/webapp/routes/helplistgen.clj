@@ -16,6 +16,7 @@
 
 (defn helplistgen []
   (layout/common 
+   [:div {:class "help-page"}
      [:h3 "Help: List Generation"]
      [:p (link-to "/listlgpr"  "POS Properties")
       [:ul [:li "This set of queries lists, for one or more languages or language families in the datastore, the properties associated with the designated part of speech. "]]]
@@ -35,7 +36,7 @@
          "(all the langs in which a given val is associated with a given prop)"]
         [:li " prop lang: val, val, val, ..." [:br]
          "(all the vals associated with a given prop in a given language, set of languages, or language family)"]]
-            [:p "These tables provide in effect a set of complete lang-prop-val indices for the language(s) in question. The script uses the lang-prop-val-list.template to generate for each lang a tsv/jason file which is essentially the schemata of the lang in question."]]]))
+            [:p "These tables provide in effect a set of complete lang-prop-val indices for the language(s) in question. The script uses the lang-prop-val-list.template to generate for each lang a tsv/jason file which is essentially the schemata of the lang in question."]]]]))
 
 (defroutes helplistgen-routes
   (GET "/helplistgen" [] (helplistgen)))

@@ -16,11 +16,12 @@
 
 (defn helpwebupdate []
   (layout/common 
+   [:div {:class "help-page"}
      [:h3 "Help: Update [Webapp]"]
      [:p "Procedures to update local and remote datastore after an edn file has been edited:"]
       [:ul [:li (link-to "/update" "Update Local Datastore")]
        [:li (link-to "/upload" "Upload to Remote Repository") " [Requires Access Privileges]"]]
-      [:p "(NB: These two procedures have not yet been incorporated into the webapp. For the moment, the command-line versions have to be used.)"]))
+      [:p "(NB: These two procedures have not yet been incorporated into the webapp. For the moment, the command-line versions have to be used.)"]]))
 
 (defroutes helpwebupdate-routes
   (GET "/helpwebupdate" [] (helpwebupdate)))
