@@ -15,17 +15,14 @@ cliticClass
 cliticType
 cohesion
 complement
-configuration
 conj
 conjClaspdgmLexs
 conjClass
 conjSubClass
 conjSubType
-conjType
 conjugation
 copForm
 copType
-deAdjClass
 defClass
 defMarker
 deixis
@@ -36,7 +33,7 @@ derivedClass
 derivedStem
 derivedStemAug
 dimension
-direction
+emphasis
 extended
 final
 finiteForm
@@ -69,7 +66,6 @@ infinitiveForm
 infinitiveVar
 inflClass
 interrogClass
-langVAR
 langVar
 mainStem
 modal
@@ -116,7 +112,6 @@ pngSet
 pngShapeClass
 polarity
 pos
-posClass
 posHead
 position
 possType
@@ -139,15 +134,14 @@ selectorPosition
 selectorProClass
 selectorTense
 state
+status
 statusClass
 stemAltClass
 stemClass
-stemFinal
 stemFinalC
 stemInflCategory
 stemInflMorpheme
 stemShape
-stemType
 strength
 subconjClass
 subjectTypeSelector
@@ -172,4 +166,5 @@ varB
 varClass
 verbClass
 verbMorphClass
+verbType
 voice

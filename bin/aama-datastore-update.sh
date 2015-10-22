@@ -18,7 +18,7 @@ do
     f2=${f%/*-pdgms.edn}
     echo "delete f = ${f2}"
     bin/fudelete.sh $f2
-    bin/fuqueries.sh
+    #bin/fuqueries.sh
     echo " "
     #echo "[Enter] to continue or Ctl-C to exit"
     #read
@@ -26,6 +26,7 @@ do
     bin/aama-edn2rdf.sh $f
     echo "2fuseki f = ${f2}"
     bin/aama-rdf2fuseki.sh $f2
-    bin/fuqueries.sh
+    #bin/fuqueries.sh
+    echo "======================="
     #bin/aama-cp2lngrepo.sh $f
 done

@@ -18,7 +18,7 @@
 		echo "generating ${f%\.edn}.ttl  from  $f "
 		#comment out following line to test ttl file generated 
 		#direct from edn2ttl.core
-		#java -jar ../.jar/aama-edn2ttl.jar $f > ${f%\.edn}.ttl
+		java -jar ../.jar/aama-edn2ttl.jar $f > ${f%\.edn}.ttl
 		tofile=${f%\.edn}.rdf
 		fromfile=${f%\.edn}.ttl
 		#lname=`basename ${f%-pdgms.edn`

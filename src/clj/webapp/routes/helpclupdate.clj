@@ -41,7 +41,26 @@
         [:ul 
          [:li "bin/aama-cp2lngrepo.sh ../aama-data/data/[LANG] (for a single language; from webapp dir)"]
          [:li "(~/aama-data/)bin/aama-cp2lngrepo.sh \"data/*\" (to [re-]upload the whole datastore; from ~/aama-data dir)"]
-         [:li "bin/aama-cptools2lngrepo.sh"]]]]]
+         [:li "bin/aama-cptools2lngrepo.sh"]]]]
+       [:li [:h4 "Revise aama-edn2ttl.jar."] 
+        [:p "Occasionally new schemata elements and relations will be desired, or old ones will need to be corrected, in the mapping of the edn data files to ttl."]
+        [:p "Procedure:"
+        [:ol 
+         [:li "After revisions of ~/webapp/bin/tools/edn2ttl/src/edn2ttl/core.clj, test whether a satisfactory [LANG]-pdgms.ttl is derived from a sample [LANG]-pdgms.edn file which has been copied to the ~/webapp/bin/tools/edn2ttl directory:"
+          [:ul
+           [:li "lein run [LANG]-pdgms.edn > [LANG]-pdgms.ttl"]]]
+         [:li "When satisfied, make jar file:"
+          [:ul
+           [:li "lein uberjar"]]]
+         [:li "Copy jar file to edn2ttl directory and to ~/.jar"
+          [:ul
+           [:li "cp target/edn2ttl2-0.1.0-SNAPSHOT-standalone.jar aama-edn2ttl.jar"]
+           [:li "cp target/edn2ttl2-0.1.0-SNAPSHOT-standalone.jar ~/.jar/aama-edn2ttl.jar"]]]
+         [:li "Update and upload whole datastore as above (from webapp directory):"
+          [:ul
+           [:li "bin/aama-datastore-update.sh \"../aama-data/data/*\""]
+           [:li "bin/aama-cp2lngrepo.sh \"../aama-data/data/*\""]]]
+         ]]]]
    [:hr]
    [:h4 "[For more detail on the above, cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")"]"]]))
 

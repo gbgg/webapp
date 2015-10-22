@@ -3,8 +3,7 @@
       [stencil.core :as tmpl ])
   (:gen-class :main true))
 
-;; This version of edn2ttl.core provides for inclusion of :note 
-;; and :termcluster in ttl file.
+;; 10/21/15:  provision for inclusion of :note  and :termcluster in ttl file.
 
 (defn uuid
   "Generates random UUID for pdgm terms"
@@ -191,7 +190,8 @@
     (let [label (:label termcluster)
           terms (:terms termcluster)
           ;;because csv sparql req will be split by ","
-          note (clojure.string/replace (:note termcluster) #"," "%%")
+          note (clojure.string/replace (str (:note termcluster)) #"," "%%")
+          ;;note (:note termcluster)
           schema (first terms)
           data (next terms)
           common (:common termcluster)]
@@ -280,19 +280,35 @@
   (doseq [ mutermcluster muterms]
     (let [label (:label mutermcluster)
           terms (:terms mutermcluster)
+          ;;because csv sparql req will be split by ","
+          note (clojure.string/replace (str (:note mutermcluster)) #"," "%%")
+          ;;note (:note mutermcluster)
           schema (first terms)
           data (next terms)
           common (:common mutermcluster)]
    ;; Need to build up string which can then be println-ed with each term of cluster
       (println "\n#MUTERMCLUSTER: "  label)
+          (println
+           (tmpl/render-string (str (newline)
+                                    "{{pfx}}:{{label}} a aamas:MuTermcluster ;\n"
+                                    "\trdfs:label \"{{label}}\" ;\n"
+                                    "\trdfs:comment \"{{note}}\" \n"
+                                    "\t.")
+                               {:pfx sgpref
+                                :label label
+                                :note note}))
       (doseq [term data]
 	(let [termid (uuid)]
           (println
            (tmpl/render-string (str (newline)
                               "aama:ID{{uuid}} a aamas:Muterm ;\n" 
-		              "\taamas:lang aama:{{Lang}} ;")
-                          {:Lang Lang
-                           :uuid termid})
+		              "\taamas:lang aama:{{Lang}} ;"
+                               "\taamas:memberOf {{pfx}}:{{label}} ;"
+                                        )
+                                   {:Lang Lang
+                                    :uuid termid
+                                    :pfx sgpref
+                                    :label label})
            )
         )
 	(doseq [[feature value] common]
