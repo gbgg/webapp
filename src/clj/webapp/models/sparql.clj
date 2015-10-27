@@ -172,11 +172,9 @@
 	   ?termcluster rdfs:comment ?comment . } 
 	   ?s {{lpref}}:token ?tkn .
            BIND ((IF(BOUND(?pngSC),
-                            CONCAT(?tkn,\"[\",SUBSTR(?shapeClass,4,1),\"]\"),
-                            ?tkn))
-                 AS ?token 
-                ) .
-                
+                     CONCAT(?tkn,\"[\",SUBSTR(?shapeClass,4,1),\"]\"),
+                     ?tkn))
+                 AS ?token) .
 	  } 
 	 } 
 	} 
