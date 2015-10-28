@@ -119,7 +119,7 @@
 ))
 
 (defn pdgmqry-sparql-fv-note [language lpref valstring]
-  "This version, for the moment only called by the single pdgm display option, which is designed to give the most information about an individual paradigm, includes information about input paradigm notes and lex. Note info should eventually be displayed in the paradigm-label listing."
+  "This version, for the moment only called by the single pdgm display option, which is designed to give the most information about an individual paradigm, includes information about input paradigm notes, lex, and token-... . Note info should eventually be displayed in the paradigm-label listing."
     (let [;; if assume last value is lex (generalize to other pos?)
           vals (clojure.string/replace valstring #"(.*):.*?$" "$1")
           ;;lex (clojure.string/replace valstring #".*:(.*?)$" "$1")
@@ -144,8 +144,7 @@
           { 
 	   ?s {{lpref}}:pos {{lpref}}:Verb .  
 	   ?s aamas:lang aama:{{Language}} . 
-	   ?s aamas:lang ?lang . 
-	   ?lang rdfs:label ?langLabel .  
+	   ?s aamas:lang / rdfs:label ?langLabel .  
            ?s aamas:lexeme ?lexeme .
            ?lexeme rdfs:label ?lex . ")
        {:lpref lpref
@@ -160,16 +159,13 @@
                  :lpref lpref})))
       (tmpl/render-string
        (str "
-	   OPTIONAL { ?s {{lpref}}:number ?number .  
-	   ?number rdfs:label ?num . } 
+	   OPTIONAL { ?s {{lpref}}:number / rdfs:label ?num . } 
 	   OPTIONAL { ?s {{lpref}}:pngShapeClass ?pngSC .
-           ?pngSC rdfs:label  ?shapeClass}  
+             ?pngSC rdfs:label  ?shapeClass .}  
 	   ?s {{lpref}}:person ?person .  
 	   ?person rdfs:label ?pers .  
-	   OPTIONAL { ?s {{lpref}}:gender ?gender .  
-	   ?gender rdfs:label ?gen . } 
-	   OPTIONAL { ?s aamas:memberOf ?termcluster .  
-	   ?termcluster rdfs:comment ?comment . } 
+	   OPTIONAL { ?s {{lpref}}:gender / rdfs:label ?gen . } 
+	   OPTIONAL { ?s aamas:memberOf / rdfs:comment ?comment . } 
 	   ?s {{lpref}}:token ?tkn .
            BIND ((IF(BOUND(?pngSC),
                      CONCAT(?tkn,\"[\",SUBSTR(?shapeClass,4,1),\"]\"),
