@@ -167,10 +167,11 @@
 	   OPTIONAL { ?s {{lpref}}:gender / rdfs:label ?gen . } 
 	   OPTIONAL { ?s aamas:memberOf / rdfs:comment ?comment . } 
 	   ?s {{lpref}}:token ?tkn .
-           BIND ((IF(BOUND(?pngSC),
-                     CONCAT(?tkn,\"[\",SUBSTR(?shapeClass,4,1),\"]\"),
-                     ?tkn))
-                 AS ?token) .
+           OPTIONAL { ?s ?t ?o . FILTER (CONTAINS(str(?t), \"token-note\"))}
+           BIND((IF(BOUND(?o),
+                    CONCAT(?tkn, \"  [\", ?o, \"]\"),
+                    ?tkn))
+                   AS ?token) .
 	  } 
 	 } 
 	} 
