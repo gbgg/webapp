@@ -14,7 +14,7 @@
            :formType [:Affix, :Auxiliary, :Compound, :Copula, :Stem]
            :gender [:Common, :Fem, :Masc]
            :langVar [:Arteiga, :Hadendowa, :Bishari]
-           :morphClass [:DERVSTEMFORM, :IMPTVROOTCLASSES, :TENSESTEM, :VERBALPARTICIPLES, :POSTPOSITION, :PLMARK, :SUBJMARK]
+           :morphClass [:DERVSTEMFORM :IMPTVROOTCLASSES, :TENSESTEM, :VERBALPARTICIPLES, :POSTPOSITION, :PLMARK, :SUBJMARK]
            :number [:Plural, :Singular]
            :participle [:Conjunctive, :Future, :Negative, :Past, :Present]
            :pdgmType [:PluralFormation, :Structure]
@@ -78,22 +78,22 @@
   :gwa {:conjClass :Suffix, :derivedStem :B, :derivedStemAug :Simple, :lemma "gwa?-àa", :gloss "drink"}
   :hamas {:gloss "[x]", :lemma "[y]", }
   :hamasee {:conjClass :Suffix, :derivedStem :SS, :derivedStemAug :Simple, :lemma "hamašee-šiiš-", :gloss "cause to blind"}
-  :hby {:conjClass :Prefix, :derivedStem :T, :derivedStemAug :Intensive, :rootClass :CCY, :lemma "-t-habaay-", :gloss "be forbidden, prevented"}
+  :hby {:conjClass :Prefix, :derivedStem :T, :derivedStemAug :Intensive, :rootClass :CCY, :lemma "-t-habaay-", :gloss "be forbidden - prevented"}
   :heelay {:pluralClass :Pl_A, :token-plural "heelayà", :gloss "[x]", :lemma "heèlay", :pos :Noun}
   :hmy {:conjClass :Prefix, :derivedStem :R, :derivedStemAug :Simple, :rootClass :CCY, :lemma "-hme-", :gloss "cover oneself "}
   :hug {:conjClass :Suffix, :derivedStem :M, :derivedStemAug :Simple, :lemma "hug-am-", :gloss "be ground"}
   :huus {:pluralClass :Pl_A, :token-plural "huusà", :gloss "[x]", :lemma "huus", :pos :Noun}
   :ibaab {:conjClass :Suffix, :derivedStem :S, :derivedStemAug :Simple, :lemma "?ibaab-s-", :gloss "send on a journey"}
   :kaam {:pluralClass :Pl_B, :token-plural "kàm", :gloss "[x]", :lemma "kaàm", :pos :Noun}
-  :kadaw {:conjClass :Suffix, :derivedStem :S, :derivedStemAug :Simple, :lemma "kadaw-š-", :gloss "jingle, rattle (tr.)"}
+  :kadaw {:conjClass :Suffix, :derivedStem :S, :derivedStemAug :Simple, :lemma "kadaw-š-", :gloss "jingle - rattle (tr.)"}
   :khn {:conjClass :Prefix, :derivedStem :T, :derivedStemAug :Intensive, :rootClass :CCC, :lemma "-t-kahaan-", :gloss "be loved "}
-  :kileew {:conjClass :Suffix, :derivedStem :B, :derivedStemAug :Simple, :lemma "kileew-àa", :gloss "guard, take prisoner"}
+  :kileew {:conjClass :Suffix, :derivedStem :B, :derivedStemAug :Simple, :lemma "kileew-àa", :gloss "guard - take prisoner"}
   :kitaab {:pluralClass :Pl_B, :token-plural "kitàb", :gloss "[x]", :lemma "kitaàb", :pos :Noun}
   :ktb {:conjClass :Prefix, :derivedStem :B, :derivedStemAug :Simple, :rootClass :CCC, :lemma "kitb-a", :gloss "write"}
   :ktm {:conjClass :Prefix, :derivedStem :B, :derivedStemAug :Simple, :rootClass :CCC, :lemma "kitìm-a", :gloss "arrive"}
   :kwa {:pluralClass :Pl_C, :token-plural "kwà", :gloss "[x]", :lemma "kwà", :pos :Noun}
   :kwbs {:conjClass :Prefix, :derivedStem :B, :derivedStemAug :Simple, :rootClass :CCC, :lemma "kwibìs-", :gloss "hide"}
-  :kwibis {:conjClass :Prefix, :derivedStem :B, :derivedStemAug :Simple, :rootClass :CCC, :lemma "kwbs-a", :gloss "hide, cover"}
+  :kwibis {:conjClass :Prefix, :derivedStem :B, :derivedStemAug :Simple, :rootClass :CCC, :lemma "kwbs-a", :gloss "hide - cover"}
   :ky {:conjClass :Suffix, :formType :Auxiliary, :gloss "be", :pos :Verb}
   :liw {:gloss "burn", :pos :Verb, :rootClass :CVC}
   :miitaat {:pluralClass :Pl_B, :token-plural "miitàt", :gloss "[x]", :lemma "miitaàt", :pos :Noun}
@@ -107,7 +107,7 @@
   :oos {:conjClass :Suffix, :derivedStem :S, :derivedStemAug :Simple, :lemma "?ooš-iš-", :gloss "make ... urinate"}
   :raat {:conjClass :Suffix, :derivedStem :B, :derivedStemAug :Simple, :lemma "raat-àa", :gloss "ask"}
   :ragad {:pluralClass :Pl_A, :token-plural "ragadà ", :gloss "[x]", :lemma "ragàd", :pos :Noun}
-  :reeh {:conjClass :Suffix, :derivedStem :M, :derivedStemAug :Simple, :lemma "reeh-am-", :gloss "rest oneself, be made at ease"}
+  :reeh {:conjClass :Suffix, :derivedStem :M, :derivedStemAug :Simple, :lemma "reeh-am-", :gloss "rest oneself - be made at ease"}
   :rgg {:conjClass :Prefix, :derivedStem :SM, :derivedStemAug :Intensive, :rootClass :CCC, :lemma "-m-ragaag-", :gloss "help to drive away "}
   :rib {:conjClass :Prefix, :derivedStem :B, :derivedStemAug :Simple, :rootClass :CVC, :lemma "rib-", :gloss "refuse"}
   :rih {:conjClass :Suffix, :derivedStem :B, :derivedStemAug :Simple, :lemma "rih-àa", :gloss "see"}
@@ -386,17 +386,17 @@
     :common {:derivedStem :B,
 	    :morphClass :VERBALPARTICIPLES,
 	    :pos :Verb}
-    :terms [[:conjClass, :lexeme, :participle, :token, :token-affix, :token-gloss]  ;; schema
-	    [:Suffix, :tam, :Past, "tam-aà", "-aà", "having eaten"],
-	    [:Suffix, :tam, :Future, "tam-át", "-át", "will eat"],
-	    [:Suffix, :tam, :Conjunctive, "tam-eetì", "-eetì", "X ate and ..."],
-	    [:Prefix, :dbl, :Negative, "baa-dabiíl", "baa-", "not collecting"],
-	    [:Prefix, :dbl, :Past, "dibl-aà", "-aà", "having collected"],
-	    [:Suffix, :tam, :Negative, "baa-tam-ày", "baa- + -ày", "not eating"],
-	    [:Prefix, :dbl, :Conjunctive, "dibil-tií", "-tií", "X collected and ..."],
-	    [:Prefix, :dbl, :Future, "dibl-át", "-át", "will collect"],
-	    [:Suffix, :tam, :Present, "tam-ée", "-ée", "(while) eating"],
-	    [:Prefix, :dbl, :Present, "dibl-ée", "-ée", "(while) collecting"]]
+    :terms [[:conjClass, :lexeme, :participle, :token, :token-note]  ;; schema
+	    [:Suffix, :tam, :Past, "tam-aà", "Suff: -aà, \"having eaten\""],
+	    [:Suffix, :tam, :Future, "tam-át", "Suff: -át, \"will eat\""],
+	    [:Suffix, :tam, :Conjunctive, "tam-eetì", "Suff: -eetì, \"X ate and ...\""],
+	    [:Prefix, :dbl, :Negative, "baa-dabiíl", "Pref: baa-, \"not collecting\""],
+	    [:Prefix, :dbl, :Past, "dibl-aà", "Suff: -aà, \"having collected\""],
+	    [:Suffix, :tam, :Negative, "baa-tam-ày", "Pref+Suff: baa- + -ày, \"not eating\""],
+	    [:Prefix, :dbl, :Conjunctive, "dibil-tií", "Suff: -tií, \"X collected and ...\""],
+	    [:Prefix, :dbl, :Future, "dibl-át", "Suff: -át, \"will collect\""],
+	    [:Suffix, :tam, :Present, "tam-ée", "Suff: -ée, \"(while) eating\""],
+	    [:Prefix, :dbl, :Present, "dibl-ée", "Suff: -ée, \"(while) collecting\""]]
     }
     {:label "beja_H-VPrefAffCVCPres"
     :note "rootClass CVC is sometimes also noted as rootClass CC"
@@ -891,7 +891,7 @@
     :common {:morphClass :DERVSTEMFORM,
 	    :pdgmType :Structure,
 	    :pos :Verb}
-    :terms [[:conjClass, :derivedStem, :derivedStemAug, :lexeme, :rootClass, :token, :token-gloss]  ;; schema
+    :terms [[:conjClass, :derivedStem, :derivedStemAug, :lexeme, :rootClass, :token, :token-note]  ;; schema
 	    [:Suffix, :M, :Simple, :tam, :Invar, "tam-am-", "be eaten"],
 	    [:Prefix, :B, :Simple, :ktb, :CCC, "kitìb-", "write"],
 	    [:Prefix, :SS, :Simple, :dgy, :CCY, "-sis-dag-", "see that s.o makes s.o. bring s.th. back "],
@@ -913,7 +913,7 @@
 	    [:Prefix, :S, :Simple, :sbb, :CCC, "-š-šabib-", "let ... look at"],
 	    [:Prefix, :S, :Simple, :sgy, :CCY, "-š-šagw-", "make ... do wrong"],
 	    [:Prefix, :S, :Simple, :liw, :CVC, "-soo-liw-", "make ... burn"],
-	    [:Prefix, :S, :Simple, :dif2, :CVC, "-šoo-dif-", "cause to dye tan"],
+	    [:Prefix, :S, :Simple, :dif2, :CVC, "-šoo-dif-", "cause to dye/tan"],
 	    [:Suffix, :B, :Simple, :tam, :Invar, "tam-", "eat"],
 	    [:Prefix, :B, :Simple, :fry, :CCY, "firiì-", "give birth"],
 	    [:Prefix, :T, :Intensive, :ktb, :CCC, "-t-kataab-", "be written "],
@@ -1083,7 +1083,7 @@
 	    [:Possessive, :Bishari, :Singular, "- h"],
 	    [:Object, :Arteiga, :Singular, "Halanga"],
 	    [:Object, :Bishari, :Plural, "-[h]oohna"],
-	    [:Possessive, :Hadendowa, :Plural, "-  / - hna"],
+	    [:Possessive, :Hadendowa, :Plural, "-  / -hna"],
 	    [:Object, :Arteiga, :Plural, "Halanga"],
 	    [:Possessive, :Arteiga, :Plural, "Halanga"],
 	    [:Possessive, :Arteiga, :Singular, "..."],

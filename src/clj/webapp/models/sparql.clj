@@ -160,8 +160,6 @@
       (tmpl/render-string
        (str "
 	   OPTIONAL { ?s {{lpref}}:number / rdfs:label ?num . } 
-	   OPTIONAL { ?s {{lpref}}:pngShapeClass ?pngSC .
-             ?pngSC rdfs:label  ?shapeClass .}  
 	   ?s {{lpref}}:person ?person .  
 	   ?person rdfs:label ?pers .  
 	   OPTIONAL { ?s {{lpref}}:gender / rdfs:label ?gen . } 
@@ -509,7 +507,12 @@
        (str " 
 	   OPTIONAL { ?s aamas:memberOf ?termcluster .  
 	   ?termcluster rdfs:comment ?comment . } 
-	   ?s {{lpref}}:token ?token .  
+	   ?s {{lpref}}:token ?tkn .  
+           OPTIONAL { ?s ?t ?o . FILTER (CONTAINS(str(?t), \"token-note\"))}
+           BIND((IF(BOUND(?o),
+                    CONCAT(?tkn, \"  [\", ?o, \"]\"),
+                    ?tkn))
+                   AS ?token) .
 	  } 
 	 } 
 	} 

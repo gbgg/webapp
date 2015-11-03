@@ -101,9 +101,10 @@
        (let [rowcells (split pdgmrow #",")
              note (clojure.string/replace (first rowcells) #"%%" ",")
              lex (last rowcells)]
-          (if-not (.contains (str @notes) note)
+            (if-not (.contains (str @notes) note)
             (let [newnote (str lex " : \"" note "\"// ")]
-              (reset! notes newnote)))))))
+              (reset! notes newnote)))
+         ))))
 
 (defn pdgmnotes2
   [pdgmrows]
@@ -222,7 +223,7 @@
                       ]
                   [:div
                   (for [pcell pcells]
-                    [:td pcell])])])]]
+                    [:td (clojure.string/replace pcell #"%%" ",")])])])]]
  
            ;; Note that following works only if  
            ;; webpp.sparql.pdgmqry-sparql-fv-note has ?lex as first variable
@@ -230,7 +231,7 @@
            ;; something to do with how ".contains" works in pdgmnotes. Note
            ;; also that in pdgmnotes only reset! works (not swap! or 
            ;; ref + alter, cf pdgmnotes2)
-          (if (re-find #"\w" (str pnotes))
+          (if (re-find #"\w" (str note))
               [:ol "NOTE: "
               (for [note notelist]
                 [:li note])]

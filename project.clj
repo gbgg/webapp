@@ -37,4 +37,6 @@
    :dev
    {:dependencies [[ring-mock "0.1.5"] 
                    [javax.servlet/servlet-api "2.5"]
-                   [ring/ring-devel "1.2.1"]]}})
+                   [ring/ring-devel "1.2.1"]]}
+   ;;{:plugins [[cider/cider-nrepl "0.7.0"]]}
+   })

@@ -2,10 +2,16 @@ DefMarker,Nom_obj,DefClass2
 DefMarker,Nom_obj,DefClass3
 Independent,Object
 PossObj,Object
+ProComp,Object,Arteiga,Structure
+ProComp,Object,Bishari,Structure
+ProComp,Object,Hadendowa,Structure
 Demonstrative,Object,Far
 Demonstrative,Object,Near
 DefMarker,Object,DefClass1
 PossObj,Possessive
+ProComp,Possessive,Arteiga,Structure
+ProComp,Possessive,Bishari,Structure
+ProComp,Possessive,Hadendowa,Structure
 Independent,Subject
 Demonstrative,Subject,Far
 Demonstrative,Subject,Near

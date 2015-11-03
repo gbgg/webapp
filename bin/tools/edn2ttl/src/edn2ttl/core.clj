@@ -222,20 +222,21 @@
               )
             (doseq [[feature value] common]
               (let [cprop (name feature)
-                    cval (name value)]
+              cval (clojure.string/replace (str (name value)) #"," "%%")]
                 (println
                  (cond (= cprop "lexeme")
-             (tmpl/render-string (str "\taamas:{{cprop}} aama:{{Lang}}-{{cval}} ;") 
-                                  {:cprop cprop :Lang Lang :cval cval})
-              (re-find #"^token" cprop)
-              (tmpl/render-string (str "\t{{pfx}}:{{cprop}} \"{{cval}}\" ;")
-                                  {:pfx sgpref :cprop cprop :cval cval} )
-              (re-find #"^note" cprop)
-              (tmpl/render-string (str "\t{{pfx}}:{{cprop}} \"{{cval}}\" ;")
-                                  {:pfx sgpref :cprop cprop :cval cval} )
-              :else
-              (tmpl/render-string (str "\t{{pfx}}:{{cprop}} {{pfx}}:{{cval}} ;")
-                                  {:pfx sgpref :cprop cprop :cval cval} )
+                       (tmpl/render-string (str "\taamas:{{cprop}} aama:{{Lang}}-{{cval}} ;") 
+                                           {:cprop cprop :Lang Lang :cval cval})
+                       ;;(re-find #"^\"" cval)
+                       (re-find #"^token" cprop)
+                       (tmpl/render-string (str "\t{{pfx}}:{{cprop}} \"{{cval}}\" ;")
+                                           {:pfx sgpref :cprop cprop :cval cval} )
+                       ;;(re-find #"^note" cprop)
+                       ;;(tmpl/render-string (str "\t{{pfx}}:{{cprop}} \"{{cval}}\" ;")
+                       ;;                    {:pfx sgpref :cprop cprop :cval cval} )
+                       :else
+                       (tmpl/render-string (str "\t{{pfx}}:{{cprop}} {{pfx}}:{{cval}} ;")
+                                           {:pfx sgpref :cprop cprop :cval cval} )
              )
             )
           )
@@ -243,20 +244,14 @@
       (let [termmap (apply assoc {} (interleave schema term))]
       (doseq [tpropval termmap]
         (let [tprop (name (key tpropval))
-              tval (name (val tpropval))]
+              tval (clojure.string/replace (str (name (val tpropval))) #"," "%%")]
           (println
              (cond (re-find #"^\"" tval)
               (tmpl/render-string (str "\t{{pfx}}:{{tprop}} \"{{tval}}\" ;" )
                                   {:pfx sgpref :tprop tprop :tval tval})
-              ;;  following redundant if previous clause works
+              ;;first condition does not seem to work, need following
               (re-find #"^token" tprop)
               (tmpl/render-string (str "\t{{pfx}}:{{tprop}} \"{{tval}}\" ;" )
-                                  {:pfx sgpref :tprop tprop :tval tval})
-              (re-find #"^note" tprop)
-              (tmpl/render-string (str "\t{{pfx}}:{{tprop}} \"{{tval}}\" ;" )
-                                  {:pfx sgpref :tprop tprop :tval tval})
-              (re-find #"^gloss" tprop)
-              (tmpl/render-string (str "\taamas:{{tprop}} \"{{tval}}\" ;" )
                                   {:pfx sgpref :tprop tprop :tval tval})
               (= tprop "lexeme")
               (tmpl/render-string (str "\taamas:{{tprop}} aama:{{Lang}}-{{tval}} ;")
