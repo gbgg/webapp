@@ -1113,6 +1113,37 @@ ORDER BY ASC(?prop) ASC(?val)
      (str "}
    ORDER BY  ASC(?prop) ASC(?val) ASC(?lang)"))))
 
+(defn listcpvl-sparql [ldomain]
+  (let [langs (split ldomain #",")]
+    (str 
+     (str "
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX aama: <http://oi.uchicago.edu/aama/schema/2010#>
+    PREFIX aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
+
+    SELECT DISTINCT  ?pclass ?prop ?lang ?val
+    WHERE { ")
+     (apply str
+            (for [language langs]
+              (tmpl/render-string
+               (str "
+    {GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{language}}> {
+	?s ?p ?o ;
+	aamas:lang  ?language .
+	?language rdfs:label ?lang .
+        ?p rdfs:label ?prop .
+        ?o rdfs:label ?val .
+        OPTIONAL { ?p aamas:pclass / rdfs:label ?pclass . }
+ 	FILTER (?p NOT IN ( aamas:lang ) )
+     }} "
+                    (if (not (= (last langs) language))
+                      (str " 
+          UNION")))
+               {:language language})))
+     (str "}
+   ORDER BY  ASC(?pclass) ASC(?prop) ASC(?lang) ASC(?val)"))))
+
 (defn listvpl-sparql [ldomain]
   (let [langs (split ldomain #",")]
     (str 

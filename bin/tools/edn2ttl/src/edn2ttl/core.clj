@@ -4,6 +4,7 @@
   (:gen-class :main true))
 
 ;; 10/21/15:  provision for inclusion of :note  and :termcluster in ttl file.
+;; 11/10/15: provision for inclusion of :pclass and its rdfs:label in ttl file.
 
 (defn uuid
   "Generates random UUID for pdgm terms"
@@ -99,7 +100,8 @@
         (let [property (name prop)]
           (println
            (tmpl/render-string (str
-                                "{{pfx}}:{{prop}} aamas:pclass aamas:{{prpclass}} .")
+                                "{{pfx}}:{{prop}} aamas:pclass aamas:{{prpclass}} .\n"
+                                "aamas:{{prpclass}} rdfs:label \"{{prpclass}}\" .")
                                {:pfx sgpref
                                 :prop property
                                 :prpclass prpclass})))))))

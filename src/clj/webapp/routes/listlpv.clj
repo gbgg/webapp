@@ -58,24 +58,32 @@
 
 (defn csv2cpvl
 "Takes sorted 3-col csv list and outputs 4-col html table with empty col1 for prop-class and string of col4 vals for repeated col3. [ONLY USEFUL WHEN PROPERTY CLASSES HAVE BEEN ESTABLISHED.]"
- [lpvs]
+ [header lpvs]
 (let  [curcat1 (atom "")
-      curcat2 (atom "")]
+       curcat2 (atom "")
+       curcat3 (atom "")
+       heads (split header #",")]
   ;; For visible borders set {:border "1"}.
- [:table {:border "0"}
-(for [lpv lpvs]
- (let [catmap (zipmap [:cat1 :cat2 :cat3] (split lpv #","))]
-   (if (= (:cat1 catmap) @curcat1)
-
-     (if (= (:cat2 catmap) @curcat2)
-       (str (:cat3 catmap) " ")
-       (do (reset! curcat2 (:cat2 catmap))
-           (str "</td></tr><tr><td width=\"100\"></td><td></td><td valign=top>"@curcat2"</td><td>" (:cat3 catmap) " ")))
-       
-     (do (reset! curcat1 (:cat1 catmap))
-         (reset! curcat2 (:cat2 catmap))
-         (str "</td></tr><tr><td width=\"100\">(other)</td><td>" @curcat1 "</td><td valign=top>" @curcat2 "</td><td>" (:cat3 catmap) " ")))))
-  (str "</td></tr>")]))
+  [:table {:border "0"}
+ [:thead
+  (for [head heads]
+    [:th  head])]
+ (for [lpv lpvs]
+   (let [catmap (zipmap [:cat1 :cat2 :cat3 :cat4] (split lpv #","))]
+     (if (= (:cat1 catmap) @curcat1)
+       (if (= (:cat2 catmap) @curcat2)
+         (if (= (:cat3 catmap) @curcat3)
+           (str (:cat4 catmap) " ")
+           (do (reset! curcat3 (:cat3 catmap))
+               (str "</td></tr><tr><td></td><td></td><td width=\"80\">"@curcat3"</td><td>" (:cat4 catmap) " ")))
+         (do (reset! curcat2 (:cat2 catmap))
+             (reset! curcat3 (:cat3 catmap))
+             (str "</td></tr><tr><td></td><td>"@curcat2"</td><td width=\"80\">"@curcat3"</td><td>" (:cat4 catmap) " ")))
+       (do (reset! curcat1 (:cat1 catmap))
+           (reset! curcat2 (:cat2 catmap))
+           (reset! curcat3 (:cat3 catmap))
+           (str "</td></tr><tr><th>" @curcat1 "</th><td>" @curcat2 "</td><td width=\"80\">" @curcat3 "</td><td>" (:cat4 catmap) " ")))))
+ (str "</td></tr>")]))
 
 (defn csv2table
 "Takes sorted 3-col csv list and outputs html table with empty [:td]  for repeated col1 and string of col3 vals for repeated col2."
@@ -87,12 +95,10 @@
 (for [lpv lpvs]
  (let [catmap (zipmap [:cat1 :cat2 :cat3] (split lpv #","))]
    (if (= (:cat1 catmap) @curcat1)
-
      (if (= (:cat2 catmap) @curcat2)
        (str (:cat3 catmap) " ")
        (do (reset! curcat2 (:cat2 catmap))
            (str "</td></tr><tr><td></td><td valign=top>"@curcat2"</td><td>" (:cat3 catmap) " ")))
-       
      (do (reset! curcat1 (:cat1 catmap))
          (reset! curcat2 (:cat2 catmap))
          (str "</td></tr><tr><td>" @curcat1 "</td><td valign=top>" @curcat2 "</td><td>" (:cat3 catmap) " ")))))
@@ -131,6 +137,8 @@
                       (sparql/listvpl-sparql ldomain)
                       (= colorder "plv")
                       (sparql/listplv-sparql ldomain)
+                      (= colorder "cpvl")
+                      (sparql/listcpvl-sparql ldomain)
                       :else (sparql/listpvl-sparql ldomain))
               query-sparql-pr (replace query-sparql #"<" "&lt;")
               req (http/get aama
@@ -145,16 +153,18 @@
               lpvs (rest reqvec)
               lpvtable (cond
                         (= colorder "cpvl")
-                        (csv2cpvl lpvs)
-                        (= colorder "lpvmod")
+                        (csv2cpvl header lpvs)
+                        (= colorder header "lpvmod")
                         (csv2tablemod header lpvs)
                         :else (csv2table lpvs))]
           (log/info "sparql result status: " (:status req))
           [:div
-           [:p "Column Order: " colorder]
-           [:hr]
+           ;;[:p "Column Order: " colorder]
+           ;;[:hr]
            lpvtable
-          [:hr]
+           [:hr]
+           ;;[:h3 "Response:"]
+           ;;[:pre (:body req)]
            ;;[:h3#clickable "Query:"]
            ;;[:pre query-sparql-pr]
            ])
