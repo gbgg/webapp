@@ -19,7 +19,7 @@
   (let [langlist (slurp "pvlists/menu-langs.txt")
         languages (split langlist #"\n")]
   (layout/common 
-   [:h3 "Individual Paradigms"]
+   [:h3 "Individual Paradigm Detail"]
    (form-to [:post "/pdgmqry"]
             [:table
              [:tr [:td "PDGM Type: "]

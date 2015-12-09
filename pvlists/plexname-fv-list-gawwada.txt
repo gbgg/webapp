@@ -1,10 +1,10 @@
 Consecutive,Class1:sor
 Consecutive,Class2:ass
-Imperative,Negative,NegImprtvExx:ass
 Imperfective:ass
 Jussive,Affirmative:ass
 Jussive,Negative:ass
 Past,Negative:ass
 Perfective,Class1:oggay,ug
-Perfective,Class2,Template:ass
 Present,Negative:ass
+Template,Perfective,Class2:ass
+NegImprtvExx,Imperative,Negative:ass

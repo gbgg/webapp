@@ -122,7 +122,7 @@
       [:li (link-to "/bibInfo" "Bibliography")]]]
    [:li (link-to "#" "Paradigms")
      [:ul
-      [:li (link-to "/pdgm" "Single Paradigm")]
+      [:li (link-to "/pdgm" "Paradigm Detail")]
       [:li (link-to "#" "Multiple Paradigms")
        [:ul
         [:li (link-to "/multipdgmseq" "Default Display")]

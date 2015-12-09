@@ -1,6 +1,5 @@
 AnteriorPerfect,Affirmative:korj,ub,y
 Converb:ameet,gaf,ke,mar
-Converb,DiffSubjSuff:hir
 FutureProximate,Affirmative:korj
 Imperative,Affirmative:orroo
 Imperative,Negative:orroo
@@ -12,3 +11,4 @@ PosteriorSub:orroo
 Progressive,Affirmative:korj
 Progressive,Negative:korj
 TensefutProx,Affirmative:korj
+DiffSubjSuff,Converb:hir

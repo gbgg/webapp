@@ -1,10 +1,10 @@
-Negative,AuxNegSuff:baasl
 Imperative,Affirmative:baasl
 Imperative,Negative:baasl
-Imprtv,Aff,CommandForms:baasl
-Imprtv,Neg,CommandForms:baasl-2
-Juss,Aff,CommandForms:baasl
-Juss,Neg,CommandForms:baasl-2
 Jussive,Affirmative:baasl
 Jussive,Negative:baasl
 Past,Affirmative:baasl
+AuxNegSuff,Negative:baasl
+CommandForms,Imprtv,Affirmative:baasl
+CommandForms,Imprtv,Negative:baasl-2
+CommandForms,Juss,Affirmative:baasl
+CommandForms,Juss,Negative:baasl-2

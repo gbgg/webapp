@@ -1,5 +1,6 @@
-ObjSuff:
-Independent:Accusative
-ReflPoss:Accusative
-Independent:Genitive,Nominative
-ReflPoss:nom-gen
+ObjSuff
+Independent,Accusative
+ReflPoss,Accusative
+Independent,Genitive
+Independent,Nominative
+ReflPoss,nom-gen

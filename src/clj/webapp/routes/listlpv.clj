@@ -33,24 +33,24 @@
              [:tr [:td "Language Domain: " ]
               [:td 
                [:select#ldomain.required
-               {:title "Choose a language domain.", :name "ldomain"}
+                {:title "Choose a language domain.", :name "ldomain"}
                 [:optgroup {:label "Languages"} 
-                (for [language languages]
-                  [:option {:value (lower-case language)} language])]
-              [:optgroup {:label "Language Families"} 
-               (for [ldom ldoms]
-                (let [opts (split ldom #" ")]
-               [:option {:value (last opts)} (first opts) ]))
+                 (for [language languages]
+                   [:option {:value (lower-case language)} language])]
+                [:optgroup {:label "Language Families"} 
+                 (for [ldom ldoms]
+                   (let [opts (split ldom #" ")]
+                     [:option {:value ldom} (first opts) ]))
                  [:option {:disabled "disabled"} "Other"]]]]]
              [:tr [:td "Column Order: "]
               [:td [:select#colorder.required
                     {:title "Choose a column order.", :name "colorder"}
-                    [:option {:value "lpv" :label "Language-Property-Value"}]
-                    [:option {:value "pvl" :label "Property-Value-Language"}]
-                    [:option {:value "vpl" :label "Value-Property-Language"}]
-                    [:option {:value "plv" :label "Property-Language-Value"}]
-                    [:option {:value "cpvl" :label "PClass-Property-Value-Language"}]
-                    [:option {:value "lpvmod" :label "Drag/Sort Language-Property-Value"}]]]]
+                    [:option {:value "lang-prop-val" :label "Language-Property-Value"}]
+                    [:option {:value "prop-val-lang" :label "Property-Value-Language"}]
+                    [:option {:value "val-prop-lang" :label "Value-Property-Language"}]
+                    [:option {:value "prop-lang-val" :label "Property-Language-Value"}]
+                    [:option {:value "pclass-prop-val-lang" :label "PClass-Property-Language-Value"}]
+                    [:option {:value "lang-prop-val-modifiable" :label "Drag/Sort Language-Property-Value"}]]]]
              ;;(submit-button "Get values")
              [:tr [:td ]
               [:td [:input#submit
@@ -125,48 +125,52 @@
 (defn handle-listlpv-gen
   [ldomain colorder]
   (layout/common
-   [:h3#clickable "List Type: " colorder]
-    [:h3#clickable "Language Domain: " ldomain]
+   (let [opts (split ldomain #" ")
+         domain (first opts)
+         langs (last opts)
         ;; send SPARQL over HTTP request"
-        (let [query-sparql (cond 
-                      (= colorder "lpv")
-                      (sparql/listlpv-sparql ldomain)
-                      (= colorder "lpvmod")
-                      (sparql/listlpv-sparql ldomain)
-                      (= colorder "vpl")
-                      (sparql/listvpl-sparql ldomain)
-                      (= colorder "plv")
-                      (sparql/listplv-sparql ldomain)
-                      (= colorder "cpvl")
-                      (sparql/listcpvl-sparql ldomain)
-                      :else (sparql/listpvl-sparql ldomain))
-              query-sparql-pr (replace query-sparql #"<" "&lt;")
-              req (http/get aama
-                            {:query-params
-                             {"query" query-sparql ;;generated sparql
-                              ;;"format" "application/sparql-results+json"}})]
-                              ;;"format" "text"}})
-                              "format" "csv"}})
-              ;;reqvec (csv/parse-csv req)
-              reqvec (split (:body req) #"\n")
-              header (first reqvec)
-              lpvs (rest reqvec)
-              lpvtable (cond
-                        (= colorder "cpvl")
-                        (csv2cpvl header lpvs)
-                        (= colorder header "lpvmod")
-                        (csv2tablemod header lpvs)
-                        :else (csv2table lpvs))]
+         query-sparql (cond 
+                       (= colorder "lang-prop-val")
+                       (sparql/listlpv-sparql langs)
+                       (= colorder "lang-prop-val-modifiable")
+                       (sparql/listlpv-sparql langs)
+                       (= colorder "val-prop-lang")
+                       (sparql/listvpl-sparql langs)
+                       (= colorder "prop-lang-val")
+                       (sparql/listplv-sparql langs)
+                       (= colorder "pclass-prop-val-lang")
+                       (sparql/listcpvl-sparql langs)
+                       :else (sparql/listpvl-sparql langs))
+         query-sparql-pr (replace query-sparql #"<" "&lt;")
+         req (http/get aama
+                       {:query-params
+                        {"query" query-sparql ;;generated sparql
+                         ;;"format" "application/sparql-results+json"}})]
+                         ;;"format" "text"}})
+                         "format" "csv"}})
+         ;;reqvec (csv/parse-csv req)
+         reqvec (split (:body req) #"\n")
+         header (first reqvec)
+         lpvs (rest reqvec)
+         lpvtable (cond
+                   (= colorder "pclass-prop-val-lang")
+                   (csv2cpvl header lpvs)
+                   (= colorder header "lang-prop-val-modifiable")
+                   (csv2tablemod header lpvs)
+                   :else (csv2table lpvs))]
           (log/info "sparql result status: " (:status req))
           [:div
+           [:h3#clickable "List Type: " colorder]
+           [:h3#clickable "Language Domain: " domain]
+           [:p (str "(Languages: " langs ")")]
            ;;[:p "Column Order: " colorder]
            ;;[:hr]
            lpvtable
            [:hr]
-           ;;[:h3 "Response:"]
-           ;;[:pre (:body req)]
-           ;;[:h3#clickable "Query:"]
-           ;;[:pre query-sparql-pr]
+           [:h3 "Response:"]
+           [:pre (:body req)]
+           [:h3#clickable "Query:"]
+           [:pre query-sparql-pr]
            ])
           [:script {:src "js/goog/base.js" :type "text/javascript"}]
           [:script {:src "js/webapp.js" :type "text/javascript"}]

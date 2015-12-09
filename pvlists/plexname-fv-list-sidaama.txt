@@ -1,6 +1,4 @@
-Existence:no
 Connective:it
-Continuous,Compound:hank
 Imperative,Affirmative:it
 Imperative,Negative:it
 Imperfect:haishsh,it
@@ -8,6 +6,8 @@ InfinitiveConj:it
 InfinitiveConn:it
 InfinitiveSub:it
 PresentPerfect:haishsh,it
-PresentProgressive,Compound:it
 SimplePerfect:haishsh,it
-SimplePerfect,Structure,SuffStructure:wil
+Compound,Continuous:hank
+Compound,PresentProgressive:it
+Existence:no
+SuffStructure,Structure,SimplePerfect:wil

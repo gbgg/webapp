@@ -24,10 +24,6 @@ Converb,Negative,U,Durative:des
 Converb,Negative,U,Exobligative:des
 Definite,Affirmative,Definite,Durative:des
 Definite,Negative,Definite,Durative:des
-Imperative,SuffAlternate,VarB1:des
-Imperative,SuffAlternate,VarB2:des
-Imperative,SuffAlternate,VarB3:des
-Imperative,SuffAlternate,VarBx:des
 Imperative,Affirmative,Main:des
 Imperative,Negative,Main:des
 Imperfect,Desiderative:des
@@ -72,3 +68,7 @@ Perfect,Affirmative,Indefinite,Main:des
 Perfect,Negative,Protasis:des
 Perfect,Negative,RelSubj:des
 Perfect,Negative,Indefinite,Main:des
+SuffAlternate,Imperative,VarB1:des
+SuffAlternate,Imperative,VarB2:des
+SuffAlternate,Imperative,VarB3:des
+SuffAlternate,Imperative,VarBx:des

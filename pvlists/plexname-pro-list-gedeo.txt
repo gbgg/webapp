@@ -1,7 +1,4 @@
-Possessive,Absolutive:Fem,Masc
-Person,Absolutive:
-person:
-exponents,Absolutive:
-Person,Nominative:
-person:
-exponents,Nominative:
+Possessive,HeadAbsolutive,HeadFem
+Possessive,HeadAbsolutive,HeadMasc
+Independent,Absolutive
+Independent,Nominative

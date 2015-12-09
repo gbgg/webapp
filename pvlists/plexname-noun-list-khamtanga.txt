@@ -1,1 +1,1 @@
-Numeral,morphClass,numClass,
+Numeral,numClass,

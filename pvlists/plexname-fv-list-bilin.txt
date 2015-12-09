@@ -1,7 +1,3 @@
-RelativeOblique,Comparative,VREL,Imperfective:gab,was
-RelativeOblique,Comparative,VREL,Perfective:gab,was
-RelativeSubject,Comparative,VREL,Imperfective:gab
-RelativeSubject,Comparative,VREL,Perfective:gab
 Conjugation1,Future,Affirmative,U,Main,PngC,Perfective:gab
 Conjugation1,Imperative,Affirmative,_NULL,Main,U,Perfective:gab
 Conjugation1,Imperative,Negative,_NULL,Main,U,Perfective:gab
@@ -46,3 +42,7 @@ Conjugation2,U,Negative,Main,PngA2,Imperfective:kab
 Conjugation2,U,Negative,Main,PngA2,Perfective:kab
 Conjugation3,Past,Affirmative,Main,PngB,Perfective:kw
 Conjugation3,Present,Affirmative,Main,PngB,Imperfective:kw
+VREL,Comparative,RelativeOblique,Imperfective:gab,was
+VREL,Comparative,RelativeOblique,Perfective:gab,was
+VREL,Comparative,RelativeSubject,Imperfective:gab
+VREL,Comparative,RelativeSubject,Perfective:gab

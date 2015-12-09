@@ -1,6 +1,5 @@
 Participle,tam,
 Suffixes,derivedStem,orientationSel,tam,
-SubjRelClause-subjMarking,genderHead,tenseSel,
 DervStem,derivedStem,
-InterrGen,affirmationType,gramFunction,
+InterrGen,gramFunction,polarity,
 ComponentAnalysis,imprtvComponent,tam,

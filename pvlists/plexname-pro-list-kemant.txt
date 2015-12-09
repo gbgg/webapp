@@ -1,1 +1,2 @@
-Independent:ProSetA,ProSetB
+Independent,ProSetA
+Independent,ProSetB

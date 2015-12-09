@@ -136,14 +136,16 @@
                        {"query" query-sparql ;;generated sparql
                         ;;"format" "application/sparql-results+json"}})]
                         "format" "text"}})
+            req2 (clojure.string/replace (:body req) #"%%" " + ")
             ]
         [:div
          [:hr]
          [:h4 "Valcluster: " valcluster]
-         [:pre (:body req)]
+         ;;[:pre (:body req)]
+         [:pre req2]
          ;;[:hr]
          ;;[:h3#clickable "Query:"]
-         ;;[:pre query-sparql-pr]]
+         ;;[:pre query-sparql-pr]
         ])))
         [:script {:src "js/goog/base.js" :type "text/javascript"}]
         [:script {:src "js/webapp.js" :type "text/javascript"}]

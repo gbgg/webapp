@@ -1,4 +1,5 @@
-Bound:
-Independent:
-Possessive:Fem,M-or-pl
-Reduced:
+Bound
+Independent
+Reduced
+Possessive,HeadFem
+Possessive,HeadM_Pl

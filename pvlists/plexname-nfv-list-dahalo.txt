@@ -1,2 +1,1 @@
-Selector,selector,selectorPosition,
-selector exponents,selector,selectorPosition,
+Selector,selectorClass,selectorPosition,
