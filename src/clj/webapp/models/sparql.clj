@@ -1011,7 +1011,7 @@ SELECT DISTINCT  ?value
 WHERE {
 	?s ?p ?o .
         ?o rdfs:label ?value .
- 	FILTER (?o NOT IN ( aamas:lang) )
+ 	FILTER (?p NOT IN ( aamas:lang, aamas:memberOf, aamas:lexeme) )
 }
 ORDER BY ASC(?value) "))
 

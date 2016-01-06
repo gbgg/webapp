@@ -1,2 +1,1 @@
 DervStem,derived,
-Monoradical,complement,mood,polarity,tam,

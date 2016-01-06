@@ -159,9 +159,9 @@
     [:ol
      (for [pname pnames]
        [:li pname])]]
-   ;;[:hr]
-   ;;[:pre pdgmstr2]
    [:hr]
+   ;;[:pre pdgmstr2]
+   ;;[:hr]
    ;; For visible borders set {:border "1"}.
    [:table {:id "handlerTable" :class "tablesorter sar-table"}
     [:thead

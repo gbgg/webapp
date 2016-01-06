@@ -26,17 +26,22 @@
      [:p (link-to "/listmenulpv" "Lists for drop-down menus")
       [:ul [:li [:p "This set of queries generates the cached datastore-wide lists of languages, properties, and values for use in drop-down menus. Needs to be applied whenever a new language is added to the datastore, or when property or value designations have been edited."]]]]
      [:p (link-to "/listlpv" "Property-Value Indices by Language Domain")]
-      [:ul [:li "This set of queries will generate for a given language, language-family, or set of languages, four tables with entries:"
+      [:ul [:li "This set of queries will generate for a given language, language-family, or set of languages, index tables with entries:"
        [:ol 
         [:li "lang prop: val, val, val, ..." [:br]
-         "(all the vals for each prop in each lang)"]
+         "(All the vals for each prop in each lang.)"]
         [:li "prop val: lang, lang, lang, ..." [:br]
-         "(all the langs in which a given prop has a given val)"]
+         "(All the langs in which a given prop has a given val.)"]
         [:li " val prop: lang, lang, lang, ... " [:br]
-         "(all the langs in which a given val is associated with a given prop)"]
+         "(All the langs in which a given val is associated with a given prop.)"]
         [:li " prop lang: val, val, val, ..." [:br]
-         "(all the vals associated with a given prop in a given language, set of languages, or language family)"]]
-            [:p "These tables provide in effect a set of complete lang-prop-val indices for the language(s) in question. The script uses the lang-prop-val-list.template to generate for each lang a tsv/jason file which is essentially the schemata of the lang in question."]]]]))
+         "(All the vals associated with a given prop in a given language, set of languages, or language family.)"]
+        [:li " prop-class prop lang: val, val, val, ..." [:br]
+         "(As in no. 4, but where the properties are sorted by property-class. For the moment the following prop-classes are distinguished: [Not yet assigned], Inflectional-Class, PNG-Class, [Other] Syntactic/SemanticInfo-Class. A more flexible property classification scheme is being worked on.)"]
+        [:li "drag/sort lang prop val" [:br]
+         "(All the lang-prop-val triples in the language domain, displayed in a table with draggable columns and sortable rows. An eventual version of this table should be able to subsume tables 1-4, and perhaps also 5.)"]
+        ]
+            [:p "These tables provide in effect a set of complete lang-prop-val indices for the language(s) in question. The scripts use a simple SPARQL ?s ?p ?o template to generate for each lang a csv/jason file which is essentially a schemata (for lang-prop-val) or schemata index for the langs in question."]]]]))
 
 (defroutes helplistgen-routes
   (GET "/helplistgen" [] (helplistgen)))

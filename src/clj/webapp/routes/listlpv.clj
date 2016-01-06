@@ -50,7 +50,9 @@
                     [:option {:value "val-prop-lang" :label "Value-Property-Language"}]
                     [:option {:value "prop-lang-val" :label "Property-Language-Value"}]
                     [:option {:value "pclass-prop-val-lang" :label "PClass-Property-Language-Value"}]
-                    [:option {:value "lang-prop-val-modifiable" :label "Drag/Sort Language-Property-Value"}]]]]
+                    ;;[:option {:disabled "disabled"} "Drag/Sort LPV [in progress]"]
+                    [:option {:value "lang-prop-val-modifiable" :label "Drag/Sort Language-Property-Value [work in progress!]"}]
+                    ]]]
              ;;(submit-button "Get values")
              [:tr [:td ]
               [:td [:input#submit
@@ -111,6 +113,7 @@
       curcat2 (atom "")
        heads (split header #",")]
   ;; For visible borders set {:border "1"}.
+  [:div [:h4 "[NB: Work in Progress!]"]
   [:table {:id "handlerTable" :class "tablesorter sar-table"}
    [:thead
     (for [head heads]
@@ -120,7 +123,7 @@
       [:tr
       (let [cats (split lpv #",")]
         (for [cat cats]
-          [:td cat]))])]]))
+          [:td cat]))])]]]))
 
 (defn handle-listlpv-gen
   [ldomain colorder]
@@ -155,7 +158,7 @@
          lpvtable (cond
                    (= colorder "pclass-prop-val-lang")
                    (csv2cpvl header lpvs)
-                   (= colorder header "lang-prop-val-modifiable")
+                   (= colorder "lang-prop-val-modifiable")
                    (csv2tablemod header lpvs)
                    :else (csv2table lpvs))]
           (log/info "sparql result status: " (:status req))
@@ -167,10 +170,10 @@
            ;;[:hr]
            lpvtable
            [:hr]
-           [:h3 "Response:"]
-           [:pre (:body req)]
-           [:h3#clickable "Query:"]
-           [:pre query-sparql-pr]
+           ;; [:h3 "Response:"]
+           ;;[:pre (:body req)]
+           ;;[:h3#clickable "Query:"]
+           ;;[:pre query-sparql-pr]
            ])
           [:script {:src "js/goog/base.js" :type "text/javascript"}]
           [:script {:src "js/webapp.js" :type "text/javascript"}]

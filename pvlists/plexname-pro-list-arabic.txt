@@ -1,2 +1,2 @@
-Independent:
-Clitic:GenObj
+Independent
+Clitic,GenObj
