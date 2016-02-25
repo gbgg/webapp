@@ -8,7 +8,8 @@
             [compojure.route :as route]
             [webapp.routes.home :refer [home-routes]]
             [webapp.routes.langInfo :refer [langInfo-routes]]
-            [webapp.routes.bibInfo :refer [bibInfo-routes]]
+            [webapp.routes.bibInfoSpecial :refer [bibInfoSpecial-routes]]
+            [webapp.routes.bibInfoMaster :refer [bibInfoMaster-routes]]
             [webapp.routes.pdgm :refer [pdgm-routes]]            
             [webapp.routes.multipdgmseq :refer [multipdgmseq-routes]]
             [webapp.routes.multipdgmmod :refer [multipdgmmod-routes]]
@@ -39,7 +40,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes home-routes  aamaApp-routes langInfo-routes bibInfo-routes pdgm-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes listmenulpv-routes update-routes upload-routes listlgpr-routes listvlclplex-routes listlpv-routes multipdgmseq-routes multipdgmmod-routes helppdgms-routes helppvdisp-routes helplistgen-routes helpwebupdate-routes helpclupdate-routes app-routes)
+  (-> (routes home-routes  aamaApp-routes langInfo-routes bibInfoSpecial-routes bibInfoMaster-routes pdgm-routes pvlgpr-routes pvlgvl-routes pvprvllg-routes listmenulpv-routes update-routes upload-routes listlgpr-routes listvlclplex-routes listlpv-routes multipdgmseq-routes multipdgmmod-routes helppdgms-routes helppvdisp-routes helplistgen-routes helpwebupdate-routes helpclupdate-routes app-routes)
       (handler/site)
       (wrap-base-url)))
 

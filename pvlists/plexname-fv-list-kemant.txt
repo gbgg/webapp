@@ -17,11 +17,11 @@ NSubordinate,Negative:fay,was,xw
 Perfective,Affirmative:fay,was,xw
 Perfective,Negative:fay,was,xw
 PerfectiveComp:fay,was
+RelativeOblique,Imperfective:was
+RelativeOblique,Perfective:was
 RelativeOblique,HeadPlural,HeadCommon:was
 RelativeOblique,HeadSingular,HeadFem:was
 RelativeOblique,HeadSingular,HeadMasc:was
 RelativeSubject:fay,was
-BilinKemantRel,Comparative,RelativeOblique,Imperfective:gab,was
-BilinKemantRel,Comparative,RelativeOblique,Perfective:gab,was
-BilinKemantRel,Comparative,RelativeSubject,Imperfective:gab,was
-BilinKemantRel,Comparative,RelativeSubject,Perfective:gab,was
+RelativeSubject,Imperfective:was
+RelativeSubject,Perfective:was

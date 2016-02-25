@@ -133,7 +133,7 @@
                         "format" "csv"}})
             ]
         ;;(str (:body req))))
-        (clojure.string/replace (:body req) #" " ""))
+        (clojure.string/replace (:body req) #" " "_"))
     )))
 
 (defn csv2pdgm
@@ -180,7 +180,8 @@
            (for [pdgmrow pdgmrows]
              [:tr
               [:td (str "P-" pnum)]
-              (let [pdgmcells (split pdgmrow #",")]
+              (let [pdgmrow2 (clojure.string/replace pdgmrow #"_" " ")
+                    pdgmcells (split pdgmrow2 #",")]
                 (for [pdgmcell pdgmcells]
                   [:td pdgmcell]))])
            ;;([:tr [:td (str "P-" pnum " does not have the header: " header)]])

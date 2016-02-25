@@ -1,91 +1,75 @@
 {
-:Almkvist1881 "Die Bischari-Sprache Tu:-Bed'a:wiye in Nordost-Afrika (beschreibend und vergleichenddargestellet). Nova Acta Regiae Societatis Scientiarum Upsalensis. Serie Tertia 11.. Uppsala: Kaiserliche Akademie der Wissenschaften. 1881. Herman Almkvist."
-
-:Amha2001 "The Maale Language. . Reserach School of Asian, African and Amerindian Studies Universiteit Leiden, Leiden. 2001. Azeb Amha."
-
-:Appleyard1975 "'A descriptive outline of Kemant'. David Appleyard. 316-350. Bulletin of the School of African and Asian Studies. 38. 2. 1975."
-
-:Appleyard2007a "The Beja Language. David Appleyard. 1. 447-480. Morphologies of Asian and Africa (2 vols). Alan Kaye. Eisenbrauns. Winona Lake IN. 2007."
-
-:Appleyard2007b "Bilin Morphology. David Appleyard. 1. 481-504. Morphologies of Asian and Africa (2 vols). Alan Kaye. Eisenbrauns. Winona Lake IN. 2007."
-
-:Banti-Vergari2003 "'Grammatical Notes'. Giorgio Banti and Moreno Verbari. in Moreno and Roberta Vergari, A Basic Saho-English-Italian Dictionary. Asmara - Eritrea. 2003."
-
-:Beachy2005 "An Overview of Central Dizin Phonology and Morphology. MA Thesis. University of Texas at Austin. 2005. Marvin Dean Beachy."
-
-:BinyamSisay2008 "Aspects of Koorete Verb Morphology. PhD Thesis. University of Oslo. 2008. Modisu BinyamSisay."
-
-:Gragg1976 "Oromo of Wallagga. Gene Gragg. 166-195. Non-Semitic Languages of Ethiopia. Michigan State University Press. 1976. Lionel Bender."
-
-:Gragg1998 "Ge`ez (Ethiopic). Gene Gragg. 242-260. The Semitic Languages. Routledge, New York. 1998. Robert Hetzron."
-
-:Hayward1978 "'Bayso revisited. Some preliminary linguistic observations, Part I'. Richard Hayward. 539–570. Bulletin of the School of African and Asian Studies. 41. 4. 1978."
-
-:Hayward1979 "'Bayso revisited. Some preliminary linguistic observations, Part II'. Richard Hayward. 101–132. Bulletin of the School of African and Asian Studies. 42. 1. 1979."
-
-:Hayward1984a "The Arbore Language: A First Investigation Including a Vocabulary. Richard J. Hayward. . Helmut Buske Verlag. Hamburn. 1984. Kuschitische Sprachstudien 2."
-
-:Heine1980d "Elmolo. Bernd Heine. 173-219. The Non-Bantu Languages of Kenya. Language and Dialect Atlas of Kenya, vol. 2. Berlin: Dietrich Reimer Verlag. 1980. Bernd Heine."
-
-:Heine1982 "Boni Dialects. Language and dialect atlas of Kenya, vol. 10. Berlin: Dietrich Reimer Verlag. 1982. Bernd Heine."
-
-:Hetzron1969b  "The Verbal System of Southern Agaw. Near Easter Studies, vol. 12. LosAngeles: University of California Press. 1969. Robert Hetzron."
-
-:HudsonR1976 "The Beja Language. Richard Hudson. 139-154. Non-Semitic Languages of Ethiopia. Michigan State University Press. 1976. Lionel Bender."
-
-:Huehnergard1997 "A Grammar of Akkadian . John Huehnergard. Eisenbrauns. Winona Lake, IN. Copyright © 1997. Harvard Semitic Series ."
-
-:Kawachi2007 "A Grammar of Sidaama (Sidamo), a Cushitic Language of Ethiopia. PhD Dissertation. State University of New York at Buffalo. 2007. Kazuhiro Kawachi."
-
-:Kiessling1994 "Eine Grammatik des Burunge. Research and Progress Verlag, Hamburg. 1994. Roland Kiessling."
-
-:Lambdin1971 "Introduction to Biblical Hebrew. Scribner, New York. 1971. Thomas Lambdin."
-
-:Lambdin1983 "Introduction to Sahidic Coptic. Mercer University Press, Macon Ga.. 1983. Thomas Lambdin."
-
-:Lamberti-Sottile1997 "The Wolaytta Language. Studia linguarum africae orientalis 6. Rüdiger Köppe Verlag, Köln. 1997. Marcello Lamberti. Roberto Sottile."
-
-:Lamberti1993a "Materialien zum Yemsa. . Carl Winter Universitätsverlag, Heidelberg. 1993. Marcello Lamberti."
-
-:Lamberti1993b "Die Shinassha-Sprache. Materialen zum Boro. Carl Winter Universitätsverlag, Heidelberg. 1993b. Marcello Lamberti."
-
-:Mous1993 "A Grammar of Iraqw. Kuschitische Sprachstudien, 9. Helmut Buske Verlag, Hamburg. 1993. Maarten Mous."
-
-:Orwin1995 "Colloquial Somali. Colloquial Series. London/New York: Routledge. 1995 . Martin Orwin."
-
-:Parker-Hayward1985  "Appendix A: A Concise Outline of Phonology and Morphology . Richard J. Hayward . 214-297. An Afar-English-French Dictionary. School of Oriental and African Studies, University of London. London . 1985. Richard J. Hayward and E. M. Parker."
-
-:Pillinger-Galboran1999 "A Rendille dictionary: Including a grammatical outline and an English-Rendille Index. Cushitic Language Studies, vol. 14 . Köln: Köppe Verlag. 1999. Steve Pillinger and Letiwa Galboran."
-
-:Reinisch1893 "Die Bed'auye-Sprache in Nordost-Afrika. (I, II, III, IV). Sitzungsberichte der kaiserlichen Akademie der Wissenschaften in Wien.Philosophisch-historische Classe}, volume = {128/III, 128/VII, 130/VII, 131/III}. Wien: Kaiserliche Akademie der Wissenschaften. 1893. Leo Reinisch."
-
-:Roper1928 "Tu Bed'awie: An elementary handbook for the use of Sudan government officials. Hartford: Stephen Austin and Sons. 1928. E. M. Roper."
-
-:Saeed1999 "Somali. London Oriental and African Language Library. vol. 10 . Amsterdam/Philadelphia: J. Benjamins . 1999. John Ibraim Saeed."
-
-:Sava2005 "A grammar of Ts'amakko. Cushitic Language Studies 22. Rüdiger Köppe Verlag, Köln. 2005. Graziano Savà."
-
-:Schneider-Blom2007 "A grammar of Alaaba: A Highland East Cushitic Language of Ethiopia. Cushitic Language Studies 25. Rüdiger Köppe Verlag, Köln. 2007. Gertrud Schneider-Blum."
-
-:SimM1985 "'Kambaata Verb Morphophonemics'. Margaret Sim. 44-63. Afrikanistische Arbeitspapieren. 2. . 1985."
-
-:SimR1985 "'The morphological structure of some main verb forms in Hadiyya'. Ronald Sim. 10-43. Afrikanistische Arbeitspapieren. 2. . 1985."
-
-:Thackston1994 "Introduction to Koranic and Classical Arabic. Iranbooks, Bethesda Md.. 1994. Wheeler M. Thackston."
-
-:Thackston1999 "Introduction to Syriac. . IBEX Publisher, Bethesda Md.. 1999. Wheeler M. Thackston."
-
-:Tosco1991 "A Grammatical Sketch of Dahalo. Helmut Buske Verlag, Hamburg. 1991. Mauro Tosco."
-
-:Tosco2001b "The Dhaasanac language: grammar, texts, vocabulary of a Cushitic language of Ethiopia. Kuschitische Sprachstudien. vol. 17. Köln: Köppe Verlag. 2001. Mauro Tosco."
-
-:Tosco2007b "Gawwada Morphology. Mauro Tosco. 505-528. Morphologies of Asian and Africa (2 vols). Alan Kaye. Eisenbrauns. Winona Lake IN. 2007."
-
-:Wedekind-etal2007 "A learner's grammar of Beja (East Sudan). Köln: Rüdiger Köppe Verlag. 1928. Klaus Wedekind, Charlotte Wedekind, and Musa Abuzeinab."
-
-:WedekindC1985 "'Burji Verb Morphology and Morphophonemics'. Charlotte Wedekind. 110-139. Afrikanistische Arbeitspapieren. 2. . 1985."
-
-:WedekindK1985 "'Gedeo (Darasa) Verb Morphology and Morphophonemics'. Klaus Wedekind. 82-109. Afrikanistische Arbeitspapieren. 2. . 1985."
-
-:Welmers1952 "'Notes on the structure of Saho 1, 2 '. W. E. Welmers. 145-162; 236-251. Word. 8. . 1952."
+:Almkvist1881 "Almkvist, Herman. 1881. Die Bischari-Sprache Tu:-Bed'a:wiye in Nordost-Afrika (beschreibend und vergleichenddargestellet). Nova Acta Regiae Societatis Scientiarum Upsalensis. Serie Tertia 11.. Uppsala: Kaiserliche Akademie der Wissenschaften."
+:Amha2001 "Amha, Azeb. 2001.The Maale Language. . Reserach School of Asian, African and Amerindian Studies Universiteit Leiden, Leiden."
+:Appleyard1975 "Appleyard, David. 1975. 'A descriptive outline of Kemant'. Bulletin of the School of African and Asian Studies 38/2, 316-350."
+:Appleyard1987 "Appleyard, David. 1987. 'A grammatical sketch of Khamtanga - I'. Bulletin of the School of African and Asian Studies 50, 241-266; II 470-507."
+:Appleyard2007a "Appleyard, David. 2007. 'The Beja Language'. in Alan Kaye (ed.), Morphologies of Asian and Africa (2 vols). Eisenbrauns. Winona Lake IN.: Eisenbrauns. vol. 1, pp. 447-480."
+:Appleyard2007b "Appleyard, David. 2007. 'Bilin Morphology'.. in Alan Kaye (ed.), Morphologies of Asian and Africa (2 vols). Eisenbrauns. Winona Lake IN.: Eisenbrauns. vol. 1, pp. 481-504."
+:Banti&Vergari2003 "Banti, Giorgio, and Moreno Verbari. 2003. 'Grammatical Notes'. in Moreno and Roberta Vergari, A Basic Saho-English-Italian Dictionary. Asmara - Eritrea. pp. 15-38."
+:Beachy2005 "Beachy, Marvin Dean. 2005. An Overview of Central Dizin Phonology and Morphology. MA Thesis. University of Texas at Austin."
+:BinyamSisay2008 "BinyamSisay, Modisu. 2008. Aspects of Koorete Verb Morphology. PhD Thesis. University of Oslo."
+:Gragg1976 "Gragg, Gene. 1976. 'Oromo of Wallagga'. in Lionel Bender (ed.), Non-Semitic Languages of Ethiopia. Michigan State University Press. 1976.  166-195."
+:Gragg1998 "Gragg, Gene. 1998. 'Ge`ez (Ethiopic)'. in Robert Hetzron (ed.),  The Semitic Languages. Routledge, New York. pp.  242-260."
+:Gragg2013 "Gragg, Gene. 2013. 'Cushitic verb inflectional classes revisited', in Simeone-Senelle, Marie-Claude and Martine Vanhove (eds.) Proceedings of the 5th International Conference on Cushitic and Omotic Languages - Paris, 16-18 April 2008. Köln: Rüdiger Köppe Verlag, pp. 21-35."
+:Hayward1978 "Hayward, Richard, 1978. 'Bayso revisited. Some preliminary linguistic observations, Part I'. Bulletin of the School of African and Asian Studies. 41/4. pp. 539–570"
+:Hayward1979 "Hayward, Richard, 1979. 'Bayso revisited. Some preliminary linguistic observations, Part II'. Bulletin of the School of African and Asian Studies. 41/4. pp. 101-132."
+:Hayward1984a "Hayward, Richard, 1984. The Arbore Language: A First Investigation Including a Vocabulary. Kuschitische Sprachstudien 2. Hamburg: Helmut Buske Verlag."
+:Heine1980d    "Heine, Bernd. 1980. 'Elmolo'. in Bernd Heine, The Non-Bantu Languages of Kenya. Language and Dialect Atlas of Kenya, vol. 2. Berlin: Dietrich Reimer Verlag. pp. 173-219."
+:Heine1982    "Heine, Bernd. 1982. Boni Dialects. The Non-Bantu Languages of Kenya. Language and Dialect Atlas of Kenya, vol. 10. Berlin: Dietrich Reimer Verlag."
+:Hetzron1969b "Hetzron, Robert. 1969. The Verbal System of Southern Agaw. Near Eastern Studies, vol. 12. Los Angeles: University of California Press."
+:HudsonR1976 "Hudson, Richard. 1976. 'The Beja Language'. in Lionel Bender (ed.), Non-Semitic Languages of Ethiopia. Michigan State University Press. pp. 139-154."
+:Huehnergard1997 "Huehnergard, John. 1997. A Grammar of Akkadian. Harvard Semitic Studies 45.  Winona Lake, IN.: Eisenbrauns."
+:Kawachi2007 "Kawachi, Kazuhira. 2007. A Grammar of Sidaama (Sidamo), a Cushitic Language of Ethiopia. PhD Dissertation. State University of New York at Buffalo."
+:Kiessling1994 "Kiessling, Roland. 1994. Eine Grammatik des Burunge. Arikanistische Forschungen 13. Hamburg: Research and Progress Verlag."
+:Lambdin1971 "Lambdin, Thomas. 1971. Introduction to Biblical Hebrew. New York: Scribner, New York."
+:Lambdin1983 "Lambdin, Thomas. 1983. Introduction to Sahidic Coptic. Macon, Ga.: Mercer University Press."
+:Lamberti&Sottile1997 "Lamberti, Marcello, and Roberto Sottile. 1997. The Wolaytta Language. Studia linguarum africae orientalis 6. Köln: Rüdiger Köppe Verlag."
+:Lamberti1993a "Lamberti, Marcello. 1993. Materialien zum Yemsa. Heidelberg: Carl Winter Universitätsverlag, Heidelberg."
+:Lamberti1993b "Lamberti, Marcello. 1993. Die Shinassha-Sprache. Materialen zum Boro. Heidelberg: Carl Winter Universitätsverlag."
+:Mous1993 "Mous, Maarten. 1993. A Grammar of Iraqw. Kuschitische Sprachstudien, 9. Hamburg: Helmut Buske Verlag."
+:Orwin1995 "Orin, Martin. 1995. Colloquial Somali. Colloquial Series. London/New York: Routledge."
+:Parker&Hayward1985 "Parker, E. M., and Richard J. Hayward. 1985. 'A Concise Outline of Phonology and Morphology. Appendix A in E. M. Parker &  Richard J. Hayward, An Afar-English-French Dictionary. London: School of Oriental and African Studies, University of London. pp. 214-297."
+:Pillinger&Galboran1999 "Pillinger, Steve, and Letiwa Galboran. 1999. A Rendille dictionary: Including a grammatical outline and an English-Rendille Index. Cushitic Language Studies, vol. 14 . Köln: Köppe Verlag."
+:Reinisch1893 "Reinisch, Leo. 1893. Die Bed'auye-Sprache in Nordost-Afrika. (I, II, III, IV). Sitzungsberichte der kaiserlichen Akademie der Wissenschaften in Wien.Philosophisch-historische Classe}, volume = {128/III, 128/VII, 130/VII, 131/III}. Wien: Kaiserliche Akademie der Wissenschaften."
+:Roper1928 "Roper, E. M. 1928. Tu Bed'awie: An elementary handbook for the use of Sudan government officials. Hartford: Stephen Austin and Sons."
+:Saeed1999 "Saeed, John Ibrahim. Somali. London Oriental and African Language Library. vol. 10 . Amsterdam/Philadelphia: J. Benjamins."
+:Sava2005 "Savà, Graziano. 2005. A grammar of Ts'amakko. Cushitic Language Studies 22. Köln: Rüdiger Köppe Verlag."
+:Schneider-Blum2007 "Schneider-Blum, Gertrud. 2007. A grammar of Alaaba: A Highland East Cushitic Language of Ethiopia. Cushitic Language Studies 25. Köln: Rüdiger Köppe Verlag."
+:SimM1985 "Sim, Margaret. 1985. 'Kambaata Verb Morphophonemics'. Afrikanistische Arbeitspapieren 2, 44-63."
+:SimR1985 "Sim, Ronald. 1985. 'The morphological structure of some main verb forms in Hadiyya'. Afrikanistische Arbeitspapieren 2, 10-43."
+:Thackston1994 "Thackston, Wheeler M. 1994. Introduction to Koranic and Classical Arabic.  Bethesda Md.: Iranbooks."
+:Thackston1999 "Thackston, Wheeler M. 1999. Introduction to Syriac. Bethesda Md.: IBEX Publisher."
+:Tosco1991 "Tosco, Mauro. 1991. A Grammatical Sketch of Dahalo. Hamburg: Helmut Buske Verlag."
+:Tosco2001b "Tosco, Mauro. 2001. The Dhaasanac language: grammar, texts, vocabulary of a Cushitic language of Ethiopia. Kuschitische Sprachstudien. vol. 17. Köln: Köppe Verlag."
+:Tosco2007b "Tosco, Mauro. 2007. 'Gawwada Morphology'. in Alan Kaye (ed.), Morphologies of Asian and Africa (2 vols). Eisenbrauns. Winona Lake IN.: Eisenbrauns. vol. 1, pp. 505-528."
+:Wedekind-etal2007 "Wedekind, Klaus, Charlotte Wedekind, and Musa Abuzeinab. 2007. A learner's grammar of Beja (East Sudan). Köln: Rüdiger Köppe Verlag."
+:WedekindC1985 "Wedekind, Charlotte. 1985. 'Burji Verb Morphology and Morphophonemics'. Afrikanistische Arbeitspapieren 2, 110-139"
+:WedekindK1985 "Wedekind, Klaus. 1985. 'Gedeo (Darasa) Verb Morphology and Morphophonemics'. Afrikanistische Arbeitspapieren 2, 82-109."
+:Welmers1952 "Welmers, W. E. 1952. 'Notes on the structure of Saho 1, 2 ', Word 8, 145-162; 236-251."
+:Banti2004 "Banti, Giorgio. 2004. 'New Perspectives on the Cushitic Verbal System'. In Simpson, Andrew (ed.) Proceedings of the Twenty-Seventh Annual Meeting of the Berkeley Linguistics Society (March 22-25, 2001) – Special Session on Afroasiatic Languages. Pp. 1-48. Berkeley Linguistics Society, Berkeley."
+:Aronoff2016 "Aronoff, Mark. (to appear).  'Unnatural kinds'.  In The Morphome Debate: Diagnosing and Analysing Morphomic Patterns, ed. by Ana Luis and Ricardo Bermudez-Otero. Oxford University Press. "
+:Aronoff2015 "Aronoff, Mark. 2015. 'Thoughts on morphological and cultural evolution'. In Laurie Bauer et al, eds. Semantics of Complex Words. Springer International. 277 - 288. "
+:Aronoff&Lindsay2015 "Aronoff, Mark, and Mark Lindsay. 2015. 'Partial organization in languages: la langue est un système où la plupart se tient'. Décembrettes 8. "
+:Blevins&Blevins2009 "Blevins, James P. and Juliette (eds). 2009. Analogy in Grammar: Form and Acquisition, Oxford University Press. "
+:Boyd&Richerson "Boyd, Robert, and Peter J. Richerson. 1985. Culture and the evolutionary process. Chicago: University of Chicago Press."
+:Corbett2012 "Corbett, Greville G. 2012. Features.  Cambridge Textbooks in Linguistics."
+:Corbett&Baerman2006 "Corbett, Greville G. & Matthew Baerman. 2006. 'Prolegomena to a typology of morphological features'. Morphology 16.231-246. "
+:Finkel&Stump2009 "Finkel, Raphael, and Gregory Stump (2009), 'Principal parts and degrees of paradigmatic transparency', in Blevins & Blevins, pp. 13-53. "
+:Fulmer1991 "Fulmer, S. Lee. 1991. 'Dual-Position Affixes in Afar: An Argument for Phonologically-Driven Morphology'. in Aaron L. Halpern (ed.), Proceedings of the 9th West Coast Conference on Formal Linguistics, 1990. Stanford: CSLI. pp. 189-204."
+:Hayward&Orwin1991 "Hayward, Richard J., and Orwin, Martin. 1991. 'The Prefix Conjugation in Qarar-Saho: The Survival and Revival of a Paradigm - Part I.' African Languages and Cultures 4;2, 157-176."
+:Hetzron1980 "Hetzron, Robert. 1980. 'The Limits of Cushitic'. Sprache und Geschichte in Afrika 2, 7-126. (pdf =>scan)"
+:Hetzron1990 "Hetzron, Robert. 1990. 'Dialectal Variation in Proto-Afroasiatic'. In Ph. Baldi (ed.) Linguistic change and reconstruction methodology. Berlin/New York: Mouton de Gruyter. "
+:Joseph2014 "Joseph, Brian (2014), “On arguing from diachrony for paradigms,” in Robeets & Bisang, pp. 89-102. "
+:Lindsay&Aronoff2013 "Lindsay, Mark, and Mark Aronoff. 2013. 'Self-organizing morphological systems'. In Selected proceedings of the 7th Décembrettes, ed. Fabio Montermini, Gilles Boyé, and Jesse Tseng, 133–153. Muenchen: Lincom Europa."
+:Nichols2104 "Nichols, Johanna (2014), 'Derivational paradigms in diachrony and comparison, in Robbeets & Bisang, pp. 61-88. "
+:Praetorius1893 "Praetorius, Franz. 1893. Zur Grammatik der Gallasprache. Berlin: Wolf Peiser."
+:Richerson&Boyd2005 "Richerson, Peter J., and Robert Boyd. 2005. Not by genes alone: How culture transformed human  evolution. Chicago: University of Chicago Press."
+:Robbeets-etal2014 "Robbeets, Martine, and Walter Bisang (2014), Paradigm Change: In the Transeurasian languages and beyond, Benjamins."
+:Rucart2001 "Rucart, Pierre. 2001. 'The Vocalism of Strong Verbs in Afar.' In Simpson, Andrew (ed.) Proceedings of the Twenty-Seventh Annual Meeting of the Berkeley Linguistics Society (March 22-25, 2001) – Special Session on Afroasiatic Languages. Pp. 1-48. Berkeley Linguistics Society, Berkeley 2004 "
+:Sasse1980 "Sasse1980. 'Ostkuschitische und semitische Verbalklassen'. In W. Diem & S. Wild (eds.) Studien aus Arabistik und Semitistik (Festschrift Anton Spitaler). Wiesbaden: Otto Harrassowitz, pp. 151-174. "
+:Stump2016 "Stump, Gregory. 2016. Inflectional paradigms: Content and form at the syntax-morphology interface. Cambridge University Press. "
+:Tosco2007 "Tosco, Mauro. 2007. 'Feature-geometry and diachrony: The development of the subject clitics in Cushitic and Romance'. Diachronica 24:1, 119-153."
+:Voigt1998 "Voigt, Rainer 1998. 'Zur Gliederung des Kuschitischen: das Bedauye und das Restkuschitische'. In Fiedler, C. Griefenow-Mewis & Reineke (eds.) Afrikanische Sprachen im Brennpunkt der Forschung. Köln: Rüdiger Köppe. "
+:Zaborski1997a "Zaborski1997a. 'Problems of the Beja Present Seven Years Later'. Lingua Posnaniensis 39:145-153. "
+:Zaborski1997b "Zaborski1997b. 'The Position of Cushitic and Berber within Hamitosemitic Dialects'. In A. Bausi & M. Tosco (eds.) Afroasiatica Neapolitana. Naples: Istituto Universitario Orientale."
 }

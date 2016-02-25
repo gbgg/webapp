@@ -42,6 +42,7 @@
   [language]
   ;; send SPARQL over HTTP request
   (let [langlist (slurp "pvlists/menu-langs.txt")
+        bibrefmap (read-string (slurp "pvlists/bibrefs.clj"))
         languages (split langlist #"\n")
         Language (capitalize language)
         lang (read-string (str ":" language))
@@ -93,7 +94,11 @@
              [:tr 
               [:th "Data Source:"] [:td 
                                     (for [source sources]
-                                      [:div (str source " ")])]
+                                      (let [bref (keyword (str source))
+                                           ref (bref bibrefmap)]
+                                      [:div [:p (str source ":")]
+                                       [:p (str ref)]
+                                       ]))]
               ]
              [:tr
               [:th "Description:"] [:td desctxt]
