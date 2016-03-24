@@ -1,5 +1,5 @@
-Prefix,Conditional,CC:bis
-Prefix,Conditional,CCC:kitim
+Prefix,Aorist,CC:bis
+Prefix,Aorist,CCC:kitim
 Prefix,ConditionalPerfect,CC:bis
 Prefix,Future,Affirmative,CC,Main:bis
 Prefix,Future,Negative,CC,Main:bis
@@ -26,7 +26,7 @@ Prefix,Present,Affirmative,CCC:kitim
 Prefix,Present,Negative,CC,Main:bis
 Prefix,Present,Negative,CC,Subordinate:bis
 Prefix,Present,Negative,CCC:kitim
-Suffix,Conditional:tam
+Suffix,Aorist:tam
 Suffix,ConditionalPredicative:tam
 Suffix,Future,Affirmative,Main:tam
 Suffix,Future,Affirmative,Subordinate:tam

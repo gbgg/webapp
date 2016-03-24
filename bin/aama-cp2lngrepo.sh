@@ -26,7 +26,7 @@ do
     cd ../aama/$lang
     git add *.edn
     git add *.ttl
-    git commit -am "revised edn/ttl added (after edn2ttl in aama-data)"
+    git commit -am "paradigm sort and col. order normalized for all pdgm edn files"
     git push origin master
     cd ../../webapp
 done

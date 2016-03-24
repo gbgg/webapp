@@ -1,0 +1,329 @@
+${
+[
+[:a1 :b1 :c3 "d1"]
+[:a1 :b2 :c1 "d2"]
+[:a1 :b2 :c2 "d3"]
+[:a1 :b3 :c1 "d4"]
+[:a1 :b3 :c2 "d5"]
+[:a2 :b1 :c3 "d6"]
+[:a2 :b2 :c3 "d7"]
+[:a2 :b3 :c3 "d8"]
+]
+
+[
+[:a2 :b3 :c3 "d8"]
+[:a1 :b3 :c2 "d5"]
+[:a1 :b2 :c1 "d2"]
+[:a1 :b3 :c1 "d4"]
+[:a2 :b1 :c3 "d6"]
+[:a1 :b2 :c2 "d3"]
+[:a2 :b2 :c3 "d7"]
+[:a1 :b1 :c3 "d1"]
+]
+
+ [[:gender, :number, :person, :token] 
+[:Masc, :Singular, :Person2, "tam-tinii-`a"],
+[:Masc, :Singular, :Person3, "tam-íiní"],
+[:Common, :Plural, :Person1, "tam-này"],
+[:Fem, :Singular, :Person2, "tam-tinii-`"],
+[:Fem, :Singular, :Person3, "tam-tíní"],
+[:Common, :Singular, :Person1, "tam-àní"],
+[:Common, :Plural, :Person2, "tam-teéna"],
+[:Common, :Plural, :Person3, "tam-eén"]]
+
+;; simple vector sort
+[[:Common :Plural :Person1 "tam-này"]
+ [:Common :Plural :Person2 "tam-teéna"]
+ [:Common :Plural :Person3 "tam-eén"]
+ [:Common :Singular :Person1 "tam-àní"]
+ [:Fem :Singular :Person2 "tam-tinii-`"]
+ [:Fem :Singular :Person3 "tam-tíní"]
+ [:Masc :Singular :Person2 "tam-tinii-`a"]
+ [:Masc :Singular :Person3 "tam-íiní"]
+ [:gender :number :person :token]
+]
+
+;; in repl
+;;https://groups.google.com/forum/#!topic/clojure/VVVa3TS15pU
+;;Write your own compare function which does that.  For example, for the
+;;general case:
+(def asc compare)
+(def desc #(compare %2 %1))
+(defn compare-by [[k comp & more] x y]
+  (let [result (comp (k x) (k y))]
+    (if (and (zero? result) (seq more))
+      (recur more x y)
+      result)))
+
+(def pngset #{:number :person :gender :token})
+(def pngsort [:number desc :person asc :gender desc])
+(def nonpngset (clojure.set/difference (set schema) pngset))
+(def nonpngvec (vec (sort nonpngset)))
+(def nonpngsort (vec (interleave nonpngvec (repeat asc))))
+(def schemaSort (vec (concat nonpngsort pngsort)))
+(def pngs (clojure.set/difference (set schema) nonpngset))
+(def pngvec (atom []))
+(if (pngs :number) (swap! pngvec conj :number))
+(if (pngs :person) (swap! pngvec conj :person))
+(if (pngs :gender) (swap! pngvec conj :gender))
+(if (pngs :token) (swap! pngvec conj :token))
+(def schemaTable (vec (concat nonpngvec @pngvec)))
+
+(defn termmap [termcluster schema] (for [term termcluster] (apply assoc {} (interleave schema term))))
+(defn tmapsort [tmap schemaSort] (sort #(compare-by schemaSort %1 %2) tmap))
+(defn table [tmapsort schemaTable] (vec (for [term tmapsort] (vec (for [prop schemaTable] (prop term))))))
+
+(def tmap (termmap termcluster schema))
+(def tmapsrt (tmapsort tmap schemaSort))
+(def tbl (table tmapsrt schemaTable))
+
+ 
+;;=======================
+;;trial termclusters
+
+(def schema  [:gender, :number, :person, :token] )
+(def termcluster [[:Masc, :Singular, :Person2, "tam-tinii-`a"],
+           [:Masc, :Singular, :Person3, "tam-íiní"],
+           [:Common, :Plural, :Person1, "tam-này"],
+           [:Fem, :Singular, :Person2, "tam-tinii-`"],
+           [:Fem, :Singular, :Person3, "tam-tíní"],
+           [:Common, :Singular, :Person1, "tam-àní"],
+           [:Common, :Plural, :Person2, "tam-teéna"],
+           [:Common, :Plural, :Person3, "tam-eén"]])
+
+(def schema  [:gender, :number, :token] )
+(def termcluster [[:Masc, :Singular, "tam-àa"],
+	    [:Common, :Plural, "tam-aa-`na"],
+	    [:Fem, :Singular, "tam-ìi"]])
+ednsort.core=> tmap
+({:token "tam-àa", :number :Singular, :gender :Masc} {:token "tam-aa-`na", :number :Plural, :gender :Common} {:token "tam-ìi", :number :Singular, :gender :Fem})
+ednsort.core=> tmapsrt
+({:token "tam-àa", :number :Singular, :gender :Masc}
+ {:token "tam-ìi", :number :Singular, :gender :Fem}
+ {:token "tam-aa-`na", :number :Plural, :gender :Common})
+ednsort.core=> tbl
+[[:Singular nil :Masc "tam-àa"] [:Singular nil :Fem "tam-ìi"] [:Plural nil :Common "tam-aa-`na"]]
+
+(def schema  [:case, :defClass, :gender, :number, :token] )
+(def termcluster [[:Nom_obj, :DefClass3, :Masc, :Plural, "?i-"],
+	    [:Nom_obj, :DefClass3, :Fem, :Plural, "ti-"],
+	    [:Nom_obj, :DefClass3, :Fem, :Singular, "ti-"],
+	    [:Nom_obj, :DefClass2, :Fem, :Plural, "ti-"],
+	    [:Object, :DefClass1, :Fem, :Plural, "tee-"],
+	    [:Object, :DefClass1, :Masc, :Plural, "?ee-"],
+	    [:Nom_obj, :DefClass2, :Fem, :Singular, "ti-"],
+	    [:Nom_obj, :DefClass2, :Masc, :Plural, "yi-"],
+	    [:Nom_obj, :DefClass2, :Masc, :Singular, "wi-"],
+	    [:Subject, :DefClass1, :Masc, :Plural, "?aa-"],
+	    [:Nom_obj, :DefClass3, :Masc, :Singular, "?i-"],
+	    [:Subject, :DefClass1, :Fem, :Plural, "taa-"],
+	    [:Object, :DefClass1, :Masc, :Singular, "?oo-"],
+	    [:Object, :DefClass1, :Fem, :Singular, "too-"],
+	    [:Subject, :DefClass1, :Masc, :Singular, "?uu-"],
+	    [:Subject, :DefClass1, :Fem, :Singular, "tuu-"]])
+ednsort.core=> (sort termcluster)
+([:Nom_obj :DefClass2 :Fem :Plural "ti-"]
+ [:Nom_obj :DefClass2 :Fem :Singular "ti-"]
+ [:Nom_obj :DefClass2 :Masc :Plural "yi-"]
+ [:Nom_obj :DefClass2 :Masc :Singular "wi-"]
+ [:Nom_obj :DefClass3 :Fem :Plural "ti-"]
+ [:Nom_obj :DefClass3 :Fem :Singular "ti-"]
+ [:Nom_obj :DefClass3 :Masc :Plural "?i-"]
+ [:Nom_obj :DefClass3 :Masc :Singular "?i-"]
+ [:Object :DefClass1 :Fem :Plural "tee-"]
+ [:Object :DefClass1 :Fem :Singular "too-"]
+ [:Object :DefClass1 :Masc :Plural "?ee-"]
+ [:Object :DefClass1 :Masc :Singular "?oo-"]
+ [:Subject :DefClass1 :Fem :Plural "taa-"]
+ [:Subject :DefClass1 :Fem :Singular "tuu-"]
+ [:Subject :DefClass1 :Masc :Plural "?aa-"]
+ [:Subject :DefClass1 :Masc :Singular "?uu-"])
+ednsort.core=> tmap (termmap (sort termcluster) schema)
+({:token "ti-", :number :Plural, :gender :Fem, :defClass :DefClass2, :case :Nom_obj}
+{:token "ti-", :number :Singular, :gender :Fem, :defClass :DefClass2, :case :Nom_obj}
+{:token "yi-", :number :Plural, :gender :Masc, :defClass :DefClass2, :case :Nom_obj}
+{:token "wi-", :number :Singular, :gender :Masc, :defClass :DefClass2, :case :Nom_obj}
+{:token "ti-", :number :Plural, :gender :Fem, :defClass :DefClass3, :case :Nom_obj}
+{:token "ti-", :number :Singular, :gender :Fem, :defClass :DefClass3, :case :Nom_obj}
+{:token "?i-", :number :Plural, :gender :Masc, :defClass :DefClass3, :case :Nom_obj}
+{:token "?i-", :number :Singular, :gender :Masc, :defClass :DefClass3, :case :Nom_obj}
+{:token "tee-", :number :Plural, :gender :Fem, :defClass :DefClass1, :case :Object}
+{:token "too-", :number :Singular, :gender :Fem, :defClass :DefClass1, :case :Object}
+{:token "?ee-", :number :Plural, :gender :Masc, :defClass :DefClass1, :case :Object}
+{:token "?oo-", :number :Singular, :gender :Masc, :defClass :DefClass1, :case :Object}
+{:token "taa-", :number :Plural, :gender :Fem, :defClass :DefClass1, :case :Subject}
+{:token "tuu-", :number :Singular, :gender :Fem, :defClass :DefClass1, :case :Subject}
+{:token "?aa-", :number :Plural, :gender :Masc, :defClass :DefClass1, :case :Subject}
+{:token "?uu-", :number :Singular, :gender :Masc, :defClass :DefClass1, :case :Subject})
+ednsort.core=>  tmapsrt ((sort #(compare-by schemaSort %1 %2) tmap))
+({:token "wi-", :number :Singular, :gender :Masc, :defClass :DefClass2, :case :Nom_obj}
+{:token "ti-", :number :Singular, :gender :Fem, :defClass :DefClass2, :case :Nom_obj}
+{:token "yi-", :number :Plural, :gender :Masc, :defClass :DefClass2, :case :Nom_obj}
+{:token "ti-", :number :Plural, :gender :Fem, :defClass :DefClass2, :case :Nom_obj}
+{:token "?i-", :number :Singular, :gender :Masc, :defClass :DefClass3, :case :Nom_obj}
+{:token "ti-", :number :Singular, :gender :Fem, :defClass :DefClass3, :case :Nom_obj}
+{:token "?i-", :number :Plural, :gender :Masc, :defClass :DefClass3, :case :Nom_obj}
+{:token "ti-", :number :Plural, :gender :Fem, :defClass :DefClass3, :case :Nom_obj}
+{:token "?oo-", :number :Singular, :gender :Masc, :defClass :DefClass1, :case :Object}
+{:token "too-", :number :Singular, :gender :Fem, :defClass :DefClass1, :case :Object}
+{:token "?ee-", :number :Plural, :gender :Masc, :defClass :DefClass1, :case :Object}
+{:token "tee-", :number :Plural, :gender :Fem, :defClass :DefClass1, :case :Object}
+{:token "?uu-", :number :Singular, :gender :Masc, :defClass :DefClass1, :case :Subject}
+{:token "tuu-", :number :Singular, :gender :Fem, :defClass :DefClass1, :case :Subject}
+{:token "?aa-", :number :Plural, :gender :Masc, :defClass :DefClass1, :case :Subject}
+{:token "taa-", :number :Plural, :gender :Fem, :defClass :DefClass1, :case :Subject})
+ednsort.core=> tbl ((vec (for [term tmapsrt] schemaTable))
+[[:Nom_obj :DefClass2 :Singular :Masc "wi-"]
+ [:Nom_obj :DefClass2 :Singular :Fem "ti-"]
+ [:Nom_obj :DefClass2 :Plural :Masc "yi-"]
+ [:Nom_obj :DefClass2 :Plural :Fem "ti-"]
+ [:Nom_obj :DefClass3 :Singular :Masc "?i-"]
+ [:Nom_obj :DefClass3 :Singular :Fem "ti-"]
+ [:Nom_obj :DefClass3 :Plural :Masc "?i-"]
+ [:Nom_obj :DefClass3 :Plural :Fem "ti-"]
+ [:Object :DefClass1 :Singular :Masc "?oo-"]
+ [:Object :DefClass1 :Singular :Fem "too-"]
+ [:Object :DefClass1 :Plural :Masc "?ee-"]
+ [:Object :DefClass1 :Plural :Fem "tee-"]
+ [:Subject :DefClass1 :Singular :Masc "?uu-"]
+ [:Subject :DefClass1 :Singular :Fem "tuu-"]
+ [:Subject :DefClass1 :Plural :Masc "?aa-"]
+ [:Subject :DefClass1 :Plural :Fem "taa-"]]
+
+;;=================================================
+(def schema  [:case, :langVar, :number, :token] )
+(def termcluster [[:Object, :Arteiga, :Singular, "..."],
+	    [:Object, :Bishari, :Singular, "-[h]ooh"],
+	    [:Object, :Arteiga, :Plural, "..."],
+	    [:Possessive, :Arteiga, :Plural, "-`hina"],
+	    [:Possessive, :Hadendowa, :Singular, "..."],
+	    [:Possessive, :Bishari, :Singular, "- h"],
+	    [:Object, :Arteiga, :Singular, "Halanga"],
+	    [:Object, :Bishari, :Plural, "-[h]oohna"],
+	    [:Possessive, :Hadendowa, :Plural, "-  / -hna"],
+	    [:Object, :Arteiga, :Plural, "Halanga"],
+	    [:Possessive, :Arteiga, :Plural, "Halanga"],
+	    [:Possessive, :Arteiga, :Singular, "..."],
+	    [:Possessive, :Bishari, :Plural, "- hna"],
+	    [:Object, :Hadendowa, :Singular, "..."],
+	    [:Object, :Hadendowa, :Plural, "..."],
+	    [:Possessive, :Arteiga, :Singular, "Halanga"]])
+
+
+
+(def schema  [:case, :number, :person, :token ] )
+(def termcluster [[:Possessive, :Plural, :Person3, "-`hina"],
+	    [:Object, :Plural, :Person1, "-hoon"],
+	    [:Object, :Plural, :Person3, "..."],
+	    [:Possessive, :Plural, :Person1, "-‘n"],
+	    [:Possessive, :Singular, :Person1, "..."],
+	    [:Object, :Singular, :Person1, "-heèb", "Reinisch [1893:109"],
+	    [:Possessive, :Singular, :Person2, "-‘k"],
+	    [:Possessive, :Plural, :Person2, "-‘kna"],
+	    [:Object, :Singular, :Person2, "-hook"],
+	    [:Possessive, :Singular, :Person3, "..."],
+	    [:Object, :Plural, :Person2, "-hookna"],
+	    [:Object, :Singular, :Person3, "..."]])
+
+(def schema  [:number, :polarity, :tam, :tamStemClass, :token] )
+(def termcluster [[:_NA, :Negative, :PartPresent, :NegClass, "-dabiil-"],
+	    [:_NA, :Affirmative, :Optative, :ModClass, "-iidbil-"],
+	    [:_NA, :Affirmative, :Past, :PastClass, "-dbil-"],
+	    [:_NA, :Affirmative, :PartConjunctive, :PartClass, "dibl-"],
+	    [:_NA, :Negative, :Present, :PastClass, "-dbil-"],
+	    [:Singular, :Affirmative, :Present, :PresSgClass, "-danbiil-"],
+	    [:Plural, :Affirmative, :Present, :PresClass, "-eedbil-"],
+	    [:_NA, :Affirmative, :PartFuture, :PartClass, "dibl-"],
+	    [:_NA, :Affirmative, :Jussive, :ModClass, "-iidbil-"],
+	    [:_NA, :Negative, :Optative, :NegClass, "-dabiil-"],
+	    [:_NA, :Affirmative, :PartPast, :PartClass, "dibl-"],
+	    [:_NA, :Affirmative, :PartPresent, :PartClass, "dibl-"],
+	    [:_NA, :Affirmative, :Aorist, :AoristClass, "-iidbil-"],
+	    [:_NA, :Affirmative, :Imperative, :PastClass, "-dbil-"],
+	    [:_NA, :Negative, :Imperative, :NegClass, "-dabiil-"],
+	    [:_NA, :Negative, :PartConjunctive, :NegClass, "-dabiil-"]])
+
+(def schema [:conjClass, :lexeme, :tam, :token, :token-note] )
+(def termcluster [[:Suffix, :tam, :PartPast, "tam-aà", "Suff: -aà, \"having eaten\""],
+                  [:Suffix, :tam, :PartFuture, "tam-át", "Suff: -át, \"will eat\""],
+                  [:Suffix, :tam, :PartConjunctive, "tam-eetì", "Suff: -eetì, \"X ate and ...\""],
+                  [:Prefix, :dbl, :PartNegative, "baa-dabiíl", "Pref: baa-, \"not collecting\""],
+                  [:Prefix, :dbl, :PartPast, "dibl-aà", "Suff: -aà, \"having collected\""],
+                  [:Suffix, :tam, :PartNegative, "baa-tam-ày", "Pref+Suff: baa- + -ày, \"not eating\""],
+                  [:Prefix, :dbl, :PartConjunctive, "dibil-tií", "Suff: -tií, \"X collected and ...\""],
+                  [:Prefix, :dbl, :PartFuture, "dibl-át", "Suff: -át, \"will collect\""],
+                  [:Suffix, :tam, :PartPresent, "tam-ée", "Suff: -ée, \"(while) eating\""],
+                  [:Prefix, :dbl, :PartPresent, "dibl-ée", "Suff: -ée, \"(while) collecting\""]])
+
+;;========================
+(def termmap (for [term termcluster] (apply assoc {} (interleave schema term))))
+ednsort.core=> termmap
+({:token "tam-tinii-`a", :person :Person2, :number :Singular, :gender :Masc}
+ {:token "tam-íiní", :person :Person3, :number :Singular, :gender :Masc}
+ {:token "tam-này", :person :Person1, :number :Plural, :gender :Common}
+ {:token "tam-tinii-`", :person :Person2, :number :Singular, :gender :Fem}
+ {:token "tam-tíní", :person :Person3, :number :Singular, :gender :Fem}
+ {:token "tam-àní", :person :Person1, :number :Singular, :gender :Common}
+ {:token "tam-teéna", :person :Person2, :number :Plural, :gender :Common}
+ {:token "tam-eén", :person :Person3, :number :Plural, :gender :Common})
+
+ednsort.core=> (def tmapsort (sort #(compare-by [:number desc, :person asc, :gender desc] %1 %2) termmap))
+({:token "tam-àní", :person :Person1, :number :Singular, :gender :Common}
+ {:token "tam-tinii-`a", :person :Person2, :number :Singular, :gender :Masc}
+ {:token "tam-tinii-`", :person :Person2, :number :Singular, :gender :Fem}
+ {:token "tam-íiní", :person :Person3, :number :Singular, :gender :Masc}
+ {:token "tam-tíní", :person :Person3, :number :Singular, :gender :Fem}
+ {:token "tam-này", :person :Person1, :number :Plural, :gender :Common}
+ {:token "tam-teéna", :person :Person2, :number :Plural, :gender :Common}
+ {:token "tam-eén", :person :Person3, :number :Plural, :gender :Common})
+
+ednsort.core=> (def table (vec (for [term tmapsort] [(:number term) (:person term) (:gender term) (:token term)])))
+ednsort.core=> table
+[[:Singular :Person1 :Common "tam-àní"]
+ [:Singular :Person2 :Masc "tam-tinii-`a"]
+ [:Singular :Person2 :Fem "tam-tinii-`"]
+ [:Singular :Person3 :Masc "tam-íiní"]
+ [:Singular :Person3 :Fem "tam-tíní"]
+ [:Plural :Person1 :Common "tam-này"]
+ [:Plural :Person2 :Common "tam-teéna"]
+ [:Plural :Person3 :Common "tam-eén"]]
+
+;;==============================
+;; with compare-by
+user=> (sort (doseq [prow pdgm1] #(compare-by [(prow 1) desc, (prow 2) asc, (prow 0) desc] %1 %2)) pdgm1)
+
+([:Common :Plural :Person1 "tam-này"] 
+ [:Common :Plural :Person2 "tam-teéna"] 
+ [:Common :Plural :Person3 "tam-eén"]
+ [:Common :Singular :Person1 "tam-àní"]
+ [:Fem :Singular :Person2 "tam-tinii-`"]
+ [:Fem :Singular :Person3 "tam-tíní"]
+ [:Masc :Singular :Person2 "tam-tinii-`a"]
+ [:Masc :Singular :Person3 "tam-íiní"])
+
+;; note, w/o compare-by
+ednsort.core=> (sort (for [prow termcluster] [(prow 1) (prow 2) (prow 0) (prow 3)]))
+([:Plural :Person1 :Common "tam-này"]
+ [:Plural :Person2 :Common "tam-teéna"]
+ [:Plural :Person3 :Common "tam-eén"]
+ [:Singular :Person1 :Common "tam-àní"]
+ [:Singular :Person2 :Fem "tam-tinii-`"]
+ [:Singular :Person2 :Masc "tam-tinii-`a"]
+ [:Singular :Person3 :Fem "tam-tíní"]
+ [:Singular :Person3 :Masc "tam-íiní"])
+
+;;============================
+
+;; sort participle
+([:Prefix :dbl :PartConjunctive "dibil-tií" "Suff: -tií, \"X collected and ...\""] 
+ [:Prefix :dbl :PartFuture "dibl-át" "Suff: -át, \"will collect\""
+ [:Prefix :dbl :PartNegative "baa-dabiíl" "Pref: baa-, \"not collecting\""
+ [:Prefix :dbl :PartPast "dibl-aà" "Suff: -aà, \"having collected\""
+ [:Prefix :dbl :PartPresent "dibl-ée" "Suff: -ée, \"(while) collecting\""
+ [:Suffix :tam :PartConjunctive "tam-eetì" "Suff: -eetì, \"X ate and ...\""
+ [:Suffix :tam :PartFuture "tam-át" "Suff: -át, \"will eat\""
+ [:Suffix :tam :PartNegative "baa-tam-ày" "Pref+Suff: baa- + -ày, \"not eating\""
+ [:Suffix :tam :PartPast "tam-aà" "Suff: -aà, \"having eaten\""
+ [:Suffix :tam :PartPresent "tam-ée" "Suff: -ée, \"(while) eating\""])
+
+======================================

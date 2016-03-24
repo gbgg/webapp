@@ -5,6 +5,10 @@
 
 ;; 10/21/15:  provision for inclusion of :note  and :termcluster in ttl file.
 ;; 11/10/15: provision for inclusion of :pclass and its rdfs:label in ttl file.
+;; println output directed to output-file by either:
+;;   1) lein run [FILE].edn > [FILE].ttl {from edn2ttl directory}
+;;   2) java -jar path/to/aama-edn2ttl.jar [FILE].edn > [FILE].ttl
+;;   3) bin/aama-edn2rdf.sh ../aama-data/[LANG]/ {finds edn file and (re)places corresponding ttl file in same directory
 
 (defn uuid
   "Generates random UUID for pdgm terms"
