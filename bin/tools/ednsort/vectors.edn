@@ -327,3 +327,74 @@ ednsort.core=> (sort (for [prow termcluster] [(prow 1) (prow 2) (prow 0) (prow 3
  [:Suffix :tam :PartPresent "tam-ée" "Suff: -ée, \"(while) eating\""])
 
 ======================================
+;; adding :token- to end of pngvec
+[:gender, :number, :person, :token, :token-pref, :token-suff]
+
+(def schemaStr (clojure.string/join " " schema))
+(def schemaTok (clojure.string/split schemaStr #" :token "))
+(def tokenStr (clojure.string/split #" " (str :token " " (last schemaTok))))
+(def pngvec (first schemaTok))
+  
+;; following presupposes sorted schema, with :token before all :token- and no
+;; nonpngts after :token-'s
+(def tokens (range (.indexOf schema ':token) (count schema)))
+(def tokenvec (vec (for [token tokens] (get schema token))))
+(def pngset #{:number :person :gender})
+(def pngsort [:number desc :person asc :gender desc])
+(def nonpngset (set/difference (set schema) pngset (set tokenvec)))
+(def nonpngvec (vec (sort nonpngset)))
+(def nonpngsort (vec (interleave nonpngvec (repeat asc))))
+(def schemaSort (vec (concat nonpngsort pngsort)))
+(def pngs (set/difference (set schema) nonpngset))
+(def pngvec [:number :person :gender])
+(def schemaTable (vec (concat nonpngvec pngvec tokenvec)))
+
+;; now try with a :token- before :token and nonpngt after last :token- 
+[:gender, :number, :state, :token-stem, :token, :token-prefix, :token-suffix, :voice]
+
+ednsort.core=> schema
+[:gender :number :state :token-stem :token :token-prefix :token-suffix :voice]
+ednsort.core=> (def schemaSet (set schema))
+ednsort.core=> schemaSet
+#{:token-suffix :gender :state :token :token-prefix :voice :token-stem :number}
+ednsort.core=> (def pngset #{:number :person :gender})
+ednsort.core=> (def nonpngset (set/difference (set schema) pngset))
+ednsort.core=> nonpngset
+#{:token-suffix :state :token :token-prefix :voice :token-stem}
+ednsort.core=> (def nonpngvec (vec (sort nonpngset)))
+ednsort.core=> nonpngvec
+[:state :token :token-prefix :token-stem :token-suffix :voice]
+ednsort.core=> (def tokens (range (.indexOf nonpngvec ':token) (count nonpngvec)))
+#'ednsort.core/tokens
+ednsort.core=> tokens
+(1 2 3 4 5)
+ednsort.core=> (for [token tokens] (println (get nonpngvec token)))
+(:token
+:token-prefix
+:token-stem
+:token-suffix
+:voice
+nil nil nil nil nil)
+
+;; get the following in repl
+ednsort.core=> (def nonpngvec [:stem :derv :token :token-prefix :token-stem :token-suffix :voice :aspec])
+ednsort.core=> (defn maketokenvec [nonpngvec](let [tokenvec (atom []) propnums (range (count nonpngvec))] (for [propnum propnums] (let [prop (get nonpngvec propnum)] (if (re-find #"token" (str prop) ) (swap! tokenvec conj prop))))))
+ednsort.core=> (maketokenvec nonpngvec)
+(nil nil [:token] [:token :token-prefix] [:token :token-prefix :token-stem] [:token :token-prefix :token-stem :token-suffix] nil nil)
+;; with
+ednsort.core=> (defn maketokenvec [nonpngvec](let [tokenvec (atom []) propnums (range (count nonpngvec))] (for [propnum propnums] (let [prop (get nonpngvec propnum)] (if (re-find #"token" (str prop) ) (swap! tokenvec conj prop))))@tokenvec))
+ednsort.core=> (maketokenvec nonpngvec)
+[]
+
+ednsort.core=> (defn maketokenvec2 [nonpngvec] (let [tokenvec (atom [])] (for [prop nonpngvec] (do (if (re-find #"token" (str prop) ) (swap! tokenvec conj prop)) @tokenvec))))
+#'ednsort.core/maketokenvec2
+ednsort.core=> (maketokenvec2 nonpngvec)
+([] [] [:token] [:token :token-prefix] [:token :token-prefix :token-stem] [:token :token-prefix :token-stem :token-suffix] [:token :token-prefix :token-stem :token-suffix] [:token :token-prefix :token-stem :token-suffix])
+ednsort.core=> @tokenvec
+[]
+
+ednsort.core=> (def nonpngvec [:stem :derv :token :token-prefix :ddd :token-stem :xxx :token-suffix :voice :aspec])
+#'ednsort.core/nonpngvec
+ednsort.core=> (re-seq #":token-.*? " (str nonpngvec))
+(":token-prefix " ":token-stem " ":token-suffix ")
+  

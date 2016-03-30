@@ -64,6 +64,7 @@ infinitiveForm
 infinitiveVar
 inflClass
 interrogClass
+langVar
 mainStem
 modal
 mood
@@ -97,6 +98,7 @@ persP1
 persP2
 persSubj
 person
+pluralClass
 pngSet
 polarity
 pos
@@ -104,6 +106,7 @@ posClass
 posHead
 position
 possType
+postpositionClass
 predType
 proClass
 proSet
@@ -137,6 +140,7 @@ suffixType
 suppletion
 synEnv
 tam
+tamStemClass
 tamStemForm
 templ
 temporal

@@ -1,6 +1,7 @@
 (ns ednsort.core
   (require [clojure.edn :as edn]
-           [clojure.set :as set])
+           [clojure.set :as set]
+           [clojure.string :as str])
   (:gen-class :main true))
 
 ;; adapted from edn2ttl.core
@@ -24,13 +25,12 @@
     (if (pngs :number) (swap! pngvec conj :number))
     (if (pngs :person) (swap! pngvec conj :person))
     (if (pngs :gender) (swap! pngvec conj :gender))
-    (if (pngs :token) (swap! pngvec conj :token))
     @pngvec))
 
+;;(defn maketokenvec [nonpngvec](let [tokenvec (atom []) propnums (range (count nonpngvec))] (for [propnum propnums] (let [prop (get nonpngvec propnum)] (if (re-find #"token" (str prop) ) (swap! tokenvec conj prop)))) @tokenvec))
+
 (def asc compare)
-;;(def asc #(compare %1 %2))
 (def desc #(compare %2 %1))
-;;(def desc compare)
 
 (defn compare-by [[k comp & more] x y]
   (let [result (comp (k x) (k y))]
@@ -55,22 +55,26 @@
     (let [label (:label termcluster)
           terms (:terms termcluster)
           ;;because csv sparql req will be split by ","
-          ;;note (clojure.string/replace (str (:note termcluster)) #"," "%%")
+          ;;note (str/replace (str (:note termcluster)) #"," "%%")
           note (:note termcluster)
           schema (first terms)
           data (next terms)
           common (:common termcluster)
           ;;asc (compare)
           ;;desc #(compare %2 %1)
-          pngset #{:number :person :gender :token}
+          pngset #{:number :person :gender}
           pngsort [:number desc :person asc :gender desc]
           nonpngset (set/difference (set schema) pngset)
           nonpngvec (vec (sort nonpngset))
-          nonpngsort (vec (interleave nonpngvec (repeat asc)))
-          schemaSort (vec (concat nonpngsort pngsort))
           pngs (set/difference (set schema) nonpngset)
           pngvec (makepngvec pngs)
-          schemaTable (vec (concat nonpngvec pngvec))
+          nonpngvec2 (str/replace nonpngvec #"]" " ]")
+          tokenvecstr (vec (re-seq #"token.*? " nonpngvec2))
+          tokenvec (vec (for [token tokenvecstr] (keyword (str/trimr token))))
+          nonpngtvec (vec (sort (set/difference nonpngset (set tokenvec))))
+          nonpngtsort (vec (interleave nonpngtvec (repeat asc)))
+          schemaSort (vec (concat nonpngtsort pngsort))
+          schemaTable (vec (concat nonpngtvec pngvec tokenvec))
           tmap (termmap data schema)
           tmapsrt (tmapsort tmap schemaSort)
           tbl (table tmapsrt schemaTable)
@@ -92,20 +96,24 @@
     (let [label (:label termcluster)
           terms (:terms termcluster)
           ;;because csv sparql req will be split by ","
-          ;;note (clojure.string/replace (str (:note termcluster)) #"," "%%")
+          ;;note (str/replace (str (:note termcluster)) #"," "%%")
           note (:note termcluster)
           schema (first terms)
           data (next terms)
           common (:common termcluster)
-          pngset #{:number :person :gender :token}
+          pngset #{:number :person :gender}
           pngsort [:number desc :person asc :gender desc]
           nonpngset (set/difference (set schema) pngset)
           nonpngvec (vec (sort nonpngset))
-          nonpngsort (vec (interleave nonpngvec (repeat asc)))
-          schemaSort (vec (concat nonpngsort pngsort))
           pngs (set/difference (set schema) nonpngset)
           pngvec (makepngvec pngs)
-          schemaTable (vec (concat nonpngvec pngvec))
+          nonpngvec2 (str/replace nonpngvec #"]" " ]")
+          tokenvecstr (vec (re-seq #"token.*? " nonpngvec2))
+          tokenvec (vec (for [token tokenvecstr] (keyword (str/trimr token))))
+          nonpngtvec (vec (sort (set/difference nonpngset (set tokenvec))))
+          nonpngtsort (vec (interleave nonpngtvec (repeat asc)))
+          schemaSort (vec (concat nonpngtsort pngsort))
+          schemaTable (vec (concat nonpngtvec pngvec tokenvec))
           tmap (termmap data schema)
           tmapsrt (tmapsort tmap schemaSort)
           tbl (table tmapsrt schemaTable)

@@ -903,13 +903,13 @@ PREFIX aama: <http://oi.uchicago.edu/aama/schema/2010#>
 PREFIX aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
 PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/>
 PREFIX {{lpref}}: <http://id.oi.uchicago.edu/aama/2013/{{lang}}/>
-SELECT DISTINCT  ?property
+SELECT DISTINCT  ?p
 WHERE {
 GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{lang}}> {
 	?s ?p ?o ;
 	{{lpref}}:pos  {{lpref}}:Verb .
         ?s {{lpref}}:person ?person .
-   ?p rdfs:label ?property .
+        #?p rdfs:label ?property .
  	FILTER (?p NOT IN ( aamas:lang, {{lpref}}:gender, {{lpref}}:number, {{lpref}}:pngShapeClass, {{lpref}}:person, {{lpref}}:pos, {{lpref}}:token, rdf:type, {{lpref}}:multiLex ) )
 }
 }
@@ -926,13 +926,13 @@ PREFIX aama: <http://oi.uchicago.edu/aama/schema/2010#>
 PREFIX aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
 PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/>
 PREFIX {{lpref}}: <http://id.oi.uchicago.edu/aama/2013/{{lang}}/>
-SELECT DISTINCT  ?property
+SELECT DISTINCT  ?p
 WHERE {
 GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{lang}}> {
 	?s ?p ?o ;
 	{{lpref}}:pos  {{lpref}}:Pronoun .
         ?s {{lpref}}:person ?person .
-   ?p rdfs:label ?property .
+        #?p rdfs:label ?property .
  	FILTER (?p NOT IN ( aamas:lang, {{lpref}}:gender, {{lpref}}:number, {{lpref}}:pngShapeClass, {{lpref}}:person, {{lpref}}:pos, {{lpref}}:token, rdf:type, {{lpref}}:multiLex ) )
 }
 }
@@ -949,13 +949,13 @@ PREFIX aama: <http://oi.uchicago.edu/aama/schema/2010#>
 PREFIX aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/>
 PREFIX aamag:	 <http://oi.uchicago.edu/aama/2013/graph/>
 PREFIX {{lpref}}: <http://id.oi.uchicago.edu/aama/2013/{{lang}}/>
-SELECT DISTINCT  ?property
+SELECT DISTINCT  ?p
 WHERE {
 GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{lang}}> {
 	?s ?p ?o ;
 	{{lpref}}:pos  {{lpref}}:Verb .
 	NOT EXISTS {?s {{lpref}}:person ?person }
-        ?p rdfs:label ?property .
+        #?p rdfs:label ?property .
  	FILTER (?p NOT IN ( aamas:lang, {{lpref}}:gender, {{lpref}}:number, {{lpref}}:pngShapeClass, {{lpref}}:person, {{lpref}}:pos, {{lpref}}:token, rdf:type, {{lpref}}:multiLex ) )
 }
 }
