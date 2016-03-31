@@ -11,6 +11,9 @@
 #. bin/constants.sh
 ldomain=${1//,/ }
 ldomain=${ldomain//\"/}
+
+# DOESN'T WORK ldomain="bayso beja-atmaan beja-hadendowa bilin boni-kilii boni-jara boni-kijee-bala burunge burji dahalo elmolo iraqw kambaata kemant saho shinassha wolaytta yemsa"
+
 echo "ldomain is ${ldomain}"
 
 for f in `find $ldomain -name "*.edn"`
