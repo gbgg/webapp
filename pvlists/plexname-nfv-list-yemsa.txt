@@ -1,2 +1,1 @@
-Monosyllablic,conjClass,polarity,tam,
 DervStem,derived,

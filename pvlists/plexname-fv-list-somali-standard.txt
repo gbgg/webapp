@@ -56,7 +56,9 @@ Suffix,Imperative,Negative,Main,C3A:joogso
 Suffix,Imperative,Negative,Main,C3B:qaado
 Suffix,Optative,Affirmative,Main,C1,Compound:sug
 Suffix,Optative,Affirmative,Main,C2A,Compound:kari
+Suffix,Optative,Affirmative,Main,C2B,Compound:yar
 Suffix,Optative,Affirmative,Main,C3A,Compound:joogso
+Suffix,Optative,Affirmative,Main,C3B,Compound:qaado
 Suffix,Optative,Negative,Main,C1,Compound:sug
 Suffix,Optative,Negative,Main,C2A,Compound:kari
 Suffix,Optative,Negative,Main,C2B,Compound:yar
@@ -85,7 +87,9 @@ Suffix,PastHabitual,Affirmative,Main,C3A,Compound:joogso
 Suffix,PastHabitual,Affirmative,Main,C3B,Compound:qaado
 Suffix,PastIndependent,Affirmative,Main,C1:sug
 Suffix,PastIndependent,Affirmative,Main,C2A:kari
+Suffix,PastIndependent,Affirmative,Main,C2B:yar
 Suffix,PastIndependent,Affirmative,Main,C3A:joogso
+Suffix,PastIndependent,Affirmative,Main,C3B:qaado
 Suffix,PastProgressive,Affirmative,Main,C1:sug
 Suffix,PastProgressive,Affirmative,Main,C2A:kari
 Suffix,PastProgressive,Affirmative,Main,C2B:yar

@@ -94,7 +94,6 @@ Benefactive
 BenefactiveCausative
 BenefactivePassive
 BenefactiveSubj
-BilinKemantRel
 Bishari
 Bound
 BoundSubject
@@ -236,8 +235,6 @@ CompoundStative
 CompoundTense
 CompoundTransitive
 Concessive
-Cond1
-Cond2
 Conditional
 Conditional1
 Conditional2
@@ -424,16 +421,13 @@ Free
 Frequent
 Frequentative
 Full
-FutIngr
-FutPerf
-FutProgr
-FutPunct
-FutPunctSub
 Future
 Future1
 Future2
 Future2Var
 Future3
+FutureComp1
+FutureComp2
 FutureDefinite
 FutureIndefinite
 FutureIntensive
@@ -452,8 +446,6 @@ Gen_PossPred
 General
 Generic
 Genitive
-GerPres
-GerPret
 Gerund
 GlideStem
 Goal
@@ -507,6 +499,15 @@ HypothNonActual
 HypothNonPres
 Hypothetical
 I
+IC11
+IC1211
+IC1214
+IC1221
+IC1342
+IC1351b
+IC142
+IC15112
+IC1611
 IClass
 IMPERATIVESUFF
 IMPERFFUTTEMPLATE
@@ -528,7 +529,6 @@ Immediate
 Imperative
 ImperativeNegative
 ImperativeOptative
-Imperative_p2Only
 ImperfSuff
 Imperfect
 ImperfectActual
@@ -666,7 +666,6 @@ ModClass
 Monorad
 Monoradical
 Monosyllabic
-Monosyllablic
 Mood
 MorphClass
 exponents
@@ -862,6 +861,7 @@ PROLAMEDSUFF
 PROLOC
 PROOBJ
 PROOBJAFF
+PROOBJCLIT
 PROOBJCLITIC
 PROOBJCLITICIMPRTV
 PROOBJCLITICPERF
@@ -884,6 +884,7 @@ PROREFLPOSS
 PROREFSWITCH
 PRORELATIVE
 PRORESTRICTIVE
+PROSUBJCLIT
 PROSUBJPROCLITIC
 PROSUFF
 PROVSUFF
@@ -910,9 +911,11 @@ PassiveBenefactive
 PassiveCausative
 Passive_causative
 Past
+PastAlt
 PastClass
 PastContinuous
 PastDubitative
+PastDur
 PastGen
 PastGeneral
 PastHab
@@ -924,6 +927,7 @@ PastPerfect
 PastPerfective
 PastPerfective2
 PastProgressive
+PastRel
 PastState1
 PastState2
 PastSubj
@@ -940,7 +944,6 @@ PerfectAnticipatory
 PerfectComp1
 PerfectComp2
 PerfectConditional
-PerfectDur
 PerfectFuture
 PerfectHabitual
 PerfectM
@@ -955,7 +958,6 @@ PerfectPresent
 PerfectPreterite
 PerfectProbable
 PerfectProgressive
-PerfectRel
 PerfectSimple
 Perfect_m
 Perfective
@@ -1058,10 +1060,6 @@ Prefix
 Pres1
 Pres2
 PresClass
-PresHab
-PresIngr
-PresProgr
-PresPunct
 PresSgClass
 PresenProgressive
 Present
@@ -1083,11 +1081,6 @@ PresentRel
 PresentShort
 PresentState1
 PresentState2
-PretDubit
-PretEgr
-PretHab
-PretIngr
-PretProgr
 Preterite
 PreteriteDubitative
 PreteriteEgressive
@@ -1158,7 +1151,6 @@ RelativeOvert
 RelativeSubject
 Repetitive
 Requestive
-Requestive_p1Only
 Restrictive
 Result
 RootForm
@@ -1313,8 +1305,11 @@ Stn
 Structure
 Su
 SubAdv
+SubClass1
+SubClass2
 Subj3sgImperf
 SubjAgr
+SubjClit
 SubjFocus
 SubjFocus_obj
 SubjFocus_tense
@@ -1430,7 +1425,6 @@ TransVerbPatterns
 Transitive
 Transitivize
 Transitivize-caus
-U
 UClass
 U_Form
 Unmarked
@@ -1450,7 +1444,6 @@ VERBINTERROGATIVE
 VERBSTEMS
 VFin1
 VFin2
-VHPart
 VH_Participle
 VIMPERATIVESUFF1
 VIMPERATIVESUFF2
@@ -1460,7 +1453,6 @@ VNEGAFF
 VNEGAFFIX
 VNEGATION
 VNOMFORM
-VNoun
 VPARTICIPLESUFF
 VREL
 VROOTSTRUCTURE
@@ -1522,8 +1514,6 @@ category
 exponents
 causative1
 causative1-assim
-causative1Causative2
-exponents
 causative2
 causative2-assim
 causativeAllomorph
@@ -1557,6 +1547,8 @@ exponents
 complement
 exponents
 configuration
+exponents
+conjClaspdgmLexs
 exponents
 conjClass
 exponents
@@ -1669,8 +1661,6 @@ langVar
 exponents
 mainStem
 exponents
-middleClass
-exponents
 modal
 exponents
 mood
@@ -1682,7 +1672,6 @@ exponents
 mà_imperfect
 mà_stem
 mà_stem_in_imperative
-nom-gen
 nonFiniteForm
 exponents
 nonMainForm
@@ -1717,11 +1706,7 @@ numberGenderHead
 exponents
 numberHead
 exponents
-objectGender
-exponents
-objectNumber
-exponents
-objectPerson
+numberObj
 exponents
 objectType
 exponents
@@ -1729,8 +1714,6 @@ orientationSel
 exponents
 overThere
 participle
-exponents
-passiveReciprocalClass
 exponents
 patternClass
 exponents
@@ -1751,6 +1734,8 @@ exponents
 persSubj
 exponents
 person
+exponents
+personObj
 exponents
 pluralClass
 exponents
@@ -1846,6 +1831,14 @@ synEnv
 exponents
 synsemClass
 tam
+exponents
+tam-nfv
+exponents
+tam-pph
+exponents
+tam-sim
+exponents
+tam-stat
 exponents
 tamStemClass
 exponents

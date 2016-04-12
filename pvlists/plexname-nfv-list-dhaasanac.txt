@@ -1,0 +1,1 @@
+VSUFFDERVPATTERNS,conjClass,derivedStem,derivedStemAug,formType,pdgmSubType,pdgmType,polarity,tam,

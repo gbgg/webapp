@@ -145,6 +145,6 @@
 ;;      (do-morphemes (pdgm-map :morphemes) sgpref Lang)
 ;;      (do-lexemes (pdgm-map :lexemes) sgpref Lang)
       (do-lexterms (pdgm-map :lxterms))
-      (do-muterms (pdgm-map :muterms))
+;;      (do-muterms (pdgm-map :muterms))
       )
      )

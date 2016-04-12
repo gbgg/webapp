@@ -143,7 +143,7 @@
                              (str "no_" pos)
                              (replace (:body req1) #"\r\n" ","))
                 pstring (replace propstring #"property,|,$" "")
-                porder (str "formType,morphClass,pdgmType,conjClass,derivedStem,derivedStemAug,tam,polarity,stemClass,rootClass")
+                porder (str "formType,morphClass,pdgmType,conjClass,derivedStem,derivedStemAug,clauseType,tam,polarity,stemClass,rootClass")
                 normstring (normorder pstring porder)
                 plist (replace pstring #"," ", ")
                 query-sparql2 (cond 
@@ -176,7 +176,7 @@
           [:div
            [:p [:b "Language: "] language]
            [:p [:b "File:     "] outfile]
-           ;;[:p "req2-body: " [:pre req2-body]]
+           [:p "req2-body: " [:pre (:body req2)]]
            [:p [:b "Pstring: " ] pstring]
            [:p [:b "Porder:  " ] porder]
            [:p [:b "Normstring: "] normstring]

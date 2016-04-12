@@ -63,7 +63,9 @@
          [:li "Then, if necessary, update and upload whole datastore as above (from webapp directory):"
           [:ul
            [:li "bin/aama-datastore-update.sh \"../aama-data/data/*\""]
-           [:li "bin/aama-cp2lngrepo.sh \"../aama-data/data/*\""]]]]]]]]
+           [:li "bin/aama-cp2lngrepo.sh \"../aama-data/data/*\""]]]]]]]
+       [:li [:h4 "(Don't forget to commit and push webapp and aama-data!)"]]]
+    
    [:hr]
    [:h4 "[For more detail on the above, cf. the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")"]"]]))
 

@@ -16,6 +16,7 @@ cliticType
 cohesion
 complement
 configuration
+conjClaspdgmLexs
 conjClass
 conjSubClass
 conjSubType
@@ -89,6 +90,7 @@ numberGenderHead
 numberHead
 objectType
 orientationSel
+participle
 patternClass
 pdgmSubType
 pdgmType

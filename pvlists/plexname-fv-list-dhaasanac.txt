@@ -113,10 +113,10 @@ Suffix,S,Imperfect,Negative:edeb,iddik
 Suffix,S,Perfect,Affirmative:edeb,iddik
 Suffix,S,Perfect,Negative:edeb,iddik
 Suffix,S,Intensive,Imperative,Affirmative,Reduced:edeb
+Suffix,S2,Intensive,General,Affirmative,Nasal:kuf
 Suffix,S2,Intensive,Imperative,Affirmative,Long:dunguk
 Suffix,S2,Intensive,Imperative,Affirmative,Nasal:saanik
 Suffix,S2,Intensive,Imperative,Affirmative,Reduced:ba,fuor,fur,geget,guol,ik
-Suffix,S2,Intensive,U,Affirmative,Nasal:kuf
 Suffix,S2,Neutral,Dependent,Affirmative,Plain:fur
 Suffix,S2,Neutral,Imperative,Affirmative,Plain:ba,buoi,dok,dunguk,fuor,fur,geget,guol,ik,kuf,saanik,ufuk,veer
 Suffix,S2,Neutral,Imperative,Negative,Plain:fur

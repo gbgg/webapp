@@ -1,7 +1,7 @@
-Independent:
-Intensive1:
-Intensive2:
-Intensive3:
-Common,Possessive:Plural
-Fem,Possessive:Singular
-Masc,Possessive:Singular
+Independent
+Intensive1
+Intensive2
+Intensive3
+Common,Possessive,Plural
+Fem,Possessive,Singular
+Masc,Possessive,Singular

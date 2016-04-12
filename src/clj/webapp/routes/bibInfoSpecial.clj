@@ -5,7 +5,7 @@
             [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [clojure.string :refer [split lower-case replace]]
+            [clojure.string :refer [split lower-case upper-case replace]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             ;;[boutros.matsu.sparql :refer :all]
@@ -29,7 +29,7 @@
               [:td [:select#bibliogref.required
                     {:title "Choose a bibliography.", :name "bibliogref"}
                     (for [bibliogref bibliogrefs]
-                        [:option {:value bibliogref :label bibliogref}])]]]
+                        [:option {:value bibliogref :label bibliogref} bibliogref])]]]
              [:tr 
               [:td {:colspan "2"} [:input#submit
                     {:value "Choose Bibliography: ", :name "submit", :type "submit"}]]]]))))
@@ -40,9 +40,10 @@
   (let [biblioglist (slurp "pvlists/menu-bibliographies.txt")
         bibliogrefs (split biblioglist #"\n")
         bibliography (str "pvlists/bibref-" bibliogref "-list.txt")
+        oldbref (str bibliogref)
         reflist (slurp bibliography)
         bibrefs (split reflist #"\n")
-        bibrefmap (read-string (slurp "pvlists/bibrefs.clj"))]
+        bibrefmap (read-string (slurp "pvlists/bibrefs.edn"))]
   (layout/common
    [:body
    ;;[:h1#clickable "Afroasiatic Morphological Archive"]
@@ -51,11 +52,13 @@
    [:hr]
    (form-to [:post "/bibInfoSpecial"]
             [:table
-             [:tr [:td (str "Bibliography for: " bibliography) ]
+             [:tr [:td (str "Bibliography for: ") ]
               [:td [:select#bibliogref.required
                     {:title "Choose a bibliography.", :name "bibliogref"}
                     (for [bibliogref bibliogrefs]
-                      [:option {:value bibliogref :label bibliogref}])]]]
+                      (if (= (str bibliogref) oldbref)
+                        [:option {:value bibliogref, :selected "selected"} bibliogref]
+                        [:option {:value bibliogref :label bibliogref} bibliogref]))]]]
              [:tr 
               [:td {:colspan "2"} [:input#submit
                                    {:value "Choose Bibliography: ", :name "submit", :type "submit"}]]]])

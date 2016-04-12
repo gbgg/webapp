@@ -6,7 +6,7 @@ Future,Affirmative,Result,AbsoluteInfinitive:rime
 Future3,Affirmative,Variable,AbsoluteInfinitive:rime
 Future3,Negative,Variable,AbsoluteInfinitive:rime
 Imperfect,Affirmative,Variable,AbsoluteInfinitive:rime
-InflectedInfiitive,Affirmative,Variable,U,AbsoluteInfinitive:bok
+InflectedInfiitive,Affirmative,Variable,AbsoluteInfinitive:bok
 Injunct,Affirmative,Main,AbsoluteInfinitive:rime
 NotYet,Negative,Variable,AbsoluteInfinitive:bok
 Perf1,Affirmative,Relative,Relative,AbsoluteInfinitive:bok

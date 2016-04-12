@@ -1,4 +1,4 @@
-TENSESTEMPLUP1,conjClass,derivedStem,pdgmType,polarity,stemType,tam,
+TENSESTEMPLUP1,conjClass,derivedStem,derivedStemAug,pdgmType,polarity,tam,
 DERVSTEMVAR,conjClass,derivedStem,derivedStemAug,pdgmType,
 DERVSTEMPASS,conjClass,derivedStem,pdgmType,
 DERVSTEMCOLL,conjClass,derivedStem,pdgmType,

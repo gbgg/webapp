@@ -1,5 +1,15 @@
+Interrogative,InterrogProHow
+Interrogative,InterrogProHowMany
+Interrogative,InterrogProWhat
+Interrogative,InterrogProWhen
+Interrogative,InterrogProWhere
+Interrogative,InterrogProWho
 Independent,Accusative
 Suffix,Accusative
+Demonstrative,Accusative,Far
+Demonstrative,Accusative,Near
 Independent,Nominative
+Demonstrative,Nominative,Far
+Demonstrative,Nominative,Near
 Independent,Possessive
 Suffix,Possessive

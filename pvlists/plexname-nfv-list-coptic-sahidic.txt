@@ -1,2 +1,2 @@
-Infinitive,clauseConjugation,infinitiveForm,objectGender,objectNumber,objectPerson,objectType,polarity,stemClass,tam,
-InfinitiveCompCaus,clauseConjugation,infinitiveForm,objectGender,objectNumber,objectPerson,objectType,polarity,tam,
+Infinitive,clauseConjugation,infinitiveForm,objectType,polarity,stemClass,tam,
+InfinitiveCompCaus,clauseConjugation,infinitiveForm,objectType,polarity,tam,

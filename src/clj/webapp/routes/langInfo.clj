@@ -1,3 +1,4 @@
+
 (ns webapp.routes.langInfo
  (:refer-clojure :exclude [filter concat group-by max min replace])
   (:require [compojure.core :refer :all]
@@ -42,7 +43,7 @@
   [language]
   ;; send SPARQL over HTTP request
   (let [langlist (slurp "pvlists/menu-langs.txt")
-        bibrefmap (read-string (slurp "pvlists/bibrefs.clj"))
+        bibrefmap (read-string (slurp "pvlists/bibrefs.edn"))
         languages (split langlist #"\n")
         Language (capitalize language)
         lang (read-string (str ":" language))
@@ -76,10 +77,12 @@
            (form-to [:post "/langInfo"]
                     [:table
                      [:tr [:td "Language: " ]
-                      [:td [:select#language
+                      [:td [:select#language 
                             {:title "Choose a language.", :name "language"}
                             (for [language languages]
-                              [:option {:value (lower-case language)} language])]]]
+                              (if (= language Language)
+                              [:option {:value (lower-case Language), :selected "selected"} Language]
+                              [:option {:value (lower-case language)} language]))]]]
                      ;;(submit-button "Get langInfo")
                      [:tr 
                       [:td {:colspan "2"} [:input#submit

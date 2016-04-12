@@ -1,3 +1,10 @@
+Interr,InterrogProHow
+Interr,InterrogProHowMany
+Interr,InterrogProWhat
+Interr,InterrogProWhere
+Interr,InterrogProWho
 Independent,Accusative
 Independent,Nominative
+Demonstrative,Nominative,Far
+Demonstrative,Nominative,Near
 Independent,Possessive

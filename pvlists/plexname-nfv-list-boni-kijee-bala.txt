@@ -1,1 +1,1 @@
-NonFinite,conjClass,polarity,tam,
+NonFinite,conjClass,conjSubClass,pdgmType,tam,

@@ -6,3 +6,4 @@ PastProgressive,Affirmative:mar
 PresentPerfect,Affirmative:mar
 PresentProgressive,Affirmative:mar
 SimplePerfect,Affirmative:mar
+SubjMarkerTemplates:SUBJMARKERTEMPLATES

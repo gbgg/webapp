@@ -1,7 +1,17 @@
+Interrogative,InterrogProHow
+Interrogative,InterrogProHowMany
+Interrogative,InterrogProWhat
+Interrogative,InterrogProWhen
+Interrogative,InterrogProWhere
+Interrogative,InterrogProWho
 Possessive,HeadAbsolutive,HeadFem
 Possessive,HeadAbsolutive,HeadMasc
 Possessive,HeadNominative,HeadFem
 Possessive,HeadNominative,HeadMasc
 Independent,Absolutive
+Demonstrative,Absolutive,Far
+Demonstrative,Absolutive,Near
 Independent,Nominative
+Demonstrative,Nominative,Far
+Demonstrative,Nominative,Near
 Independent,Object

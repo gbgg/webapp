@@ -58,43 +58,47 @@
          langs (split ldomain #",")]
      [:body
       [:h3#clickable "Properties used in " pos " pdgms for: " ldomain]
-      [:table
-       [:tr
-        (for [language langs]
-          [:th
-           [:div (str (capitalize language) " ")]])]
-       [:tr
-        (for [language langs]
-          [:td
-          (let [lang (read-string (str ":" language))
-                lpref (lang lprefmap)
-                ;; send SPARQL over HTTP request
-                query-sparql (cond 
-                              (= pos "pro")
-                              (sparql/listlgpr-sparql-pro language lpref)
-                              (= pos "nfv")
-                              (sparql/listlgpr-sparql-nfv language lpref)
-                              (= pos "noun")
-                              (sparql/listlgpr-sparql-noun language lpref)
-                              :else (sparql/listlgpr-sparql-fv language lpref))
-                query-sparql-pr (replace query-sparql #"<" "&lt;")
-                req (http/get aama
-                              {:query-params
-                               {"query" query-sparql ;;generated sparql
-                                ;;"format" "application/sparql-results+json"}})]
-                                "format" "csv"}})
-                ;;properties (split (:body req) #"\r\n" 2)
-                props (replace (:body req) #"property" "")
-                proplist (split props #"\r\n") ]
-            (log/info "sparql result status: " (:status req))
+      ;;[:table
+      ;; [:tr
+        ;;(for [language langs]
+          ;;[:th
+          ;; [:div (str (capitalize language) " ")]])]
+       ;;[:tr
+      (for [language langs]
+         ;; [:td
+        (let [lang (read-string (str ":" language))
+              lpref (lang lprefmap)
+              ;; send SPARQL over HTTP request
+              query-sparql (cond 
+                            (= pos "pro")
+                            (sparql/listlgpr-sparql-pro language lpref)
+                            (= pos "nfv")
+                            (sparql/listlgpr-sparql-nfv language lpref)
+                            (= pos "noun")
+                            (sparql/listlgpr-sparql-noun language lpref)
+                            :else (sparql/listlgpr-sparql-fv language lpref))
+              query-sparql-pr (replace query-sparql #"<" "&lt;")
+              req (http/get aama
+                            {:query-params
+                             {"query" query-sparql ;;generated sparql
+                              ;;"format" "application/sparql-results+json"}})]
+                              "format" "csv"}})
+              ;;properties (split (:body req) #"\r\n" 2)
+              props (replace (:body req) #"property" "")
+              proplist (split props #"\r\n") ]
+          ;;(log/info "sparql result status: " (:status req))
+          [:div
+          [:h3 language]
             (for [prop proplist]
               [:p prop])
-             [:hr]
+             ;;[:hr]
              [:h3#clickable "Query:"]
              [:pre query-sparql-pr]
             [:pre (:body req)]
-            [:pre props]
-            )])]]
+            ;;[:pre props]
+            [:hr]]
+            ))
+            ;;)])]]
       [:script {:src "js/goog/base.js" :type "text/javascript"}]
       [:script {:src "js/webapp.js" :type "text/javascript"}]
       [:script {:type "text/javascript"}

@@ -110,7 +110,7 @@ CompoundTransitive,Purposive2,Affirmative,Compound:kad-hee
 CompoundTransitive,Purposive2,Negative,Compound:kad-hee
 CompoundTransitive,Requestive,Affirmative,Compound:kad-hee
 CompoundTransitive,Requestive,Negative,Compound:kad-hee
-Prefix,Anticipatory,Affirmative:uduur
+Prefix,Anticipatory,Affirmative,Compound:uduur
 Prefix,Anticipatory,Negative:uduur
 Prefix,Conditional1,Affirmative:uduur
 Prefix,Conditional1,Negative,Compound:uduur
@@ -202,7 +202,7 @@ Suffix,ImperfectProbable1,Negative,Compound:fak
 Suffix,ImperfectProbable2,Affirmative,Compound:fak
 Suffix,ImperfectProbable2,Negative,Compound:fak
 Suffix,Intentive,Affirmative,Compound:fak
-Suffix,Intentive,Negative:fak
+Suffix,Intentive,Negative,Compound:fak
 Suffix,Jussive,Affirmative:fak
 Suffix,Jussive,Negative,Compound:fak
 Suffix,Perfect:ab
