@@ -93,7 +93,10 @@
       [:li (link-to "#" "List Generation:")
        [:ul
         [:li (link-to "/listlgpr"  "POS Properties")]
-        [:li (link-to "/listvlclplex" "POS Paradigm Value-Clusters")]
+        [:li (link-to "#" "POS Paradigm Value-Clusters")
+         [:ul
+          [:li (link-to "/listvlclplex" "Default Sort Order")]
+          [:li (link-to "/valclmod" "Modifiable Sort Order")]]]
         [:li (link-to "/listmenulpv" "Lists for Menus")]
         [:li (link-to "/listlpv" "Prop-Val Indices by L-Domain")]]]
       [:li (link-to "#" "Update:")

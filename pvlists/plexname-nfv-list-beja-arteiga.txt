@@ -1,3 +1,5 @@
-DERVSTEMFORM,conjClass,derivedStem,derivedStemAug,pdgmType,rootClass,
+TENSESTEMFORM,conjClass,derivedStem,rootClass,tamStemClass,
+DERVSTEMFORM,conjClass,derivedStem,rootClass,
+Auxiliary,conjClass,
 VERBALPARTICIPLES,conjClass,derivedStem,participle,
-TENSESTEM,conjClass,derivedStem,derivedStemAug,formType,rootClass,tamStemClass,
+Stem,derivedStem,participle,polarity,tam,tamStemClass,

@@ -7,8 +7,7 @@
             [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            ;;[clojure.string :as str]
-            [clojure.string :refer [capitalize lower-case split join upper-case]]
+            [clojure.string :refer [capitalize lower-case split upper-case]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             ;;[boutros.matsu.sparql :refer :all]
@@ -119,7 +118,6 @@
             lpref (lang lprefmap)
             valstrng (clojure.string/replace vcluster #",*person|,*gender|,*number" "")
             valstr (clojure.string/replace valstrng #":," ":")
-            vcstring (clojure.string/replace valstr #"," "_")
             query-sparql (cond 
                           (= pos "pro")
                           (sparql/pdgmqry-sparql-pro language lpref valstr)
@@ -133,16 +131,10 @@
                        {"query" query-sparql ;;generated sparql
                         ;;"format" "application/sparql-results+json"}})]
                         "format" "csv"}})
-            ;;pvec (split (:body req) #"\r\n" 2)
-            ;;pbody (str (last pvec))
-            ;; get rid of header
-            pbody (clojure.string/replace (:body req) #"^.*?\r\n" "\r\n")
             ]
         ;;(str (:body req))))
-        ;;(clojure.string/replace (:body req) #" " "_")
-        ;;(clojure.string/replace (:body req) #"\r\n$" "")
-        ;; add pdgm name to each row of pbody as first value
-        (clojure.string/replace pbody #"\r\n(\S)" (str "\r\n" vcstring ",$1"))))))
+        (clojure.string/replace (:body req) #" " "_"))
+    )))
 
 (defn csv2pdgm
 "Takes sorted 4-col csv list with vectors of pnames and headers, and outputs 5-col html table with first col for pname ref; cols are draggable and sortable."
@@ -155,11 +147,8 @@
        ;; Take off the top header
        ;; If pdgms are to be comparable
        ;; all header strings will be same
-       ;; so far (5/2/16) can't get header off of csv --
-       ;; following does not work
-       ;; psplit (split pdgmstr2 #"\r\n" 2)
-       ;; header2 (first psplit)
-       header (str "num,pers,gen,token")
+       psplit (split pdgmstr2 #"\\r\\n" 2)
+       header (first psplit)
        header2 (str "pdgm," header)
        pheads (split header2 #",")
        pstrings (split pdgmstr2 #" ")
@@ -185,29 +174,27 @@
              pheader (first pdgm-sp)
              pbody (last pdgm-sp)
              pdgmrows (split pbody #"\\r\\n")
-             ;;pnum (swap! pdgmnum inc)
+             pnum (swap! pdgmnum inc)
              ]
-         ;;(if (= header pheader)
+         (if (= header pheader)
            (for [pdgmrow pdgmrows]
              [:tr
-              ;;[:td (str "P-" pnum)]
+              [:td (str "P-" pnum)]
               (let [pdgmrow2 (clojure.string/replace pdgmrow #"_" " ")
                     pdgmcells (split pdgmrow2 #",")]
                 (for [pdgmcell pdgmcells]
                   [:td pdgmcell]))])
            ;;([:tr [:td (str "P-" pnum " does not have the header: " header)]])
-           ;;)
-       ))]]]))
+           )))]]]))
         
 
 (defn handle-multimoddisplay
   [valclusters pos]
   ;; send SPARQL over HTTP request
   (let [headerset1 (str "Paradigm " "Number " "Person " "Gender " "Token ")
-        headerset2 (str "pdgm " "num " "pers " "gen ")
-        headers (split headerset2 #" ")
+        headerset2 (str "Number " "Person " "Gender " "Token ")
+        headers (split headerset1 #" ")
         pdgmvec (map #(vc2req  % pos) valclusters)
-        header (first pdgmvec)
         pdgmstr1 (apply pr-str pdgmvec)
         pdgmstr2 (clojure.string/replace pdgmstr1 #"[\(\)\"]" "")
         pdgmtable (csv2pdgm pdgmstr2 valclusters)
@@ -221,14 +208,8 @@
            [:hr]
            pdgmtable
            [:hr]
-           [:div [:h4 "======= Debug Info: ======="]
-            [:p "pdgmvec: " [:pre pdgmvec]]
-            [:p "valclusters: " [:pre pdgms]]
-            [:p "headerset2: " [:pre headerset2]]
-            [:p "pdgmstr2: " [:pre pdgmstr2]]
-            [:p "==========================="]]
            [:h3 "Parallel Display of Paradigms (Personal Pronoun and Finite Verb Only)"]
-           [:p "At present only accommodates parallel display of paradigms with columns 'Number Person Gender Token' -- to be generalized."]         
+           [:p "At present only accommodates parallel display of paradigms with columns 'Number Person Gender Token' -- to be generalized."]
            [:hr]
            (form-to [:post "/multimodplldisplay"]
                     [:table
@@ -243,13 +224,7 @@
                      [:tr [:td "Header: "]
                       [:td [:select#header.required
                             {:title "Header", :name "header"}
-                            [:option {:value headers} (str headers)] 
-                            ]]]
-                     [:tr [:td "Pivot: "]
-                      [:td [:select#pivot.required
-                            {:title "Pivot", :name "pivot"}
-                            (for [head headers]
-                            [:option {:value (.indexOf headers head)} head] )
+                            [:option {:value headerset2} headerset2] 
                             ]]]
                      [:tr [:td "PString: "]
                      [:td [:select#pdgms.required
@@ -257,9 +232,12 @@
                             [:option {:value pdgmstr2} "Paradigm Forms (as above)"]
                             ;;[:option {:value valclusters} (str valclusters)]
                             ]]]
-                     ;; current algorithm combines actual png val configs
-                     ;; into png vector made on the fly;
-                     ;; next step is to allow choice of png vals as per
+                     ;; current algorithm will simply take png enumerations
+                     ;; already listed in pvlists/npg.clj
+                     ;; [MAKE SURE EVERYTHING RELEVANT IS THERE!]
+                     ;; second step will be to combine actual png val configs
+                     ;; into png vector made on the fly
+                     ;; third step is to allow choice of png vals as per
                      ;; text input fields below (for now can be left blank)
                      ;;[:tr [:td "Number: "]
                      ;; [:td [:input#num.required
@@ -283,40 +261,32 @@
      [:script {:type "text/javascript"}
       "goog.require('webapp.core');"])))
 
-(defn pstring2map2
-  "Takes pivot property out of comma-separated properties in pdgm string, and arranges the rest as a set of {:property-list 'token'} maps"
-  [pdgm pivot]
-  (let [pdgm1 (clojure.string/replace pdgm #"^\\r\\n.*?," "") ;; initial pivot out
-        pdgm2 (clojure.string/replace pdgm1 #"(\\r\\n).*?," "$1") ;; other pivots out
-        pdgmstring (clojure.string/replace pdgm2 #"\\r\\n" "%%") ;; delimit rows
-        pdgmstr (clojure.string/replace pdgmstring #",([^,]*?%%)" "&$1") ;; delimit tokens
-        pdgm3 (clojure.string/replace pdgmstr #"&" " ") ;; setup for pmap
-        pdgm4  (clojure.string/replace pdgm3 #"%%" " ")
-        ;;pdgm4 (clojure.string/replace pdgm3 #"\s*$" "") ;; final line-feed out
-        plist (split pdgm4 #" ")
+(defn pstring2map
+  [pdgm]
+  (let [pdgm1 (clojure.string/replace pdgm #"^.*?\\r\\n" "") ;; header out
+        pdgmstring (clojure.string/replace pdgm1 #"\\r\\n" "%%") 
+        pdgmstr (clojure.string/replace pdgmstring #",([^,]*%%)" "&$1")
+        pdgm2 (clojure.string/replace pdgmstr #"&" " ")
+        pdgm3  (clojure.string/replace pdgm2 #"%%" " ")
+        plist (split pdgm3 #" ")
         pmap (apply hash-map plist)
         ]
     (clojure.walk/keywordize-keys pmap)
     ))
 
-(defn handle-multimodplldisplay3
-  "This version does not rely on external png file for sort order; keyset should be generalized beyond png to any sequence of cols between col-1 ('pivot', here limited to paradigms) and token column. Also need to 'presort' cols before initial display."
-  [pdgms headerset2 pdgmstr2 pivot]
-  (let [pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
+(defn handle-multimodplldisplay
+  "This version relies on external npg.clj file for sort order; can be eliminated as soon as is clear that handle-multimodplldisplay2 is adequate"
+  [pdgms headerset2 pdgmstr2]
+  (let [pngstring (slurp "pvlists/npg.clj")
+        pngs (split pngstring #" ")
+        pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
         pnames (split pnamestr #" ")
         pstrings (split pdgmstr2 #" ")
-        pmaps (for [pdgm pstrings] (pstring2map2 pdgm pivot))
-        ;; headerset should be derived from pdgm query (=headerset2)
-        ;;diffset (clojure.set/difference (set pstringvec) (set pordervec))
-        pivotstr (str pivot "token")
-        pivotvec (split pivotstr #" ")
-        headervec (split headerset2 #" ")
-        rowheads (clojure.set/difference (set headervec) (set pivotvec))
+        pmaps (for [pdgm pstrings] (pstring2map pdgm))
         headerset (str "Number " "Person " "Gender ")
         heads (split headerset #" ")
         pdgmnums (into [] (take (clojure.core/count pnames) (iterate inc 1)))
         ;; There has to be an easier way to get to keyset!
-        ;; (keyset is the set of all value combinations in the combined pdgms)
         keylists (set (for [pmap pmaps] (keys pmap)))
         keystring (clojure.string/replace (str keylists) #"[#(){}]" "")
         keyvec (split keystring #" ")
@@ -325,15 +295,10 @@
     (layout/common
      [:body
       [:h3 "Parallel Display of Paradigms:" ]
-      [:p "Click on column to sort (multiple sort by holding down shift key). Columns can be dragged by clicking and holding on 'drag-bar' at top of column."]
-      [:p "headerset2: " [:pre headerset2]]
-      [:p "rowheads: " [:pre rowheads]]
-      [:p "pdgmstr2: " [:pre pdgmstr2]]
-      [:p "pmaps: " [:pre pmaps]]
-      [:p "pivot: " [:pre pivot]]
-      [:p "keylists: " [:pre keylists]]
-      [:p "keystring: " [:pre keystring]]
-      [:p "keyset: " [:pre keyset]]
+      ;;[:p "pmaps: " [:pre pmaps]]
+      ;;[:p "keylists: " [:pre keylists]]
+      ;;[:p "keystring: " [:pre keystring]]
+      ;;[:p "keyset: " [:pre keyset]]
      [:p "Paradigms:"
       [:ol
       (for [pname pnames]
@@ -343,8 +308,60 @@
          [:thead
           (for [head heads]
             [:th [:div {:class "some-handle"}] head])
-          (for [pnum pdgmnums]
-            [:th [:div {:class "some-handle"}] (str "P-" pnum)])]
+          (for [pdgmnum pdgmnums]
+            [:th [:div {:class "some-handle"}] (str "P-" pdgmnum)])]
+       [:tbody
+        (for [png pngs]
+          (if (contains? keyset (str (keyword png)))
+            [:tr
+             (let [npgs (split png #",")
+                   pngk (keyword png)]
+               [:div
+                (for [npg npgs]
+                  [:td npg])
+                (for [pmap pmaps]
+               [:td (pngk pmap)])])]))]
+      [:script {:src "js/goog/base.js" :type "text/javascript"}]
+      [:script {:src "js/webapp.js" :type "text/javascript"}]
+      [:script {:type "text/javascript"}
+       "goog.require('webapp.core');"]]])))
+    
+(defn handle-multimodplldisplay2
+  "This version does not rely on external png file for sort order; keyset should be generalized beyond png to any sequence of cols between col-1 ('pivot', here limited to paradigms) and token column. Also need to 'presort' cols before initial display."
+  [pdgms headerset2 pdgmstr2]
+  (let [pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
+        pnames (split pnamestr #" ")
+        pstrings (split pdgmstr2 #" ")
+        pmaps (for [pdgm pstrings] (pstring2map pdgm))
+        ;; headerset should be derived from pdgm query (=headerset2)
+        headerset (str "Number " "Person " "Gender ")
+        heads (split headerset #" ")
+        pdgmnums (into [] (take (clojure.core/count pnames) (iterate inc 1)))
+        ;; There has to be an easier way to get to keyset!
+        keylists (set (for [pmap pmaps] (keys pmap)))
+        keystring (clojure.string/replace (str keylists) #"[#(){}]" "")
+        keyvec (split keystring #" ")
+        keyset (set keyvec)
+        ]
+    (layout/common
+     [:body
+      [:h3 "Parallel Display of Paradigms:" ]
+      [:p "Click on column to sort (multiple sort by holding down shift key). Columns can be dragged by clicking and holding on 'drag-bar' at top of column."]
+      ;;[:p "pmaps: " [:pre pmaps]]
+      ;;[:p "keylists: " [:pre keylists]]
+      ;;[:p "keystring: " [:pre keystring]]
+      ;;[:p "keyset: " [:pre keyset]]
+     [:p "Paradigms:"
+      [:ol
+      (for [pname pnames]
+        [:li pname])]]
+      [:hr]
+      [:table {:id "handlerTable" :class "tablesorter sar-table"}
+         [:thead
+          (for [head heads]
+            [:th [:div {:class "some-handle"}] head])
+          (for [pdgmnum pdgmnums]
+            [:th [:div {:class "some-handle"}] (str "P-" pdgmnum)])]
        [:tbody
         (for [keys keyset]
           [:tr
@@ -361,117 +378,9 @@
       [:script {:type "text/javascript"}
        "goog.require('webapp.core');"]]])))
     
-(defn cleanpdgms [pdgmstr]
-  (let [
-        pdgmstr-a (clojure.string/replace pdgmstr #"\\r\\n$" "")
-        pdgmstr-b (clojure.string/replace pdgmstr-a #"^\\r\\n" "")
-        pdgmstr-c (clojure.string/replace pdgmstr-b #":" "_")
-        ]
-    (clojure.string/replace pdgmstr-c #"\r\n " "")))
-
-;; from http://stackoverflow.com/questions/1394991
-(defn vec-remove
-  "remove elem in coll"
-   [coll pos]
-   (vec (clojure.core/concat (subvec coll 0 pos) (subvec coll (inc pos)))))
-
-;; conj-in & merge-matches from http://stackoverflow.com/questions/2203213/
-(defn conj-in [m map-entry]
-  (update-in m [(key map-entry)] (fnil conj []) (val map-entry)))
-(defn merge-matches [property-map-list]
-  (reduce conj-in {} (apply clojure.core/concat property-map-list)))
-
-(defn vec2map 
-  "join all elements of vector but last with ','; last with ' '"
-  [row] 
-  (let [prow (join "," row)]
-   (clojure.string/replace prow #"(.*),(.*?$)" "$1 $2")))
-;;(clojure.string/replace (join "," row) #"(.*),(.*?$)" "$1 $2"))
-
-(defn handle-multimodplldisplay4
-  "In this version pivot/keyset can be generalized beyond png any col (eventually any sequence of cols) between col-1 and token column. Need to find out hosw to 'presort' cols before initial display."
-  [pdgms headerset2 pdgmstr2 pivotname]
-  (let [pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
-        pnames (split pnamestr #" ")
-        pivot (read-string pivotname)
-        ;; get rid of spurious line-feeds
-        pdgmstr3 (cleanpdgms pdgmstr2)
-        ;; map each 'val-string-w/o-pivot-val token' to token
-        prows (split pdgmstr3 #"\r\n")
-        pcells (for [prow prows] (split prow #","))
-        pivot-map (for [prow pcells] (hash-map (nth prow pivot) (vec-remove prow pivot)))
-        ;; group the val-tokens associated with each pivot val
-        newpdgms (merge-matches pivot-map)
-        ;; make a vector of pivot vals
-        pvalvec (vec (for [npdgm newpdgms] (str (key npdgm))))
-        ;; e.g., ["Plural" "Singular"]
-        ;; make a vector of pdgm rows for each pivot
-        vvec (for [npdgm newpdgms] (val npdgm))
-        pmapvec (for [vgroup vvec] (for [vrow vgroup] (vec2map vrow)))
-        ;; transform pmaps to hash-maps
-        
-        prmaps (for [prmap pmapvec] (for [prmp prmap]  (clojure.walk/keywordize-keys (apply hash-map (split prmp #" ")))))
-        pmaps (for [prmap prmaps] (apply conj prmap))
-        heads (split headerset2 #" ")
-        headvec (vec-remove heads pivot)
-        ;; pdgmnums (into [] (take (clojure.core/count pnames) (iterate inc 1)))
-        ;; set of lists of vaue-combination-terms
-        keylists (set (for [pmap pmaps] (keys pmap)))
-        ;;keylists (set (keys pmap))
-        ;; why is replace necessary; none of deleted chars should be in keys
-        keystring (clojure.string/replace (str keylists) #"[#(){}]" "")
-        keyvec (split keystring #" ")
-        ;; set of all value combinations, as strings, in the combined pdgms
-        keyset (set keyvec)
-        ]
-    (layout/common
-     [:body
-      [:h3 "Parallel Display of Paradigms:" ]
-      [:p "Click on column to sort (multiple sort by holding down shift key). Columns can be dragged by clicking and holding on 'drag-bar' at top of column."]
-      [:div [:h4 "======= Debug Info: ======="]
-       [:p "headerset2: " [:pre headerset2]]
-       [:p "pivot: " [:pre pivot]]
-       [:p "headvec: " [:pre headvec]]
-       [:p "pvalvec: " [:pre pvalvec]]
-       [:p "pdgmstr2: " [:pre pdgmstr2]]
-       [:p "vvec: " [:pre vvec]]
-       [:p "pmapvec: " [:pre pmapvec]]
-       [:p "prmaps: " [:pre prmaps]]
-       [:p "pmaps: " [:pre pmaps]]
-       [:p "keylists: " [:pre keylists]]
-       [:p "keystring: " [:pre keystring]]
-       [:p "keyset: " [:pre keyset]]
-       [:p "==========================="]]
-     [:p "Paradigms:"
-      [:ol
-      (for [pname pnames]
-        [:li pname])]]
-      [:hr]
-      [:table {:id "handlerTable" :class "tablesorter sar-table"}
-         [:thead
-          (for [head headvec]
-            [:th [:div {:class "some-handle"}] head])
-          (for [pval pvalvec]
-            [:th [:div {:class "some-handle"}] pval])]
-       [:tbody
-               (for [keys keyset]
-          [:tr
-           (let [kstring (clojure.string/replace keys #"^:" "")
-                 npgs (split kstring #",")
-                 kstrkey (keyword kstring)]
-               [:div
-                (for [npg npgs]
-                  [:td npg])
-                (for [pmap pmaps]
-               [:td (kstrkey pmap)])])]) ]
-      [:script {:src "js/goog/base.js" :type "text/javascript"}]
-      [:script {:src "js/webapp.js" :type "text/javascript"}]
-      [:script {:type "text/javascript"}
-       "goog.require('webapp.core');"]]])))
-
 
 (defroutes multipdgmmod-routes
   (GET "/multipdgmmod" [] (multipdgmmod))
   (POST "/multimodqry" [languages pos] (handle-multimodqry languages pos))
   (POST "/multimoddisplay" [valclusters pos] (handle-multimoddisplay valclusters pos))
-  (POST "/multimodplldisplay" [pdgmnames header pdgmstr2 pivot] (handle-multimodplldisplay4 pdgmnames header pdgmstr2 pivot)))
+  (POST "/multimodplldisplay" [pdgmnames header pdgmstr2] (handle-multimodplldisplay2 pdgmnames header pdgmstr2)))
