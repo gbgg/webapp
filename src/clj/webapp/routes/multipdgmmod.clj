@@ -261,19 +261,6 @@
      [:script {:type "text/javascript"}
       "goog.require('webapp.core');"])))
 
-(defn pstring2map
-  [pdgm]
-  (let [pdgm1 (clojure.string/replace pdgm #"^.*?\\r\\n" "") ;; header out
-        pdgmstring (clojure.string/replace pdgm1 #"\\r\\n" "%%") 
-        pdgmstr (clojure.string/replace pdgmstring #",([^,]*%%)" "&$1")
-        pdgm2 (clojure.string/replace pdgmstr #"&" " ")
-        pdgm3  (clojure.string/replace pdgm2 #"%%" " ")
-        plist (split pdgm3 #" ")
-        pmap (apply hash-map plist)
-        ]
-    (clojure.walk/keywordize-keys pmap)
-    ))
-
 (defn handle-multimodplldisplay
   "This version relies on external npg.clj file for sort order; can be eliminated as soon as is clear that handle-multimodplldisplay2 is adequate"
   [pdgms headerset2 pdgmstr2]
@@ -326,6 +313,19 @@
       [:script {:type "text/javascript"}
        "goog.require('webapp.core');"]]])))
     
+(defn pstring2map
+  [pdgm]
+  (let [pdgm1 (clojure.string/replace pdgm #"^.*?\\r\\n" "") ;; header out
+        pdgmstring (clojure.string/replace pdgm1 #"\\r\\n" "%%") 
+        pdgmstr (clojure.string/replace pdgmstring #",([^,]*%%)" "&$1")
+        pdgm2 (clojure.string/replace pdgmstr #"&" " ")
+        pdgm3  (clojure.string/replace pdgm2 #"%%" " ")
+        plist (split pdgm3 #" ")
+        pmap (apply hash-map plist)
+        ]
+    (clojure.walk/keywordize-keys pmap)
+    ))
+
 (defn handle-multimodplldisplay2
   "This version does not rely on external png file for sort order; keyset should be generalized beyond png to any sequence of cols between col-1 ('pivot', here limited to paradigms) and token column. Also need to 'presort' cols before initial display."
   [pdgms headerset2 pdgmstr2]
