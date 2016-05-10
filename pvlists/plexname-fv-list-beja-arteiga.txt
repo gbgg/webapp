@@ -31,10 +31,10 @@ Suffix,Optative,Negative:tam
 Suffix,Past,Affirmative:tam
 Suffix,Present,Affirmative:tam
 Suffix,Present,Negative:tam
-IMPTVROOTCLASSES,Structure,Prefix,B,Simple,Imperative,CCC:dbl,dlb,fnk,ktb,ktm,kwbs
-IMPTVROOTCLASSES,Structure,Prefix,B,Simple,Imperative,CCY:dgy,fry,mry,sfy
-IMPTVROOTCLASSES,Structure,Prefix,B,Simple,Imperative,CVC:bis,dif,dir,liw,min,rib
-IMPTVROOTCLASSES,Structure,Suffix,B,Simple,Imperative,Invar:ad,doob,gwa,kileew,nuun,raat,rih,suum,tam
 Auxiliary,Past,Negative:AUXILIARY
 Compound,Past,Negative:tam
 Copula:COPULA
+IMPTVROOTCLASSES,Prefix,B,Imperative,CCC:dbl,dlb,fnk,ktb,ktm,kwbs
+IMPTVROOTCLASSES,Prefix,B,Imperative,CCY:dgy,fry,mry,sfy
+IMPTVROOTCLASSES,Prefix,B,Imperative,CVC:bis,dif,dir,liw,min,rib
+IMPTVROOTCLASSES,Suffix,B,Imperative,Invar:ad,doob,gwa,kileew,nuun,raat,rih,suum,tam

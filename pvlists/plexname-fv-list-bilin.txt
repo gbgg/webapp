@@ -1,7 +1,7 @@
-PersSuff,PngA:SUBJMARKA
-PersSuff,PngA2:SUBJMARKA2
-PersSuff,PngB:SUBJMARKB
-PersSuff,PngC:SUBJMARKC
+PngA:SUBJMARKA
+PngA2:SUBJMARKA2
+PngB:SUBJMARKB
+PngC:SUBJMARKC
 Conjugation1,AdvAt1,Affirmative,PngA,Imperfective:gab
 Conjugation1,AdvAt2,Affirmative,PngA,Imperfective:gab
 Conjugation1,AdvCause,Affirmative,PngA,Perfective:gab
