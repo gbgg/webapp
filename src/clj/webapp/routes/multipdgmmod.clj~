@@ -362,18 +362,17 @@
         pdgm2 (clojure.string/replace pdgm1 #"(\\r\\n).*?," "$1") ;; other pivots out 
         pdgmstring (clojure.string/replace pdgm2 #"\\r\\n" "%%") ;; delimit rows 
         pdgmstr (clojure.string/replace pdgmstring #",([^,]*?%%)" "&$1") ;; delimit tokens 
-        pdgm3 (clojure.string/replace pdgmstr #"&" " ") ;; setup for pmap 
-        pdgm4 (clojure.string/replace pdgm3 #"%%" " ") 
-        ;;pdgm4 (clojure.string/replace pdgm3 #"\s*$" "") ;; final line-feed out 
-        plist (split pdgm4 #" ") 
-        pmap (apply hash-map plist) ]
+        pdgm3 (clojure.string/replace pdgmstr #"&" " ") ;; setup for pmap pdgm4
+        (clojure.string/replace pdgm3 #"%%" " ") ;;pdgm4
+        (clojure.string/replace pdgm3 #"\s*$" "") ;; final line-feed out plist
+        (split pdgm4 #" ") pmap (apply hash-map plist) ]
     (clojure.walk/keywordize-keys pmap) ))
 
 (defn cleanpdgms [pdgmstr]
-  (let [pdgmstr-a (clojure.string/replace pdgmstr #"\\r\\n$" "")
-        pdgmstr-b (clojure.string/replace pdgmstr-a #"^\\r\\n" "")
+  (let [pdgmstr-a (clojure.string/replace pdgmstr #"\r\n$" "")
+        pdgmstr-b (clojure.string/replace pdgmstr-a #"^\r\n" "")
         pdgmstr-c (clojure.string/replace pdgmstr-b #":" "_")]
-    (clojure.string/replace pdgmstr-c #"\\r\\n " "")))
+    (clojure.string/replace pdgmstr-c #"\r\n " "")))
 
 ;; from http://stackoverflow.com/questions/1394991
 (defn vec-remove
@@ -408,10 +407,9 @@
         pnames (split pnamestr #" ")
         pivot (read-string pivotname)
         ;; get rid of spurious line-feeds
-        ;;pdgmstr2a (str pdgmstr2)
         pdgmstr3 (cleanpdgms pdgmstr2)
         ;; map each 'val-string-w/o-pivot-val token' to token
-        prows (split pdgmstr3 #"\\r\\n")
+        prows (split pdgmstr3 #"\r\n")
         pcells (for [prow prows] (split prow #","))
         pivot-map (for [prow pcells] (hash-map (nth prow pivot) (vec-remove prow pivot)))
         ;; group the val-tokens associated with each pivot val
@@ -426,8 +424,7 @@
         prmaps (for [prmap pmapvec] (for [prmp prmap] (pstring2map3 prmp)))
         ;;prmaps (for [prmap pmapvec] (for [prmp prmap]  (clojure.walk/keywordize-keys (apply hash-map (split prmp #" ")))))
         pmaps (for [prmap prmaps] (apply conj prmap))
-        headerset3 (clojure.string/replace headerset2 #"[\[\]\"]" "")
-        heads (split (str headerset3) #" ")
+        heads (split headerset2 #" ")
         headvec (vec-remove heads pivot)
         ;; pdgmnums (into [] (take (clojure.core/count pnames) (iterate inc 1)))
         ;; set of lists of vaue-combination-terms
@@ -443,17 +440,13 @@
      [:body
       [:h3 "Parallel Display of Paradigms:" ]
       [:p "Click on column to sort (multiple sort by holding down shift key). Columns can be dragged by clicking and holding on 'drag-bar' at top of column."]
-     [:p "Paradigms:"
       [:div [:h4 "======= Debug Info: ======="]
-       [:p "pnames: " (str pnames)]
        [:p "headerset2: " [:pre headerset2]]
        [:p "pivot: " [:pre pivot]]
-       [:p "heads: " (str heads)]
-       [:p "headvec: " (str headvec)]
+       [:p "headvec: " [:pre headvec]]
        [:p "pvalvec: " [:pre pvalvec]]
        [:p "pdgmstr2: " [:pre pdgmstr2]]
-       ;;[:p "vvec: " [:pre vvec]]
-       [:p "vvec: " (str vvec)]
+       [:p "vvec: " [:pre vvec]]
        [:p "pmapvec: " [:pre pmapvec]]
        [:p "prmaps: " [:pre prmaps]]
        [:p "pmaps: " [:pre pmaps]]
@@ -461,6 +454,7 @@
        [:p "keystring: " [:pre keystring]]
        [:p "keyset: " [:pre keyset]]
        [:p "==========================="]]
+     [:p "Paradigms:"
       [:ol
       (for [pname pnames]
         [:li pname])]]
