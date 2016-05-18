@@ -1,5 +1,5 @@
 (ns webapp.routes.multipdgmmod
- (:refer-clojure :exclude [filter concat group-by max min count])
+ (:refer-clojure :exclude [filter concat group-by max min])
   (:require 
             ;;[clojure.core/count :as count]
             [compojure.core :refer :all]
@@ -107,14 +107,29 @@
                   [:td [:input#submit
                         {:value "Display pdgms", :name "submit", :type "submit"}]]]])))
 
+(defn addpnum
+  [valclusters]
+  (let [pnum (atom 0)]
+    (for [valcluster valclusters]
+      (let [pnum (swap! pnum inc)]
+        (clojure.string/replace valcluster #"\r\n(\S)" (str "\r\nP-"  pnum  ",$1"))))))
+
 (defn vc2req
  [valclusters pos]
   (let [vcvec (split valclusters #" ")
-        lprefmap (read-string (slurp "pvlists/lprefs.clj"))]
+        lprefmap (read-string (slurp "pvlists/lprefs.clj"))
+        pmnum (atom 0)
+        pdgmnums (into [] (take (count vcvec) (iterate inc 1)))
+        ]
     (for [valcluster vcvec]
-      (let [vals (split valcluster #"," 2)
+      (let [;;valcluster (nth vcvec (dec pdgmnum))
+            vals (split valcluster #"," 2)
             language (first vals)
             vcluster (last vals)
+            ;; all three of following fail to recalculate after 1st iteration
+            pnum (.indexOf valclusters valcluster)
+            pmnum (swap! pmnum inc)
+            pdnum (nth pdgmnums pnum)
             lang (read-string (str ":" language))
             lpref (lang lprefmap)
             valstrng (clojure.string/replace vcluster #",*person|,*gender|,*number" "")
@@ -133,16 +148,11 @@
                        {"query" query-sparql ;;generated sparql
                         ;;"format" "application/sparql-results+json"}})]
                         "format" "csv"}})
-            ;;pvec (split (:body req) #"\r\n" 2)
-            ;;pbody (str (last pvec))
             ;; get rid of header
             pbody (clojure.string/replace (:body req) #"^.*?\r\n" "\r\n")
             ]
-        ;;(str (:body req))))
-        ;;(clojure.string/replace (:body req) #" " "_")
-        ;;(clojure.string/replace (:body req) #"\r\n$" "")
         ;; add pdgm name to each row of pbody as first value
-        (clojure.string/replace pbody #"\r\n(\S)" (str "\r\n" vcstring ",$1"))))))
+        (clojure.string/replace pbody #"\r\n(\S)" (str "\r\n" vcstring  ",$1"))))))
 
 (defn csv2pdgm
 "Takes sorted 4-col csv list with vectors of pnames and headers, and outputs 5-col html table with first col for pname ref; cols are draggable and sortable."
@@ -171,9 +181,6 @@
      (for [pname pnames]
        [:li pname])]]
    [:hr]
-   ;;[:pre pdgmstr2]
-   ;;[:hr]
-   ;; For visible borders set {:border "1"}.
    [:table {:id "handlerTable" :class "tablesorter sar-table"}
     [:thead
      [:tr
@@ -199,13 +206,13 @@
            ;;)
        ))]]]))
         
-
 (defn handle-multimoddisplay
   [valclusters pos]
   ;; send SPARQL over HTTP request
   (let [headerset1 (str "Paradigm " "Number " "Person " "Gender " "Token ")
         headerset2 (str "pdgm " "num " "pers " "gen ")
         headers (split headerset2 #" ")
+        ;;valclusters2 (addpnum valclusters)
         pdgmvec (map #(vc2req  % pos) valclusters)
         header (first pdgmvec)
         pdgmstr1 (apply pr-str pdgmvec)
