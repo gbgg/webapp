@@ -107,12 +107,6 @@
                   [:td [:input#submit
                         {:value "Display pdgms", :name "submit", :type "submit"}]]]])))
 
-(defn addpnum
-  [valclusters]
-  (let [pnum (atom 0)]
-    (for [valcluster valclusters]
-      (let [pnum (swap! pnum inc)]
-        (clojure.string/replace valcluster #"\r\n(\S)" (str "\r\nP-"  pnum  ",$1"))))))
 
 (defn vc2req
  [valclusters pos]
@@ -122,14 +116,15 @@
         pdgmnums (into [] (take (count vcvec) (iterate inc 1)))
         ]
     (for [valcluster vcvec]
+    ;;(for [pdgmnum pdgmnums]
       (let [;;valcluster (nth vcvec (dec pdgmnum))
             vals (split valcluster #"," 2)
             language (first vals)
             vcluster (last vals)
             ;; all three of following fail to recalculate after 1st iteration
-            pnum (.indexOf valclusters valcluster)
-            pmnum (swap! pmnum inc)
-            pdnum (nth pdgmnums pnum)
+            ;; pnum (.indexOf vcvec valcluster)
+            ;; pmnum (swap! pmnum inc)
+            ;; pdnum (nth pdgmnums pnum)
             lang (read-string (str ":" language))
             lpref (lang lprefmap)
             valstrng (clojure.string/replace vcluster #",*person|,*gender|,*number" "")
@@ -149,10 +144,11 @@
                         ;;"format" "application/sparql-results+json"}})]
                         "format" "csv"}})
             ;; get rid of header
-            pbody (clojure.string/replace (:body req) #"^.*?\r\n" "\r\n")
+            pbody1 (clojure.string/replace (:body req) #"^.*?\r\n" "\r\n")
+            pbody2 (clojure.string/replace pbody1 #" " "_")
             ]
         ;; add pdgm name to each row of pbody as first value
-        (clojure.string/replace pbody #"\r\n(\S)" (str "\r\n" vcstring  ",$1"))))))
+        (clojure.string/replace pbody2 #"\r\n(\S)" (str "\r\n" vcstring  ",$1"))))))
 
 (defn csv2pdgm
 "Takes sorted 4-col csv list with vectors of pnames and headers, and outputs 5-col html table with first col for pname ref; cols are draggable and sortable."
@@ -206,6 +202,13 @@
            ;;)
        ))]]]))
         
+(defn addpnum
+  [pdgmvec]
+  (let [pnum (atom 0)]
+    (for [pdgmrow pdgmvec]
+      (let [pnum (swap! pnum inc)]
+        (clojure.string/replace pdgmrow #"\r\n(\S)" (str "\r\nP-"  pnum  "-$1"))))))
+
 (defn handle-multimoddisplay
   [valclusters pos]
   ;; send SPARQL over HTTP request
@@ -214,6 +217,7 @@
         headers (split headerset2 #" ")
         ;;valclusters2 (addpnum valclusters)
         pdgmvec (map #(vc2req  % pos) valclusters)
+        pdgmvec2 (map #(addpnum % ) pdgmvec)
         header (first pdgmvec)
         pdgmstr1 (apply pr-str pdgmvec)
         pdgmstr2 (clojure.string/replace pdgmstr1 #"[\(\)\"]" "")
@@ -230,6 +234,7 @@
            [:hr]
            [:div [:h4 "======= Debug Info: ======="]
             [:p "pdgmvec: " [:pre pdgmvec]]
+            ;;[:p "pdgmvec2: " [:pre pdgmvec2]]
             [:p "valclusters: " [:pre pdgms]]
             [:p "headerset2: " [:pre headerset2]]
             [:p "pdgmstr2: " [:pre pdgmstr2]]
@@ -298,7 +303,8 @@
         pdgmstring (clojure.string/replace pdgm1b #"\\r\\n.*?," "%%") ;; delimit rows (and other pdgms labels out) 
         pdgmstr (clojure.string/replace pdgmstring #",([^,]*%%)" "&$1") ;;delimit tokens
         pdgmstr2 (clojure.string/replace pdgmstr #",([^,]*)$" "&$1") ;; last token
-        pdgm2 (clojure.string/replace pdgmstr2 #"&" " ") ;; set up for pmap
+        pdgmstr3 (clojure.string/replace pdgmstr2 #" " "_") ;; no spaces in data, otherwise hash-map blows up!
+        pdgm2 (clojure.string/replace pdgmstr3 #"&" " ") ;; set up for pmap
         pdgm3  (clojure.string/replace pdgm2 #"%%" " ")
         plist (split pdgm3 #" ") ;; change to vector of pairs
         pmap (apply hash-map plist)
@@ -485,5 +491,5 @@
   (GET "/multipdgmmod" [] (multipdgmmod))
   (POST "/multimodqry" [languages pos] (handle-multimodqry languages pos))
   (POST "/multimoddisplay" [valclusters pos] (handle-multimoddisplay valclusters pos))
-  ;;(POST "/multimodplldisplay" [pdgmnames header pdgmstr2] (handle-multimodplldisplay2 pdgmnames header pdgmstr2)))  
-(POST "/multimodplldisplay" [pdgmnames header pdgmstr2 pivot] (handle-multimodplldisplay4 pdgmnames header pdgmstr2 pivot)))
+  (POST "/multimodplldisplay" [pdgmnames header pdgmstr2] (handle-multimodplldisplay2 pdgmnames header pdgmstr2)))  
+;;(POST "/multimodplldisplay" [pdgmnames header pdgmstr2 pivot] (handle-multimodplldisplay4 pdgmnames header pdgmstr2 pivot)))

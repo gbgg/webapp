@@ -1,6 +1,7 @@
 Aorist,Affirmative,Main,AbsoluteInfinitive:rime
+Aorist,Negative,Main,AbsoluteInfinitive:rime
 Circumstantial,Affirmative,Subordinate,AbsoluteInfinitive:rime
-Conditional,Affirmative,Conditional,AbsoluteInfinitive:rime
+Conditional,Affirmative,ConditionalClause,AbsoluteInfinitive:rime
 Conjunctive,Affirmative,Variable,AbsoluteInfinitive:bok
 Future,Affirmative,Result,AbsoluteInfinitive:rime
 Future3,Affirmative,Variable,AbsoluteInfinitive:rime
@@ -9,12 +10,12 @@ Imperfect,Affirmative,Variable,AbsoluteInfinitive:rime
 InflectedInfiitive,Affirmative,Variable,AbsoluteInfinitive:bok
 Injunct,Affirmative,Main,AbsoluteInfinitive:rime
 NotYet,Negative,Variable,AbsoluteInfinitive:bok
-Perf1,Affirmative,Relative,Relative,AbsoluteInfinitive:bok
+Perf1,Affirmative,Relative,AbsoluteInfinitive:bok
 Perf1,Negative,Main,AbsoluteInfinitive:bok
 Perf2,Affirmative,Main,AbsoluteInfinitive:bok
 Pres1,Affirmative,Main,AbsoluteInfinitive:rime
-Pres1,Affirmative,Relative,Relative,AbsoluteInfinitive:bok
+Pres1,Affirmative,Relative,AbsoluteInfinitive:bok
 Pres2,Affirmative,Main,AbsoluteInfinitive:rime
 SimplePast,Affirmative,TemporalSubordinate,AbsoluteInfinitive:bok
 SimplePast,Negative,Temporal,AbsoluteInfinitive:bok
-Terminative,Affirmative,Terminative,AbsoluteInfinitive:bok
+Terminative,Affirmative,TerminativeClause,AbsoluteInfinitive:bok
