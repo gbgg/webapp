@@ -393,11 +393,10 @@
   (update-in m [(key map-entry)] (fnil conj []) (val map-entry)))
 (defn merge-matches [property-map-list]
   (reduce conj-in {} (apply clojure.core/concat property-map-list)))
-
 (defn vec2map 
   "join all elements of vector but last with ','; last with ' '"
   [row] 
-  (let [prow (join "," row)]
+  (let [prow (clojure.string/join "," row)]
    (clojure.string/replace prow #"(.*),(.*?$)" "$1 $2")))
 ;;(clojure.string/replace (join "," row) #"(.*),(.*?$)" "$1 $2"))
 
@@ -407,23 +406,39 @@
   (let [hmap1 (split prmp #" ")
         hmap2 (apply hash-map hmap1)]
     (clojure.walk/keywordize-keys hmap2)))
+
+(defn make-pivot-map
+  [prow pivots]
+  ;; build up pkey and pval, then hash-map
+  (for [pivot pivots]
+    (let [pkey (nth prow pivot)])))
+  
         
 (defn handle-multimodplldisplay4
   "In this version pivot/keyset can be generalized beyond png any col (eventually any sequence of cols) between col-1 and token column. (Need to find out how to 'presort' cols before initial display?)"
-  [pdgms headerset2 pdgmstr2 pivotname]
+  [pdgms headerset2 pdgmstr2 pivotlist]
   (let [pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
         pnames (split pnamestr #" ")
-        pivot (read-string pivotname)
+        ;;pivot (read-string pivotname)
         ;; get rid of spurious line-feeds
         ;;pdgmstr2a (str pdgmstr2)
         pdgmstr3 (cleanpdgms pdgmstr2)
         ;; map each 'val-string-w/o-pivot-val token' to token
         prows (split pdgmstr3 #"\\r\\n")
         pcells (for [prow prows] (split prow #","))
-        pivot-map (for [prow pcells] (hash-map (nth prow pivot) (vec-remove prow pivot)))
+        ;; build up pkey by joining pivot-vals and pval by removing pivot-vals
+        pklist (make-pklist pcells pivotlist)
+        pvlist (make-pvlist pcells pivotlist)
+        pivots (split pivotlist #",")
+        pivot-map (for [prow pcells] (hash-map pkey pval))
+        ;; pivot-map (for [prow pcells] (hash-map (nth prow pivot) (vec-remove prow pivot)))
+        pivot-map (for [prow pcells] (make-pivot-map prow pivots))
         ;; group the val-tokens associated with each pivot val
         newpdgms (merge-matches pivot-map)
+        pdgmnums (into [] (take (clojure.core/count pnames) (iterate inc 1)))
         ;; make a vector of pivot vals
+        ;;pvalvec (vec (for [pdgmnum pdgmnums] (str "P-" pdgmnum)))
+        ;;pnames2 (vec (for [npdgm newpdgms] (str (key npdgm))))
         pvalvec (vec (for [npdgm newpdgms] (str (key npdgm))))
         ;; e.g., ["Plural" "Singular"]
         ;; make a vector of pdgm rows for each pivot
@@ -435,8 +450,7 @@
         pmaps (for [prmap prmaps] (apply conj prmap))
         headerset3 (clojure.string/replace headerset2 #"[\[\]\"]" "")
         heads (split (str headerset3) #" ")
-        headvec (vec-remove heads pivot)
-        ;; pdgmnums (into [] (take (clojure.core/count pnames) (iterate inc 1)))
+        headvec (vec-remove heads pivotlist)
         ;; set of lists of vaue-combination-terms
         keylists (set (for [pmap pmaps] (keys pmap)))
         ;;keylists (set (keys pmap))
@@ -451,23 +465,6 @@
       [:h3 "Parallel Display of Paradigms:" ]
       [:p "Click on column to sort (multiple sort by holding down shift key). Columns can be dragged by clicking and holding on 'drag-bar' at top of column."]
      [:p "Paradigms:"
-      [:div [:h4 "======= Debug Info: ======="]
-       [:p "pnames: " (str pnames)]
-       [:p "headerset2: " [:pre headerset2]]
-       [:p "pivot: " [:pre pivot]]
-       [:p "heads: " (str heads)]
-       [:p "headvec: " (str headvec)]
-       [:p "pvalvec: " [:pre pvalvec]]
-       [:p "pdgmstr2: " [:pre pdgmstr2]]
-       ;;[:p "vvec: " [:pre vvec]]
-       [:p "vvec: " (str vvec)]
-       [:p "pmapvec: " [:pre pmapvec]]
-       [:p "prmaps: " [:pre prmaps]]
-       [:p "pmaps: " [:pre pmaps]]
-       [:p "keylists: " [:pre keylists]]
-       [:p "keystring: " [:pre keystring]]
-       [:p "keyset: " [:pre keyset]]
-       [:p "==========================="]]
       [:ol
       (for [pname pnames]
         [:li pname])]]
@@ -488,11 +485,32 @@
                 (for [npg npgs]
                   [:td npg])
                 (for [pmap pmaps]
-               [:td (kstrkey pmap)])])]) ]
+               [:td (kstrkey pmap)])])]) ]]
+       [:div [:h4 "======= Debug Info: ======="]
+        [:p "pnames: " (str pnames)]
+        [:p "headerset2: " [:pre headerset2]]
+        ;; [:p "pivot: " [:pre pivot]]
+        [:p "heads: " (str heads)]
+        [:p "headvec: " (str headvec)]
+        [:p "prows: "  (str prows) [:pre prows]]
+        [:p "pcells: " (println (str pcells)) [:pre pcells]]
+        [:p "pivot-map: " [:pre pivot-map]]
+        [:p "newpdgms: " [:pre newpdgms]]
+        [:p "pvalvec: " (str pvalvec) [:pre pvalvec]]
+        [:p "pdgmstr2: " [:pre pdgmstr2]]
+        ;;[:p "vvec: " [:pre vvec]]
+        [:p "vvec: " (str vvec)]
+        [:p "pmapvec: " [:pre pmapvec]]
+        [:p "prmaps: " [:pre prmaps]]
+        [:p "pmaps: " [:pre pmaps]]
+        [:p "keylists: " [:pre keylists]]
+        [:p "keystring: " [:pre keystring]]
+        [:p "keyset: " [:pre keyset]]
+        [:p "==========================="]]
       [:script {:src "js/goog/base.js" :type "text/javascript"}]
       [:script {:src "js/webapp.js" :type "text/javascript"}]
       [:script {:type "text/javascript"}
-       "goog.require('webapp.core');"]]])))
+       "goog.require('webapp.core');"]])))
 
 
 (defroutes multipdgmmod-routes
