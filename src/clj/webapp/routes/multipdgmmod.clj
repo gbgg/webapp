@@ -252,12 +252,13 @@
                             {:title "Header", :name "header"}
                             [:option {:value headers} (str headers)] 
                             ]]]
-                     [:tr [:td "Pivot: "]
-                      [:td [:select#pivot.required
-                            {:title "Pivot", :name "pivot"}
-                            (for [head headers]
-                            [:option {:value (.indexOf headers head)} head] )
-                            ]]]
+                     [:tr [:td "Pivots: "]
+                      [:td
+                       [:div {:class "form-group"}
+                        [:label 
+                         (for [head headers]
+                           [:span
+                           (check-box {:name "pivotlist[]" :value (.indexOf headers head)} head) head])]]]]
                      [:tr [:td "PString: "]
                      [:td [:select#pdgms.required
                             {:title "PDGMS", :name "pdgmstr2"}
@@ -407,18 +408,19 @@
         hmap2 (apply hash-map hmap1)]
     (clojure.walk/keywordize-keys hmap2)))
 
-(defn make-pivot-map
-  [prow pivots]
-  ;; build up pkey and pval, then hash-map
-  (for [pivot pivots]
-    (let [pkey (nth prow pivot)])))
-  
+(defn make-pmap
+  "Build up hash-map key by joining pivot-vals and val by removing pivot-vals"
+  [pcell pivots]
+    (let [pklist (vec (for [pivot pivots] (nth pcell pivot)))
+          pkstr (join "+" pklist)]
+      (hash-map  pkstr (vec (remove (set pklist) pcell)))))
         
 (defn handle-multimodplldisplay4
   "In this version pivot/keyset can be generalized beyond png any col (eventually any sequence of cols) between col-1 and token column. (Need to find out how to 'presort' cols before initial display?)"
   [pdgms headerset2 pdgmstr2 pivotlist]
   (let [pnamestr (clojure.string/replace pdgms #"[\[\]\"]" "")
         pnames (split pnamestr #" ")
+        pivots (map read-string pivotlist)
         ;;pivot (read-string pivotname)
         ;; get rid of spurious line-feeds
         ;;pdgmstr2a (str pdgmstr2)
@@ -426,13 +428,9 @@
         ;; map each 'val-string-w/o-pivot-val token' to token
         prows (split pdgmstr3 #"\\r\\n")
         pcells (for [prow prows] (split prow #","))
-        ;; build up pkey by joining pivot-vals and pval by removing pivot-vals
-        pklist (make-pklist pcells pivotlist)
-        pvlist (make-pvlist pcells pivotlist)
-        pivots (split pivotlist #",")
-        pivot-map (for [prow pcells] (hash-map pkey pval))
-        ;; pivot-map (for [prow pcells] (hash-map (nth prow pivot) (vec-remove prow pivot)))
-        pivot-map (for [prow pcells] (make-pivot-map prow pivots))
+        pivotlist2 (str "pdgm,num")
+        ;;pivots (split pivotlist2 #",")
+        pivot-map (for [pcell pcells] (make-pmap pcell pivots))
         ;; group the val-tokens associated with each pivot val
         newpdgms (merge-matches pivot-map)
         pdgmnums (into [] (take (clojure.core/count pnames) (iterate inc 1)))
@@ -450,7 +448,9 @@
         pmaps (for [prmap prmaps] (apply conj prmap))
         headerset3 (clojure.string/replace headerset2 #"[\[\]\"]" "")
         heads (split (str headerset3) #" ")
-        headvec (vec-remove heads pivotlist)
+        ;;headvec (for [pivot pivotlist] (vec-remove heads pivotlist))
+        pivotnames (vec (for [pivot pivots] (nth heads pivot)))
+        headvec (vec (remove (set pivotnames) heads))
         ;; set of lists of vaue-combination-terms
         keylists (set (for [pmap pmaps] (keys pmap)))
         ;;keylists (set (keys pmap))
@@ -487,9 +487,11 @@
                 (for [pmap pmaps]
                [:td (kstrkey pmap)])])]) ]]
        [:div [:h4 "======= Debug Info: ======="]
+        [:p "pdgms: " [:pre pdgms]]
         [:p "pnames: " (str pnames)]
         [:p "headerset2: " [:pre headerset2]]
-        ;; [:p "pivot: " [:pre pivot]]
+        [:p "pivotlist: " (str pivotlist)]
+        [:p "pivotnames: " (str pivotnames)]
         [:p "heads: " (str heads)]
         [:p "headvec: " (str headvec)]
         [:p "prows: "  (str prows) [:pre prows]]
@@ -518,4 +520,4 @@
   (POST "/multimodqry" [languages pos] (handle-multimodqry languages pos))
   (POST "/multimoddisplay" [valclusters pos] (handle-multimoddisplay valclusters pos))
   ;;(POST "/multimodplldisplay" [pdgmnames header pdgmstr2] (handle-multimodplldisplay2 pdgmnames header pdgmstr2)))  
-(POST "/multimodplldisplay" [pdgmnames header pdgmstr2 pivot] (handle-multimodplldisplay4 pdgmnames header pdgmstr2 pivot)))
+(POST "/multimodplldisplay" [pdgmnames header pdgmstr2 pivotlist] (handle-multimodplldisplay4 pdgmnames header pdgmstr2 pivotlist)))
