@@ -134,7 +134,7 @@
             pbody2 (clojure.string/replace pbody1 #" " "_")
             ]
         ;; add pdgm name to each row of pbody as first value
-        (clojure.string/replace pbody #"\r\n(\S)" (str "\r\n" pnum  ",$1"))))))
+        (clojure.string/replace pbody2 #"\r\n(\S)" (str "\r\n" pnum  ",$1"))))))
 
 (defn csv2pdgm
 "Takes sorted n-col csv list with vectors of pnames and headers, and outputs n+1-col html table with first col for pname ref; cols are draggable and sortable."
@@ -298,12 +298,22 @@
    (clojure.string/replace prow #"(.*),(.*?$)" "$1 $2")))
 ;;(clojure.string/replace (join "," row) #"(.*),(.*?$)" "$1 $2"))
 
-(defn pstring2map
+(defn pstring2maps
   "Used in handle-multimodplldisplay4. Takes pivot property out of comma-separated properties in pdgm string, and arranges the rest as a set of {:property-list 'token'} maps" 
   [prmp] 
   (let [hmap1 (split prmp #" ")
         hmap2 (apply hash-map hmap1)]
     (clojure.walk/keywordize-keys hmap2)))
+
+(defn join-pmaps
+  "Join individual '{:values token}' maps into single map"
+  [prmaps]
+  (for [prmap prmaps]
+    (if (> (count prmap) 1)
+      (apply conj prmap)
+      (apply conj (conj prmap {}))
+      )))
+      ;;(prmap))))
 
 (defn handle-multimodplldisplay
   "In this version pivot/keyset can be generalized beyond png any col (eventually any sequence of cols) between col-1 and token column. (Need to find out how to 'presort' cols before initial display?)"
@@ -327,18 +337,21 @@
         vvec (for [npdgm newpdgms] (val npdgm))
         pmapvec (for [vgroup vvec] (for [vrow vgroup] (vec2map vrow)))
         ;; transform pmaps to hash-maps
-        prmaps (for [prmap pmapvec] (for [prmp prmap] (pstring2map prmp)))
-        pmaps (for [prmap prmaps] (apply conj prmap))
+        prmaps (for [prmap pmapvec] (for [prmp prmap] (pstring2maps prmp)))
+        ;;pmaps (for [prmap prmaps] (apply conj prmap))
+        pmaps (join-pmaps prmaps)
         headerset3 (clojure.string/replace headerset2 #"[\[\]\"]" "")
         heads (split (str headerset3) #" ")
         ;;headvec (for [pivot pivotlist] (vec-remove heads pivotlist))
         pivotnames (vec (for [pivot pivots] (nth heads pivot)))
         headvec (vec (remove (set pivotnames) heads))
         ;; set of lists of vaue-combination-terms
-        keylists (set (for [pmap pmaps] (keys pmap)))
+        keylists (vec (for [pmap pmaps] (keys pmap)))
         ;;keylists (set (keys pmap))
-        ;; why is replace necessary; none of deleted chars should be in keys
-        keystring (clojure.string/replace (str keylists) #"[#(){}]" "")
+        ;; replace seems to be ad hoc cluj; 
+        ;; only '[' and ']' appear in one-line paradigm keyvec (but should not)
+        ;; other deleted chars should not be in keys in the first place
+        keystring (clojure.string/replace (str keylists) #"[#(){}\[\]]" "")
         keyvec (split keystring #" ")
         ;; set of all value combinations, as strings, in the combined pdgms
         keyset (set keyvec)
@@ -372,7 +385,8 @@
                 (for [npg npgs]
                   [:td npg])
                 (for [pmap pmaps]
-               [:td (kstrkey pmap)])])]) ]]
+                  (let [pmap1 (clojure.string/replace (kstrkey pmap) #"_" " ")] 
+               [:td pmap1]))])]) ]]
       [:p " "]
       [:p " "]
        [:div [:h4 "======= Debug Info: ======="]
@@ -383,19 +397,23 @@
         [:p "pivotnames: " (str pivotnames)]
         [:p "heads: " (str heads)]
         [:p "headvec: " (str headvec)]
-        ;;[:p "prows: "  (str prows) [:pre prows]]
-        ;;[:p "pcells: " (println (str pcells)) [:pre pcells]]
+        [:p "prows: "  (str prows) [:pre prows]]
+        [:p "pcells: " (println (str pcells)) [:pre pcells]]
         [:p "pivot-map: " [:pre pivot-map]]
-        ;;[:p "newpdgms: " [:pre newpdgms]]
+        [:p "newpdgms: " [:pre newpdgms]]
+        [:p "newpdgms: " (str newpdgms)]
         [:p "pvalvec: " (str pvalvec)]
         [:p "pdgmstr2: " [:pre pdgmstr2]]
-        ;;[:p "vvec: " [:pre vvec]]
-        ;;[:p "vvec: " (str vvec)]
-        ;;[:p "pmapvec: " [:pre pmapvec]]
-        ;;[:p "prmaps: " [:pre prmaps]]
+        ;;[:p "vvec: " [:pre vvec]] ;;!!raises "not valid element" exception
+        ;;[:p "vvec: " (str vvec)] ;; "not valid el." excp. with "!" in text
+        [:p "pmapvec: " [:pre pmapvec]]
+        [:p "pmapvec: " (str pmapvec)]
+        [:p "prmaps: " [:pre prmaps]]
         [:p "pmaps: " [:pre pmaps]]
-        ;;[:p "keylists: " [:pre keylists]]
-        ;;[:p "keystring: " [:pre keystring]]
+        [:p "keylists: " (str keylists)]
+        [:p "keystring: " [:pre keystring]]
+        [:p "keyvec: " [:pre keyvec]]
+        [:p "keyvec: " (str keyvec)]
         [:p "keyset: " [:pre keyset]]
         [:p "==========================="]]
       [:script {:src "js/goog/base.js" :type "text/javascript"}]
