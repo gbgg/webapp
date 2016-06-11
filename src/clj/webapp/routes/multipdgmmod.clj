@@ -385,8 +385,9 @@
                 (for [npg npgs]
                   [:td npg])
                 (for [pmap pmaps]
-                  (let [pmap1 (clojure.string/replace (kstrkey pmap) #"_" " ")] 
-               [:td pmap1]))])]) ]]
+                  ;; following creates problems for forms w/o '_'
+                  ;;(let [pmap1 (clojure.string/replace (kstrkey pmap) #"_" " ")] 
+               [:td (kstrkey pmap)])])]) ]]
       [:p " "]
       [:p " "]
        [:div [:h4 "======= Debug Info: ======="]

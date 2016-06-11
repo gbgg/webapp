@@ -1401,7 +1401,7 @@ ORDER BY ASC(?prop) ASC(?val)
        prefix rdf:	 <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
        prefix rdfs:	 <http://www.w3.org/2000/01/rdf-schema#>
 
-       SELECT DISTINCT ?language {{selection}}
+       SELECT DISTINCT ?language {{selection}} ?token
        WHERE { ")
                   {:selection selection})
                (apply str 
@@ -1430,24 +1430,28 @@ ORDER BY ASC(?prop) ASC(?val)
                    :selprop selprop
                    :qselval qselval
                    :qselvalLabel qselvalLabel}))
-                   (tmpl/render-string 
+                 (tmpl/render-string 
                   (str "
          ?s <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{selprop}}>
 	  <http://id.oi.uchicago.edu/aama/2013/{{lang}}/{{selval}}> . ")
                   {:lang ldom
                    :selprop selprop
                    :selval selval})))))
-                  (str "
+             (tmpl/render-string 
+              (str "
+         ?s <http://id.oi.uchicago.edu/aama/2013/{{lang}}/token> ?token .")
+              {:lang ldom})
+      (str "
         ?s  aamas:lang ?lng .
         ?lng rdfs:label ?language .
           }}  "
-                       (if (not (= (last ldoms) ldom))
-                         (str " 
+           (if (not (= (last ldoms) ldom))
+             (str " 
           UNION"))))))
-                   (tmpl/render-string 
-                    (str "}
+               (tmpl/render-string 
+                (str "}
        ORDER BY ?language {{selection}}  ")
-    {:selection selection}))))
+                {:selection selection}))))
 
 ;;(if (.contains (last pvec) "?")
 ;;	    (str "Q" (first pvec) " " (last pvec))
