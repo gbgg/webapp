@@ -103,6 +103,53 @@
       formtable
       [:hr]
       [:h3 "Parallel Display of Forms"]
+      [:p "[Under development in branch 'formsearch'.]"]
+           [:hr]
+           [:div [:h4 "======= Debug Info: ======="]
+            [:p "Query: "]
+            [:p [:pre query-sparql-pr]]
+            [:p "Response: "]
+            [:p [:pre csvstring]]
+            [:h4 "==========================="]]
+           [:script {:src "js/goog/base.js" :type "text/javascript"}]
+           [:script {:src "js/webapp.js" :type "text/javascript"}]
+           [:script {:type "text/javascript"}
+            "goog.require('webapp.core');"]])))
+
+(defn handle-prvllgdisplay2
+  "This version has form for parallel display of tokens."
+  [ldomain qstring]
+  ;; send SPARQL over HTTP request
+  (let [query-sparql (sparql/prvllg-sparql ldomain qstring)
+        query-sparql-pr (replace query-sparql #"<" "&lt;")
+        req (http/get aama
+                      {:query-params
+                       {"query" query-sparql ;;generated sparql
+                        ;;"format" "application/sparql-results+json"}})]
+                        ;;"format" "text"}})]
+                        "format" "csv"}})
+        csvstring (:body req)
+        csvstr (split csvstring #"\r\n" 2)
+        ;; csvstr is a string of comma-separated cells
+        ;; whose rows are separated by \r\n 
+        ;; Take off the top header
+        headers (first csvstr)
+        heads (split headers #",")
+        formstring (last csvstr)
+        formtable (csv2table heads formstring)]
+    (log/info "sparql result status: " (:status req))
+    (layout/common
+     [:body
+      [:h3#clickable "Language-Property-Values: " ]
+      [:p [:h4 "Language Domain: "]
+       [:em ldomain]]
+      [:p [:h4 "Query String: "]
+       [:em qstring]]
+      [:p "Click on column to sort (multiple sort by holding down shift key). Columns can be dragged by clicking and holding on 'drag-bar' at top of column."]
+      [:hr]
+      formtable
+      [:hr]
+      [:h3 "Parallel Display of Forms"]
       (form-to [:post "/formplldisplay"]
                [:table
                 [:tr [:td "Header: "]
