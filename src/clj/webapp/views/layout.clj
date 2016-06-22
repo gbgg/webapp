@@ -67,53 +67,57 @@
   (base    
    [:h2#clickable "Afroasiatic Morphological Archive"]
       [:ul {:class "sm sm-simple"}
-   [:li (link-to "#" "Home")
-     [:ul
-      [:li (link-to "/aamaApp" "The AAMA Application")]
-      [:li (link-to "/langInfo" "The Languages")]
-      [:li (link-to "#" "Bibliography")
-       [:ul
-        [:li (link-to "/bibInfoMaster" "General Bibliography")]
-        [:li (link-to "/bibInfoSpecial" "Special Bibliographies")]
-       ]]]]
-   [:li (link-to "#" "Paradigms")
-     [:ul
-      [:li (link-to "/pdgm" "Paradigm Detail")]
-      [:li (link-to "#" "Multiple Paradigms")
-       [:ul
-        [:li (link-to "/multipdgmseq" "Default Display")]
-        [:li (link-to "/multipdgmmod" "Modifiable Display")]]]]]
-   [:li (link-to "#" "Property-value Display")
-    [:ul
-     [:li (link-to "/pvlgpr" "Language-property")]
-     [:li (link-to "/pvlgvl" "Language-value")]
-     [:li (link-to "/pvprvllg" "Language-property-value")]]]
-   [:li (link-to "#" "Utilities")
-     [:ul 
-      [:li (link-to "#" "List Generation:")
-       [:ul
-        [:li (link-to "/listlgpr"  "POS Properties")]
-        [:li (link-to "#" "POS Paradigm Value-Clusters")
-         [:ul
-          [:li (link-to "/listvlclplex" "Default Sort Order")]
-          [:li (link-to "/valclmod" "Modifiable Sort Order")]]]
-        [:li (link-to "/listmenulpv" "Lists for Menus")]
-        [:li (link-to "/listlpv" "Prop-Val Indices by L-Domain")]]]
-      [:li (link-to "#" "Update:")
-       [:ul 
-        [:li (link-to "/update" "Update Local Datastore")]
-        [:li (link-to "/upload" "Upload to Remote Repository")]]]]]
-   [:li (link-to "#" "Help")
-    [:ul
-     [:li (link-to "/helppdgms" "Paradigms")]
-     [:li (link-to "/helppvdisp" "Property Value Displays")]
-     [:li (link-to "/helplistgen" "List Generation")]
-     [:li (link-to "#" "Update/Upload")
-      [:ul
-       [:li (link-to "/helpwebupdate" "Webapp")]
-       [:li (link-to "/helpclupdate" "Command Line")]]]]]]
-
-    [:div.content content]))
+       [:li (link-to "#" "Home")
+        [:ul
+         [:li (link-to "/aamaApp" "The AAMA Application")]
+         [:li (link-to "/langInfo" "The Languages")]
+         [:li (link-to "#" "Bibliography")
+          [:ul
+           [:li (link-to "/bibInfoMaster" "General Bibliography")]
+           [:li (link-to "/bibInfoSpecial" "Special Bibliographies")]
+           ]]]]
+       [:li (link-to "#" "Archive Search")
+        [:ul
+         [:li (link-to "#" "Paradigm Search")
+          [:ul
+           [:li (link-to "/pdgm" "Single Paradigm")]
+           [:li (link-to "#" "Multiple Paradigms")
+            [:ul
+             [:li (link-to "/multipdgmseq" "Default Display")]
+             [:li (link-to "/multipdgmmod" "Modifiable Display")]]]]]
+         [:li (link-to "/formsearch" "Form Search")]
+         [:li (link-to "#" "MS Property-Value Search")
+          [:ul
+           [:li (link-to "/pvlgpr" "MS Properties")]
+           [:li (link-to "/pvlgvl" "MS Values")]]]]]
+       [:li (link-to "#" "Utilities")
+        [:ul 
+         [:li (link-to "#" "List Generation:")
+          [:ul
+           [:li (link-to "/listlgpr"  "POS Properties")]
+           [:li (link-to "#" "POS Paradigm Value-Clusters")
+            [:ul
+             [:li (link-to "/listvlclplex" "Default Sort Order")]
+             [:li (link-to "/valclmod" "Modifiable Sort Order")]
+             [:li (link-to "/listvlclplabel" "PdgmLabel/Value-Cluster")]]
+           [:li (link-to "/listmenulpv" "Lists for Menus")]
+           [:li (link-to "/listlpv" "Prop-Val Indices by L-Domain")]]]
+         [:li (link-to "#" "Update:")
+          [:ul 
+           [:li (link-to "/update" "Update Local Datastore")]
+           [:li (link-to "/upload" "Upload to Remote Repository")]]]]]]
+       [:li (link-to "#" "Help")
+        [:ul
+         [:li (link-to "/helppdgms" "Paradigms")]
+         [:li (link-to "/helpformsearch" "Forms")]
+         [:li (link-to "/helppvdisp" "Morphosyntactic Properties")]
+         [:li (link-to "/helplistgen" "List Generation")]
+         [:li (link-to "#" "Update/Upload")
+          [:ul
+           [:li (link-to "/helpwebupdate" "Webapp")]
+           [:li (link-to "/helpclupdate" "Command Line")]]]]]]
+      
+      [:div.content content]))
 
 ;;(defn common [& content]
 ;;  (base

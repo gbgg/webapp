@@ -37,7 +37,7 @@
                     [:option {:value "noun" :label "Noun"}]
                     ]]]
              [:tr [:td "PDGM Language(s): " ]
-             [:td 
+              [:td 
                {:title "Choose one or more languages.", :name "language"}
                (for [language languages]
                  ;;[:option {:value (lower-case language)} language])]]]
@@ -171,13 +171,13 @@
              pbody (last pdgm-sp)
              pdgmrows (split pbody #"\\r\\n")
              ]
-           (for [pdgmrow pdgmrows]
-             [:tr
-              (let [pdgmrow2 (clojure.string/replace pdgmrow #"_" " ")
-                    pdgmcells (split pdgmrow2 #",")]
-                (for [pdgmcell pdgmcells]
-                  [:td pdgmcell]))])
-       ))]]]))
+         (for [pdgmrow pdgmrows]
+           [:tr
+            (let [pdgmrow2 (clojure.string/replace pdgmrow #"_" " ")
+                  pdgmcells (split pdgmrow2 #",")]
+              (for [pdgmcell pdgmcells]
+                [:td pdgmcell]))])
+         ))]]]))
         
 (defn addpnum
   [pdgmvec]
