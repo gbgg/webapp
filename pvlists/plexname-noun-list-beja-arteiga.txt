@@ -1,2 +1,2 @@
 POSTPOSITION,case,postpositionClass,
-PLMARK,pdgmType,pluralClass,
+PLMARK,pluralClass,

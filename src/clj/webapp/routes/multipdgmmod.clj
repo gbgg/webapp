@@ -399,7 +399,7 @@
         [:p "heads: " (str heads)]
         [:p "headvec: " (str headvec)]
         [:p "prows: "  (str prows) [:pre prows]]
-        [:p "pcells: " (println (str pcells)) [:pre pcells]]
+        [:p "pcells: " (apply str pcells) [:pre pcells]]
         [:p "pivot-map: " [:pre pivot-map]]
         [:p "newpdgms: " [:pre newpdgms]]
         [:p "newpdgms: " (str newpdgms)]

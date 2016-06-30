@@ -76,8 +76,10 @@
            [:li (link-to "/bibInfoMaster" "General Bibliography")]
            [:li (link-to "/bibInfoSpecial" "Special Bibliographies")]
            ]]]]
-       [:li (link-to "#" "Archive Search")
+
+       [:li (link-to "#" "Search")
         [:ul
+         [:li (link-to "/formsearch" "Form Search")]
          [:li (link-to "#" "Paradigm Search")
           [:ul
            [:li (link-to "/pdgm" "Single Paradigm")]
@@ -85,23 +87,23 @@
             [:ul
              [:li (link-to "/multipdgmseq" "Default Display")]
              [:li (link-to "/multipdgmmod" "Modifiable Display")]]]]]
-         [:li (link-to "/formsearch" "Form Search")]
-         [:li (link-to "#" "MS Property-Value Search")
+         [:li (link-to "#" "Morphosyntactic Category Search")
           [:ul
            [:li (link-to "/pvlgpr" "MS Properties")]
-           [:li (link-to "/pvlgvl" "MS Values")]]]]]
+           [:li (link-to "/pvlgvl" "MS Values")]
+           [:li (link-to "/listlpv" "Prop-Val Indices by L-Domain")]]]]]
+
        [:li (link-to "#" "Utilities")
         [:ul 
          [:li (link-to "#" "List Generation:")
           [:ul
            [:li (link-to "/listlgpr"  "POS Properties")]
-           [:li (link-to "#" "POS Paradigm Value-Clusters")
+           [:li (link-to "#" "Paradigm Value-Clusters")
             [:ul
              [:li (link-to "/listvlclplex" "Default Sort Order")]
              [:li (link-to "/valclmod" "Modifiable Sort Order")]
              [:li (link-to "/listvlclplabel" "PdgmLabel/Value-Cluster")]]
-           [:li (link-to "/listmenulpv" "Lists for Menus")]
-           [:li (link-to "/listlpv" "Prop-Val Indices by L-Domain")]]]
+           [:li (link-to "/listmenulpv" "Lists for Menus")]]]
          [:li (link-to "#" "Update:")
           [:ul 
            [:li (link-to "/update" "Update Local Datastore")]
