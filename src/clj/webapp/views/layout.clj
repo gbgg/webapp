@@ -74,7 +74,8 @@
          [:li (link-to "#" "Bibliography")
           [:ul
            [:li (link-to "/bibInfoMaster" "General Bibliography")]
-           [:li (link-to "/bibInfoSpecial" "Special Bibliographies")]
+           [:li (link-to "/bibInfoSpecial" "Bibliography by Key Word")]
+           [:li (link-to "/bibKWIndexGen" "Generate Key Word Indices")]
            ]]]]
 
        [:li (link-to "#" "Search")
