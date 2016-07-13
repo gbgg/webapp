@@ -37,13 +37,13 @@
                        (let [opts (split ldom #" ")]
                          [:option {:value (last opts)} (first opts) ]))
                      [:option {:disabled "disabled"} "Other"]]]]]
-             ;;[:tr [:td "Part of Speech: "]
-             ;;[:td [:select#pos.required
-             ;;{:title "Choose a pdgm type.", :name "pos"}
-             ;;[:option {:value "fv" :label "Finite Verb"}]
-             ;;[:option {:value "nfv" :label "Non-finite Verb"}]
-             ;;[:option {:value "pro" :label "Pronoun"}]
-             ;;[:option {:value "noun" :label "Noun"}]]]
+             [:tr [:td "Part of Speech: "]
+             [:td [:select#pos.required
+             {:title "Choose a pdgm type.", :name "pos"}
+             [:option {:value "fv" :label "Finite Verb"}]
+             [:option {:value "nfv" :label "Non-finite Verb"}]
+             [:option {:value "pro" :label "Pronoun"}]
+             [:option {:value "noun" :label "Noun"}]]]]
 
              ;;(submit-button "Get pdgm")
              [:tr [:td ]
@@ -121,16 +121,16 @@
     (into (sorted-map) (apply conj (clojure.walk/keywordize-keys reqmap)))))
 
 (defn handle-listvlclplabel-gen
-  [ldomain]
+  [ldomain pos]
   (layout/common
    [:body
     ;;[:h3#clickable "Value-clusters used in " pos " pdgms for: " ldomain]
     (let [lprefmap (read-string (slurp "pvlists/lprefs.clj"))
           langs (split ldomain #",")
-          posvec ["fv" "nfv" "pro" "noun"]
+          ;;posvec ["fv" "nfv" "pro" "noun"]
           ]
       (for [language langs]
-        (for [pos posvec]
+        ;;(for [pos posvec]
         (let [lang (read-string (str ":" language))
               lpref (lang lprefmap)
               outfile (str "pvlists/dataID-pdgm-" language "-" pos ".edn")]
@@ -202,7 +202,9 @@
              [:p "Query Output: " [:pre (:body req2)]]
              [:h4  "Value Clusters: " ]
              [:pre req4-out]
-             [:p "==========================="]])))))
+             [:p "==========================="]]))
+        ;; ) [this is the parens for posvec]
+        ))
     [:script {:src "js/goog/base.js" :type "text/javascript"}]
     [:script {:src "js/webapp.js" :type "text/javascript"}]
     [:script {:type "text/javascript"}
@@ -210,6 +212,6 @@
 
 (defroutes listvlclplabel-routes
   (GET "/listvlclplabel" [] (listvlclplabel))
-  (POST "/listvlclplabel-gen" [ldomain] (handle-listvlclplabel-gen ldomain)))
+  (POST "/listvlclplabel-gen" [ldomain pos] (handle-listvlclplabel-gen ldomain pos)))
 
 

@@ -5,7 +5,7 @@
             [webapp.models.sparql :as sparql]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [clojure.string :refer [split lower-case upper-case replace]]
+            [clojure.string :refer [split join lower-case upper-case replace]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
             ;;[boutros.matsu.sparql :refer :all]
@@ -16,37 +16,26 @@
 (def aama "http://localhost:3030/aama/query")
 
 (defn bibKWIndexGen []
-  (let [bibrefs (read-string (slurp "pvlists/bibrefs.edn"))]
     (layout/common 
      ;;[:h1#clickable "Afroasiatic Morphological Archive"]
-     [:h3 "Generate Bibliography Key Word Index"]
-     ;;[:p "(This option  enables the user to (re-)generate bibkwindex.edn, an index of key words, from bibrefs.edn, the general bibliography file, after that file has been modified.)"]
-     [:hr]
-     (form-to [:post "/bibKWIndexGen"]
+     [:h3 "Generate Bibliography Indices"]
+     [:p "To be invoked whenever 'pvlists/bibrefs.edn', the general bibliography file, has been modified."]
+     [:p "This option will (re-)generate the following indices:"
+      [:ol 
+       [:li [:em "bibkwindex.edn"]": a map linking each keyword used in  bibrefs.edn, with a list of the associated bibref IDs."]
+       [:li [:em "bibref-master-list.txt"]": a sorted list of all the bibref IDs [used in the general bibliography menu checkbox list]."]
+       [:li [:em "bibref-keyword-list.txt"]": a sorted list of all the keywords [used in the keyword menu selection list]."]]]
+     [:p (form-to [:post "/bibKWIndexGen"]
               [:table
-               [:tr [:td "Bibliography File: " ]
-                [:td [:select#bibrefs.required
-                      {:title "Choose a bibliography.", :name "bibrefs"}
-                      [:option {:value bibrefs :label "bibrefs.edn"} bibrefs]]]]
                [:tr 
                 [:td {:colspan "2"} [:input#submit
-                                     {:value "Choose Bibliography: ", :name "submit", :type "submit"}]]]]))))
+                                     {:value "Generate Index Files: ", :name "submit", :type "submit"}]]]])]))
 
-
-(defn make-kwindex [bibrefs listatom]
-  (for [bibref bibrefs]
-    (let [kref (key bibref)
-          kws (split (last (val bibref)) #" ")]
-      (for [kw kws]
-        (swap! listatom conj (str kw "," kref))))))
-
-;; transformation of csv2map, above
-(defn make-klist
-  [bibrefs]
-  (let [kwlist (atom [])]
-    (make-kwindex bibrefs kwlist)
-    (into [] (sort @kwlist))))
-
+(defn make-kwindex  [bibrefmap]
+  (for [key (keys bibrefmap)]
+    (for [kw (split (last (key bibrefmap)) #" ")]
+      (str kw "," key))))
+  
 (defn compact-list
 "Takes string representing sorted bipartite list of bibrefID  keywords, with divider ',', and builds up list with single mention of each keyword paired with space-separated sting  of bibrefIDs."
  [kwlist]
@@ -58,25 +47,42 @@
              (do (reset! curpart1 (:part1 partmap))
                  (str ", " @curpart1 " " (:part2 partmap))))))))
 
-;; repl doesn't think conj has right arity, even though this works as separate statement -- will it work in program? [as it does in listvlclplabel.clj]
-(defn bibrefs2kmap
-  [bibrefs]
-  (let [klist (make-klist bibrefs)
+(defn handle-bibKWIndexGen
+  []
+  (let [
+        bibrefmap (read-string (slurp "pvlists/bibrefs.edn"))
+        klist (sort (flatten (make-kwindex bibrefmap)))
         kwcompact (apply str (compact-list klist))
         kwcomp (clojure.string/replace kwcompact #"^, " "")
         kwvec (split kwcomp #", ")
-        kwmap (for [kw kwvec] (hash-map (first (split kw #"," 2)) (last (split kw #" " 2))))]
-  (into (sorted-map) (apply conj (clojure.walk/keywordize-keys kwmap)))))
-
-(defn handle-bibKWIndexGen
-  [bibrefs]
-  (let [kmap (bibrefs2kmap bibrefs)]
+        kwmap (for [kw kwvec] (hash-map (first (split kw #" " 2)) (last (split kw #" " 2))))
+        kmap  (into (sorted-map) (clojure.walk/keywordize-keys  kwmap))
+        bibkeys1 (clojure.string/replace (str (sort (keys bibrefmap))) #"[:\)\(]" "")
+        bibkeys2 (clojure.string/replace bibkeys1 #" " "\n")
+        bibkw1 (clojure.string/replace (str (sort (keys kmap))) #"[:\)\(]" "")
+        bibkw2 (clojure.string/replace bibkw1 #" " "\n")
+        ]
     (spit "pvlists/bibkwindex.edn" kmap)
+    (spit "pvlists/bibref-master-list.txt" bibkeys2)
+    (spit "pvlists/bibref-keyword-list.txt" bibkw2)
     (layout/common
      [:body
       ;;[:h1#clickable "Afroasiatic Morphological Archive"]
-      [:h3 "New Key Word Index Written to pvlists/bibkwindex.edn"]
-      [:pre kmap]
+      [:h4 "A regenerated Key Word Index has been written to pvlists/bibkwindex.edn"]
+      ;;[:p "kmap: " [:pre (clojure.string/replace kmap #"," "\n")]]
+      (let [kmap2 (clojure.string/replace (str kmap) #"[{}]" "")
+            kmapvec (split kmap2 #",")]
+      [:table
+       [:tr
+        [:th "Key Word"] [:th "Bibrefs"]]
+       (for [map kmapvec]
+         (let [map2 (clojure.string/replace map #"\"$" "")]
+         [:tr
+          ;;[:td map][:td map]])])
+         [:td (first (split map2 #" \"" 2))]
+         [:td (last (split map2 #" \"" 2))]]))])
+      [:p "bibref keys: " (str (sort (keys bibrefmap)))]
+      [:p "kwindex keys: " (str (keys kmap))]
       [:script {:src "js/goog/base.js" :type "text/javascript"}]
       [:script {:src "js/webapp.js" :type "text/javascript"}]
       [:script {:type "text/javascript"}
@@ -84,4 +90,5 @@
 
 (defroutes bibKWIndexGen-routes
   (GET "/bibKWIndexGen" [] (bibKWIndexGen))
-  (POST "/bibKWIndexGen" [bibrefs] (handle-bibKWIndexGen bibrefs)))
+  (POST "/bibKWIndexGen" [] (handle-bibKWIndexGen)))
+

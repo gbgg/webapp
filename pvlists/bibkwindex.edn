@@ -1,14 +1,1 @@
-{
-:agaw ":Appleyard1975 :Appleyard1987 :Appleyard2007b",
-:arteiga ":Appleyard2007a",
-:beja ":Almkvist1881 :Appleyard2007a",
-:bilin ":Appleyard2007b",
-:bishari ":Almkvist1881",
-:dizi ":Beachy2005",
-:kemant ":Appleyard1975",
-:khamtanga ":Appleyard1987",
-:koorete ":BinyamSisay2008",
-:maale ":Amha2001",
-:omotic ":Amha2001 :Beachy2005 :BinyamSisay2008",
-:saho ":Banti&Vergari2003"
-}
+{:aa ":Hetzron1990", :afar ":Fulmer1991 :Parker&Hayward1985 :Rucart2001", :agaw ":Appleyard1975 :Appleyard1987 :Appleyard2007b :Hetzron1969b", :akkadian ":Huehnergard1997", :alaaba ":Schneider-Blum2007", :arabic ":Thackston1994", :arbore ":Hayward1984a", :arteiga ":Appleyard2007a :HudsonR1976", :atmaan ":Wedekind-etal2007", :awnji ":Hetzron1969b", :bayso ":Hayward1978 :Hayward1979", :beja ":Almkvist1881 :Appleyard2007a :HudsonR1976 :Reinisch1893 :Roper1928 :Voigt1998 :Wedekind-etal2007 :Zaborski1997a", :beniamer ":Reinisch1893", :berber ":Zaborski1997b", :bilin ":Appleyard2007b", :bishari ":Almkvist1881", :boni ":Heine1982", :burji ":WedekindC1985", :burunge ":Kiessling1994", :coptic ":Lambdin1983", :cushitic ":Banti2004 :Gragg2013 :Hayward&Orwin1991 :Hetzron1980 :Sasse1980 :Tosco2007 :Voigt1998 :Zaborski1997b", :dahalo ":Tosco1991", :dhaasanac ":Tosco2001b", :dizi ":Beachy2005", :elmolo ":Heine1980d", :evolution ":Aronoff&Lindsay2015 :Aronoff2015 :Aronoff2016 :Boyd&Richerson :Lindsay&Aronoff2013 :Richerson&Boyd2005", :gawwada ":Tosco2007b", :gedeo ":WedekindK1985", :geez ":Gragg1998", :hadendowa ":Roper1928", :hadiyya ":SimR1985", :hebrew ":Lambdin1971", :iraqw ":Mous1993", :kambaata ":SimM1985", :kemant ":Appleyard1975", :khamtanga ":Appleyard1987", :koorete ":BinyamSisay2008", :maale ":Amha2001", :morphology ":Aronoff&Lindsay2015 :Aronoff2015 :Aronoff2016 :Banti2004 :Blevins&Blevins2009 :Corbett&Baerman2006 :Corbett2012 :Finkel&Stump2009 :Fulmer1991 :Gragg2013 :Hayward&Orwin1991 :Joseph2014 :Lindsay&Aronoff2013 :Nichols2104 :Robbeets-etal2014 :Stump2016 :Tosco2007", :omotic ":Amha2001 :Beachy2005 :BinyamSisay2008 :Lamberti1993a :Lamberti1993b", :oromo ":Gragg1976 :Praetorius1893", :rendille ":Pillinger&Galboran1999", :saho ":Banti&Vergari2003 :Welmers1952", :semitic ":Gragg1998 :Sasse1980", :shinassha ":Lamberti1993b", :sidaama ":Kawachi2007", :somali ":Orwin1995 :Saeed1999", :syriac ":Thackston1999", :tsamakko ":Sava2005", :wolaytta ":Lamberti&Sottile1997", :yemsa ":Lamberti1993a"}

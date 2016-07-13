@@ -1,3 +1,0 @@
-(def pers "Person1,Person2,Person3")(def nmbr "Singular,Plural")(def gen "Masc,Fem")(def numvals (clojure.string/split nmbr #","))(def persvals (clojure.string/split pers #","))(def genvals (clojure.string/split gen #","))
-
-

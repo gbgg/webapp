@@ -75,7 +75,7 @@
           [:ul
            [:li (link-to "/bibInfoMaster" "General Bibliography")]
            [:li (link-to "/bibInfoSpecial" "Bibliography by Key Word")]
-           [:li (link-to "/bibKWIndexGen" "Generate Key Word Indices")]
+           [:li (link-to "/bibKWIndexGen" "Generate Bibliography Indices")]
            ]]]]
 
        [:li (link-to "#" "Search")
@@ -90,9 +90,9 @@
              [:li (link-to "/multipdgmmod" "Modifiable Display")]]]]]
          [:li (link-to "#" "Morphosyntactic Category Search")
           [:ul
-           [:li (link-to "/pvlgpr" "MS Properties")]
-           [:li (link-to "/pvlgvl" "MS Values")]
-           [:li (link-to "/listlpv" "Prop-Val Indices by L-Domain")]]]]]
+           [:li (link-to "/pvlgpr" "Morphosyntactic Properties")]
+           [:li (link-to "/pvlgvl" "Morphosyntactic Values")]
+           [:li (link-to "/listlpv" "Prop-Val Indices by Language")]]]]]
 
        [:li (link-to "#" "Utilities")
         [:ul 
@@ -111,9 +111,9 @@
            [:li (link-to "/upload" "Upload to Remote Repository")]]]]]]
        [:li (link-to "#" "Help")
         [:ul
-         [:li (link-to "/helppdgms" "Paradigms")]
-         [:li (link-to "/helpformsearch" "Forms")]
-         [:li (link-to "/helppvdisp" "Morphosyntactic Properties")]
+         [:li (link-to "/helpformsearch" "Form Search")]
+         [:li (link-to "/helppdgms" "Paradigm Search")]
+         [:li (link-to "/helppvdisp" "Morphosyntactic Category Search")]
          [:li (link-to "/helplistgen" "List Generation")]
          [:li (link-to "#" "Update/Upload")
           [:ul
