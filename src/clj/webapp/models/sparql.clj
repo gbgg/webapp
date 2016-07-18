@@ -6,8 +6,8 @@
             [clojure.string :refer [capitalize split]]
             [stencil.core :as tmpl]
             [clj-http.client :as http]
-            [boutros.matsu.sparql :refer :all]
-            [boutros.matsu.core :refer [register-namespaces]]
+            ;;[boutros.matsu.sparql :refer :all]
+            ;;[boutros.matsu.core :refer [register-namespaces]]
             [clojure.tools.logging :as log])
   (:use [hiccup.page :only [html5]])
 )

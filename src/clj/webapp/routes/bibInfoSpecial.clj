@@ -16,7 +16,7 @@
 (def aama "http://localhost:3030/aama/query")
 
 (defn bibInfoSpecial []
-  (let [biblioglist (slurp "pvlists/bibref-keywords.txt")
+  (let [biblioglist (slurp "pvlists/bibref-keyword-list.txt")
         bibliogrefs (split biblioglist #"\n")]
   (layout/common 
    ;;[:h1#clickable "Afroasiatic Morphological Archive"]
