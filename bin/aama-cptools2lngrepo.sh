@@ -1,5 +1,5 @@
 #!/bin/bash
-# usage:  ~/webapp/bin/cptools2langrepo.sh
+# usage:  ~/webapp/bin/aama-cptools2langrepo.sh
 
 # 03/21/14: 
 # 09/23/15: to be added to upload when aama-edn2ttl.jar has been revised
