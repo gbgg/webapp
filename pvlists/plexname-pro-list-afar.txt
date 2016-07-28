@@ -1,8 +1,0 @@
-PossessiveDefinite
-Reflexive
-Independent,Absolutive
-Independent,Emphatic
-Independent,Emphatic_m
-Independent,Nominative
-Independent,Possessive_m
-Independent,Reflexive

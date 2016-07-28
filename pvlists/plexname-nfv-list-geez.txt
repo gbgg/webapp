@@ -1,1 +1,0 @@
-VerbStems,derivedStem,rootClass,stemClass,tam,

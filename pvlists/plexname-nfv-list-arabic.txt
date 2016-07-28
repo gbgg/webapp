@@ -1,2 +1,0 @@
-Participle,derivedStem,state,voice,
-Infinitive,derivedStem,infinitiveVar,

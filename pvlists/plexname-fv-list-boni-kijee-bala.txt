@@ -1,6 +1,0 @@
-Suffix,Imperative,Affirmative,S_2:obed
-Suffix,Imperative,Negative,S_2:obed
-Suffix,Imperfect,Affirmative,S_2:obed
-Suffix,Imperfect,Negative,S_2:obed
-Suffix,Perfect,Affirmative,S_2:obed
-Suffix,Perfect,Negative,S_2:obed

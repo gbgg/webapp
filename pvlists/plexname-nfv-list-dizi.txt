@@ -1,3 +1,0 @@
-DervStem,derivedStem,
-NonMainClauseForms,nonMainForm,
-TenseAspSuff,tam,

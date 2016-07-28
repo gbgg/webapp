@@ -1,2 +1,0 @@
-DervStemFormation,derivedClass,derivedStem,
-SubjMarkers,conjClass,polarity,suffixSet,tam,

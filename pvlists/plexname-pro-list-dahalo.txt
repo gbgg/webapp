@@ -1,5 +1,0 @@
-Bound
-Independent
-Reduced
-Possessive,HeadFem
-Possessive,HeadM_Pl

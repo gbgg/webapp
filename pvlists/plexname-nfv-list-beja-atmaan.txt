@@ -1,2 +1,0 @@
-VNOMFORM,conjClass,nonFiniteForm,polarity,rootClass,
-NOMINALIZATIONPATTERNS,conjClass,pdgmType,

@@ -1,1 +1,0 @@
-IrrVerbs,conjClass,rootClass,stemClass,

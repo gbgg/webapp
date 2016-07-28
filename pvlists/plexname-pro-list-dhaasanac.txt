@@ -1,7 +1,0 @@
-Independent,Absolutive,Emphatic
-Independent,Absolutive,Non_Emphatic
-Independent,Object,Non_Emphatic
-Independent,Possessive,Non_Emphatic
-Independent,Subject,Emphatic
-Independent,Subject,Non_Emphatic
-Independent,Verbal,Non_Emphatic

@@ -1,2 +1,0 @@
-Infinitive,clauseConjugation,infinitiveForm,objectType,polarity,stemClass,tam,
-InfinitiveCompCaus,clauseConjugation,infinitiveForm,objectType,polarity,tam,

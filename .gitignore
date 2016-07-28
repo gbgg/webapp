@@ -7,6 +7,7 @@ pom.xml
 /resources/public/cljs/
 /target/
 /notes/
+/pvlists/
 /bin/tools/edn2ttl/target/
 .lein-deps-sum
 .lein-repl-history

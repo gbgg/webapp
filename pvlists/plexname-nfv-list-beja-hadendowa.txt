@@ -1,1 +1,0 @@
-DervStemForm,conjClass,derivedStem,nonFiniteForm,polarity,tam,

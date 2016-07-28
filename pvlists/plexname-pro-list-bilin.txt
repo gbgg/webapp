@@ -1,4 +1,0 @@
-Independent,Absolutive
-Independent,Object
-Independent,ObjectSuff
-Independent,Oblique

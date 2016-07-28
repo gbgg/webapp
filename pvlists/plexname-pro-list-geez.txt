@@ -1,8 +1,0 @@
-ProInd
-ProInterrog
-ProObjSuff
-ProPossSuff
-ProDemFar,Far
-ProDemNear,Near
-VSubjMarker,Prefix
-VSubjMarker,Suffix

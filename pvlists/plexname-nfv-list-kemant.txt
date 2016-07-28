@@ -1,4 +1,0 @@
-AGENTNOUN,finiteForm,pdgmSubType,
-DERVSTEM,derivedStem,pdgmSubType,pdgmType,
-INFINITIVE,finiteForm,pdgmSubType,polarity,
-VERBINTERROGATIVE,pdgmSubType,pdgmType,

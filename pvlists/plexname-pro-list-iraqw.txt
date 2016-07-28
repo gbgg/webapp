@@ -1,9 +1,0 @@
-Object
-Possessive,HeadFem
-Possessive,HeadMasc
-Independent,Full
-Independent,Short
-Pers_dem,Far
-Pers_dem,Midway
-Pers_dem,Near1
-Pers_dem,Near2

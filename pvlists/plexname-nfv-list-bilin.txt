@@ -1,4 +1,0 @@
-Agent,conjClass,nonFiniteForm,
-Infinitive,conjClass,nonFiniteForm,
-DervSuff,derivedStem,
-Copula,copType,polarity,tam,

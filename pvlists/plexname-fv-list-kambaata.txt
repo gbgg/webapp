@@ -1,9 +1,0 @@
-Imperative,Affirmative:mar
-Imperative,Negative:mar
-Imperfect,Affirmative:mar
-Jussive,Affirmative:mar
-PastProgressive,Affirmative:mar
-PresentPerfect,Affirmative:mar
-PresentProgressive,Affirmative:mar
-SimplePerfect,Affirmative:mar
-SubjMarkerTemplates:SUBJMARKERTEMPLATES

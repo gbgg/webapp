@@ -1,5 +1,0 @@
-Participle,tam,
-Suffixes,derivedStem,orientationSel,tam,
-DervStem,derivedStem,
-InterrGen,gramFunction,polarity,
-ComponentAnalysis,imprtvComponent,tam,

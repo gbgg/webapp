@@ -1,4 +1,0 @@
-TENSESTEMFORM,conjClass,derivedStem,rootClass,tamStemClass,
-DERVSTEMFORM,conjClass,derivedStem,rootClass,
-VERBALPARTICIPLES,conjClass,derivedStem,participle,
-Stem,derivedStem,participle,polarity,tam,tamStemClass,

@@ -1,2 +1,0 @@
-POSTPOSITION,case,postpositionClass,
-PLMARK,pluralClass,

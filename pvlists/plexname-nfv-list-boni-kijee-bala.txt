@@ -1,1 +1,0 @@
-NonFinite,conjClass,conjSubClass,pdgmType,tam,

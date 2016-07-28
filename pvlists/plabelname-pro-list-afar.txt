@@ -1,8 +1,0 @@
-afar-PInd,Independent,Absolutive
-afar-PInd,Independent,Emphatic
-afar-PInd,Independent,Emphatic_m
-afar-PInd,Independent,Nominative
-afar-PInd,Independent,Possessive_m
-afar-PInd,Independent,Reflexive
-afar-PPossDef,PossessiveDefinite
-afar-PPossDef,Reflexive

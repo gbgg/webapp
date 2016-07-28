@@ -1,5 +1,0 @@
-InfinitiveInflect,polarity,
-DervStem,derivedStem,
-Infinitive,complement,conjClass,polarity,
-InflClass,conjClass,
-Stem,polarity,
