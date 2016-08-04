@@ -16,7 +16,7 @@
 
 (defn helppvdisp []
   (layout/common 
-   [:div {:class "help-page"}
+   [:div {:class "info-page"}
     [:h3 "Help: Morphosyntactic Category Search"]
     [:p "These pages are designed to permit querying for arbitrary combinations of language, property, and value."]
     [:ul

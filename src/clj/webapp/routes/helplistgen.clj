@@ -16,7 +16,7 @@
 
 (defn helplistgen []
   (layout/common 
-   [:div {:class "help-page"}
+   [:div {:class "info-page"}
      [:h3 "Help: List Generation"]
     [:ul
      [:li (link-to "/listmenulang" "Generate Language Lists") "." 

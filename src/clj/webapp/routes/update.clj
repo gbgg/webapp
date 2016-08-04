@@ -23,7 +23,7 @@
         ldoms (split ldomlist #"\n")]
   (layout/common 
    [:h3 "Update Datastore"]
-    [:div {:class "help-page"}
+    [:div {:class "info-page"}
      [:hr]
    [:p "[This option will enable a user to update the datastore after an edn data file has been revised in one or more ~/aama-data/data/LANG directories. Webapp page under construction; in the meantime cf." (link-to "/helpclupdate" "Help>Update/Upload>Command Line")".]"]
    ;;[:hr]
@@ -76,7 +76,7 @@
                 ;;                  "body" file}}) ;; new rdf-file
                 ]
             ;;(log/info "sparql result status: " (:status req2))
-          [:div {:class "help-page"}
+          [:div {:class "info-page"}
            [:h3 "Language: " lang " updated."]
            [:p file " uploaded to " graph ]
            [:hr ]
