@@ -11,11 +11,12 @@ The webapp is intended as a test bed for applying a wide variety of
 queries about morphological data in a Clojure context. 
 
 The application  uses "live" aama data. It assumes that: 
-1. Language data in
+
+1.   language data in
 [Extensible Data Notation (edn)](https://github.com/edn-format/edn) format
 has been downloaded from one or more of the aama language repositories, 
-2. transformed into [ttl/rdf-xml](http://www.w3.org/TR/turtle/) format, and
-3. loaded into the Fuseki datastore, 
+2.   transformed into [ttl/rdf-xml](http://www.w3.org/TR/turtle/) format, and
+3.   loaded into the Fuseki datastore, 
 
 as described in [aama.github.io](http://aama.github.io), 
 and that the Fuseki server has been launched by the 
@@ -78,7 +79,7 @@ response, formats it, and displays both it, and, where feasible, the query,
 Cloning the aama/webapp repository, 
 as per [aama.github.io](http://aama.github.io), 
 will have downloaded both the source-code and a stand-alone jar file.
- The application can be run in the webapp directory using either:
+ The application can be run in the webapp directory either:
 
 1. From the downloaded sorce-code,  using [Leiningen](http://leiningen.org):
 
@@ -104,7 +105,13 @@ with the command:
     ```
 
 In either case,  you can then open localhost:3000 in your browser, 
-and you will see the application's main menu.
+and you will see the application's main menu. Go immediately to the
+```html
+Help > Initialize Application
+``` 
+menu item to generate the application-specific
+lists and indices used in menus, queries, and displays (otherwise on 
+most pages you will not see anything).
 
 ### The REPL
 
