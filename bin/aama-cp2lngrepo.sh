@@ -22,11 +22,12 @@ do
     echo "$lang ********************************************"
     echo copying $f to aama/$lang
     cp ../aama-data/data/$lang/$lang-pdgms\.edn ../aama/$lang/
-    cp ../aama-data/data/$lang/$lang-pdgms\.ttl ../aama/$lang/
+    # cp ../aama-data/data/$lang/$lang-pdgms\.ttl ../aama/$lang/
     cd ../aama/$lang
     git add *.edn
-    git add *.ttl
-    git commit -am "paradigm sort and col. order normalized for all pdgm edn files"
+    git rm *.ttl
+    git add README.md
+    git commit -am "aama lang repositories now restricted to pdgm edn files and README.md"
     git push origin master
     cd ../../webapp
 done
