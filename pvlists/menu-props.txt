@@ -74,7 +74,6 @@ morphoSynEnv
 nonFiniteForm
 nonMainForm
 nounClass
-nounMorphClass
 numClass
 numCop
 numHead

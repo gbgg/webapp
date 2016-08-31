@@ -25,7 +25,7 @@ do
     # cp ../aama-data/data/$lang/$lang-pdgms\.ttl ../aama/$lang/
     cd ../aama/$lang
     git add *.edn
-    git rm *.ttl
+    # git rm *.ttl
     git add README.md
     git commit -am "aama lang repositories now restricted to pdgm edn files and README.md"
     git push origin master

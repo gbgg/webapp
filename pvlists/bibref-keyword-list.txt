@@ -1,4 +1,4 @@
-aa
+aa-sem
 afar
 agaw
 akkadian
@@ -6,6 +6,7 @@ alaaba
 arabic
 arbore
 arteiga
+asa-sem
 atmaan
 awnji
 bayso
@@ -15,6 +16,7 @@ berber
 bilin
 bishari
 boni
+book
 burji
 burunge
 coptic
@@ -39,6 +41,7 @@ maale
 morphology
 omotic
 oromo
+pdf
 rendille
 saho
 semitic
