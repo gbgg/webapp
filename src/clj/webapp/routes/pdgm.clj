@@ -48,7 +48,7 @@
   [language pos]
    (let [langlist (slurp "pvlists/menu-langs.txt")
          languages (split langlist #"\n")
-         valclusterfile (str "pvlists/plist-" pos "-" language ".txt")
+         valclusterfile (str "pvlists/vlcl-list-" language "-" pos ".txt")
          valclusterlist (slurp valclusterfile)
          valclusters (clojure.string/split valclusterlist #"\n")]
      (layout/common 
@@ -135,7 +135,7 @@
   ;; send SPARQL over HTTP request
   (let [langlist (slurp "pvlists/menu-langs.txt")
         languages (split langlist #"\n")
-        valclusterfile (str "pvlists/plist-" pos "-" language ".txt")
+        valclusterfile (str "pvlists/vlcl-list-" language "-" pos ".txt")
         valclusterlist (slurp valclusterfile)
         valclusters (clojure.string/split valclusterlist #"\n")
         Language (capitalize language)
@@ -145,22 +145,36 @@
         valstrng (clojure.string/replace valstring #",*person|,*gender|,*number" "")
         valstr (clojure.string/replace valstrng #":," ":")
         ;; In single pdgm query only, asking for note (9/29/15) and lex (10/9/15)
-        query-sparql (cond 
+        query-sparql-form (cond 
                       (= pos "pro")
-                      (sparql/pdgmqry-sparql-pro-note language lpref valstr)
+                      (sparql/pdgmqry-sparql-pro language lpref valstr)
                       (= pos "nfv")
-                      (sparql/pdgmqry-sparql-nfv-note language lpref valstring)
+                      (sparql/pdgmqry-sparql-nfv language lpref valstring)
                       (= pos "noun")
-                      (sparql/pdgmqry-sparql-noun-note language lpref valstring)
-                      :else (sparql/pdgmqry-sparql-fv-note language lpref valstring))
-        query-sparql-pr (replace query-sparql #"<" "&lt;")
-        req (http/get aama
+                      (sparql/pdgmqry-sparql-noun language lpref valstring)
+                      :else (sparql/pdgmqry-sparql-fv language lpref valstring))
+        query-sparql-form-pr (replace query-sparql-form #"<" "&lt;")
+        req-form (http/get aama
                       {:query-params
-                       {"query" query-sparql ;;generated sparql
+                       {"query" query-sparql-form ;;generated sparql
                         ;;"format" "application/sparql-results+json"}})]
                         "format" "csv"}})
+        ;;query-sparql-note (cond 
+        ;;              (= pos "pro")
+        ;;              (sparql/pdgmqry-sparql-pro-note language lpref valstr)
+        ;;              (= pos "nfv")
+        ;;              (sparql/pdgmqry-sparql-nfv-note language lpref valstring)
+        ;;              (= pos "noun")
+        ;;              (sparql/pdgmqry-sparql-noun-note language lpref valstring)
+        ;;            :else (sparql/pdgmqry-sparql-fv-note language lpref valstring))
+        ;;query-sparql-note-pr (replace query-sparql #"<" "&lt;")
+        ;;req-note (http/get aama
+        ;;              {:query-params
+        ;;               {"query" query-sparql ;;generated sparql
+        ;;                ;;"format" "application/sparql-results+json"}})]
+        ;;                "format" "csv"}})
         ;; find and eliminate single-value columns
-        csv (:body req)
+        csv (:body req-form)
         phead (split (first (split csv #"\n")) #",")
         pmapkeys (into [] (for [ph phead] (keyword (trim (lower-case ph)))))
         pmapvec1 (into [] (parse-csv csv :key :keyword))
@@ -172,7 +186,11 @@
         selkeys (into [] (clojure.set/difference (set pmapkeys) sgvalkeys))
         pmapvec2 (for [mpv pmapvec1] (select-keys mpv selkeys))
         csvred (write-csv pmapvec2)
-        psplit (split csvred #"\n")
+        ;;have to make sure that there is content in each cell for drag-col
+        ;;following two can probably be combined
+        csvpdgm1 (clojure.string/replace csvred #",," ", ,")
+        csvpdgm2 (clojure.string/replace csvred #",\n" ", \n")
+        psplit (split csvpdgm2 #"\n")
         header (first psplit)
         pdgmrows (rest psplit)
         ;; FIND ANOTHER WAY TO DO NOTES
@@ -186,7 +204,7 @@
         ;;pheads (rest pheader)
         pheads (split header #",")
         ]
-         (log/info "sparql result status: " (:status req))
+         (log/info "sparql result status: " (:status req-form))
          (layout/common
           [:body
 
@@ -242,7 +260,7 @@
            ;;[:table
             [:thead
               (for [head pheads]
-                [:th [:div {:class "some-handle"} [:br] (capitalize head)]])]
+                [:th [:div {:class "some-handle"}  (capitalize head)]])]
             ;;[:th head])]]
             [:tbody 
              (for [pdgmrow pdgmrows]
@@ -267,10 +285,10 @@
            [:p "  "]
            [:hr]
            [:h3#clickable "Query:"]
-           [:pre query-sparql-pr]
+           [:pre query-sparql-form-pr]
            [:div [:h4 "======= Debug Info: ======="]
             [:h4 "Query Response:"]
-            [:pre (:body req)]
+            [:pre (:body req-form)]
            [:p "pcolred: " pcolred]
             [:p "pmapkeys: " (str pmapkeys)]
             [:p "sgvalkeys: " sgvalkeys]

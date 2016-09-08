@@ -1,4 +1,4 @@
-(ns webapp.routes.listvlclplabel
+(ns webapp.routes.listvlcl
  (:refer-clojure :exclude [filter concat group-by max min  replace])
   (:require [compojure.core :refer :all]
             [webapp.views.layout :as layout]
@@ -16,15 +16,15 @@
 
 (def aama "http://localhost:3030/aama/query")
 
-(defn listvlclplabel []
+(defn listvlcl []
   (let [langlist (slurp "pvlists/menu-langs.txt")
         languages (split langlist #"\n")
         ldomlist (slurp "pvlists/ldomainlist.txt")
         ldoms (split ldomlist #"\n")]
   (layout/common 
-   [:h3 "Data Label / PDGM Value-Cluster Map"]
+   [:h3 "Create value-cluster lists and maps to and from value-clusters to input paradigm IDs"]
    ;;[:p "Will write list of paradigm-specifying value-clusters to file(s) pvlists/pname-POS-LANG.txt for selected language(s)."]   [:hr]
-   (form-to [:post "/listvlclplabel-gen"]
+   (form-to [:post "/listvlcl-gen"]
             [:table
              [:tr [:td "PDGM Language Domain: " ]
               [:td [:select#ldomain.required
@@ -80,13 +80,17 @@
         reqq (split vlist1 #"\n")
         ;;reqqa (first reqq)
         reqqb (rest reqq)
-        vvec (for [req reqqb] (split req #","))
+        ;; make joint key of pdigmID and morphCl
+        reqqc (for [req reqqb] (replace req #"^(.*?)," "$1+"))
+        vvec (for [req reqqc] (split req #","))
         vmap (for [vvc vvec] (apply hash-map vvc))
         vmerge (apply merge-with str vmap)
         reqq2 (into [] (for [vm vmerge] (join "," vm)))
         ;; This works because earlier split mention only '\n'
-        reqq3 (for [r2 reqq2] (replace r2 #"\r" ","))]
-    (join "\n" reqq3)
+        reqq3 (for [r2 reqq2] (replace r2 #"[\r\+]" ","))
+        reqq4 (for [r2 reqq3] (replace r2 #",$" ""))]
+    
+    (join "\n" reqq4)
 ))
 
 (defn req2vlist3
@@ -112,7 +116,8 @@
              (do (reset! curpart1 (:part1 partmap))
                  (str "\n" @curpart1 "," (:part2 partmap))))))))
 
-(defn csv2map
+(defn csv2map1
+  "Maps the first col of a csv to the string consisting of the content of the other cols"
   [csvstring]
   (let [reqcompact (apply str (compact-list csvstring))
         reqcomp (replace reqcompact #"^\n" "")
@@ -121,7 +126,19 @@
     (if (> (count reqmap) 1)
     (into (sorted-map) (apply conj (clojure.walk/keywordize-keys reqmap))))))
 
-(defn handle-listvlclplabel-gen
+(defn csv2map2
+  "Maps the content of all the cols after the first (substituting '_' for ',') to the content of the first col"
+  [csvstring]
+  (let [reqcompact (apply str (compact-list csvstring))
+        reqcomp (replace reqcompact #"^\n" "")
+        reqvec (split reqcomp #"\n")
+        ;; remember to get rid of commas in key!
+        reqmap (for [req reqvec] (hash-map (replace (last (split req #"," 2)) #"," "_") (first (split req #"," 2))))]
+    (if (> (count reqmap) 1)
+    (into (sorted-map) (apply conj (clojure.walk/keywordize-keys reqmap))))))
+
+
+(defn handle-listvlcl-gen
   [ldomain pos]
   (layout/common
    [:body
@@ -134,87 +151,98 @@
         ;;(for [pos posvec]
         (let [lang (read-string (str ":" language))
               lpref (lang lprefmap)
-              outfile (str "pvlists/dataID-pdgm-" language "-" pos ".edn")]
-          (let [query-sparql1 (cond 
-                               (= pos "pro")
-                               (sparql/listlgpr-sparql-pro language lpref)
-                               (= pos "nfv")
-                               (sparql/listlgpr-sparql-nfv language lpref)
-                               (= pos "noun")
-                               (sparql/listlgpr-sparql-noun language lpref)
-                               (= pos "fv")
-                               (sparql/listlgpr-sparql-fv language lpref))
+              vlcllist (str "pvlists/vlcl-list-" language "-" pos ".txt")
+              dataIDvlcl (str "pvlists/dataID-vlcl-" language "-" pos ".edn")
+              vlcldataID (str "pvlists/vlcl-dataID-" language "-" pos ".edn")
+              query-sparql1 (cond 
+                             (= pos "pro")
+                             (sparql/listlgpr-sparql-pro language lpref)
+                             (= pos "nfv")
+                             (sparql/listlgpr-sparql-nfv language lpref)
+                             (= pos "noun")
+                             (sparql/listlgpr-sparql-noun language lpref)
+                             (= pos "fv")
+                             (sparql/listlgpr-sparql-fv language lpref))
                 ;;query-sparql1-pr (replace query-sparql1 #"<" "&lt;")
-                req1 (http/get aama
-                               {:query-params
-                                {"query" query-sparql1 ;;generated sparql
-                                 "format" "csv"}})
-                ;;"format" "application/sparql-results+json"}})
-                ;;"format" "text"}})
-                propstring (if (= (:body req1) "property")
-                             (str "no_" pos)
-                             (replace (:body req1) #"\r\n" ","))
-                pstring (replace propstring #"property,|,$" "")
-                porder (str "formType,morphClass,pdgmType,conjClass,derivedStem,derivedStemAug,clauseType,tam,polarity,stemClass,rootClass")
-                normstring (normorder pstring porder)
-                plist (replace pstring #"," ", ")
-                query-sparql2 (cond 
-                               (= pos "pro")
-                               (sparql/listvlcl-sparql-pro-label language lpref propstring)
-                               (= pos "nfv")
-                               (sparql/listvlcl-sparql-nfv-label language lpref propstring)
-                               (= pos "noun")
-                               (sparql/listvlcl-sparql-noun-label language lpref propstring)
-                               :else (sparql/listvlcl-sparql-fv-label language lpref normstring))
-                query-sparql2-pr (replace query-sparql2 #"<" "&lt;")
-                req2 (http/get aama
-                               {:query-params
-                                {"query" query-sparql2 ;;generated sparql
-                                 ;;"format" "application/sparql-results+json"}})
-                                 "format" "csv"}})
-                req2-body (replace (:body req2) #",+" ",")
-                req2-out   (cond 
-                            (= pos "fv")
+              req1 (http/get aama
+                             {:query-params
+                              {"query" query-sparql1 ;;generated sparql
+                               "format" "csv"}})
+              ;;"format" "application/sparql-results+json"}})
+              ;;"format" "text"}})
+              propstring (if (= (:body req1) "property")
+                           (str "no_" pos)
+                           (replace (:body req1) #"\r\n" ","))
+              pstring (replace propstring #"property,|,$" "")
+              porder (str "formType,pdgmType,conjClass,derivedStem,derivedStemAug,clauseType,tam,polarity,stemClass,rootClass")
+              normstring (normorder pstring porder)
+              plist (replace pstring #"," ", ")
+              query-sparql2 (cond 
+                             (= pos "pro")
+                             (sparql/listvlcl-sparql-pro language lpref propstring)
+                             (= pos "nfv")
+                             (sparql/listvlcl-sparql-nfv language lpref propstring)
+                             (= pos "noun")
+                             (sparql/listvlcl-sparql-noun language lpref propstring)
+                             :else (sparql/listvlcl-sparql-fv language lpref normstring))
+              query-sparql2-pr (replace query-sparql2 #"<" "&lt;")
+              req2 (http/get aama
+                             {:query-params
+                              {"query" query-sparql2 ;;generated sparql
+                               ;;"format" "application/sparql-results+json"}})
+                               "format" "csv"}})
+              req2-body (replace (:body req2) #",+" ",")
+              req2-out   (cond 
+                          (= pos "fv")
                             (req2vlist1 req2-body)
                             (= pos "pro")
                             ;;(rest req2-body)
                             (req2vlist3 req2-body)
                             ;; listvlclplex.clj has req2vlist2, investigate
-                            :else (req2vlist3 req2-body))
-                req3-out (apply str req2-out)
-                req4-out (replace req3-out #"^\s*\n" "")
-                req-edn (csv2map req4-out)
-                req-pp (clojure.pprint/pprint req-edn)]
-            (log/info "sparql result status: " (:status req2))
-            (if (not (clojure.string/blank? (str req-edn)))
-            (spit outfile req-edn))
+                            :else (req2vlist2 req2-body))
+              req3-out (apply str req2-out)
+              req4-out (replace req3-out #"^\s*\n" "")
+              req-dataIDvlcl (csv2map1 req4-out)
+              req4-vec (split req4-out #"\n")
+              req-vlcllist (join "\n" (for [rq4 req4-vec] (replace rq4 #"^.*?," "")))
+              req-vlcldataID  (csv2map2 req4-out)
+              ]
+          (log/info "sparql result status: " (:status req2))
+          ;;(if (not (clojure.string/blank? (str req-dataIDvlcl)))
+            ;;(doall (
+          (spit dataIDvlcl req-dataIDvlcl)
+          (spit vlcldataID req-vlcldataID)
+          (spit vlcllist req-vlcllist)
+          ;;)))
             [:div [:h4 "======= Debug Info: ======="]
              [:p [:b "Language: "] language]
-             [:p [:b "File Content"] req-edn]
-             [:p [:b "File:     "] outfile]
+             [:p [:b "File vlcl-list:    "] [:pre req-vlcllist]]
+             [:p [:b "File data-vlcl:     "] [:br] req-dataIDvlcl]
+             [:p [:b "File vlcl-data:     "] [:br] req-vlcldataID]
              [:p [:b "POS: " ] pos]
              [:p [:b "Porder:  " ] porder]
              [:p [:b "Normstring: "] normstring]
-             ;;[:p "propstring: " [:pre propstring]]
-             ;; for the moment, following prints nothing
-             ;;[:p [:b "Req-pp: "] req-pp]
-             ;;[:h3#clickable "Query:"]
-             ;;[:pre query-sparql2-pr]
-             ;;[:hr]
-             ;;[:hr]
-             ;;[:p "Query Output: " [:pre (:body req2)]]
+             [:hr]
              ;;[:h4  "Value Clusters: " ]
-             ;;[:pre req4-out]
+             ;;[:p "req4-out: " [:pre req4-out]]
+             ;;[:p "req4-vec: " [:p req4-vec]]
+             ;;[:hr]
+             ;;[:p "propstring: " [:pre propstring]]
+             [:h3#clickable "Query:"]
+             [:pre query-sparql2-pr]
+             [:hr]
+             [:hr]
+             [:p "Query Output: " [:pre (:body req2)]]
              [:p "==========================="]]))
         ;; ) [this is the parens for posvec]
-        ))
+        )
     [:script {:src "js/goog/base.js" :type "text/javascript"}]
     [:script {:src "js/webapp.js" :type "text/javascript"}]
     [:script {:type "text/javascript"}
      "goog.require('webapp.core');"]]))
 
-(defroutes listvlclplabel-routes
-  (GET "/listvlclplabel" [] (listvlclplabel))
-  (POST "/listvlclplabel-gen" [ldomain pos] (handle-listvlclplabel-gen ldomain pos)))
+(defroutes listvlcl-routes
+  (GET "/listvlcl" [] (listvlcl))
+  (POST "/listvlcl-gen" [ldomain pos] (handle-listvlcl-gen ldomain pos)))
 
 
