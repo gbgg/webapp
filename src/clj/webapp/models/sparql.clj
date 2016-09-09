@@ -45,7 +45,19 @@
        :language language
        :Language Language}))))
 
-
+(defn pdgmqry-sparql-comment [dataID]
+  "Query to retrieve comment from any term-cluster whose edn-file ':label' is known"
+  (let [dataIDstr (str "/"" dataID "/"")]
+  (str PREFIXES
+       (tmpl/render-string
+        (str "
+          SELECT ?comment
+          WHERE
+          {
+      	   ?s rdfs:label \"{{label}}\" ;
+              rdfs:comment ?comment . } ")
+        {:label dataID}))))
+            
 (defn pdgmqry-sparql-fv [language lpref valstring]
   "This version, for the moment only called by the single pdgm display option, which is designed to give the most information about an individual paradigm, includes information about input paradigm notes, lex, and token-... . Note info should eventually be displayed in the paradigm-label listing."
     (let [;; if assume last value is lex (generalize to other pos?)
@@ -86,7 +98,6 @@
 	   ?s {{lpref}}:person ?person .  
 	   ?person rdfs:label ?pers .  
 	   OPTIONAL { ?s {{lpref}}:gender / rdfs:label ?gen . } 
-	   #OPTIONAL { ?s aamas:memberOf / rdfs:comment ?comment . } 
 	   ?s {{lpref}}:token ?tkn .
            OPTIONAL { ?s ?t ?o . FILTER (CONTAINS(str(?t), \"token-note\"))}
            BIND((IF(BOUND(?o),

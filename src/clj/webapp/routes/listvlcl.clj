@@ -129,9 +129,9 @@
 (defn csv2map2
   "Maps the content of all the cols after the first (substituting '_' for ',') to the content of the first col"
   [csvstring]
-  (let [reqcompact (apply str (compact-list csvstring))
-        reqcomp (replace reqcompact #"^\n" "")
-        reqvec (split reqcomp #"\n")
+  (let [;;reqcompact (apply str (compact-list csvstring))
+        ;;reqcomp (replace reqcompact #"^\n" "")
+        reqvec (split csvstring #"\n")
         ;; remember to get rid of commas in key!
         reqmap (for [req reqvec] (hash-map (replace (last (split req #"," 2)) #"," "_") (first (split req #"," 2))))]
     (if (> (count reqmap) 1)
