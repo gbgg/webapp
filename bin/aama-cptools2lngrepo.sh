@@ -7,7 +7,7 @@
 echo "tools ********************************************"
 echo "Copying edn2ttl jar and source files to aama/tools"
 echo "NB: Shell scripts for aama/tools/bin need to be compied by hand"
-echo "    because of directory adjustments"
+echo "    and adapted because of directory adjustments"
 cp bin/tools/edn2ttl/project.clj ../aama/tools/clj/edn2ttl/
 cp bin/tools/edn2ttl/src/edn2ttl/core.clj ../aama/tools/clj/edn2ttl/src/edn2ttl/
 # cp bin/tools/ednsort/project.clj ../aama/tools/clj/ednsort/
