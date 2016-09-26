@@ -18,8 +18,10 @@ cp bin/aama-edn2rdf.sh ../aama/webapp/bin/
 cp bin/aama-rdf2fuseki.sh ../aama/webapp/bin/
 cp bin/*.rq ../aama/webapp/bin/
 cp bin/fu*.sh ../aama/webapp/bin/
+cp bin/aamapull*.sh ../aama/webapp/bin/
 cp -R etc/* ../aama/webapp/etc/
 cp -R src/* ../aama/webapp/src/
+cp pvlists/bibrefs.edn ../aama/webapp/resources/public/
 cp -R resources/* ../aama/webapp/resources/
 cd ../aama/webapp
 git add LICENSE 

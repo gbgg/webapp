@@ -1,3 +1,4 @@
+aa
 aa-sem
 afar
 agaw
@@ -6,7 +7,6 @@ alaaba
 arabic
 arbore
 arteiga
-asa-sem
 atmaan
 awnji
 bayso
@@ -19,6 +19,7 @@ boni
 book
 burji
 burunge
+chadic
 coptic
 cushitic
 dahalo
@@ -36,12 +37,16 @@ iraqw
 kambaata
 kemant
 khamtanga
+konso
 koorete
+language
 maale
 morphology
 omotic
 oromo
+paradigms
 pdf
+pdf-p
 rendille
 saho
 semitic
