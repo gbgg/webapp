@@ -74,7 +74,9 @@
                 sources (split (first lprops) #" ")
                 desc (next lprops)
                 descurls (split (first desc) #" ")
-                desctxt (clojure.string/replace (last desc) #"%%" ",")
+                txt-sf (next desc)
+                desctxt (clojure.string/replace (first txt-sf) #"%%" ",")
+                subfam (next txt-sf)
                 ]
             (log/info "sparql result status: " (:status req))
             ;;[:div

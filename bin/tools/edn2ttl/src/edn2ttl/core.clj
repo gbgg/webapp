@@ -20,6 +20,7 @@
   [inputfile pdgm-map]
   (let [lang (name (pdgm-map  :lang))
         Lang (clojure.string/capitalize lang)
+        subfam (pdgm-map :subfamily)
         sgpref (pdgm-map :sgpref)
         dsource (pdgm-map :datasource)
         webref (pdgm-map :geodemoURL)
@@ -39,6 +40,7 @@
           "#LANG INFO:\n\n"
           "aama:{{Lang}} a aamas:Language .\n"
           "aama:{{Lang}} rdfs:label \"{{Lang}}\" .\n"
+          "aama:{{Lang}} aamas:subfamily \"{{subfam}}\" .\n"
           "aama:{{Lang}} aamas:lpref \"{{pfx}}\" .\n"
           "aama:{{Lang}} aamas:dataSource \"{{dsource}}\" .\n"
           "aama:{{Lang}} aamas:geodemoURL \"{{webref}}\" .\n"
@@ -49,6 +51,7 @@
             :desc description
             :lang lang
             :Lang Lang
+            :subfam subfamily
             :inputfile inputfile})
       )
    )
