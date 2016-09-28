@@ -22,7 +22,9 @@ do
     echo "$lang ********************************************"
     echo copying $f to aama/$lang
     cp ../aama-data/data/$lang/$lang-pdgms\.edn ../aama/$lang/
-    cp ../aama-data/data/$lang/README.md ../aama/$lang/
+    # For the moment the README.md files will be created in 
+    # ~/aama/[LANG]. Perhaps shell-script later to copy them to aama-data
+    # cp ../aama-data/data/$lang/README.md ../aama/$lang/
     # cp ../aama-data/data/$lang/$lang-pdgms\.ttl ../aama/$lang/
     cd ../aama/$lang
     git add *.edn
