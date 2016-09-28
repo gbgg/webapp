@@ -1,5 +1,6 @@
 {
 :lang :beja-arteiga
+:subfamily "Beja"
 :sgpref "bar"
 :datasource "HudsonR1976 Appleyard2007a"
 :geodemoURL "http://www.ethnologue.com/language/bej"
@@ -129,7 +130,9 @@
 :lxterms [
     {:label "beja_H-VCopula"
     :common {:lexeme :COPULA,
-            :pos :Verb}
+             :polarity :Affirmative
+            :pos :Verb
+             :tam :Present}
     :terms [[:number :person :gender :token] ;; schema
             [:Singular :Person1 :Masc "STEM=u"]
             [:Singular :Person1 :Fem "STEM=tu"]
@@ -1123,16 +1126,16 @@
             :morphClass :PARTICIPLES,
             :pos :Verb}
     :terms [[:conjClass :lexeme :participle :token-note :token] ;; schema
-            [:Prefix :dbl :Conjunctive "Suff: -tií, \"X collected and ...\"" "dibil-tií"]
-            [:Prefix :dbl :Future "Suff: -át, \"will collect\"" "dibl-át"]
-            [:Prefix :dbl :Negative "Pref: baa-, \"not collecting\"" "baa-dabiíl"]
-            [:Prefix :dbl :Past "Suff: -aà, \"having collected\"" "dibl-aà"]
-            [:Prefix :dbl :Present "Suff: -ée, \"(while) collecting\"" "dibl-ée"]
-            [:Suffix :tam :Conjunctive "Suff: -eetì, \"X ate and ...\"" "tam-eetì"]
-            [:Suffix :tam :Future "Suff: -át, \"will eat\"" "tam-át"]
-            [:Suffix :tam :Negative "Pref+Suff: baa- + -ày, \"not eating\"" "baa-tam-ày"]
-            [:Suffix :tam :Past "Suff: -aà, \"having eaten\"" "tam-aà"]
-            [:Suffix :tam :Present "Suff: -ée, \"(while) eating\"" "tam-ée"]]
+            [:Prefix :dbl :Conjunctive "Suff: -tií \"X collected and ...\"" "dibil-tií"]
+            [:Prefix :dbl :Future "Suff: -át \"will collect\"" "dibl-át"]
+            [:Prefix :dbl :Negative "Pref: baa- \"not collecting\"" "baa-dabiíl"]
+            [:Prefix :dbl :Past "Suff: -aà \"having collected\"" "dibl-aà"]
+            [:Prefix :dbl :Present "Suff: -ée \"(while) collecting\"" "dibl-ée"]
+            [:Suffix :tam :Conjunctive "Suff: -eetì \"X ate and ...\"" "tam-eetì"]
+            [:Suffix :tam :Future "Suff: -át \"will eat\"" "tam-át"]
+            [:Suffix :tam :Negative "Pref+Suff: baa- + -ày \"not eating\"" "baa-tam-ày"]
+            [:Suffix :tam :Past "Suff: -aà \"having eaten\"" "tam-aà"]
+            [:Suffix :tam :Present "Suff: -ée \"(while) eating\"" "tam-ée"]]
     }
     {:label "beja_H-VImperativeRootClassExx"
     :common {:gender :Masc,

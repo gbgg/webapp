@@ -20,7 +20,7 @@
   [inputfile pdgm-map]
   (let [lang (name (pdgm-map  :lang))
         Lang (clojure.string/capitalize lang)
-        subfam (pdgm-map :subfamily)
+        subfamily (pdgm-map :subfamily)
         sgpref (pdgm-map :sgpref)
         dsource (pdgm-map :datasource)
         webref (pdgm-map :geodemoURL)

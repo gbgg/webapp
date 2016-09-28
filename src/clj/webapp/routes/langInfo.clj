@@ -51,7 +51,6 @@
        [:body
         [:ol
         (for [language languages]
-          [:li [:p "Language: "  (capitalize language) " / Subfamily: "]
           (let [Language (capitalize language)
                 lang (read-string (str ":" language))
                 lpref (lang lprefmap)
@@ -80,6 +79,7 @@
                 ]
             (log/info "sparql result status: " (:status req))
             ;;[:div
+          [:li [:p "Language: "  (capitalize language) " / Subfamily: " subfam]
              [:table {:class "linfo-table"}
               [:tbody
                ;;[:tr
@@ -112,7 +112,7 @@
              ;;[:hr]
              ;;[:h3#clickable "Query:"]
              ;;[:pre query-sparql-pr]
-             )])]
+           ]))]
         [:script {:src "js/goog/base.js" :type "text/javascript"}]
         [:script {:src "js/webapp.js" :type "text/javascript"}]
         [:script {:type "text/javascript"}
