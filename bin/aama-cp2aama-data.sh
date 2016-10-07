@@ -1,5 +1,6 @@
 #!/bin/bash
-# usage:  ~/aama-data/bin/copy2langrepo.sh "dir"
+# usage:  ~/webapp $ bin/copy2aama-data.sh "dir"
+# for copying, e.g., README.md from aama/[LANG] to aama-data/data/[LANG]
 # examples:
 #    aama/$ tools/fupost "data/*" --  loads everything
 #    aama/$ tools/fupost "data/alaaba" -- loads only alaaba
@@ -8,7 +9,7 @@
 # cumulative logfile written to logs/fupost.log
 
 
-# 03/21/14: 
+# 09/29/16: 
 # 03/26/14: restricted to edn (xml now out of date)
 
 #. bin/constants.sh
@@ -20,15 +21,12 @@ do
     l=${f%-pdgms.edn}
     lang=${l#../aama-data/data/*/}
     echo "$lang ********************************************"
-    echo copying $f to aama/$lang
-    cp ../aama-data/data/$lang/$lang-pdgms\.edn ../aama/$lang/
-    cp ../aama-data/data/$lang/README.md ../aama/$lang/
-    # cp ../aama-data/data/$lang/$lang-pdgms\.ttl ../aama/$lang/
-    cd ../aama/$lang
-    git add *.edn
-    # git rm *.ttl
-    git add README.md
-    git commit -am "aama lang repositories now restricted to pdgm edn files and README.md"
-    git push origin master
-    cd ../../webapp
+    echo copying README.md to aama-data/data/$lang
+    cp ../aama/$lang/README.md ../aama-data/data/$lang/
 done
+cd ../aama-data
+#git add *.md
+git add data/*/README.md
+git commit -am "aama-data lang repositories now have README.md"
+git push origin master
+cd ../webapp
