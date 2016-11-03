@@ -168,13 +168,13 @@
                              {:query-params
                               {"query" query-sparql1 ;;generated sparql
                                "format" "csv"}})
-              ;;"format" "application/sparql-results+json"}})
-              ;;"format" "text"}})
+                               ;;"format" "application/sparql-results+json"}})
+                               ;;"format" "text"}})
               propstring (if (= (:body req1) "property")
                            (str "no_" pos)
                            (replace (:body req1) #"\r\n" ","))
               pstring (replace propstring #"property,|,$" "")
-              porder (str "formType,pdgmType,conjClass,derivedStem,derivedStemAug,clauseType,tam,polarity,stemClass,rootClass")
+              porder (str "conjClass,derivedStem,clauseType,tam,polarity,rootClass")
               normstring (normorder pstring porder)
               plist (replace pstring #"," ", ")
               query-sparql2 (cond 
@@ -194,42 +194,50 @@
               req2-body (replace (:body req2) #",+" ",")
               req2-out   (cond 
                           (= pos "fv")
-                            (req2vlist1 req2-body)
-                            (= pos "pro")
-                            ;;(rest req2-body)
-                            (req2vlist3 req2-body)
-                            ;; listvlclplex.clj has req2vlist2, investigate
-                            :else (req2vlist2 req2-body))
+                          (req2vlist1 req2-body)
+                          (= pos "pro")
+                          ;;(rest req2-body)
+                          (req2vlist3 req2-body)
+                          ;; listvlclplex.clj has req2vlist2, investigate
+                          :else (req2vlist2 req2-body))
               req3-out (apply str req2-out)
               req4-out (if (re-find #"\w" req3-out)
                          (replace req3-out #"^\s*\n" "")
                          (str "EmptyList"))
               req-dataIDvlcl (csv2map1 req4-out)
+              req-vlcldataID  (csv2map2 req4-out)
               req4-vec (split req4-out #"\n")
               req-vlcllst (sort (for [rq4 req4-vec] (replace rq4 #"^.*?," "")))
               ;; use req-vlcllist if want to see partial pdgms (usually one token)
               ;; otherwise req-vlcllist2 [or use 'remove'?]
               req-vlcllist (join "\n"  req-vlcllst)
-              req-vlcllist2 (clojure.string/replace req-vlcllist #"Partial.*?\n" "")
-              req-vlcldataID  (csv2map2 req4-out)
+              ;;req-vlcllist2 (clojure.string/replace req-vlcllist #"Partial.*?\n" "")
               ]
           (log/info "sparql result status: " (:status req2))
           ;;(if (not (clojure.string/blank? (str req-dataIDvlcl)))
             ;;(doall (
           (spit dataIDvlcl req-dataIDvlcl)
           (spit vlcldataID req-vlcldataID)
-          (spit vlcllist req-vlcllist2)
+          (spit vlcllist req-vlcllist)
+          (if (re-find #"v" pos)
+            (let [verblist (str "pvlists/vlcl-list-" language "-verb.txt")
+                  fvlist (slurp (str "pvlists/vlcl-list-" language "-fv.txt"))
+                  nfvlist (slurp (str "pvlists/vlcl-list-" language "-nfv.txt"))]
+              (spit verblist (str fvlist "\n"))
+              (spit verblist nfvlist :append true)))
+                  
           ;;)))
-            [:div [:h4 "======= Debug Info: ======="]
+            [:div 
              [:p [:b "Language: "] language]
-             [:p [:b "File vlcl-list2:    "] [:pre req-vlcllist2]]
-             [:p [:b "req-vlcllist:    "] [:pre req-vlcllist]]
+             [:p [:b "File vlcl-list:    "] [:pre req-vlcllist]]
+             ;;[:p [:b "req-vlcllist:    "] [:pre req-vlcllist]]
              [:p [:b "File data-vlcl:     "] [:br] req-dataIDvlcl]
              [:p [:b "File vlcl-data:     "] [:br] req-vlcldataID]
              [:p [:b "POS: " ] pos]
              [:p [:b "Porder:  " ] porder]
+             [:p [:b "Propstring: "] propstring]
              [:p [:b "Normstring: "] normstring]
-             [:hr]
+             [:h4 "======= Debug Info: ======="]
              [:h4  "Value Clusters: " ]
              [:p "req4-out: " [:pre req4-out]]
              [:p "req4-vec: " [:p req4-vec]]
@@ -237,7 +245,6 @@
              ;;[:p "propstring: " [:pre propstring]]
              [:h3#clickable "Query:"]
              [:pre query-sparql2-pr]
-             [:hr]
              [:hr]
              [:p "Query Output: " [:pre (:body req2)]]
              [:p "==========================="]]))

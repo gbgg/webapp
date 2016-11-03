@@ -23,6 +23,7 @@
         subfamily (pdgm-map :subfamily)
         sgpref (pdgm-map :sgpref)
         dsource (pdgm-map :datasource)
+        dsourcenotes (pdgm-map :datasourceNotes)
         webref (pdgm-map :geodemoURL)
         desc (pdgm-map :geodemoTXT)
         ;;because csv sparql req will be split by ","
@@ -43,10 +44,12 @@
           "aama:{{Lang}} aamas:subfamily \"{{subfam}}\" .\n"
           "aama:{{Lang}} aamas:lpref \"{{pfx}}\" .\n"
           "aama:{{Lang}} aamas:dataSource \"{{dsource}}\" .\n"
+          "aama:{{Lang}} aamas:dataSourceNotes \"{{dsourcenotes}}\" .\n"
           "aama:{{Lang}} aamas:geodemoURL \"{{webref}}\" .\n"
           "aama:{{Lang}} aamas:geodemoTXT \"{{desc}}\" .\n")
            {:pfx sgpref
             :dsource dsource
+            :dsourcenotes dsourcenotes
             :webref webref
             :desc description
             :lang lang
@@ -198,6 +201,7 @@
   [lexterms sgpref Lang]
   (doseq [termcluster lexterms]
     (let [label (:label termcluster)
+          pdgmtype (:pdgmType termcluster)
           terms (:terms termcluster)
           ;;because csv sparql req will be split by ","
           note (clojure.string/replace (str (:note termcluster)) #"," "%%")
@@ -210,10 +214,12 @@
            (tmpl/render-string (str (newline)
                                     "{{pfx}}:{{label}} a aamas:Termcluster ;\n"
                                     "\trdfs:label \"{{label}}\" ;\n"
+                                    "\t{{pfx}}:pdgmType {{pfx}}{{pdgmtype}} ;\n"
                                     "\trdfs:comment \"{{note}}\" \n"
                                     "\t.")
                                {:pfx sgpref
                                 :label label
+                                :pdgmtype pdgmtype
                                 :note note}))
           ;; Need to build up string which can then be println-ed with each term of cluster
           (doseq [term data]
@@ -284,6 +290,7 @@
   [muterms sgpref Lang]
   (doseq [ mutermcluster muterms]
     (let [label (:label mutermcluster)
+          pdgmtype (:pdgmType mutermcluster)
           terms (:terms mutermcluster)
           ;;because csv sparql req will be split by ","
           note (clojure.string/replace (str (:note mutermcluster)) #"," "%%")
@@ -297,10 +304,12 @@
            (tmpl/render-string (str (newline)
                                     "{{pfx}}:{{label}} a aamas:MuTermcluster ;\n"
                                     "\trdfs:label \"{{label}}\" ;\n"
+                                    "\t{{pfx}}:pdgmType {{pfx}}{{pdgmtype}} ;\n"
                                     "\trdfs:comment \"{{note}}\" \n"
                                     "\t.")
                                {:pfx sgpref
                                 :label label
+                                :pdgmtype pdgmtype
                                 :note note}))
       (doseq [term data]
 	(let [termid (uuid)]
