@@ -80,7 +80,7 @@
         reqq (split vlist1 #"\n")
         ;;reqqa (first reqq)
         reqqb (rest reqq)
-        ;; make joint key of pdigmID and morphCl
+        ;; make joint key of pdigmID and pdgmType
         reqqc (for [req reqqb] (replace req #"^(.*?)," "$1+"))
         vvec (for [req reqqc] (split req #","))
         vmap (for [vvc vvec] (apply hash-map vvc))
