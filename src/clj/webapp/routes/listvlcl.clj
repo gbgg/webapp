@@ -1,5 +1,5 @@
 (ns webapp.routes.listvlcl
- (:refer-clojure :exclude [filter concat group-by max min  replace])
+ (:refer-clojure :exclude [filter group-by max min  replace])
   (:require [compojure.core :refer :all]
             [webapp.views.layout :as layout]
             [webapp.models.sparql :as sparql]
@@ -75,25 +75,6 @@
 ))
 
 (defn req2vlist2
-  [vlist]
-  (let [vlist1 (replace vlist #"\n$" "")
-        reqq (split vlist1 #"\n")
-        ;;reqqa (first reqq)
-        reqqb (rest reqq)
-        ;; make joint key of pdigmID and pdgmType
-        reqqc (for [req reqqb] (replace req #"^(.*?)," "$1+"))
-        vvec (for [req reqqc] (split req #","))
-        vmap (for [vvc vvec] (apply hash-map vvc))
-        vmerge (apply merge-with str vmap)
-        reqq2 (into [] (for [vm vmerge] (join "," vm)))
-        ;; This works because earlier split mention only '\n'
-        reqq3 (for [r2 reqq2] (replace r2 #"[\r\+]" ","))
-        reqq4 (for [r2 reqq3] (replace r2 #",$" ""))]
-    
-    (join "\n" reqq4)
-))
-
-(defn req2vlist3
   "For pro: Takes off header row, deletes interior brackets and quotes, deletes line-final ','"
   [vlist]
   (let [reqq (split vlist #"\n" 2)
@@ -103,6 +84,41 @@
         reqqc (split reqqb #"\r")
         reqqd (for [req reqqc] (replace req #"\B,|[\(\)\]\[\"]" ""))]
     (for [req reqqd] (replace req #",$" ""))))
+
+(defn req2vlist3
+  [vlist]
+  (let [vlist1 (replace vlist #"\n$" "")
+        reqq (split vlist1 #"\n")
+        ;;reqqa (first reqq)
+        reqqb (rest reqq)
+        ;; make joint key of pdgmID and pdgmType
+        reqqc (for [req reqqb] (replace req #"^(.*?)," "$1+"))
+        ;; split off the property
+        vvec (for [req reqqc] (split req #","))
+        ;; make a hash-map of ':pdgmID+pdgmType property'
+        vmap (for [vvc vvec] (apply hash-map vvc))
+        ;; merge maps with identical key
+        vmerge (apply merge-with str vmap)
+        reqq2 (into [] (for [vm vmerge] (join "," vm)))
+        ;; This works because earlier split mention only '\n'
+        reqq3 (for [r2 reqq2] (replace r2 #"[\r\+]" ","))
+        reqq4 (for [r2 reqq3] (replace r2 #",$" ""))]
+    (join "\n" reqq4)))
+
+(defn propmerge
+  "Takes list with 'pdgmType,prop1,prop2,...,propn' makes  map {{:pdgmType [prop1,...]}...{ and then does (merge-with into). Cf. req2vlist3."
+  [vlist]
+  (let [;; split into pdgmType (key) and  property-list
+        vvec (for [vl vlist] (split vl #"," 2))
+        ;; make a hash-map of 'pdgmType property-list'
+        vmap (for [vec vvec] (hash-map (first vec) (split (last vec) #",")))
+        ;; merge maps with identical key
+        vmerge1 (apply merge-with into  vmap)
+        ;; put it back into a list
+        ;;vmerge2 (for [vm vmerge1] (into [] vm))
+        ]
+    ;; make key ('pdgmType') and property-list back into a string
+    (join "\n" (for [vm vmerge1] (str (first vm) "," (join "," (set (last vm))))))))
 
 (defn compact-list
 "Takes string representing sorted bipartite list of dataID and pdgm value-cluster, with divider ',', and builds up list with single mention of dataID (key) paired with space-separated sting  of comma-separated value sub-strings."
@@ -197,9 +213,9 @@
                           (req2vlist1 req2-body)
                           (= pos "pro")
                           ;;(rest req2-body)
-                          (req2vlist3 req2-body)
+                          (req2vlist2 req2-body)
                           ;; listvlclplex.clj has req2vlist2, investigate
-                          :else (req2vlist2 req2-body))
+                          :else (req2vlist3 req2-body))
               req3-out (apply str req2-out)
               req4-out (if (re-find #"\w" req3-out)
                          (replace req3-out #"^\s*\n" "")
@@ -210,7 +226,9 @@
               req-vlcllst (sort (for [rq4 req4-vec] (replace rq4 #"^.*?," "")))
               ;; use req-vlcllist if want to see partial pdgms (usually one token)
               ;; otherwise req-vlcllist2 [or use 'remove'?]
-              req-vlcllist (join "\n"  req-vlcllst)
+              req-vlcllist (if (= pos "nfv")
+                             (propmerge req-vlcllst)
+                             (join "\n"  req-vlcllst))
               ;;req-vlcllist2 (clojure.string/replace req-vlcllist #"Partial.*?\n" "")
               ]
           (log/info "sparql result status: " (:status req2))
@@ -229,8 +247,8 @@
           ;;)))
             [:div 
              [:p [:b "Language: "] language]
+             [:p [:b "File vlcl-lst:    "] [:pre req-vlcllst]]
              [:p [:b "File vlcl-list:    "] [:pre req-vlcllist]]
-             ;;[:p [:b "req-vlcllist:    "] [:pre req-vlcllist]]
              [:p [:b "File data-vlcl:     "] [:br] req-dataIDvlcl]
              [:p [:b "File vlcl-data:     "] [:br] req-vlcldataID]
              [:p [:b "POS: " ] pos]
@@ -238,15 +256,15 @@
              [:p [:b "Propstring: "] propstring]
              [:p [:b "Normstring: "] normstring]
              [:h4 "======= Debug Info: ======="]
-             [:h4  "Value Clusters: " ]
-             [:p "req4-out: " [:pre req4-out]]
-             [:p "req4-vec: " [:p req4-vec]]
              ;;[:hr]
              ;;[:p "propstring: " [:pre propstring]]
              [:h3#clickable "Query:"]
              [:pre query-sparql2-pr]
              [:hr]
-             [:p "Query Output: " [:pre (:body req2)]]
+             [:p "Query Output (:body req2): " [:pre (:body req2)]]
+             [:h4  "Value Clusters: " ]
+             [:p "req4-out: " [:pre req4-out]]
+             [:p "req4-vec: " [:p req4-vec]]
              [:p "==========================="]]))
         ;; ) [this is the parens for posvec]
         )
