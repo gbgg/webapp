@@ -117,8 +117,8 @@
         ;; put it back into a list
         ;;vmerge2 (for [vm vmerge1] (into [] vm))
         ]
-    ;; make key ('pdgmType') and property-list back into a string
-    (join "\n" (for [vm vmerge1] (str (first vm) "," (join "," (set (last vm))))))))
+    ;; make key ('pdgmType') and sorted property-list back into a string
+    (join "\n" (for [vm vmerge1] (str (first vm) "," (join "," (apply sorted-set (last vm))))))))
 
 (defn compact-list
 "Takes string representing sorted bipartite list of dataID and pdgm value-cluster, with divider ',', and builds up list with single mention of dataID (key) paired with space-separated sting  of comma-separated value sub-strings."
@@ -264,7 +264,7 @@
              [:p "Query Output (:body req2): " [:pre (:body req2)]]
              [:h4  "Value Clusters: " ]
              [:p "req4-out: " [:pre req4-out]]
-             [:p "req4-vec: " [:p req4-vec]]
+             [:p "req4-vec: " (join "\n" req4-vec)]
              [:p "==========================="]]))
         ;; ) [this is the parens for posvec]
         )

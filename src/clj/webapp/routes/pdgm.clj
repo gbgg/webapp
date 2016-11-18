@@ -137,13 +137,14 @@
   ;; send SPARQL over HTTP request
   (let [langlist (slurp "pvlists/menu-langs.txt")
         languages (split langlist #"\n")
+        lang (lower-case language)
         lprefmap (read-string (slurp "pvlists/lprefs.clj"))
         valclusterfile (str "pvlists/vlcl-list-" language "-" pos ".txt")
         valclusterlist (slurp valclusterfile)
         ;;valclusterlst (clojure.string/replace valclusterlist #":.*?\n" "\n")
         valclusterset (into (sorted-set) (clojure.string/split valclusterlist #"\n"))
-        lang (read-string (str ":" language))
-        lpref (lang lprefmap)
+        langkey (read-string (str ":" language))
+        lpref (langkey lprefmap)
         vcs (split valstring #"," 2)
         pdgmType (first vcs)
         pvalcluster (last vcs)
@@ -185,6 +186,8 @@
         header (first psplit)
         pdgmrows (rest psplit)
         pheads (split header #",")
+        ;; from here to 'comment', steps to obtain pdgmLabel (dataID) 
+        ;; and comment
         pdgmmap (cond
                  (= pdgmType "Finite")
                  (read-string (slurp (str "pvlists/vlcl-dataID-" language "-fv.edn")))
@@ -254,11 +257,11 @@
                [:em  "Columns can be dragged by clicking and holding on 'drag-bar' 
                 at top of column."]]
            [:table {:id "handlerTable" :class "tablesorter sar-table"}
-           ;;[:table
-            [:thead
+            ;;[:table
+             [:thead
               (for [head pheads]
                 [:th [:div {:class "some-handle"}  (capitalize head)]])
-             ]
+              ]
             ;;[:th head])]]
             [:tbody 
              (for [pdgmrow pdgmrows]
@@ -279,6 +282,14 @@
            [:div [:h4 "======= Debug Info: ======="]
             [:h4 "Query Response:"]
             [:pre (:body req-form)]
+            [:p "language: " language]
+            [:p "lang: " lang]
+            [:p "lpref: " lpref]
+            [:p "valstring: "  valstring]
+            [:p "vlcllistID: "  vlcllistID]
+            [:p "vlcllistkey: "  vlcllistkey]
+            [:p "pdgmmap: " [:pre pdgmmap]]
+            [:p ": " ]
            [:p "pcolred: " pcolred]
             [:p "pmapkeys: " (str pmapkeys)]
             [:p "sgvalkeys: " sgvalkeys]
