@@ -1,0 +1,1486 @@
+{
+:lang :beja-hadendowa
+:subfamily "Beja"
+:sgpref "bha"
+:datasource "Roper1928" 
+:datasourceNotes "Roper uses the term 'conditional' for what is here termed ':Aorist'"
+:geodemoURL "http://www.ethnologue.com/language/bej"
+:geodemoTXT "Beja is a closely related group of language varieties and dialects spoken in the Red Sea coastal and hill regions in Sudan, Eritrea, and Egypt by more than a million individuals. The variety of Hadendowa (Hadendiwa) represented here is that described by E.M. Roper (Roper1928) and spoken in Suakin, Sudan, where Roper was a colonial administrator."
+:schemata {
+           :aspect [:Perfect, :Present]
+	  :case [:Object, :Subject, :Object, :Possessive]
+	  :clauseType [:Main, :Subordinate]
+	  :conjClass [:Prefix, :Suffix]
+	  :derivedStem [:B_Freq, :B_Intens, :B_Redup, :Base, :Intensive, :M, :Reciprocal, :S]
+	  :gender [:Common, :Fem, :Masc]
+	  :genHead [:H_Fem, :H_Masc]
+	  :genN1 [:N1_Fem, :N1_Masc]
+	  :genN2 [:N2_Fem, :N2_Masc]
+           :morphClass [:GenAdjPart, :GenBeforePossSuff, :NumOrd, :Numeral :DervStemForm, :ImptvFormation, :NomForm-ktm, :NomFormPref, :NomFormSuff, :SubjMarker, :SubjMarkerIntens, :SUFFCONDPERF]
+           :nonFiniteForm [:Gerund, :NominalAction, :NominalAgent, :Participle, :PerfectParticiple, :PresentParticiple]
+	  :numHead [:H_Common, :H_Plural, :H_Singular]
+	  :numN1 [:N1_Common, :N1_Plural, :N1_Singular]
+	  :number [:Plural, :Singular]
+	  :pdgmType [:Structure]
+	  :person [:Person1, :Person2, :Person3]
+	  :polarity [:Affirmative, :Negative]
+	  :pos [:Noun, :Pronoun, :Verb]
+	  :proClass [:ArtDef, :Gen_PossPred, :Independent, :Interrogative, :PossInd, :PossSuff]
+	  :rootClass [:CC, :CCC]
+	  :tam [:Aorist, :ConditionalPerfect, :ConditionalPredicative, :Future, :Gerund, :Imperative, :Optative, :Past, :PastContinuous, :PerfectPast, :Predicative, :Present, :PresentContinuous]
+	  }
+:pclass {
+           :pngClass [:person :number :gender :genHead :genN1 :genN2 :numHead :numN1 ]
+           :synsemClass [:aspect :clauseType :case  :derivedStem :nonFiniteForm :polarity :pos :proClass :tam ]
+           :inflClass [:conjClass :rootClass ]
+           :otherClass [ ]
+          }
+:morphemes {
+  :CONDPERF {:gloss "Conditional Perfect Formation", }
+  :DEFART {:gloss "Subject Marker", }
+  :GENADJPART {:gloss "Possessive construction where N1 is modified by an adjective.", }
+  :GENBEFOREPOSSSUFF {:gloss "Genitive Before Possessive Suffix", :pos :Pronoun}
+  :GENPOSSPRED {:gloss "Genitive Possessive Predicate", :pos :Pronoun}
+  :NUMERAL {:gloss "Numerals", :pos :Noun}
+  :ORDNUM {:gloss "Ordinal Numbers", }
+  :POSSSUFF {:gloss "Subject Marker", }
+  :PREFSUBJMARK {:gloss "Prefixing Ver Subject Marker", }
+  :PROIND {:gloss "Independent Pronoun", :pos :Pronoun}
+  :PROINTERROG {:gloss "Interrogative Pronoun", :pos :Pronoun}
+  :PROPOSSIND {:gloss "Independent Possessive Pronoun", :pos :Pronoun}
+  :PROSUFF {:gloss "Independent Pronoun", :pos :Pronoun}
+  :SUBJMARK {:gloss "Subject Marker", }
+  :SUFFCONDPERF {:gloss "Conditional Perfect Formation", }
+  :SUFFIMPRTV {:gloss "Suffix Verb Imperative Formation", }
+  :VBNOMFORM {:gloss "Verbal Noun Formation", }
+  :VBSUFFNOMFORM {:gloss "Suffix Verbal Noun Formation", }
+}
+:lexemes {
+  :bar {:gloss "wake", :lemma "bar", }
+  :bir {:gloss "snatch", :lemma "bir", }
+  :bis {:gloss "bury", :lemma "bis", }
+  :dif {:gloss "go", :lemma "dif", }
+  :dir {:gloss "kill", :lemma "dir", }
+  :gid {:gloss "throw", :lemma "gid", }
+  :i {:gloss "go", :lemma "i", }
+  :kitim {:gloss "arrive", :lemma "kitim", }
+  :m- {:gloss "[x]", :lemma "[y]", }
+  :min {:gloss "shave", :lemma "min", }
+  :mo {:gloss "[x]", :lemma "[y]", }
+  :nis {:gloss "saddle", :lemma "nis", }
+  :sodira {:gloss "[x]", :lemma "[y]", }
+  :t- {:gloss "[x]", :lemma "[y]", }
+  :tam {:gloss "eat", :lemma "tam", }
+  :to {:gloss "[x]", :lemma "[y]", }
+}
+:lxterms [
+    {:label "beja_Ro-VPrefAffCCOpt-bis"
+    :note "Roper1928 #167-191"
+    :common {:conjClass :Prefix,
+             :lexeme :bis,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Optative}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "bá̄ībís"]
+            [:Singular :Person2 :Masc "bá̄tí̄bisa"]
+            [:Singular :Person2 :Fem "bá̄tí̄bisi"]
+            [:Singular :Person3 :Masc "bá̄ī̄bís"]
+            [:Singular :Person3 :Fem "bá̄tībís"]
+            [:Plural :Person1 :Common "bá̄nībís"]
+            [:Plural :Person2 :Common "bá̄tí̄bisna"]
+            [:Plural :Person3 :Common "bá̄í̄bisna"]]
+    }
+    {:label "beja_Ro-VPrefAffImprtv-i"
+    :note "Roper1928 #256"
+    :common {:conjClass :Prefix,
+            :lexeme :i,
+            :person :Person2,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :Imperative}
+    :terms [[:number :gender :token] ;; schema
+            [:Singular :Masc "me’ā"]
+            [:Singular :Fem "me’éi"]
+            [:Plural :Common "m’ān"]]
+    }
+    {:label "beja_Ro-VPrefCCAffMainFuture-bis"
+    :note "Roper1928 #167-191"
+    :common {:clauseType :Main,
+            :conjClass :Prefix,
+            :lexeme :bis,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Future}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "ībís ánde"]
+            [:Singular :Person2 :Masc "ībís téndea"]
+            [:Singular :Person2 :Fem "ībís téndī"]
+            [:Singular :Person3 :Masc "ībís índi"]
+            [:Singular :Person3 :Fem "ībís téndi"]
+            [:Plural :Person1 :Common "nībís nɛád"]
+            [:Plural :Person2 :Common "ībís tɛédna"]
+            [:Plural :Person3 :Common "ībís ɛédna"]]
+    }
+    {:label "beja_Ro-VPrefCCAffMainImprtv-aff"
+    :note "Roper1928 #167-191"
+    :common {:clauseType :Main,
+            :conjClass :Prefix,
+            :mmorphClass :Affix,
+            :person :Person2,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :Imperative}
+    :terms [[:number :gender :token] ;; schema
+            [:Singular :Masc "…a"]
+            [:Singular :Fem "…i"]
+            [:Plural :Common "…na"]]
+    }
+    {:label "beja_Ro-VPrefCCAffMainPres-dif"
+    :note "Roper1928 #179-182. [Roper also gives pres neg in predicative of dif – not yet
+            included]"
+    :common {:clauseType :Main,
+            :conjClass :Prefix,
+            :lexeme :dif,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Present}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "andtí̄f"]
+            [:Singular :Person2 :Masc "tíndīfa"]
+            [:Singular :Person2 :Fem "tíndīfi"]
+            [:Singular :Person3 :Masc "indí̄̄f"]
+            [:Singular :Person3 :Fem "tindí̄f"]
+            [:Plural :Person1 :Common "nɛdíf"]
+            [:Plural :Person2 :Common "tɛdifna"]
+            [:Plural :Person3 :Common "ɛdifna"]]
+    }
+    {:label "beja_Ro-VPrefCCCAffOptNomForm-kitim"
+    :note "Roper1928 #192-197"
+    :common {:conjClass :Prefix,
+            :lexeme :kitim,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :rootClass :CCC,
+            :tam :Optative}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "bāīktím"]
+            [:Singular :Person2 :Masc "bātí̄ktima"]
+            [:Singular :Person2 :Fem "bātí̄ktimi"]
+            [:Singular :Person3 :Masc "bāīktím"]
+            [:Singular :Person3 :Fem "bātīktím"]
+            [:Plural :Person1 :Common "bānīktím"]
+            [:Plural :Person2 :Common "bātí̄ktimna"]
+            [:Plural :Person3 :Common "bāí̄ktimna"]]
+    }
+    {:label "beja_Ro-VPrefCCCAffPastNomForm-kitim"
+    :note "Roper1928 #192-197"
+    :common {:conjClass :Prefix,
+            :lexeme :kitim,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :rootClass :CCC,
+            :tam :Past}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "aktím"]
+            [:Singular :Person2 :Masc "tíktima"]
+            [:Singular :Person2 :Fem "tíktimi"]
+            [:Singular :Person3 :Masc "iktím"]
+            [:Singular :Person3 :Fem "tiktím"]
+            [:Plural :Person1 :Common "niktím"]
+            [:Plural :Person2 :Common "tíktimna"]
+            [:Plural :Person3 :Common "íktimna"]]
+    }
+    {:label "beja_Ro-VPrefCCCAffPresNomForm-kitim"
+    :note "Roper1928 #192-197"
+    :common {:conjClass :Prefix,
+            :lexeme :kitim,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :rootClass :CCC,
+            :tam :Present}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "aktím"]
+            [:Singular :Person2 :Masc "tíktima"]
+            [:Singular :Person2 :Fem "tíktimi"]
+            [:Singular :Person3 :Masc "iktím"]
+            [:Singular :Person3 :Fem "tiktím"]
+            [:Plural :Person1 :Common "niktiím"]
+            [:Plural :Person2 :Common "tíktimna"]
+            [:Plural :Person3 :Common "íktimna"]]
+    }
+    {:label "beja_Ro-VPrefCCCCondNomForm-kitim"
+    :note "Roper1928 #192-197"
+    :common {:conjClass :Prefix,
+            :lexeme :kitim,
+            :pos :Verb,
+            :rootClass :CCC,
+            :tam :Aorist}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "bāīktím"]
+            [:Singular :Person2 :Masc "tí̄ktima"]
+            [:Singular :Person2 :Fem "tí̄ktimi"]
+            [:Singular :Person3 :Masc "īktím"]
+            [:Singular :Person3 :Fem "tīktím"]
+            [:Plural :Person1 :Common "nīktím"]
+            [:Plural :Person2 :Common "tí̄ktimna"]
+            [:Plural :Person3 :Common "í̄ktimna"]]
+    }
+    {:label "beja_Ro-VPrefCCCImprtvNomForm-kitim"
+    :note "Roper1928 #192-197"
+    :common {:conjClass :Prefix,
+            :lexeme :kitim,
+            :number :Singular,
+            :person :Person2,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :rootClass :CCC,
+            :tam :Imperative}
+    :terms [[:gender :token] ;; schema
+            [:Masc "kítima"]
+            [:Fem "kítimi"]
+            [:Common "kítimna"]]
+    }
+    {:label "beja_Ro-VPrefCCCNegOptNomForm-kitim"
+    :note "Roper1928 #192-197"
+    :common {:conjClass :Prefix,
+            :lexeme :kitim,
+            :polarity :Negative,
+            :pos :Verb,
+            :rootClass :CCC,
+            :tam :Optative}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "bākatí̄m"]
+            [:Singular :Person2 :Masc "bitkatí̄m"]
+            [:Singular :Person2 :Fem "bitkatí̄m"]
+            [:Singular :Person3 :Masc "bīkatí̄m"]
+            [:Singular :Person3 :Fem "bitkatí̄m"]
+            [:Plural :Person1 :Common "binkatí̄m"]
+            [:Plural :Person2 :Common "bitkátīmna"]
+            [:Plural :Person3 :Common "bīkátīmna"]]
+    }
+    {:label "beja_Ro-VPrefCCCNegPastNomForm-kitim"
+    :note "Roper1928 #192-197"
+    :common {:conjClass :Prefix,
+            :lexeme :kitim,
+            :polarity :Negative,
+            :pos :Verb,
+            :rootClass :CCC,
+            :tam :Past}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Masc "kitmāb ká̄ake"]
+            [:Singular :Person1 :Fem "kitmāt ká̄ake"]
+            [:Singular :Person2 :Masc "kitmāb kittã"]
+            [:Singular :Person2 :Fem "kitmāt kittai"]
+            [:Singular :Person3 :Masc "kitmāb kikĕ"]
+            [:Singular :Person3 :Fem "kitmāt kittĕ"]
+            [:Plural :Person1 :Masc "kitmāb kínkĕ"]
+            [:Plural :Person1 :Fem "kitmāt kínkĕ"]
+            [:Plural :Person2 :Masc "kitmāb kíttena"]
+            [:Plural :Person2 :Fem "kitmāt kíttena"]
+            [:Plural :Person3 :Masc "kitmāb kí̄ken"]
+            [:Plural :Person3 :Fem "kitmāt kí̄ken"]]
+    }
+    {:label "beja_Ro-VPrefCCCNegPresNomForm-kitim"
+    :note "Roper1928 #192-197"
+    :common {:conjClass :Prefix,
+            :lexeme :kitim,
+            :polarity :Negative,
+            :pos :Verb,
+            :rootClass :CCC,
+            :tam :Present}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "ká̄ktim"]
+            [:Singular :Person2 :Masc "kítkitima"]
+            [:Singular :Person2 :Fem "kítkitimi"]
+            [:Singular :Person3 :Masc "kí̄ktim"]
+            [:Singular :Person3 :Fem "kítkitim"]
+            [:Plural :Person1 :Common "kínkitim"]
+            [:Plural :Person2 :Common "kítkitimna"]
+            [:Plural :Person3 :Common "kí̄ktimna"]]
+    }
+    {:label "beja_Ro-VPrefCCCPredicativeNomForm-kitim"
+    :note "Roper1928 #192-197"
+    :common {:conjClass :Prefix,
+            :lexeme :kitim,
+            :pos :Verb,
+            :rootClass :CCC,
+            :tam :Predicative}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Masc "kántīmi"]
+            [:Singular :Person1 :Fem "kántīmti"]
+            [:Singular :Person2 :Masc "kántīmwa"]
+            [:Singular :Person2 :Fem "kántīmtui"]
+            [:Singular :Person3 :Masc "kántīmi"]
+            [:Singular :Person3 :Fem "kántīmti"]
+            [:Plural :Person1 :Masc "ɛkátima"]
+            [:Plural :Person1 :Fem "ɛkátimta"]
+            [:Plural :Person2 :Masc "ɛkátimāna"]
+            [:Plural :Person2 :Fem "ɛkátimtāna"]
+            [:Plural :Person3 :Masc "ɛkátima"]
+            [:Plural :Person3 :Fem "ɛkátimta"]]
+    }
+    {:label "beja_Ro-VPrefCCCond-bis"
+    :note "Roper1928 #167-191"
+    :common {:conjClass :Prefix,
+            :lexeme :bis,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Aorist}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "ībís"]
+            [:Singular :Person2 :Masc "tí̄bisa"]
+            [:Singular :Person2 :Fem "tí̄bisi"]
+            [:Singular :Person3 :Masc "ī̄bís"]
+            [:Singular :Person3 :Fem "tībís"]
+            [:Plural :Person1 :Common "nībís"]
+            [:Plural :Person2 :Common "tí̄bisna"]
+            [:Plural :Person3 :Common "í̄bisna"]]
+    }
+    {:label "beja_Ro-VPrefCCCondPerf-bis"
+    :note "Roper1928 #167-191"
+    :common {:conjClass :Prefix,
+            :lexeme :bis,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :ConditionalPerfect}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Masc "bisāb īkti"]
+            [:Singular :Person1 :Fem "bisāt īkti"]
+            [:Singular :Person2 :Masc "bisāb tīkti"]
+            [:Singular :Person2 :Fem "bisāt tīkti"]
+            [:Singular :Person3 :Masc "bisāb (y)īkti"]
+            [:Singular :Person3 :Fem "bisāt tīkti"]
+            [:Plural :Person1 :Masc "bisāb nīkti"]
+            [:Plural :Person1 :Fem "bisāt nīkti"]
+            [:Plural :Person2 :Masc "bisāb tīktīna"]
+            [:Plural :Person2 :Fem "bisāt tīktīna"]
+            [:Plural :Person3 :Masc "bisāb (y)īktīn(a)"]
+            [:Plural :Person3 :Fem "bisāt (y)īktīna(a)"]]
+    }
+    {:label "beja_Ro-VPrefDervStemForm"
+    :note "Roper1928 #211-226"
+    :common {:conjClass :Prefix,
+            :morphClass :DervStemForm,
+            :pos :Verb}
+    :terms [[:derivedStem :lexeme :nonFiniteForm :polarity :tam :token] ;; schema
+            [:B_Freq :kitim :_NA :_NA :_NA "kātatim"]
+            [:B_Intens :bir :_NA :_NA :_NA "bor"]
+            [:B_Intens :bis :_NA :_NA :_NA "bos"]
+            [:B_Intens :gid :_NA :_NA :_NA "ged"]
+            [:B_Intens :kitim :Participle :Affirmative :_NA "kātima"]
+            [:B_Intens :kitim :Participle :Negative :_NA "bākātim"]
+            [:B_Intens :kitim :_NA :Affirmative :Aorist "īktám"]
+            [:B_Intens :kitim :_NA :Affirmative :Imperative "kātima"]
+            [:B_Intens :kitim :_NA :Affirmative :Past "akātím"]
+            [:B_Intens :kitim :_NA :Affirmative :Present "ɛktīm"]
+            [:B_Intens :kitim :_NA :Negative :Imperative "bākātīma"]
+            [:B_Intens :kitim :_NA :_NA :Gerund "kātima"]
+            [:B_Intens :kitim :_NA :_NA :_NA "kātim"]
+            [:B_Intens :nis :_NA :_NA :_NA "nos"]
+            [:B_Intens :sodira :_NA :_NA :_NA "dār"]
+            [:B_Redup :kitim :_NA :_NA :_NA "kitimkitm"]
+            [:Base :bar :_NA :_NA :Aorist "īb’ár"]
+            [:Base :bar :_NA :_NA :Imperative "b’ára"]
+            [:Base :bar :_NA :_NA :Past "ab’ár"]
+            [:Base :bar :_NA :_NA :Present "amb’í̄r"]
+            [:M :min :NominalAction :_NA :_NA "atominói"]
+            [:M :min :Participle :Negative :_NA "bātomīn"]
+            [:M :min :_NA :Affirmative :Imperative "atómāna"]
+            [:M :min :_NA :Affirmative :Past "atomān"]
+            [:M :min :_NA :Affirmative :Present "atómīn"]
+            [:M :min :_NA :Negative :Imperative "bātómīna"]
+            [:M :min :_NA :Negative :Past "titómāna"]
+            [:M :min :_NA :Negative :Present "titómīna"]
+            [:M :min :_NA :_NA :Aorist "itūmín"]
+            [:M :min :_NA :_NA :Gerund "atomina"]
+            [:M :t- :_NA :_NA :_NA "(a)t-"]
+            [:M :to :_NA :_NA :_NA "(a)to-"]
+            [:Reciprocal :m- :_NA :_NA :_NA "(a)m-"]
+            [:Reciprocal :mo :_NA :_NA :_NA "(a)mo-"]
+            [:S :kitim :_NA :_NA :_NA "sikatim"]
+            [:S :sodira :NominalAction :_NA :_NA "sodirói"]
+            [:S :sodira :Participle :Negative :_NA "bāsodīr"]
+            [:S :sodira :_NA :Affirmative :Imperative "sódira"]
+            [:S :sodira :_NA :Affirmative :Past "asodír"]
+            [:S :sodira :_NA :Affirmative :Present "asodí̄r"]
+            [:S :sodira :_NA :Negative :Imperative "bāsodīra"]
+            [:S :sodira :_NA :Negative :Past "tesódira"]
+            [:S :sodira :_NA :Negative :Present "tesódīra"]
+            [:S :sodira :_NA :_NA :Aorist "isūdír"]
+            [:S :sodira :_NA :_NA :Gerund "sodira"]]
+    }
+    {:label "beja_Ro-VPrefGerund-i"
+    :note "Roper1928 #256"
+    :common {:conjClass :Prefix,
+            :gender :Common,
+            :lexeme :i,
+            :pos :Verb,
+            :tam :Gerund}
+    :terms [[:token] ;; schema
+            ["‘ia"]]
+    }
+    {:label "beja_Ro-VPrefMainAffCCImprtv-bis"
+    :note "Roper1928 #167-191"
+    :common {:clauseType :Main,
+            :conjClass :Prefix,
+            :lexeme :bis,
+            :person :Person2,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Imperative}
+    :terms [[:number :gender :token] ;; schema
+            [:Singular :Masc "bis-a"]
+            [:Singular :Fem "bis-i"]
+            [:Plural :Common "bis-na"]]
+    }
+    {:label "beja_Ro-VPrefMainAffCCPast-bis"
+    :note "Roper1928 #167-191"
+    :common {:clauseType :Main,
+            :conjClass :Prefix,
+            :lexeme :bis,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Past}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "abís"]
+            [:Singular :Person2 :Masc "tíbisa"]
+            [:Singular :Person2 :Fem "tíbisi"]
+            [:Singular :Person3 :Masc "ibís"]
+            [:Singular :Person3 :Fem "tibís"]
+            [:Plural :Person1 :Common "nibís"]
+            [:Plural :Person2 :Common "tíbisna"]
+            [:Plural :Person3 :Common "íbisn(a)"]]
+    }
+    {:label "beja_Ro-VPrefMainAffCCPast-dif"
+    :note "Roper1928 #179-182. [Roper also gives pres neg in predicative of dif – not yet
+            included]"
+    :common {:clauseType :Main,
+            :conjClass :Prefix,
+            :lexeme :dif,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Past}
+    :terms [[:lexeme :number :person :gender :token] ;; schema
+            [:dif :Singular :Person1 :Common "adíf"]
+            [:dif :Singular :Person1 :Common "nidíf"]
+            [:dif :Singular :Person2 :Masc "tídífa"]
+            [:dif :Singular :Person2 :Fem "tídifi"]
+            [:dif :Singular :Person2 :Common "tídifna"]
+            [:dif :Singular :Person3 :Masc "idíf"]
+            [:dif :Singular :Person3 :Fem "tidíf"]
+            [:dif :Plural :Person3 :Common "ídifna"]]
+    }
+    {:label "beja_Ro-VPrefMainAffCCPredicative-bis"
+    :note "Roper1928 #167-191"
+    :common {:clauseType :Main,
+            :conjClass :Prefix,
+            :lexeme :bis,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Predicative}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Masc "ámbīsi"]
+            [:Singular :Person1 :Fem "ámbīsti"]
+            [:Singular :Person2 :Masc "ímbīswa"]
+            [:Singular :Person2 :Fem "tímbīstui"]
+            [:Singular :Person3 :Masc "ímbīsi"]
+            [:Singular :Person3 :Fem "tímbīsti"]
+            [:Plural :Person1 :Masc "ɛbisa"]
+            [:Plural :Person1 :Fem "ɛbista"]
+            [:Plural :Person2 :Masc "ɛbisana"]
+            [:Plural :Person2 :Fem "ɛbistana"]
+            [:Plural :Person3 :Masc "ɛbisa"]
+            [:Plural :Person3 :Fem "ɛbista"]]
+    }
+    {:label "beja_Ro-VPrefMainNegCCFuture-bis"
+    :note "Roper1928 #167-191"
+    :common {:clauseType :Main,
+            :conjClass :Prefix,
+            :lexeme :bis,
+            :polarity :Negative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Future}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "ībís ká̄ade"]
+            [:Singular :Person2 :Masc "ībís kíddea"]
+            [:Singular :Person2 :Fem "ībís kíddī"]
+            [:Singular :Person3 :Masc "ībís kí̄di"]
+            [:Singular :Person3 :Fem "ībís kíddi"]
+            [:Plural :Person1 :Common "ībís kínde"]
+            [:Plural :Person2 :Common "ībís kíddīna"]
+            [:Plural :Person3 :Common "ībís kí̄dīna"]]
+    }
+    {:label "beja_Ro-VPrefMainNegCCImprtv-aff"
+    :note "Roper1928 #167-191"
+    :common {:clauseType :Main,
+            :conjClass :Prefix,
+            :morphClass :Affix,
+            :person :Person2,
+            :polarity :Negative,
+            :pos :Verb,
+            :tam :Imperative}
+    :terms [[:person :gender :token] ;; schema
+            [:Plural :Common "bā…na"]
+            [:Singular :Masc "bā…a"]
+            [:Singular :Fem "bī…i"]]
+    }
+    {:label "beja_Ro-VPrefMainNegCCPast-bis"
+    :note "Roper1928 #167-191"
+    :common {:clauseType :Main,
+            :conjClass :Prefix,
+            :lexeme :bis,
+            :polarity :Negative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Past}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Masc "bisá̄b ká̄ake"]
+            [:Singular :Person1 :Fem "bisá̄t ká̄ake"]
+            [:Singular :Person2 :Masc "bisá̄b kittã"]
+            [:Singular :Person2 :Fem "bisá̄t kittai"]
+            [:Singular :Person3 :Masc "bisá̄b kikĕ"]
+            [:Singular :Person3 :Fem "bisá̄t kittĕ"]
+            [:Plural :Person1 :Masc "bisá̄b kínkĕ"]
+            [:Plural :Person1 :Fem "bisá̄t kínkĕ"]
+            [:Plural :Person2 :Masc "bisá̄b kíttena"]
+            [:Plural :Person2 :Fem "bisá̄t kíttena"]
+            [:Plural :Person3 :Masc "bisá̄b kí̄ken"]
+            [:Plural :Person3 :Fem "bisá̄t kí̄ken"]]
+    }
+    {:label "beja_Ro-VPrefMainNegCCPresent-bis"
+    :note "Roper1928 #167-191"
+    :common {:clauseType :Main,
+            :conjClass :Prefix,
+            :lexeme :bis,
+            :polarity :Negative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Present}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "kínbis"]
+            [:Singular :Person1 :Common "ká̄bis"]
+            [:Singular :Person2 :Masc "kítbīsa"]
+            [:Singular :Person2 :Fem "kítbīsi"]
+            [:Singular :Person2 :Common "kítbisna"]
+            [:Singular :Person3 :Masc "kí̄bis"]
+            [:Singular :Person3 :Fem "kítbis"]
+            [:Plural :Person3 :Common "kí̄bisna"]]
+    }
+    {:label "beja_Ro-VPrefNegCCOpt-bis"
+    :note "Roper1928 #167-191"
+    :common {:conjClass :Prefix,
+            :lexeme :bis,
+            :polarity :Negative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Optative}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "bābí̄s"]
+            [:Singular :Person2 :Masc "bítbīsa"]
+            [:Singular :Person2 :Fem "bítbīsi"]
+            [:Singular :Person3 :Masc "bībí̄s"]
+            [:Singular :Person3 :Fem "bitbí̄s"]
+            [:Plural :Person1 :Common "binbí̄s"]
+            [:Plural :Person2 :Common "bítbīsna"]
+            [:Plural :Person3 :Common "bí̄bīsna"]]
+    }
+    {:label "beja_Ro-VPrefNegImprtv-i"
+    :note "Roper1928 #256"
+    :common {:conjClass :Prefix,
+            :gender :Common,
+            :lexeme :i,
+            :polarity :Negative,
+            :pos :Verb,
+            :tam :Imperative}
+    :terms [[:token] ;; schema
+            ["bá̄’iyā"]]
+    }
+    {:label "beja_Ro-VPrefNomAgent-i"
+    :note "Roper1928 #256"
+    :common {:conjClass :Prefix,
+            :gender :Common,
+            :lexeme :i,
+            :nonFiniteForm :NominalAgent,
+            :pos :Verb}
+    :terms [[:token] ;; schema
+            ["aiana"]]
+    }
+    {:label "beja_Ro-VPrefParticiple-i"
+    :note "Roper1928 #256"
+    :common {:conjClass :Prefix,
+            :gender :Common,
+            :lexeme :i,
+            :nonFiniteForm :Participle,
+            :pos :Verb}
+    :terms [[:token] ;; schema
+            ["‘ié"]]
+    }
+    {:label "beja_Ro-VPrefPast-i"
+    :note "Roper1928 #256"
+    :common {:conjClass :Prefix,
+            :lexeme :i,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :Past}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "ián"]
+            [:Singular :Person2 :Masc "éta"]
+            [:Singular :Person2 :Fem "étai"]
+            [:Singular :Person3 :Masc "éa"]
+            [:Singular :Person3 :Fem "éta"]
+            [:Plural :Person1 :Common "éna"]
+            [:Plural :Person2 :Common "étān"]
+            [:Plural :Person3 :Common "éan"]]
+    }
+    {:label "beja_Ro-VPrefPres-i"
+    :note "Roper1928 #256"
+    :common {:conjClass :Prefix,
+            :lexeme :i,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :Present}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "iáni"]
+            [:Singular :Person2 :Masc "étnia"]
+            [:Singular :Person2 :Fem "étniyi"]
+            [:Singular :Person3 :Masc "eí̄ni"]
+            [:Singular :Person3 :Fem "énei"]
+            [:Plural :Person1 :Common "étena"]
+            [:Plural :Person2 :Common "yién"]
+            [:Plural :Person3 :Common "een"]]
+    }
+    {:label "beja_Ro-VPrefSubAffCCPast-bis"
+    :note "Roper1928 #184-185"
+    :common {:clauseType :Subordinate,
+            :conjClass :Prefix,
+            :lexeme :bis,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Past}
+    :terms [[:polarity :number :person :gender :token] ;; schema
+            [:Affirmative :Singular :Person1 :Common "abĭsék"]
+            [:Affirmative :Singular :Person2 :Common "tibĭ̆sék"]
+            [:Affirmative :Singular :Person3 :Common "ibĭsék"]
+            [:Affirmative :Plural :Person1 :Common "nibĭsék"]
+            [:Affirmative :Plural :Person2 :Common "tibĭsnék(na)"]
+            [:Affirmative :Plural :Person3 :Common "ibĭsnék(na)"]
+            [:Negative :Singular :Person1 :Masc "bisāb bākaiyék"]
+            [:Negative :Singular :Person1 :Fem "bisāt bā̄kaiyék"]
+            [:Negative :Singular :Person2 :Masc "bisāb bitkaiyék"]
+            [:Negative :Singular :Person2 :Fem "bisāt bitkaiyék"]
+            [:Negative :Singular :Person3 :Masc "bisāb bikaiyék"]
+            [:Negative :Singular :Person3 :Fem "bisāt bikaiyék"]
+            [:Negative :Plural :Person1 :Masc "bisāb binkaiyék"]
+            [:Negative :Plural :Person1 :Fem "bisāt binkaiyék"]
+            [:Negative :Plural :Person2 :Masc "bisāb bitkaīnék"]
+            [:Negative :Plural :Person2 :Fem "bisāt bitkaīnék"]
+            [:Negative :Plural :Person3 :Masc "bisāb bīkaīnék"]
+            [:Negative :Plural :Person3 :Fem "bisāt bīkaīnék"]]
+    }
+    {:label "beja_Ro-VPrefSubAffCCPresent-bis"
+    :note "Roper1928 #167-191"
+    :common {:clauseType :Subordinate,
+            :conjClass :Prefix,
+            :gender :Common,
+            :lexeme :bis,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Present}
+    :terms [[:number :person :token] ;; schema
+            [:Singular :Person1 "ambīsék"]
+            [:Singular :Person2 "timbīsék"]
+            [:Singular :Person3 "imbīsék"]
+            [:Plural :Person1 "nɛbĭ̆sék"]
+            [:Plural :Person2 "tɛbĭsék(na)"]
+            [:Plural :Person3 "ɛbĭsnék(na)"]]
+    }
+    {:label "beja_Ro-VPrefSubNegCCPresent-bis"
+    :note "Roper1928 #167-191"
+    :common {:clauseType :Subordinate,
+            :conjClass :Prefix,
+            :gender :Common,
+            :lexeme :bis,
+            :polarity :Negative,
+            :pos :Verb,
+            :rootClass :CC,
+            :tam :Present}
+    :terms [[:number :person :token] ;; schema
+            [:Singular :Person1 "bābīsék"]
+            [:Singular :Person2 "bitbīsék"]
+            [:Singular :Person3 "bībīsék"]
+            [:Plural :Person1 "binbīsnék"]
+            [:Plural :Person2 "bitbīsnék(na)"]
+            [:Plural :Person3 "bībīsnék(na)"]]
+    }
+    {:label "beja_Ro-VSuffAffMainFuture-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Main,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :Future}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "tám ande"]
+            [:Singular :Person2 :Masc "támi téndea"]
+            [:Singular :Person2 :Fem "támi téndī"]
+            [:Singular :Person3 :Masc "tám índi"]
+            [:Singular :Person3 :Fem "támi téndi"]
+            [:Plural :Person1 :Common "támi nɛád"]
+            [:Plural :Person2 :Common "támi tɛédna"]
+            [:Plural :Person3 :Common "támi ɛédna"]]
+    }
+    {:label "beja_Ro-VSuffAffMainPast-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Main,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :Past}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "tam-an"]
+            [:Singular :Person2 :Masc "tam-tã"]
+            [:Singular :Person2 :Fem "tam-tai"]
+            [:Singular :Person3 :Masc "tam-ia"]
+            [:Singular :Person3 :Fem "tam-tã"]
+            [:Plural :Person1 :Common "tam-na"]
+            [:Plural :Person2 :Common "tam-tāna"]
+            [:Plural :Person3 :Common "tam-iān"]]
+    }
+    {:label "beja_Ro-VSuffAffMainPredicative-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Main,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :Predicative}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Masc "tamánībi"]
+            [:Singular :Person1 :Fem "tamánīti"]
+            [:Singular :Person2 :Masc "tamínīwa"]
+            [:Singular :Person2 :Fem "tamténītui"]
+            [:Singular :Person3 :Masc "tamīnībi"]
+            [:Singular :Person3 :Fem "tamténīti"]
+            [:Plural :Person1 :Masc "támɛna"]
+            [:Plural :Person1 :Fem "támēnta"]
+            [:Plural :Person2 :Masc "támɛnāna"]
+            [:Plural :Person2 :Fem "támentāna"]
+            [:Plural :Person3 :Masc "támɛna"]
+            [:Plural :Person3 :Fem "támēnta"]]
+    }
+    {:label "beja_Ro-VSuffAffMainPres-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Main,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :Present}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "tam-ane"]
+            [:Singular :Person2 :Masc "tam-tenea"]
+            [:Singular :Person2 :Fem "tam-tenī"]
+            [:Singular :Person3 :Masc "tam-īni"]
+            [:Singular :Person3 :Fem "tam-tene"]
+            [:Plural :Person1 :Common "tam-nɛi"]
+            [:Plural :Person2 :Common "tam-tɛna"]
+            [:Plural :Person3 :Common "tam-ɛn"]]
+    }
+    {:label "beja_Ro-VSuffAffOpt-tam"
+    :note "Roper1928 #127-158"
+    :common {:conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :Optative}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "bãtami"]
+            [:Singular :Person2 :Masc "bá̄tamtia"]
+            [:Singular :Person2 :Fem "bá̄tamtii"]
+            [:Singular :Person3 :Masc "bá̄tami"]
+            [:Singular :Person3 :Fem "bá̄tamti"]
+            [:Plural :Person1 :Common "bá̄tamni"]
+            [:Plural :Person2 :Common "bá̄tamtīna"]
+            [:Plural :Person3 :Common "bá̄tamīn"]]
+    }
+    {:label "beja_Ro-VSuffAffPastCont-tam"
+    :note "Roper1928 #257-278. [Need to make table of general compound tense patterns. Full
+            conjClassugations given only in ##257-258]"
+    :common {:conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :PastContinuous}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "tamán īfi"]
+            [:Singular :Person2 :Masc "tamtai tí̄fiya"]
+            [:Singular :Person2 :Fem "tamtai tīfiyi"]
+            [:Singular :Person3 :Masc "tamiá í̄fi"]
+            [:Singular :Person3 :Fem "tamtai tīfi"]
+            [:Plural :Person1 :Common "tamnai ní̄fi"]
+            [:Plural :Person2 :Common "tamtá̄na tí̄fīna"]
+            [:Plural :Person3 :Common "tamiá̄n í̄fīn(a)"]]
+    }
+    {:label "beja_Ro-VSuffAffPresCont-tam"
+    :note "Roper1928 #257-278. [Need to make table of general compound tense patterns. Full
+            conjClassugations given only in ##257-258]"
+    :common {:conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :PresentContinuous}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "tamán ‘ahé̆"]
+            [:Singular :Person2 :Masc "tamtai thá̆ya"]
+            [:Singular :Person2 :Fem "tamtai théyi"]
+            [:Singular :Person3 :Masc "tamiai ‘ihé̆"]
+            [:Singular :Person3 :Fem "tamtai tehé̆"]
+            [:Plural :Person1 :Common "tamnai nehé̆"]
+            [:Plural :Person2 :Common "tamtá̆na tihéna"]
+            [:Plural :Person3 :Common "tamiá̆n ‘ihén"]]
+    }
+    {:label "beja_Ro-VSuffAffSubPast-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Subordinate,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :Past}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "tamanék"]
+            [:Singular :Person2 :Masc "tamtānék"]
+            [:Singular :Person2 :Fem "tamtānék"]
+            [:Singular :Person3 :Masc "tamiănék"]
+            [:Singular :Person3 :Fem "tamtanék"]
+            [:Plural :Person1 :Common "tamnānék"]
+            [:Plural :Person2 :Common "tamtānék"]
+            [:Plural :Person3 :Common "tamiānék"]]
+    }
+    {:label "beja_Ro-VSuffAffSubPerfPast-tam"
+    :note "Roper1928 #127-158"
+    :common {:gender :Fem,
+            :polarity :Affirmative,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :pos :Verb,
+            :person :Person1,
+            :tam :PerfectPast,
+            :clauseType :Subordinate,
+            :number :Plural}
+    :terms [[:token] ;; schema
+            ["tamāt nekatiyék"]]
+    }
+    {:label "beja_Ro-VSuffAffSubPerfPast-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Subordinate,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :number :Plural,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :PerfectPast}
+    :terms [[:person :gender :token] ;; schema
+            [:Person2 :Masc "tamāb tekatīnék"]
+            [:Person2 :Fem "tamāt tekatīnék"]
+            [:Person3 :Masc "tamāb ikatīnék"]
+            [:Person3 :Fem "tamāt ikatīnék"]]
+    }
+    {:label "beja_Ro-VSuffAffSubPres-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Subordinate,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :Present}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "tamaniék"]
+            [:Singular :Person2 :Masc "tamteniék"]
+            [:Singular :Person2 :Fem "tamteniék"]
+            [:Singular :Person3 :Masc "tamīniék"]
+            [:Singular :Person3 :Fem "tamteniék"]
+            [:Plural :Person1 :Common "tamnɛnék"]
+            [:Plural :Person2 :Common "tamtɛnék"]
+            [:Plural :Person3 :Common "tamɛnék"]]
+    }
+    {:label "beja_Ro-VSuffCond-tam"
+    :note "Roper1928 #127-158"
+    :common {:conjClass :Suffix,
+            :lexeme :tam,
+            :pos :Verb,
+            :tam :Aorist}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "támi "]
+            [:Singular :Person2 :Masc "támtia"]
+            [:Singular :Person2 :Fem "támtii"]
+            [:Singular :Person3 :Masc "támí"]
+            [:Singular :Person3 :Fem "támti"]
+            [:Plural :Person1 :Common "támni"]
+            [:Plural :Person2 :Common "támtīna"]
+            [:Plural :Person3 :Common "támīna"]]
+    }
+    {:label "beja_Ro-VSuffCondPred-tam"
+    :note "Roper1928 #127-158"
+    :common {:conjClass :Suffix,
+            :lexeme :tam,
+            :pos :Verb,
+            :tam :ConditionalPredicative}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Masc "támībi"]
+            [:Singular :Person1 :Fem "támīti"]
+            [:Singular :Person2 :Masc "támīwa"]
+            [:Singular :Person2 :Fem "támītui"]
+            [:Singular :Person3 :Masc "támībi"]
+            [:Singular :Person3 :Fem "támīti"]
+            [:Plural :Person1 :Masc "támība"]
+            [:Plural :Person1 :Fem "támīta"]
+            [:Plural :Person2 :Masc "támībana"]
+            [:Plural :Person2 :Fem "támītana"]
+            [:Plural :Person3 :Masc "támība"]
+            [:Plural :Person3 :Fem "támīta"]]
+    }
+    {:label "beja_Ro-VSuffNegMainFuture-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Main,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Negative,
+            :pos :Verb,
+            :tam :Future}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "támi ká̄ade"]
+            [:Singular :Person2 :Masc "támi kíddea"]
+            [:Singular :Person2 :Fem "támi kíddī"]
+            [:Singular :Person3 :Masc "támi kí̄di"]
+            [:Singular :Person3 :Fem "támi kíddi"]
+            [:Plural :Person1 :Common "támi kínde"]
+            [:Plural :Person2 :Common "támi kíddīna"]
+            [:Plural :Person3 :Common "tami kí̄dīna"]]
+    }
+    {:label "beja_Ro-VSuffNegMainPast-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Main,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Negative,
+            :pos :Verb,
+            :tam :Past}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Masc "tamab káake"]
+            [:Singular :Person1 :Fem "tamat káake"]
+            [:Singular :Person2 :Masc "tamab kittã"]
+            [:Singular :Person2 :Fem "tamat kittai"]
+            [:Singular :Person3 :Masc "tamab kikĕ"]
+            [:Singular :Person3 :Fem "tamat kittĕ"]
+            [:Plural :Person1 :Masc "tamab kínkĕ"]
+            [:Plural :Person1 :Fem "tamat kínkĕ"]
+            [:Plural :Person2 :Masc "tamab kíttena"]
+            [:Plural :Person2 :Fem "tamat kíttena"]
+            [:Plural :Person3 :Masc "tamab kí̄ken"]
+            [:Plural :Person3 :Fem "tamat kí̄ken"]]
+    }
+    {:label "beja_Ro-VSuffNegMainPres-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Main,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Negative,
+            :pos :Verb,
+            :tam :Present}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "kataman"]
+            [:Singular :Person2 :Masc "katamanã"]
+            [:Singular :Person2 :Fem "katamtai"]
+            [:Singular :Person3 :Masc "katamia"]
+            [:Singular :Person3 :Fem "katamta"]
+            [:Plural :Person1 :Common "katamna"]
+            [:Plural :Person2 :Common "katamtāna"]
+            [:Plural :Person3 :Common "katamiān"]]
+    }
+    {:label "beja_Ro-VSuffNegOpt-tam"
+    :note "Roper1928 #127-158"
+    :common {:conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Negative,
+            :pos :Verb,
+            :tam :Optative}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "bātámɛi"]
+            [:Singular :Person2 :Masc "bittámaya"]
+            [:Singular :Person2 :Fem "bittámɛi"]
+            [:Singular :Person3 :Masc "bītámɛi"]
+            [:Singular :Person3 :Fem "bittámɛi"]
+            [:Plural :Person1 :Common "bintámɛi"]
+            [:Plural :Person2 :Common "bittámɛna"]
+            [:Plural :Person3 :Common "bītámɛn(a)"]]
+    }
+    {:label "beja_Ro-VSuffNegPresCont-tam"
+    :note "Roper1928 #257-278. [Need to make table of general compound tense patterns. Full conjClassugations given only in ##257-258]"
+    :common {:conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Negative,
+            :pos :Verb,
+            :tam :PresentContinuous}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "tamán káhai"]
+            [:Singular :Person2 :Masc "tamtai kíthãya"]
+            [:Singular :Person2 :Fem "tamtai kíthãyi"]
+            [:Singular :Person3 :Masc "tamiai kíhai"]
+            [:Singular :Person3 :Fem "tamtai kíthai"]
+            [:Plural :Person1 :Common "tamnai kínhai"]
+            [:Plural :Person2 :Common "tamtāna kíthaina"]
+            [:Plural :Person3 :Common "tamiá̄n kíhaina"]]
+    }
+    {:label "beja_Ro-VSuffNegSubFuture-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Subordinate,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Negative,
+            :pos :Verb,
+            :tam :Future}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "támi bādiék"]
+            [:Singular :Person2 :Masc "támi biddeék"]
+            [:Singular :Person2 :Fem "támi biddeék"]
+            [:Singular :Person3 :Masc "támi bīdiék"]
+            [:Singular :Person3 :Fem "támi biddeék"]
+            [:Plural :Person1 :Common "támi bindeék"]
+            [:Plural :Person2 :Common "támi biddīnék"]
+            [:Plural :Person3 :Common "támi bīdīnék"]]
+    }
+    {:label "beja_Ro-VSuffNegSubPast-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Subordinate,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Negative,
+            :pos :Verb,
+            :tam :Past}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Masc "tamāb bākaiyék"]
+            [:Singular :Person1 :Fem "tamāt bā̄kaiyék"]
+            [:Singular :Person2 :Masc "tamāb bitkaiyék"]
+            [:Singular :Person2 :Fem "tamāt bitkaiyék"]
+            [:Singular :Person3 :Masc "tamāb bikaiyék"]
+            [:Singular :Person3 :Fem "tamāt bikaiyék"]
+            [:Plural :Person1 :Masc "tamāb binkaiyék"]
+            [:Plural :Person1 :Fem "tamāt binkaiyék"]
+            [:Plural :Person2 :Masc "tamāb bitkaīnék"]
+            [:Plural :Person2 :Fem "tamāt bitkaīnék"]
+            [:Plural :Person3 :Masc "tamāb bīkaīnék"]
+            [:Plural :Person3 :Fem "tamāt bīkaīnék"]]
+    }
+    {:label "beja_Ro-VSuffNegSubPres-tam"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Subordinate,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Negative,
+            :pos :Verb,
+            :tam :Present}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "bātamāyék"]
+            [:Singular :Person2 :Masc "bittamāyék"]
+            [:Singular :Person2 :Fem "bittamāyék"]
+            [:Singular :Person3 :Masc "bītamāyék"]
+            [:Singular :Person3 :Fem "bittamāyék"]
+            [:Plural :Person1 :Common "bintamāyék"]
+            [:Plural :Person2 :Common "bittamɛnék"]
+            [:Plural :Person3 :Common "bītamɛnék"]]
+    }
+    {:label "beja_Ro-VSuffSubAffFuture"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Subordinate,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :Future}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "tám andiék"]
+            [:Singular :Person2 :Masc "támi tendiyék"]
+            [:Singular :Person2 :Fem "támi tendiyék"]
+            [:Singular :Person3 :Masc "tám indiék"]
+            [:Singular :Person3 :Fem "támi tindiék"]
+            [:Plural :Person1 :Common "támi nɛãdék"]
+            [:Plural :Person2 :Common "támi tɛednék"]
+            [:Plural :Person3 :Common "támi ɛednék"]]
+    }
+    {:label "beja_Ro-VSuffSubAffPerfPast"
+    :note "Roper1928 #127-158"
+    :common {:gender :Fem,
+            :polarity :Affirmative,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :pos :Verb,
+            :person :Person1,
+            :tam :PerfectPast,
+            :clauseType :Subordinate,
+            :number :Plural}
+    :terms [[:token] ;; schema
+            ["tamāt nekatiyék"]]
+    }
+    {:label "beja_Ro-VSuffSubAffPerfPast"
+    :note "Roper1928 #127-158"
+    :common {:clauseType :Subordinate,
+            :conjClass :Suffix,
+            :lexeme :tam,
+            :polarity :Affirmative,
+            :pos :Verb,
+            :tam :PerfectPast}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Masc "tamāb akatiyék"]
+            [:Singular :Person1 :Fem "tamāt akatiyék"]
+            [:Singular :Person2 :Masc "tamāb tekatiyék"]
+            [:Singular :Person2 :Fem "tamāt tekatiék"]
+            [:Singular :Person3 :Masc "tamāb ikatiyék"]
+            [:Singular :Person3 :Fem "tamāt tekatiyék"]
+            [:Plural :Person1 :Masc "tamāb nekatiyék"]]
+    }
+]
+:muterms [
+    {:label "beja_H-P3sgProDialectDist"
+    :common {:morphClass :PROSUFF,
+            :pos :Pronoun,
+            :person :Person3}
+    :terms [[:case :number :token] ;; schema
+            [:Object :Singular "..."]
+            [:Object :Plural "..."]
+            [:Possessive :Singular "..."]
+            [:Possessive :Plural "-  / - hna"]]
+    }
+    {:label "beja_Ro-NGenAdjPart"
+    :note "Roper1928 #62. Possessive construction where N1 is modified by an adjective.
+            Pattern is:[N1 Adj]+genAdjPart N2 the Adj N1s N2"
+    :common {:morphClass :GenAdjPart,
+            :pos :Noun}
+    :terms [[:genN1 :genN2 :numN1 :token] ;; schema
+            [:Fem :Fem :Plural "-natet"]
+            [:Fem :Fem :Singular "-natit"]
+            [:Fem :Masc :_NA "-nati"]
+            [:Masc :Fem :_NA "-nait"]
+            [:Masc :Masc :_NA "-nai"]]
+    }
+    {:label "beja_Ro-NGenBeforePossSuff"
+    :note "Roper1928 #106"
+    :common {:morphClass :GenBeforePossSuff,
+            :pos :Noun}
+    :terms [[:genHead :number :gender :token] ;; schema
+            [:H_Fem :Singular :Masc "-it-"]
+            [:H_Fem :Singular :Fem "-tit-"]
+            [:H_Fem :Plural :Masc "-et-"]
+            [:H_Fem :Plural :Fem "-tet-"]
+            [:H_Masc :Singular :Masc "-i-"]
+            [:H_Masc :Singular :Fem "-ti-"]
+            [:H_Masc :Plural :Masc "-e-"]
+            [:H_Masc :Plural :Fem "-te-"]]
+    }
+    {:label "beja_Ro-NNumOrd"
+    :note "Roper1928 #77"
+    :common {:morphClass :NumOrd,
+            :pos :Noun}
+    :terms [[:token-note :token] ;; schema
+            ["eighth" "ásimha"] ["fifth" "éiya"] ["first" "áwwali"] ["fourth" "fádiga"] ["ninth" "aššádiga"] ["second" "mália"] ["seventh" "asarama"] ["sixth" "aságwira"] ["tenth" "támna"] ["third" "mehéa"]]
+    }
+    {:label "beja_Ro-NNumerals"
+    :note "Roper1928 #69"
+    :common {:morphClass :Numeral,
+            :pos :Noun}
+    :terms [[:token-note :gender :token] ;; schema
+            ["1" :Masc "gal"] ["10" :Common "támin"] ["100" :Common "še"] ["1000" :Common "támin še"] ["11" :Masc "tamnágwir"] ["11" :Fem "tamnágwit"] ["110" :Common "šéwa támin"] ["12" :Common "támnamále"] ["13" :Common "támnamehéi"] ["14" :Common "támnafádig"] ["15" :Common "támenei"] ["16" :Masc "támenaságwir"] ["17" :Common "támenasaráma"] ["18" :Common "támenasimhéi"] ["19" :Common "támnaššádig"] ["2" :Common "mále"] ["20" :Masc "tágug"] ["200" :Common "mále še"] ["2000" :Common "tágug še"] ["21" :Masc "taggwágwir"] ["22" :Common "tággwamále"] ["23" :Common "tággwamehéi"] ["24" :Common "tággwafádig"] ["25" :Common "tággwéi"] ["26" :Masc "tággwaságwir"] ["27" :Common "tággwasaráma"] ["28" :Common "tággwasimhéi"] ["29" :Common "tággwaššádig"] ["3" :Common "mehei"] ["30" :Common "mehéitamun"] ["300" :Common "mehéi še"] ["31" :Masc "mehéitamunwa gal"] ["32" :Masc "mehéitamunwa mále"] ["4" :Common "fádig"] ["40" :Common "fádigtamun"] ["5" :Common "ei"] ["50" :Common "éitamun"] ["6" :Masc "aságwir"] ["6" :Fem "aságwit"] ["60" :Common "aságwirtamun"] ["7" :Common "asaráma"] ["70" :Common "asarámatamun"] ["8" :Common "asimhéi"] ["80" :Common "asimhéitamun"] ["9" :Common "aššádig"] ["90" :Common "aššádigtamun"] ["Common" :Fem "taggwágwit"] ["Common" :Fem "tágugt"] ["Common" :Fem "támenaságwit"] ["Common" :Fem "taggwasagwit"] ["p1" :Fem "gat"]]
+    }
+    {:label "beja_Ro-PArtDef"
+    :note "Roper1928 #26"
+    :common {:pos :Pronoun,
+            :person :Person3,
+            :proClass :ArtDef}
+    :terms [[:case :number :gender :token] ;; schema
+            [:Object :Singular :Masc "o"]
+            [:Object :Singular :Fem "to"]
+            [:Object :Plural :Masc "e"]
+            [:Object :Plural :Fem "te"]
+            [:Subject :Singular :Masc "u"]
+            [:Subject :Singular :Fem "tu"]
+            [:Subject :Plural :Masc "a"]
+            [:Subject :Plural :Fem "ta"]]
+    }
+    {:label "beja_Ro-PGen_PossPred"
+    :note "Roper1928 #107. for plural nomen rectum [i.e. numPoss pl]change the genitival –i- throughout to –e-"
+    :common {:pos :Pronoun,
+            :proClass :Gen_PossPred}
+    :terms [[:genHead :numHead :number :person :gender :token] ;; schema
+            [:H_Fem :H_Plural :Singular :Person1 :Masc "-iteta"]
+            [:H_Fem :H_Plural :Singular :Person1 :Fem "-titeta"]
+            [:H_Fem :H_Plural :Singular :Person2 :Masc "-itekta"]
+            [:H_Fem :H_Plural :Singular :Person2 :Fem "-titekta"]
+            [:H_Fem :H_Plural :Singular :Person3 :Masc "-ihteta"]
+            [:H_Fem :H_Plural :Singular :Person3 :Fem "-tihteta"]
+            [:H_Fem :H_Plural :Plural :Person1 :Masc "-itenta"]
+            [:H_Fem :H_Plural :Plural :Person1 :Fem "-titenta"]
+            [:H_Fem :H_Plural :Plural :Person2 :Masc "-iteknata"]
+            [:H_Fem :H_Plural :Plural :Person2 :Fem "-titeknata"]
+            [:H_Fem :H_Plural :Plural :Person3 :Masc "-ihtinata"]
+            [:H_Fem :H_Plural :Plural :Person3 :Fem "-tihtinata"]
+            [:H_Fem :H_Singular :Singular :Person1 :Masc "-itoti"]
+            [:H_Fem :H_Singular :Singular :Person1 :Fem "-titoti"]
+            [:H_Fem :H_Singular :Singular :Person2 :Masc "-itokti"]
+            [:H_Fem :H_Singular :Singular :Person2 :Fem "-titokti"]
+            [:H_Fem :H_Singular :Singular :Person3 :Masc "-ithiti"]
+            [:H_Fem :H_Singular :Singular :Person3 :Fem "-tithiti"]
+            [:H_Fem :H_Singular :Plural :Person1 :Masc "-itionti"]
+            [:H_Fem :H_Singular :Plural :Person1 :Fem "-titonti"]
+            [:H_Fem :H_Singular :Plural :Person2 :Masc "-itoknati"]
+            [:H_Fem :H_Singular :Plural :Person2 :Fem "-titoknati"]
+            [:H_Fem :H_Singular :Plural :Person3 :Masc "-ithintai"]
+            [:H_Fem :H_Singular :Plural :Person3 :Fem "-tihtinati"]
+            [:H_Masc :H_Plural :Singular :Person1 :Masc "-iea"]
+            [:H_Masc :H_Plural :Singular :Person1 :Fem "-tiea"]
+            [:H_Masc :H_Plural :Singular :Person2 :Masc "-ieka"]
+            [:H_Masc :H_Plural :Singular :Person2 :Fem "-tieka"]
+            [:H_Masc :H_Plural :Singular :Person3 :Masc "-ihea"]
+            [:H_Masc :H_Plural :Singular :Person3 :Fem "-tihea"]
+            [:H_Masc :H_Plural :Plural :Person1 :Masc "-iena"]
+            [:H_Masc :H_Plural :Plural :Person1 :Fem "-tiena"]
+            [:H_Masc :H_Plural :Plural :Person2 :Masc "-ieknaa"]
+            [:H_Masc :H_Plural :Plural :Person2 :Fem "-tieknaa"]
+            [:H_Masc :H_Plural :Plural :Person3 :Masc "-ihinaa"]
+            [:H_Masc :H_Plural :Plural :Person3 :Fem "-tihinaa"]
+            [:H_Masc :H_Singular :Singular :Person1 :Masc "-ioi"]
+            [:H_Masc :H_Singular :Singular :Person1 :Fem "-tioi"]
+            [:H_Masc :H_Singular :Singular :Person2 :Masc "-ioki"]
+            [:H_Masc :H_Singular :Singular :Person2 :Fem "-tioki"]
+            [:H_Masc :H_Singular :Singular :Person3 :Masc "-ihii"]
+            [:H_Masc :H_Singular :Singular :Person3 :Fem "-tihii"]
+            [:H_Masc :H_Singular :Plural :Person1 :Masc "-ioni"]
+            [:H_Masc :H_Singular :Plural :Person1 :Fem "-tioni"]
+            [:H_Masc :H_Singular :Plural :Person2 :Masc "-ioknai"]
+            [:H_Masc :H_Singular :Plural :Person2 :Fem "-tioknai"]
+            [:H_Masc :H_Singular :Plural :Person3 :Masc "-ihinai"]
+            [:H_Masc :H_Singular :Plural :Person3 :Fem "-tihinai"]]
+    }
+    {:label "beja_Ro-PInd"
+    :note "Roper1928 #80"
+    :common {:morphClass :PROIND,
+            :pos :Pronoun,
+            :proClass :Independent}
+    :terms [[:case :number :person :gender :token] ;; schema
+            [:Object :Singular :Person1 :_NA "áneb"]
+            [:Object :Singular :Person2 :Masc "barók"]
+            [:Object :Singular :Person2 :Fem "batók"]
+            [:Object :Singular :Person3 :Masc "baró"]
+            [:Object :Singular :Person3 :Fem "bató"]
+            [:Object :Plural :Person1 :_NA "henén"]
+            [:Object :Plural :Person2 :Masc "barék(na)"]
+            [:Object :Plural :Person2 :Fem "baték(na)"]
+            [:Object :Plural :Person3 :Masc "bare"]
+            [:Object :Plural :Person3 :Fem "baté"]
+            [:Subject :Singular :Person1 :_NA "áne"]
+            [:Subject :Singular :Person2 :Masc "baruk"]
+            [:Subject :Singular :Person2 :Fem "batuk"]
+            [:Subject :Singular :Person3 :Masc "baru"]
+            [:Subject :Singular :Person3 :Fem "batu"]
+            [:Subject :Plural :Person1 :_NA "henén"]
+            [:Subject :Plural :Person2 :Masc "barák"]
+            [:Subject :Plural :Person2 :Fem "baták"]
+            [:Subject :Plural :Person3 :Masc "bará"]
+            [:Subject :Plural :Person3 :Fem "batá"]]
+    }
+    {:label "beja_Ro-PInterrog"
+    :note "Roper1928 #110"
+    :common {:pos :Pronoun,
+            :person :Person3,
+            :proClass :Interrogative}
+    :terms [[:case :numHead :number :gender :token] ;; schema
+            [:Object :H_Common :Singular :Masc "ab"]
+            [:Object :H_Common :Singular :Fem "abt"]
+            [:Object :H_Common :Plural :Masc "abka"]
+            [:Object :H_Common :Plural :Fem "abtka"]
+            [:Possessive :H_Plural :Singular :Masc "aigai"]
+            [:Possessive :H_Plural :Singular :Fem "aigaiet"]
+            [:Possessive :H_Plural :Plural :Masc "aigai"]
+            [:Possessive :H_Plural :Plural :Fem "aigaiet"]
+            [:Possessive :H_Singular :Singular :Masc "ai"]
+            [:Possessive :H_Singular :Singular :Fem "ait"]
+            [:Possessive :H_Singular :Plural :Masc "ai"]
+            [:Possessive :H_Singular :Plural :Fem "ait"]
+            [:Subject :H_Common :Singular :Masc "au"]
+            [:Subject :H_Common :Singular :Fem "aut"]
+            [:Subject :H_Common :Plural :Masc "auka"]
+            [:Subject :H_Common :Plural :Fem "autka"]]
+    }
+    {:label "beja_Ro-PPossInd"
+    :note "Roper1928 #89; w. head masc nom -- see ##90-91 for head accusative or fem"
+    :common {:pos :Pronoun,
+            :proClass :PossInd}
+    :terms [[:numHead :number :person :gender :token] ;; schema
+            [:H_Plural :Singular :Person1 :Common "áni"]
+            [:H_Plural :Singular :Person2 :Masc "bariák"]
+            [:H_Plural :Singular :Person2 :Fem "batiák"]
+            [:H_Plural :Singular :Person3 :Masc "bariá"]
+            [:H_Plural :Singular :Person3 :Fem "batiá"]
+            [:H_Plural :Plural :Person1 :Common "híne"]
+            [:H_Plural :Plural :Person2 :Masc "bareál"]
+            [:H_Plural :Plural :Person2 :Fem "bateák"]
+            [:H_Plural :Plural :Person3 :Masc "bareá"]
+            [:H_Plural :Plural :Person3 :Fem "bateá"]
+            [:H_Singular :Singular :Person1 :Common "áni"]
+            [:H_Singular :Singular :Person2 :Masc "bariúk"]
+            [:H_Singular :Singular :Person2 :Fem "batiúk"]
+            [:H_Singular :Singular :Person3 :Masc "bariú"]
+            [:H_Singular :Singular :Person3 :Fem "batiú"]
+            [:H_Singular :Plural :Person1 :Common "híne"]
+            [:H_Singular :Plural :Person2 :Masc "baréúk"]
+            [:H_Singular :Plural :Person2 :Fem "bateúk"]
+            [:H_Singular :Plural :Person3 :Masc "bareú"]
+            [:H_Singular :Plural :Person3 :Fem "bateú"]]
+    }
+    {:label "beja_Ro-PPossSuff"
+    :note "Roper1928 #102"
+    :common {:morphClass :POSSSUFF,
+            :pos :Pronoun,
+            :proClass :PossSuff}
+    :terms [[:genHead :numHead :number :person :token] ;; schema
+            [:H_Fem :H_Plural :Singular :Person1 "-ta"]
+            [:H_Fem :H_Plural :Singular :Person2 "-tak"]
+            [:H_Fem :H_Plural :Singular :Person3 "-ta"]
+            [:H_Fem :H_Plural :Plural :Person1 "-tan"]
+            [:H_Fem :H_Plural :Plural :Person2 "-takna"]
+            [:H_Fem :H_Plural :Plural :Person3 "-ta"]
+            [:H_Fem :H_Singular :Singular :Person1 "-ti"]
+            [:H_Fem :H_Singular :Singular :Person2 "-tuk"]
+            [:H_Fem :H_Singular :Singular :Person3 "-tu"]
+            [:H_Fem :H_Singular :Plural :Person1 "-tun "]
+            [:H_Fem :H_Singular :Plural :Person2 "-tukna"]
+            [:H_Fem :H_Singular :Plural :Person3 "-tu"]
+            [:H_Masc :H_Plural :Singular :Person1 "-a"]
+            [:H_Masc :H_Plural :Singular :Person2 "-ak"]
+            [:H_Masc :H_Plural :Singular :Person3 "-a"]
+            [:H_Masc :H_Plural :Plural :Person1 "-an"]
+            [:H_Masc :H_Plural :Plural :Person2 "-akna"]
+            [:H_Masc :H_Plural :Plural :Person3 "-a"]
+            [:H_Masc :H_Singular :Singular :Person1 "-i"]
+            [:H_Masc :H_Singular :Singular :Person2 "-uk"]
+            [:H_Masc :H_Singular :Singular :Person3 "-u"]
+            [:H_Masc :H_Singular :Plural :Person1 "-un"]
+            [:H_Masc :H_Singular :Plural :Person2 "-ukna"]
+            [:H_Masc :H_Singular :Plural :Person3 "-u"]]
+    }
+    {:label "beja_Ro-VPrefCCCNomForm-kitim"
+    :note "Roper1928 #192-197"
+    :common {:conjClass :Prefix,
+            :lexeme :kitim,
+            :pos :Verb,
+            :rootClass :CCC,
+            :morphClass :NomForm-ktm}
+    :terms [[:nonFiniteForm :polarity :token] ;; schema
+            [:Gerund :_NA "kitmá̄wa"]
+            [:NominalAction :_NA "-ū- kitú̄m"]
+            [:NominalAgent :_NA "-ā- kātemána"]
+            [:Participle :Affirmative "kítime"]
+            [:Participle :Negative "bākátīm"]]
+    }
+    {:label "beja_Ro-VPrefNomForm"
+    :note "Roper1928 #170-175"
+    :common {:conjClass :Prefix,
+            :pos :Verb,
+            :morphClass :NomFormPref}
+    :terms [[:nonFiniteForm :polarity :token] ;; schema
+            [:Gerund :_NA "-a"]
+            [:NominalAction :_NA "-ā-"]
+            [:NominalAgent :_NA "-o-"]
+            [:PerfectParticiple :_NA "-ti or –tīt"]
+            [:PresentParticiple :Affirmative "-e"]
+            [:PresentParticiple :Negative "bā-"]]
+    }
+    {:label "beja_Ro-VPrefIntensSubjMarker"
+    :note "Roper1928 #213"
+    :common {:conjClass :Prefix,
+            :derivedStem :Intensive,
+            :pos :Verb,
+            :morphClass :SubjMarkerIntens}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "e…i…i"]
+            [:Singular :Person2 :Masc "te…i…ia"]
+            [:Singular :Person2 :Fem "te…i…iyi"]
+            [:Singular :Person3 :Masc "e…i…i"]
+            [:Singular :Person3 :Fem "te…i…i"]
+            [:Plural :Person1 :Common "ne…i…i"]
+            [:Plural :Person2 :Common "te…i…ina"]
+            [:Plural :Person3 :Common "e…i…in(a)"]]
+    }
+    {:label "beja_Ro-VPrefSubjMarker"
+    :note "Roper1928 #167"
+    :common {:conjClass :Prefix,
+            :pos :Verb,
+            :morphClass :SubjMarker}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "a…"]
+            [:Singular :Person2 :Masc "ti…a"]
+            [:Singular :Person2 :Fem "ti…i"]
+            [:Singular :Person3 :Masc "i…"]
+            [:Singular :Person3 :Fem "ti…"]
+            [:Plural :Person1 :Common "n…(ni…)"]
+            [:Plural :Person2 :Common "ti…na"]
+            [:Plural :Person3 :Common "i…n(a)"]]
+    }
+    {:label "beja_Ro-VSuffCondPerf"
+    :note "Roper1928 #127-158"
+    :common {:conjClass :Suffix,
+            :morphClass :SUFFCONDPERF,
+            :pos :Verb,
+            :tam :ConditionalPerfect}
+    :terms [[:number :person :gender :token] ;; schema
+            [:Singular :Person1 :Common "gerund+īkti (cond ak-)"]
+            [:Singular :Person2 :Masc "gerund+tīkti"]
+            [:Singular :Person2 :Fem "gerund+tīkti"]
+            [:Singular :Person3 :Masc "gerund+(y)īkti"]
+            [:Singular :Person3 :Fem "gerund+tīkti"]
+            [:Plural :Person1 :Common "gerund+nīkti"]
+            [:Plural :Person2 :Common "gerund+tīktīna"]
+            [:Plural :Person3 :Common "gerund+(y)īktīn(a)"]]
+    }
+    {:label "beja_Ro-VSuffImprtvFormation"
+    :note "Roper1928 #127"
+    :common {:conjClass :Suffix,
+            :pos :Verb,
+            :tam :Imperative,
+            :morphClass :ImptvFormation}
+    :terms [[:polarity :gender :token] ;; schema
+            [:Affirmative :Masc "Common"]
+            [:Affirmative :Fem "-i"]
+            [:Affirmative :Common "-ana"]
+            [:Negative :Masc "ba…a"]
+            [:Negative :Fem "bi…ei"]
+            [:Negative :Common "ba…ana"]]
+    }
+    {:label "beja_Ro-VSuffNomForm"
+    :note "Roper1928 #121-126"
+    :common {:conjClass :Suffix,
+            :pos :Verb,
+            :morphClass :NomFormSuff}
+    :terms [[:aspect :nonFiniteForm :polarity :tam :number :gender :token] ;; schema
+            [:Perfect :Participle :_NA :Past :_NA :_NA "-etit"]
+            [:Perfect :Participle :_NA :Present :_NA :_NA "-eti"]
+            [:Present :Participle :Affirmative :_NA :_NA :_NA "-e"]
+            [:Present :Participle :Negative :_NA :_NA :_NA "-ba…e"]
+            [:_NA :Gerund :_NA :_NA :_NA :_NA "-a"]
+            [:_NA :NominalAction :_NA :_NA :Singular :Masc "-ti"]
+            [:_NA :NominalAgent :_NA :_NA :Singular :Masc "-ana"]
+            [:_NA :NominalAgent :_NA :_NA :Singular :Fem "-ana"]]
+    }
+]
+}
