@@ -23,12 +23,13 @@ do
     echo copying $f to aama/$lang
     cp ../aama-data/data/$lang/$lang-pdgms\.edn ../aama/$lang/
     cp ../aama-data/data/$lang/README.md ../aama/$lang/
-    # cp ../aama-data/data/$lang/$lang-pdgms\.ttl ../aama/$lang/
+    cp ../aama-data/data/$lang/$lang-pdgms\.ttl ../aama/$lang/
+    cp ../aama-data/data/$lang/$lang-pdgms\.rdf ../aama/$lang/
     cd ../aama/$lang
     git add *.edn
     # git rm *.ttl
     git add README.md
-    git commit -am "aama lang repositories now restricted to pdgm edn files and README.md"
+    git commit -am "aama lang repositories now have pdgm.ttl and .rdf to .edn files"
     git push origin master
     cd ../../webapp
 done
