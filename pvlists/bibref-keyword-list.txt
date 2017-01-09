@@ -1,6 +1,7 @@
 aa
 aa-sem
 afar
+afroasiatic
 agaw
 akkadian
 alaaba

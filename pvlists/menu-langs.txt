@@ -10,6 +10,7 @@ Beja-atmaan
 Beja-beniamer
 Beja-bishari
 Beja-hadendowa
+Berber-ghadames
 Bilin
 Boni-jara
 Boni-kijee-bala

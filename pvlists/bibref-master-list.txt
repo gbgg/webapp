@@ -54,6 +54,7 @@ Kawachi2007
 Kiessling1994
 Kossmann2010
 Kossmann2012
+Kossmann2013
 Kossmann2017
 Lambdin1971
 Lambdin1983
@@ -106,6 +107,7 @@ Wedekind-etal2007
 WedekindC1985
 WedekindK1985
 Welmers1952
+Weninger-etal2011
 Zaborski1997a
 Zaborski1997b
 Zaborski2005
