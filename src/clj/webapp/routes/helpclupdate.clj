@@ -21,8 +21,8 @@
     [:p "There are two scenarios:"]
     [:ol
      [:li [:h4 "Datastore Update/Upload From Development Version:"]
-      [:ul [:li [:h4 "Datastore Update"] 
-            [:p "The following command-line versions presuppose that the Fuseki server has been launched, and tha the edn data files are in the  ~/aama-data/data/[LANG] directories:"]
+      [:ul [:li [:h4 "Datastore Update In Development Version"] 
+            [:p "The following command-line versions presuppose that the Fuseki server has been launched, and that the edn data files are in the  ~/aama-data/data/[LANG] directories:"]
             [:p "The following script, run from the webapp dir,  will:" 
              [:ol 
               [:li "Delete current LANG sub-graph(s) from the datastore, if already in existence"]
@@ -36,18 +36,27 @@
              [:li "bin/aama-datastore-update.sh ../aama-data/data/[LANG]  (for a single language)"]
              [:li "bin/aama-datastore-update.sh \"../aama-data/data/*\" (to [re-]initiate the whole datastore)"]
              [:li "[bin/fuqueries.sh (optionally, before or after update, will run triple-count and subgraph-list queries to verify deletions and/or insertions)]"]]]
-       [:li [:h4 "Datastore Upload."] 
+       [:li [:h4 "Datastore Upload to Local Repository and to github."] 
         [:p "The following scripts, run from the webapp dir, will:"
          [:ol
-          [:li "Upload revised edn/ttl file(s) to aama/[LANG] repository"]
-          [:li "Push the new edn/ttl file(s) to origin ("[:em "github.com/aama/[LANG]"]")"]
-          [:li "Upload and push a revised aama-edn2ttl jar and source file"]]]
+          [:li "Upload revised edn/ttl/rdf file(s) to aama/[LANG] repository"]
+          [:li "Push the new edn file(s) to origin ("[:em "github.com/aama/[LANG]"]")"]]]
         [:p "Usage:"
         [:ul 
          [:li "bin/aama-cp2lngrepo.sh ../aama-data/data/[LANG] (for a single language)"]
-         [:li "bin/aama-cp2lngrepo.sh \"../aama-data/data/*\" (to [re-]upload the whole datastore)"]
-         [:li "bin/aama-cptools2lngrepo.sh (necessary only if aama-edn2ttl.jar has been revised)"
-          [:p "NB: If any of the shell scripts in " [:code "aama/tools/bin"] " (aama-datastore-update.sh fuqueries.sh aama-edn2rdf.sh fuquery-gen.sh aama-rdf2fuseki.sh fuseki.sh) need to be updated, it should be done by hand because of directory issues."]]]]]
+         [:li "bin/aama-cp2lngrepo.sh \"../aama-data/data/*\" (to [re-]upload the whole datastore)"]]]]
+       [:li [:h4 "Webapp/Tools Upload to Local Repository and to github."] 
+        [:p "The following scripts, run from the webapp dir, will:"
+         [:ol
+          [:li "Upload (revised) shell scripts and utilities to appropriate directory in aama/ repository"]
+          [:li "Push the shell scripts and utilities to origin ("[:em "github.com/aama/"]")"]
+          [:li "Upload (revised) webapp source code to appropriate directories in aama/ repository"]
+          [:li "Push the webapp source code to origin ("[:em "github.com/aama/"]")"]]]
+        [:p "Usage:"
+        [:ul 
+         [:li "bin/aama-cptools2lngrepo.sh"]
+         [:li "bin/aama-cpwebapp2lngrepo.sh"]]]
+         [:p "NB: If any of the shell scripts in " [:code "aama/tools/bin"] " (aama-datastore-update.sh fuqueries.sh aama-edn2rdf.sh fuquery-gen.sh aama-rdf2fuseki.sh fuseki.sh) need to be updated, it should be done by hand because of directory issues."]]
        [:li [:h4 "Revise aama-edn2ttl.jar."] 
         [:p "Occasionally new schemata elements and relations will be desired, or old ones will need to be corrected, in the mapping of the edn data files to ttl."]
         [:p "Procedure: "
@@ -67,10 +76,20 @@
          [:li "Then update ~/aama/tools, and, if necessary, update and upload whole datastore as above (from webapp directory):"
           [:ul
            [:li "bin/aama-cptools2lngrepo.sh"]
+           [:li "bin/aama-cpwebapp2lngrepo.sh"]
            [:li "bin/aama-datastore-update.sh \"../aama-data/data/*\""]
            [:li "bin/aama-cp2lngrepo.sh \"../aama-data/data/*\""]]]]]]]
        [:li [:h5 "(Don't forget to commit and push webapp and aama-data!)"]]]]
-     [:li [:h4 "Datastore Update In A Remote Version:"]
+     [:li [:h4 "Datastore Operations In A Remote Version:"]
+      [:p "[Presupposing here that remote version runs webapp as Ring-based application with Leiningen, from directory with downloaded clojure source code. Need to add instructions for case where remote version runs from webapp jar file.]"]
+      [:ul [:li [:h4 "Pulling Data/Tools/Webapp from github repository"]
+            [:p "The following scripts will pull one or more language edn files and the tools and webapp files from the github repository."]
+            [:p "Usage:" 
+            [:ul 
+             [:li "tools/bin/aama-pulldata.sh data/[LANG] (for a single language)"]
+             [:li "tools/bin/aama-pulldata.sh \"data/*\" (to [re-]initiate the whole datastore)"]
+             [:li "tools/bin/aama-pullwebapp.sh"]]]]
+       [:li [:h4 "Datastore Update In A Remote Version:"]
             [:p "This procedure needs to be invoked whenever a revised or new data edn file has been 'git pull'-ed from the master version (or changed on the remote version [not advised!]). The following command-line script assumes that the Fuseki server is in aama/fuseki and has been launched, and that the edn data files are in the  aama/data/[LANG] directories (scripts will need to be edited if directory assumptions are not correct):"]
             [:p "The following script, run from the aama dir,  will:" 
              [:ol 
@@ -91,7 +110,7 @@
 
     
    [:hr]
-   [:h5 "[For more detail on the above, cf. " (link-to "http://aama.github.io" "aama.github.io") "; some older information is also available in the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")"]"]]))
+   [:h5 "[For more detail on the above, cf. " (link-to "http://aama.github.io" "aama.github.io") "; some older information is also available in the github aama-data/bin " (link-to "https://github.com/gbgg/aama-data/blob/master/bin/README.md" "README")"]"]]]]))
 
 (defroutes helpclupdate-routes
   (GET "/helpclupdate" [] (helpclupdate)))
