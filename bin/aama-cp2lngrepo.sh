@@ -25,6 +25,7 @@ do
     cp ../aama-data/data/$lang/README.md ../aama/$lang/
     cp ../aama-data/data/$lang/$lang-pdgms\.ttl ../aama/$lang/
     cp ../aama-data/data/$lang/$lang-pdgms\.rdf ../aama/$lang/
+    cp ../aama-data/data/$lang/$lang-cognates\.edn ../aama/$lang/
     cd ../aama/$lang
     git add *.edn
     # git rm *.ttl
