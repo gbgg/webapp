@@ -214,11 +214,13 @@
            (tmpl/render-string (str (newline)
                                     "{{pfx}}:{{label}} a aamas:Termcluster ;\n"
                                     "\trdfs:label \"{{label}}\" ;\n"
+                                    "\taamas:lang aama:{{Lang}} ;\n"
                                     "\t{{pfx}}:pdgmType {{pfx}}{{pdgmtype}} ;\n"
                                     "\trdfs:comment \"{{note}}\" \n"
                                     "\t.")
                                {:pfx sgpref
                                 :label label
+                                :Lang Lang
                                 :pdgmtype pdgmtype
                                 :note note}))
           ;; Need to build up string which can then be println-ed with each term of cluster

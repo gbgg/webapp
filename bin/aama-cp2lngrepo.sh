@@ -17,7 +17,7 @@
 fs=`find $1 -name "*.edn"`
 for f in $fs
 do
-    l=${f%-pdgms.edn}
+    l=${f%-*.edn}
     lang=${l#../aama-data/data/*/}
     echo "$lang ********************************************"
     echo copying $f to aama/$lang

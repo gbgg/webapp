@@ -86,10 +86,8 @@ numPoss
 numSubj
 number
 numberGenderHead
-numberHead
 objectType
 orientationSel
-participle
 patternClass
 pdgmSubType
 pdgmType
@@ -104,8 +102,8 @@ pngSet
 polarity
 pos
 posClass
-posHead
 position
+possHead
 possType
 postpositionClass
 predType
@@ -127,6 +125,7 @@ selectorTense
 state
 status
 statusClass
+stem
 stemAltClass
 stemClass
 stemFinalC
