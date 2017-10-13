@@ -59,6 +59,7 @@ hadiyya
 haro
 hausa
 hause
+hdi
 hebrew
 historical-linguistics
 iclass-change
@@ -74,6 +75,7 @@ koorete
 language-evolution
 maale
 morphology
+mubi
 omotic
 ongota
 orm

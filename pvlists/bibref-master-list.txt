@@ -53,7 +53,7 @@ Breeze1990
 Briscoe1999
 Brugnatelli2011
 Campbell&Posner2008
-Caporael-etal2013
+Caporael-etal2014
 Carstairs-McCarthy1994
 Carstairs-McCarthy2010
 Cerny1976
@@ -86,6 +86,7 @@ EvansN2016
 Finkel&Stump2009
 Frajzyngier&Shay2012a
 Frajzyngier&Shay2012b
+Frajzyngier2002
 Frajzyngier2012
 Fulmer1991
 Galand1966
@@ -144,10 +145,13 @@ Joseph2014
 Jungraithmayr&Ibriszimow1994
 Jungraithmayr2006
 Jungraithmayr2012
+Jungraithmayr2013
 Kawachi2007
 Kiessling&Mous2003
 Kiessling1994
 Kiessling2002
+Kiparsky2004
+Kiparsky2009
 Koenig2006
 Kossmann1997
 Kossmann1999
@@ -158,6 +162,7 @@ Kossmann2011
 Kossmann2012
 Kossmann2013
 Kramer2012
+Lahiri2000
 Lambdin1971
 Lambdin1983
 Lamberti&Sottile1997
@@ -179,6 +184,8 @@ Mous1993
 Mous2005
 Mous2012
 Mous20__
+Mufwene2001
+Mufwene2008
 Mukherjee-etal2011
 Mulugeta2008
 Naït-Zerrad1998
@@ -239,6 +246,7 @@ Schenkel1990
 Schenkel2012
 Schneider-Blum2007
 Schuh2003
+Schuh2017
 SimM1985
 SimR1985
 SmithA2014
