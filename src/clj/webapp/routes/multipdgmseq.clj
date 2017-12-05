@@ -34,9 +34,9 @@
              [:tr [:td "PDGM Type: "]
               [:td [:select#pos.required
                     {:title "Choose a pdgm type.", :name "pos"}
-                    ;;[:option {:value "fv" :label "Finite Verb"}]
-                    ;;[:option {:value "nfv" :label "Non-finite Verb"}]
-                    [:option {:value "verb" :label "Verb"}]
+                    [:option {:value "fv" :label "Finite Verb"}]
+                    [:option {:value "nfv" :label "Other Verb"}]
+                    [:option {:value "sel" :label "Selector"}]
                     [:option {:value "pro" :label "Pronoun"}]
                     [:option {:value "noun" :label "Noun"}]
                     ]]]
@@ -96,16 +96,6 @@
                    (if (re-find #"EmptyList" valclusterlist)
                      [:div (str "There are no " pos " paradigms in the " language " archive.")]
                      (for [valcluster valclusterset]
-                       ;;(if (= pos "fv")
-                         ;;(let [clusters (split valcluster #":")
-                              ;;clustername (first clusters)
-                              ;; plex (last clusters)
-                              ;; lexitems (split plex #",")]
-                           ;;[:div {:class "form-group"}
-                           ;; [:label (str clustername ": ")
-                             ;;(for [lex lexitems]
-                               ;;[:span 
-                                ;;(check-box {:class "checkbox1" :name "valclusters[]" :value (str language "," clustername ":" lex) } lex) lex])]])
                          [:div {:class "form-group"}
                           [:label
                            (check-box {:class "checkbox1" :name "valclusters[]" :value (str language "," valcluster) } valcluster) valcluster]])))])]
@@ -133,13 +123,14 @@
             query-sparql (cond 
                           (= pos "pro")
                           (sparql/pdgmqry-sparql-pro language lpref valstr)
+                          (= pos "sel")
+                          (sparql/pdgmqry-sparql-sel language lpref valstr)
                           (= pos "noun")
                           ;; should be able to combine next 2 cases w. disjunct or 'begins-with'
                           (sparql/pdgmqry-sparql-noun language lpref vcluster)
-                          (= pdgmType "Finite")
-                          (sparql/pdgmqry-sparql-fv language lpref pvalues)
-                          (= pdgmType "FinitePartial")
-                          (sparql/pdgmqry-sparql-fv language lpref pvalues)
+                          ;;(= pdgmType "Finite")
+                          (re-find #"Finite" pdgmType)
+                           (sparql/pdgmqry-sparql-fv language lpref pvalues)
                           :else (sparql/pdgmqry-sparql-nfv language lpref vcluster))
             query-sparql-pr (clojure.string/replace query-sparql #"<" "&lt;")
             req (http/get aama
