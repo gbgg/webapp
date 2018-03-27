@@ -1,0 +1,2916 @@
+{
+ :lang :burunge
+ :subfamily "South Cushitic Rift"
+ :sgpref "brn"
+ :datasource "Kiessling1994"
+ :geodemoURL "http://www.ethnologue.com/language/bds"
+ :geodemoTXT "Varieties and subdialects of Burunge are spoken in Tanzania, 'Dodoma region: Kondoa district, southeast of Langi [lag] language area, Goima, Chambalo, and Mirambu villages; Manyara region'."
+ :schemata {:case [:Ablative  :Allative],
+            :clauseTypeSel [:Consecutive :ObliqueRelative :Optative],
+            :deixis [:Far :Near],
+            :derivedStem [:Applicative :Causative :Comitative :Continuative :Distributive :Durative :Frequentative :Inchoative :Intensive :Mediopassive :ProgDur :Progressive],
+            :genNumObj [:ObjFem :ObjMasc :ObjNeutPl],
+            :gender [:Common :Fem :Masc :Neut :PluralNeut],
+            :genderHead [:HeadFem :HeadMasc :HeadNeut],
+            :gramFunction [:AdjSuff-f :AdjSuff-m :ImperfSuff :NegSuff :NominalPred :ParticipleSuff-imprf-sg :ParticipleSuff-perf-f :ParticipleSuff-perf-m :ParticipleSuff-perf-pl :PerfSuff :Subj3sgImperf :SubjPlImperf :SubjPlPerf :SubjunctiveSuff],
+            :imprtvComponent [:Applicative :Obj3GenderF :Obj3GenderM :Obj3GenderN :Obj3Marker :SubjNoObj3NonVent :SubjNoObj3Vent :SubjNumObj3 :SubjObj3Vent],
+            :mood [:Hypothetical :NegSubjunctive],
+            :nmorphClass [:Numerals],
+            :number [:Common :NA :NCommon :Plural :Singular],
+            :obj3Gender [:Fem :Masc :NeutPl],
+            :orientation [:NonVentive :Ventive],
+            :person [:Common :Person1 :Person2 :Person3 :PersonC],
+            :personMarkerType [:ObjAgr :PossSuffBase :ProInd :SubjAgr :VerbSuff],
+            :polarity [:AffDecl :AffInterr :Affirmative :NegDecl :NegInterr :Negative],
+            :pos [:Noun :Pronoun :Selector :Verb],
+            :predType [:Adjectival :AffDecl :AffInterr :Verbal],
+            :proClass [:Deictic :DeicticAnaph :Independent :PersMarkersGeneral :PossAnaph :PossSuff :RefSwitch]
+            :smorphClass [:BenefSubj_Obj :ClauseType_Subj :Consecutive_Subj_Obj_Pres :Consecutive_Subj_Tense :IndefSubj_Tense :IndetSubj_Obj :IndetSubj_Tense :Optative_Subj :Optative_Subj_Obj :PartSubj_Obj_Tense :SelectorStructure :SubjFocus_Obj :SubjFocus_Tense :SubjRelClause_ObjMarking :Subj_Obj :Subj_ObjFocus_Obj_Tense :Subj_Obj_Completive :Subj_Obj_Future1 :Subj_Obj_Future2 :Subj_Obj_Habitual :Subj_Obj_Pres_Concessive :Subj_Obj_Pret :Subj_Obj_Pret_Sequential :Subj_Obj_Prospective :Subj_Obj_Tense :Subj_Relative_Obj_Pres :Subj_Relative_Tense :Subj_Tense :Subj_Tense_Concessive :Subj_Tense_Consecutive],
+            :vmorphClass [:DervStem :ImperativeAppliclative :ImperativeCompAnalysis :ImperativeObject3 :InterrGen :Numerals  :ParticipleSuff :SubjMarkerSelStem :SubjRelClause-subjMarking :SubjSuffAllomorph :SubjSuffStemClass :VerbStemStructure :VerbVsAdjNeg :Verbalnoun :WithObj]            
+            :reference [:NonSpatial :Spatial],
+            :selectorCategory [:CaseSel :ClauseTypeSel :ContrastSel :ObjSel :OrientationSel :SequentialSel :SubjTypeSel :TenseSel],
+            :selectorFormant [:BenefactiveSubj :CommitInstrumental :Completive :Conditional :Consecutive :Future1 :Future2 :Habitual :IndetSubj :Neutral :ObjFocus :ObliqueRelative :Optative :Person1_2Sel :Present :Preterite :Prospective :Person3Sel :Reflexive :ReflexiveObj :Separative :Sequential :SubjFocus :Ventive],
+            :stemClass [:DentalStem :GlideStem :HStem :Irreg :NasalStem :UnmrkStem],
+            :stemInflCategory [:AspectMood :Negative :Number :Person :SentenceType],
+            :stemInflMorpheme [:AffDecl :Common :Imperfect :InterrogDir :InterrogRhet :Negative :NumNonPerf :NumPerf :Perfect :Subjunctive],
+            :subjSel [:Person1_2Sel :Person3Sel],
+            :tam [:Imperative :Imperfect :Perfect :Prohibitative :Subjunctive],
+            :tenseSel [:Completive :Future1 :Future2 :Habitual :Present :Preterite :Prospective]
+            :pdgmType [:Finite :Finite_Sel_stem  :NOM :PRO :SEL :VOther]}
+ :pclass {:pngClass [:person :number :gender :genderHead :genderObject :HeadFem :HeadMasc :HeadNeut :numObj :ObjCommon :ObjFem :ObjMasc :ObjNCommon :ObjPlural :ObjSingular :SubjPlural :SubjSingular],
+          :synsemClass [:clauseTypeSel :case :deixis :derivedStem :gramFunction :imprtvComponent :orientation :polarity :pos :predType :proClass :reference :selectorCategory :selectorFormant :stemInflCategory :stemInflMorpheme :subjSel :tenseSel :type :tam],
+          :inflClass [:stemClass :nounClass],
+          :otherClass []}
+ :morphemes{:VPARTICIPLESUFF {:gloss "[x]", :lemma "[y]"},
+            :SELECTORCLAUSETYPESUBJ {:gloss "[x]", :lemma "[y]"},
+            :PRODEICTANAPH {:gloss "[x]", :lemma "[y]"},
+            :SELECTORPARTSUBJOBJTENSE {:gloss "[x]", :lemma "[y]"},
+            :NUMERALS {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJOBJGEN {:gloss "[x]", :lemma "[y]"},
+            :SELECTORCONSECSUBJOBJPRES {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJFOCUSOBJ {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJOBJHAB {:gloss "[x]", :lemma "[y]"},
+            :PROREFSWITCH {:gloss "[x]", :lemma "[y]"},
+            :VSTEMFORMATIVESUFF {:gloss "[x]", :lemma "[y]"},
+            :SELECTORINDETSUBJOBJ {:gloss "[x]", :lemma "[y]"},
+            :PROIND {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJOBJPRET {:gloss "[x]", :lemma "[y]"},
+            :SELECTORCONSECSUBJTENSE {:gloss "[x]", :lemma "[y]"},
+            :INTEFFIMPRTVSUFF {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJRELOBJPRES {:gloss "[x]", :lemma "[y]"},
+            :VINTERROGGENSUFF {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJTENSECONCESS {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJOBJPROSPECTIVE {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJRELTENSE {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBOBJPRETSEQ {:gloss "[x]", :lemma "[y]"},
+            :SELECTORINDETSUBJTENSE {:gloss "[x]", :lemma "[y]"},
+            :SUBJMARKERALLOMORPH {:gloss "[x]", :lemma "[y]"},
+            :SELECTORRELCLAUSESUB {:gloss "[x]", :lemma "[y]"},
+            :PROPOSSANAPH {:gloss "[x]", :lemma "[y]"},
+            :SELECTORBENEFSUBJOBJ {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSTRUCTURE {:gloss "[x]", :lemma "[y]"},
+            :STEMCLASSSUFF {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJOBJPRESCONCESS {:gloss "[x]", :lemma "[y]"},
+            :PRODEICTIC {:gloss "[x]", :lemma "[y]"},
+            :IMPRTVOBJSUFF {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJRELCLAUSEOBJ {:gloss "[x]", :lemma "[y]"},
+            :SUBJMARKERSELSTEM {:gloss "[x]", :lemma "[y]"},
+            :PROPERSMARKERS {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJOBJTENSE {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSOBJOBJCOMPLETIVE {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJOBJFUT {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJOBJFOCUS {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJFOCUSTENSE {:gloss "[x]", :lemma "[y]"},
+            :VIMPERATIVESUFF1 {:gloss "[x]", :lemma "[y]"},
+            :PROPOSSSUFF {:gloss "[x]", :lemma "[y]"},
+            :VIMPERATIVESUFF2 {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJTENSE {:gloss "[x]", :lemma "[y]"},
+            :DERVSTEMSUFF {:gloss "[x]", :lemma "[y]"},
+            :SELECTORSUBJOBJFUT1 {:gloss "[x]", :lemma "[y]"},
+            :SELECTORINDEFSUBJTENSE {:gloss "[x]", :lemma "[y]"},
+            :SELECTOROPTSUBJ {:gloss "[x]", :lemma "[y]"},
+            :SELECTOROPTSUBJOBJ {:gloss "[x]", :lemma "[y]"}}
+ :lexemes{:qaat {:lemma "qaat-", :gloss "lie"},
+          :xaw {:gloss "[x]", :lemma "[y]"},
+          :ʔar-1 {:lemma "ʔar-", :gloss "see"},
+          :hiiliħ {:lemma "hiiliħ-", :gloss "throw", :derivedStem :Applicative, :pos :Verb},
+          :koom {:lemma "koom-", :gloss "have"},
+          :hom {:lemma "hom-", :gloss "cook"},
+          :waar {:lemma "waar-", :gloss "beinaplace"},
+          :agaad {:lemma "ɬagaaduusay", :gloss "hunter"},
+          :kiis {:lemma "kiʕis-", :gloss "giveback"},
+          :ʔar {:lemma "ʔar-", :gloss "see"},
+          :hiitlaw {:lemma "hiitlaw-", :gloss "wake up", :derivedStem :Applicative, :pos :Verb},
+          :dah {:lemma "dah-", :gloss "arrive"},
+          :ibiid {:lemma "ibiid-", :gloss "sit"},
+          :gu {:lemma "gu'-", :gloss "sleep"},
+          :qadid {:lemma "qadid-", :gloss "Stand"},
+          :doosl {:lemma "dooɬ-", :gloss "Cultivate"},
+          :xaw-2 {:lemma "xaw", :gloss "come"},
+          :xaw-1 {:lemma "xaw-", :gloss "come"},
+          :qaat-alt {:gloss "[x]", :lemma "[y]"},
+          :kaah {:lemma "kaah-", :gloss "say"},
+          :ħoʔi {:lemma "ħoʔi", :gloss "good"},
+          :dosl {:gloss "[x]", :lemma "[y]"},
+          :hiičaʕ {:derivedStem :Applicative, :pos :Verb}}
+ :lxterms [
+           {:label "burunge-VImperfNasalStem-hom"
+            :note "Kiessling1994 #7.1.1.2.4"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :hom,
+                     :pos :Verb,
+                     :stemClass :NasalStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha homă"],
+                    [:Singular :Person2 :Common "ha homintă"],
+                    [:Singular :Person3 :Masc "homină"],
+                    [:Singular :Person3 :Fem "homintă"],
+                    [:Plural :Person1 :Common "ha homină"],
+                    [:Plural :Person2 :Common "ha homintay"],
+                    [:Plural :Person3 :Common "hominay"]]
+            }
+           {:label "burunge-VImperfNasalStem-koom"
+            :note "Kiessling1994 #7.1.1.2.4"
+            :pdgmType :Finite
+            :common {:lexeme :koom,
+                     :pos :Verb,
+                     :stemClass :NasalStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha koomă"],
+                    [:Singular :Person2 :Common "ha kontă"],
+                    [:Singular :Person3 :Masc "konă"],
+                    [:Singular :Person3 :Fem "kontă"],
+                    [:Plural :Person1 :Common "ha konă"],
+                    [:Plural :Person2 :Common "ha kontay"],
+                    [:Plural :Person3 :Common "konay"]]
+            }
+           {:label "burunge-VImperfDentalStem-ibiid"
+            :note "Kiessling1994 #7.1.1.2.5"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :ibiid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha ‘ibiidă"],
+                    [:Singular :Person2 :Common "ha ‘ibită"],
+                    [:Singular :Person3 :Masc "‘ibiidĭ"],
+                    [:Singular :Person3 :Fem "‘ibită"],
+                    [:Plural :Person1 :Common "ha ‘ibiidană"],
+                    [:Plural :Person2 :Common "ha ‘ibitay"],
+                    [:Plural :Person3 :Common "‘ibiiday"]]
+            }
+           {:label "burunge-VImperfDentalStem-qaat"
+            :note "Kiessling1994 #7.1.1.2.5"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :qaat,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha qaată"],
+                    [:Singular :Person2 :Common "ha qată"],
+                    [:Singular :Person3 :Masc "qaatĭ"],
+                    [:Singular :Person3 :Fem "qată"],
+                    [:Plural :Person1 :Common "ha qaaqaatană"],
+                    [:Plural :Person2 :Common "ha qaaqatay"],
+                    [:Plural :Person3 :Common "qaaqaatiyay"]]
+            }
+           {:label "burunge-VImperfDentalStem-qadid"
+            :note "Kiessling1994 #7.1.1.2.5. Die Dentalobstrueten-Stamme. Paradigm followed by all extended stems with –id (continuative)."
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :qadid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha qadidă"],
+                    [:Singular :Person2 :Common "ha qadită"],
+                    [:Singular :Person3 :Masc "qadidĭ"],
+                    [:Singular :Person3 :Fem "qadită"],
+                    [:Plural :Person1 :Common "ha qadidană"],
+                    [:Plural :Person2 :Common "ha qaditay"],
+                    [:Plural :Person3 :Common "qadiday"]]
+            }
+           {:label "burunge-VImperfUnmrkStem-qaat-alt"
+            :note "Kiessling1994 #7.1.1.2.5"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :qaat-alt,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha qaată"],
+                    [:Singular :Person2 :Common "ha qaadită"],
+                    [:Singular :Person3 :Masc "qaatĭ"],
+                    [:Singular :Person3 :Fem "qaatidă"],
+                    [:Plural :Person1 :Common "ha qaaqaatană"],
+                    [:Plural :Person2 :Common "ha qaaqaatiday"],
+                    [:Plural :Person3 :Common "qaaqaatiyay"]]
+            }
+           {:label "burunge-VPerfDentalStem-ibiid"
+            :note "Kiessling1994 #7.1.1.2.5"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :ibiid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa ‘ibiidĭ"],
+                    [:Singular :Person2 :Common "háa ‘ibitĭ"],
+                    [:Singular :Person3 :Masc "yáa ‘ibiidĭ"],
+                    [:Singular :Person3 :Fem "yáa ‘ibitĭ"],
+                    [:Plural :Person1 :Common "háa ‘ibiidanĭ"],
+                    [:Plural :Person2 :Common "háa ‘ibitirĭ"],
+                    [:Plural :Person3 :Common "yáa ‘ibiidirĭ"]]
+            }
+           {:label "burunge-VPerfDentalStem-qaat"
+            :note "Kiessling1994 #7.1.1.2.5"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :qaat,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa qaatĭ"],
+                    [:Singular :Person2 :Common "háa qatĭ"],
+                    [:Singular :Person3 :Masc "yáa qaatĭ"],
+                    [:Singular :Person3 :Fem "yáa qatĭ"],
+                    [:Plural :Person1 :Common "háa qaaqaatanĭ"],
+                    [:Plural :Person2 :Common "háa qaaqatirĭ"],
+                    [:Plural :Person3 :Common "yáa qaaqaatirĭ"]]
+            }
+           {:label "burunge-VPerfDentalStem-qadid"
+            :note "Kiessling1994 #7.1.1.2.5. Die Dentalobstrueten-Stamme. Paradigm followed by all
+            extended stems with –id (continuative)."
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :qadid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa qadidĭ"],
+                    [:Singular :Person2 :Common "háa qaditĭ"],
+                    [:Singular :Person3 :Masc "yáa qadidĭ"],
+                    [:Singular :Person3 :Fem "yáa qaditĭ"],
+                    [:Plural :Person1 :Common "háa qadidanĭ"],
+                    [:Plural :Person2 :Common "háa qaditirĭ"],
+                    [:Plural :Person3 :Common "yáa qadidirĭ"]]
+            }
+           {:label "burunge-VPerfGlideStem-xaw"
+            :note "Kiessling1994 #7.1.1.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :xaw,
+                     :pos :Verb,
+                     :stemClass :GlideStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa xay"],
+                    [:Singular :Person2 :Common "háa xaydĭ"],
+                    [:Singular :Person3 :Masc "yáa xay"],
+                    [:Singular :Person3 :Fem "yáa xaydĭ"],
+                    [:Plural :Person1 :Common "háa xaxaynĭ"],
+                    [:Plural :Person2 :Common "háa xaxaydirĭ"],
+                    [:Plural :Person3 :Common "yáa xaxayirĭ"]]
+            }
+           {:label "burunge-VPerfHStem-dah"
+            :note "Kiessling1994 #7.1.1.2.6. Die HStem"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :dah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa day"],
+                    [:Singular :Person2 :Common "háa dahadĭ"],
+                    [:Singular :Person3 :Masc "yáa day"],
+                    [:Singular :Person3 :Fem "yáa dahadĭ"],
+                    [:Plural :Person1 :Common "háa dadahanĭ"],
+                    [:Plural :Person2 :Common "háa dadahadirĭ"],
+                    [:Plural :Person3 :Common "yáa dadayrĭ"]]
+            }
+           {:label "burunge-VPerfHStem-kaah"
+            :note "Kiessling1994 # 7.1.1.2.6 [No deletion of internal h when preceeded by long
+            vowel.]"
+            :pdgmType :Finite
+            :common {:lexeme :kaah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa kaahĭ"],
+                    [:Singular :Person2 :Common "háa kaahadĭ"],
+                    [:Singular :Person3 :Masc "yáa kaahĭ"],
+                    [:Singular :Person3 :Fem "yáa kaahadĭ"],
+
+                    [:Plural :Person1 :Common "háa kaahanĭ"],
+                    [:Plural :Person2 :Common "háa kaahadirĭ"],
+                    [:Plural :Person3 :Common "yáa kaahirĭ"]]
+            }
+           {:label "burunge-VPerfNasalStem-hom"
+            :note "Kiessling1994 #7.1.1.2.4"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :hom,
+                     :pos :Verb,
+                     :stemClass :NasalStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa homĭ"],
+                    [:Singular :Person2 :Common "háa homintĭ"],
+                    [:Singular :Person3 :Masc "yáa homimĭ"],
+                    [:Singular :Person3 :Fem "yáa homintĭ"],
+                    [:Plural :Person1 :Common "háa hominĭ"],
+                    [:Plural :Person2 :Common "háa homintirĭ"],
+                    [:Plural :Person3 :Common "yáa hominirĭ"]]
+            }
+           {:label "burunge-VPerfNasalStem-koom"
+            :note "Kiessling1994 #7.1.1.2.4"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :koom,
+                     :pos :Verb,
+                     :stemClass :NasalStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa koomĭ"],
+                    [:Singular :Person2 :Common "háa kontĭ"],
+                    [:Singular :Person3 :Masc "yáa koomĭ"],
+                    [:Singular :Person3 :Fem "yáa kontĭ"],
+                    [:Plural :Person1 :Common "háa konĭ"],
+                    [:Plural :Person2 :Common "háa kontirĭ"],
+                    [:Plural :Person3 :Common "yáa konirĭ"]]
+            }
+           {:label "burunge-VImperfUnmrkStem-doosl"
+            :note "Kiessling1994 # 7.1.1.2.7"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha dooɬă"],
+                    [:Singular :Person2 :Common "ha dooɬidă"],
+                    [:Singular :Person3 :Masc "dooɬĭ"],
+                    [:Singular :Person3 :Fem "dooɬidă"],
+                    [:Plural :Person1 :Common "ha dooɬană"],
+                    [:Plural :Person2 :Common "ha dooɬiday"],
+                    [:Plural :Person3 :Common "dooɬiyay"]]
+            }
+           {:label "burunge-VImperfUnmrkStem-gu"
+            :note "Kiessling1994 # 7.1.1.2.7 [Assimilation of vowel of –id- after //]"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :gu,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha gu’ă"],
+                    [:Singular :Person2 :Common "ha gu’udă"],
+                    [:Singular :Person3 :Masc "gu’"],
+                    [:Singular :Person3 :Fem "gu’udă"],
+                    [:Plural :Person1 :Common "ha gu’ună"],
+                    [:Plural :Person2 :Common "ha gu’untay"],
+                    [:Plural :Person3 :Common "gu’unay"]]
+            }
+           {:label "burunge-VImperfGlideStem-xaw"
+            :note "Kiessling1994 #7.1.1.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :xaw,
+                     :pos :Verb,
+                     :stemClass :GlideStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha xaw"],
+                    [:Singular :Person2 :Common "ha xaydă"],
+                    [:Singular :Person3 :Masc "xay"],
+                    [:Singular :Person3 :Fem "xaydă"],
+                    [:Plural :Person1 :Common "ha xaxaynă"],
+                    [:Plural :Person2 :Common "ha xaxayday"],
+                    [:Plural :Person3 :Common "xaxayay"]]
+            }
+           {:label "burunge-VImperfHStem-dah"
+            :note "Kiessling1994 #7.1.1.2.6. Die HStem"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :dah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha daw"],
+                    [:Singular :Person2 :Common "ha dahadă"],
+                    [:Singular :Person3 :Masc "day"],
+                    [:Singular :Person3 :Fem "dahdă"],
+                    [:Plural :Person1 :Common "ha dadahană"],
+                    [:Plural :Person2 :Common "ha dadahaday"],
+                    [:Plural :Person3 :Common "dadayay"]]
+            }
+           {:label "burunge-VImperfHStem-kaah"
+            :note "Kiessling1994 # 7.1.1.2.6 [No deletion of internal h when preceeded by long
+            vowel.]"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :kaah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha kaawă"],
+                    [:Singular :Person2 :Common "ha kaahadă"],
+                    [:Singular :Person3 :Masc "kaahĭ"],
+                    [:Singular :Person3 :Fem "kaahadă"],
+                    [:Plural :Person1 :Common "ha kaahană"],
+                    [:Plural :Person2 :Common "ha kaahaday"],
+                    [:Plural :Person3 :Common "kaahiyay"]]
+            }
+           {:label "burunge-VAffImperf-dosl"
+            :note "Kiessling1994 # 7.1.1.2.7 and # 9.5.1"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :dosl,
+                     :pos :Verb,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha dooɬă"],
+                    [:Singular :Person2 :Common "ha dooɬidă"],
+                    [:Singular :Person3 :Masc "dooɬĭ"],
+                    [:Singular :Person3 :Fem "dooɬidă"],
+                    [:Plural :Person1 :Common "ha dooɬană"],
+                    [:Plural :Person2 :Common "ha dooɬiday"],
+                    [:Plural :Person3 :Common "dooɬiyay"]]
+            }
+           {:label "burunge-VAffPerf-dosl"
+            :note "Kiessling1994 # 7.1.1.2.7 and # 9.5.1"
+            :pdgmType :Finite
+            :common {:lexeme :dosl,
+                     :polarity :Affirmative,
+                     :pos :Verb,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa dooɬĭ"],
+                    [:Singular :Person2 :Common "háa dooɬidĭ"],
+                    [:Singular :Person3 :Masc "yáa dooɬĭ"],
+                    [:Singular :Person3 :Fem "yáa dooɬidĭ"],
+                    [:Plural :Person1 :Common "háa dooɬanĭ"],
+                    [:Plural :Person2 :Common "háa dooɬidirĭ"],
+                    [:Plural :Person3 :Common "yáa dooɬirĭ"]]
+            }
+           {:label "burunge-VNegInterrPerf-dosl"
+            :note "Kiessling1994 # 7.1.1.2.7 and # 9.5.1"
+            :pdgmType :Finite
+            :common {:lexeme :dosl,
+                     :polarity :NegInterr,
+                     :pos :Verb,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa dooɬíibaɬi"],
+                    [:Singular :Person2 :Common "háa dooɬidíibaɬi"],
+                    [:Singular :Person3 :Masc "yáa dooɬíibaɬi"],
+                    [:Singular :Person3 :Fem "yáa dooɬidíibaɬi"],
+                    [:Plural :Person1 :Common "háa dooɬaníibaɬi"],
+                    [:Plural :Person2 :Common "háa dooɬidiríibaɬi"],
+                    [:Plural :Person3 :Common "yáa dooɬiríibaɬi"]]
+            }
+           {:label "burunge-VNegPerf-dosl"
+            :note "Kiessling1994 # 7.1.1.2.7 and # 9.5.1"
+            :pdgmType :Finite
+            :common {:lexeme :dosl,
+                     :polarity :Negative,
+                     :pos :Verb,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa dooɬiiba"],
+                    [:Singular :Person2 :Common "háa dooɬidiiba"],
+                    [:Singular :Person3 :Masc "yáa dooɬiiba"],
+                    [:Singular :Person3 :Fem "yáa dooɬidiiba"],
+                    [:Plural :Person1 :Common "háa dooɬaniiba"],
+                    [:Plural :Person2 :Common "háa dooɬidiriiba"],
+                    [:Plural :Person3 :Common "yáa dooɬiriiba"]]
+            }
+           {:label "burunge-VNegImperf-dosl"
+            :note "Kiessling1994 # 7.1.1.2.7 and # 9.5.1 [CHECK polarity value 12/1/15]"
+            :pdgmType :Finite
+            :common {:lexeme :dosl,
+                     :polarity :NegDecl,
+                     :pos :Verb,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha dooɬaaba"],
+                    [:Singular :Person2 :Common "ha dooɬidaaba"],
+                    [:Singular :Person3 :Masc "dooɬiiba"],
+                    [:Singular :Person3 :Fem "dooɬidaaba"],
+                    [:Plural :Person1 :Common "ha dooɬanaaba"],
+                    [:Plural :Person2 :Common "ha dooɬida’iiba"],
+                    [:Plural :Person3 :Common "dooɬiya’iiba"]]
+            }
+           {:label "burunge-VNegInterrImperf-dosl"
+            :note "Kiessling1994 # 7.1.1.2.7 and # 9.5.1"
+            :pdgmType :Finite
+            :common {:lexeme :dosl,
+                     :polarity :NegInterr,
+                     :pos :Verb,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha dooɬáabaɬi"],
+                    [:Singular :Person2 :Common "ha dooɬidáabaɬi"],
+                    [:Singular :Person3 :Masc "dooɬíibaɬi"],
+                    [:Singular :Person3 :Fem "dooɬidáabaɬi"],
+                    [:Plural :Person1 :Common "ha dooɬanáabaɬi"],
+                    [:Plural :Person2 :Common "ha doolida’íibaɬi"],
+                    [:Plural :Person3 :Common "dooɬiya’íibaɬi"]]
+            }
+           {:label "burunge-VPerfUnmrkStem-doosl"
+            :note "Kiessling1994 # 7.1.1.2.7"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa dooɬĭ"],
+                    [:Singular :Person2 :Common "háa dooɬidĭ"],
+                    [:Singular :Person3 :Masc "yáa dooɬĭ"],
+                    [:Singular :Person3 :Fem "yáa dooɬidĭ"],
+                    [:Plural :Person1 :Common "háa dooɬanĭ"],
+                    [:Plural :Person2 :Common "háa dooɬidirĭ"],
+                    [:Plural :Person3 :Common "yáa dooɬirĭ"]]
+            }
+           {:label "burunge-VPerfUnmrkStem-gu"
+            :note "Kiessling1994 # 7.1.1.2.7 [Assimilation of vowel of –id- after //]"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :gu,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "háa gu’ĭ"],
+                    [:Singular :Person2 :Common "háa gu’udĭ"],
+                    [:Singular :Person3 :Masc "yáa gu’ĭ"],
+                    [:Singular :Person3 :Fem "yáa gu’udĭ"],
+                    [:Plural :Person1 :Common "háa gu’unĭ"],
+                    [:Plural :Person2 :Common "háa gu’untirĭ"],
+                    [:Plural :Person3 :Common "yáa gu’unirĭ"]]
+            }
+           {:label "burunge-VImperfHypothetical-waar"
+            :note "Kiessling1994 # 7.1.1.2.8 (Hypothetical base for actual waar-
+            paradigm)"
+            :pdgmType :Finite
+            :common {:derivedStem :Durative,
+                     :lexeme :waar,
+                     :pos :Verb,
+                     :tam :Imperfect,
+                     :mood :Hypothetical}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "*ha waar-imă"],
+                    [:Singular :Person2 :Common "*ha waar-intă"],
+                    [:Singular :Person3 :Masc "*waar-ină"],
+                    [:Singular :Person3 :Fem "*waar-intă"],
+                    [:Plural :Person1 :Common "*ha waar-ină"],
+                    [:Plural :Person2 :Common "*ha waar-intay"],
+                    [:Plural :Person3 :Common "*waar-inay"]]
+            }
+           {:label "burunge-VImperfIrreg-ar"
+            :note "Kiessling1994 p. 132.#7.1.1.2.8 [Shows common irregularities with Burunge]"
+            :pdgmType :Finite
+            :common {:lexeme :ʔar,
+                     :pos :Verb,
+                     :stemClass :Irreg,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ár"],
+                    [:Singular :Person2 :Common "‘áan"],
+                    [:Singular :Person3 :Masc "‘ar"],
+                    [:Singular :Person3 :Fem "‘áan"],
+                    [:Plural :Person1 :Common "‘aráan"],
+                    [:Plural :Person2 :Common "‘aandá’"],
+                    [:Plural :Person3 :Common "‘ariyá’"]]
+            }
+           {:label "burunge-VImperfIrreg-waar"
+            :note "Kiessling1994 # 7.1.1.2.8. [waar acts like a mixture of unmrkStem and nasalStem.
+            comes from durative stem *waarim- (unattested in Burunge,but cf. ar- paradigm),reduced
+            to *waam"
+            :pdgmType :Finite
+            :common {:polarity :Negative,
+                     :lexeme :waar,
+                     :pos :Verb,
+                     :stemClass :Irreg,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "ha waară"],
+                    [:Singular :Person2 :Common "ha wantă"],
+                    [:Singular :Person3 :Masc "wană"],
+                    [:Singular :Person3 :Fem "wantă"],
+                    [:Plural :Person1 :Common "ha wană"],
+                    [:Plural :Person2 :Common "ha wantay"],
+                    [:Plural :Person3 :Common "wanay"]]
+            }
+           {:label "burunge-VBaseImperfDentalStemBaseForm-qadid"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :qadid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "qadid-Ø-a"],
+                    [:Singular :Person2 :Common "qadid-id-a"],
+                    [:Singular :Person3 :Masc "qadid-i-a"],
+                    [:Singular :Person3 :Fem "qadid-id-a"],
+                    [:Plural :Person1 :Common "qadid-an-a"],
+                    [:Plural :Person2 :Common "qadid-id-a-i"],
+                    [:Plural :Person3 :Common "qadid-i-a-i"]]
+            }
+           {:label "burunge-VBaseImperfGlideStemBaseForm-xaw"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :xaw,
+                     :pos :Verb,
+                     :stemClass :GlideStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "_NULL"],
+                    [:Singular :Person2 :Common "_NULL"],
+                    [:Singular :Person3 :Masc "_NULL"],
+                    [:Singular :Person3 :Fem "_NULL"],
+                    [:Plural :Person1 :Common "_NULL"],
+                    [:Plural :Person2 :Common "_NULL"],
+                    [:Plural :Person3 :Common "_NULL"]]
+            }
+           {:label "burunge-VBaseImperfHStemBaseForm-dah"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :dah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "_NULL"],
+                    [:Singular :Person2 :Common "_NULL"],
+                    [:Singular :Person3 :Masc "_NULL"],
+                    [:Singular :Person3 :Fem "_NULL"],
+                    [:Plural :Person1 :Common "_NULL"],
+                    [:Plural :Person2 :Common "_NULL"],
+                    [:Plural :Person3 :Common "_NULL"]]
+            }
+           {:label "burunge-VBaseImperfUnmrkStemBaseForm-doosl"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dooɬ-Ø-a"],
+                    [:Singular :Person2 :Common "dooɬ-id-a"],
+                    [:Singular :Person3 :Masc "dooɬ-i-a"],
+                    [:Singular :Person3 :Fem "dooɬ-id-a"],
+                    [:Plural :Person1 :Common "dooɬ-an-a"],
+                    [:Plural :Person2 :Common "dooɬ-id-a-i"],
+                    [:Plural :Person3 :Common "dooɬ-i-a-i"]]
+            }
+           {:label "burunge-VBaseImperfUnmrkStemBaseForm-koom"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :koom,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "koom-Ø-a"],
+                    [:Singular :Person2 :Common "koom-t-a"],
+                    [:Singular :Person3 :Masc "koom-n!-a"],
+                    [:Singular :Person3 :Fem "koom-t-a"],
+                    [:Plural :Person1 :Common "koom-n!-a"],
+                    [:Plural :Person2 :Common "koom-t-a-i"],
+                    [:Plural :Person3 :Common "koom-n!-a-i"]]
+            }
+           {:label "burunge-VBasePerfDentalStemBaseForm-qadid"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :qadid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "qadid-Ø-i"],
+                    [:Singular :Person2 :Common "qadid-id-i"],
+                    [:Singular :Person3 :Masc "qadid-i-i"],
+                    [:Singular :Person3 :Fem "qadid-id-i"],
+                    [:Plural :Person1 :Common "qadid-an-i"],
+                    [:Plural :Person2 :Common "qadid-id-i-ri"],
+                    [:Plural :Person3 :Common "qadid-i-i-ri"]]
+            }
+           {:label "burunge-VBasePerfGlideStemBaseForm-xaw"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :xaw,
+                     :pos :Verb,
+                     :stemClass :GlideStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "_NULL"],
+                    [:Singular :Person2 :Common "_NULL"],
+                    [:Singular :Person3 :Masc "_NULL"],
+                    [:Singular :Person3 :Fem "_NULL"],
+                    [:Plural :Person1 :Common "_NULL"],
+                    [:Plural :Person2 :Common "_NULL"],
+                    [:Plural :Person3 :Common "_NULL"]]
+            }
+           {:label "burunge-VBasePerfHStemBaseForm-dah"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :dah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "_NULL"],
+                    [:Singular :Person2 :Common "_NULL"],
+                    [:Singular :Person3 :Masc "_NULL"],
+                    [:Singular :Person3 :Fem "_NULL"],
+                    [:Plural :Person1 :Common "_NULL"],
+                    [:Plural :Person2 :Common "_NULL"],
+                    [:Plural :Person3 :Common "_NULL"]]
+            }
+           {:label "burunge-VBasePerfUnmrkStemBaseForm-doosl"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dooɬ-Ø-i"],
+                    [:Singular :Person2 :Common "dooɬ-id-i"],
+                    [:Singular :Person3 :Masc "dooɬ-i-i"],
+                    [:Singular :Person3 :Fem "dooɬ-id-i"],
+                    [:Plural :Person1 :Common "dooɬ-an-i"],
+                    [:Plural :Person2 :Common "dooɬ-id-i-ri"],
+                    [:Plural :Person3 :Common "dooɬ-i-i-ri"]]
+            }
+           {:label "burunge-VBasePerfUnmrkStemBaseForm-koom"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :koom,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "koom-Ø-i"],
+                    [:Singular :Person2 :Common "koom-t-i"],
+                    [:Singular :Person3 :Masc "koom-i-i"],
+                    [:Singular :Person3 :Fem "koom-t-i"],
+                    [:Plural :Person1 :Common "koom-n!-i"],
+                    [:Plural :Person2 :Common "koom-t-i-ri"],
+                    [:Plural :Person3 :Common "koom-n!-i-ri"]]
+            }
+           {:label "burunge-VBaseSubjunctiveDentalStemBaseForm-qadid"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :qadid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "qadid-Ø-ee"],
+                    [:Singular :Person2 :Common "qadid-id-ee"],
+                    [:Singular :Person3 :Masc "qadid-i-ee"],
+                    [:Singular :Person3 :Fem "qadid-id-ee"],
+                    [:Plural :Person1 :Common "qadid-an-ee"],
+                    [:Plural :Person2 :Common "qadid-id-ee-i"],
+                    [:Plural :Person3 :Common "qadid-i-ee-i"]]
+            }
+           {:label "burunge-VBaseSubjunctiveGlideStemBaseForm-xaw"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :xaw,
+                     :pos :Verb,
+                     :stemClass :GlideStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "_NULL"],
+                    [:Singular :Person2 :Common "_NULL"],
+                    [:Singular :Person3 :Masc "_NULL"],
+                    [:Singular :Person3 :Fem "_NULL"],
+                    [:Plural :Person1 :Common "_NULL"],
+                    [:Plural :Person2 :Common "_NULL"],
+                    [:Plural :Person3 :Common "_NULL"]]
+            }
+           {:label "burunge-VBaseSubjunctiveHStemBaseForm-dah"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :dah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "_NULL"],
+                    [:Singular :Person2 :Common "_NULL"],
+                    [:Singular :Person3 :Masc "_NULL"],
+                    [:Singular :Person3 :Fem "_NULL"],
+                    [:Plural :Person1 :Common "_NULL"],
+                    [:Plural :Person2 :Common "_NULL"],
+                    [:Plural :Person3 :Common "_NULL"]]
+            }
+           {:label "burunge-VBaseSubjunctiveUnmrkStemBaseForm-doosl"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dooɬ-Ø-ee"],
+                    [:Singular :Person2 :Common "dooɬ-id-ee"],
+                    [:Singular :Person3 :Masc "dooɬ-i-ee"],
+                    [:Singular :Person3 :Fem "dooɬ-id-ee"],
+                    [:Plural :Person1 :Common "dooɬ-an-ee"],
+                    [:Plural :Person2 :Common "dooɬ-id-ee-i"],
+                    [:Plural :Person3 :Common "dooɬ-i-ee-i"]]
+            }
+           {:label "burunge-VBaseSubjunctiveUnmrkStemBaseForm-koom"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :Affirmative,
+                     :lexeme :koom,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "koom-Ø-ee"],
+                    [:Singular :Person2 :Common "koom-t-ee"],
+                    [:Singular :Person3 :Masc "koom-n!-ee"],
+                    [:Singular :Person3 :Fem "koom-t-ee"],
+                    [:Plural :Person1 :Common "koom-n!-ee"],
+                    [:Plural :Person2 :Common "koom-t-ee-i"],
+                    [:Plural :Person3 :Common "koom-n!-ee-i"]]
+            }
+           {:label "burunge-VDeclImperfDentalStemBaseForm-qadid"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :qadid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "qadidă"],
+                    [:Singular :Person2 :Common "qadită"],
+                    [:Singular :Person3 :Masc "qadidĭ"],
+                    [:Singular :Person3 :Fem "qadită"],
+                    [:Plural :Person1 :Common "qadidană"],
+                    [:Plural :Person2 :Common "qaditay"],
+                    [:Plural :Person3 :Common "qadidiyay"]]
+            }
+           {:label "burunge-VDeclImperfUnmrkStemBaseForm-doosl"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dooɬă"],
+                    [:Singular :Person2 :Common "dooɬidă"],
+                    [:Singular :Person3 :Masc "dooɬĭ"],
+                    [:Singular :Person3 :Fem "dooɬidă"],
+                    [:Plural :Person1 :Common "dooɬană"],
+                    [:Plural :Person2 :Common "dooɬiday"],
+                    [:Plural :Person3 :Common "dooɬiyay"]]
+            }
+           {:label "burunge-VDeclImperfUnmrkStemBaseForm-koom"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :koom,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "koomă"],
+                    [:Singular :Person2 :Common "kontă"],
+                    [:Singular :Person3 :Masc "konă"],
+                    [:Singular :Person3 :Fem "kontă"],
+                    [:Plural :Person1 :Common "konă"],
+                    [:Plural :Person2 :Common "kontay"],
+                    [:Plural :Person3 :Common "konay"]]
+            }
+           {:label "burunge-VDeclPerfDentalStemBaseForm-qadid"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :qadid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "qadidĭ"],
+                    [:Singular :Person2 :Common "qaditĭ"],
+                    [:Singular :Person3 :Masc "qadidĭ"],
+                    [:Singular :Person3 :Fem "qaditĭ"],
+                    [:Plural :Person1 :Common "qadidanĭ"],
+                    [:Plural :Person2 :Common "qaditirĭ"],
+                    [:Plural :Person3 :Common "qadidirĭ"]]
+            }
+           {:label "burunge-VDeclPerfUnmrkStemBaseForm-doosl"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dooɬĭ"],
+                    [:Singular :Person2 :Common "dooɬidĭ"],
+                    [:Singular :Person3 :Masc "dooɬĭ"],
+                    [:Singular :Person3 :Fem "dooɬidĭ"],
+                    [:Plural :Person1 :Common "dooɬanĭ"],
+                    [:Plural :Person2 :Common "dooɬidirĭ"],
+                    [:Plural :Person3 :Common "dooɬirĭ"]]
+            }
+           {:label "burunge-VDeclPerfUnmrkStemBaseForm-koom"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :koom,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "koomĭ"],
+                    [:Singular :Person2 :Common "kontĭ"],
+                    [:Singular :Person3 :Masc "koomĭ"],
+                    [:Singular :Person3 :Fem "kontĭ"],
+                    [:Plural :Person1 :Common "konĭ"],
+                    [:Plural :Person2 :Common "kontirĭ"],
+                    [:Plural :Person3 :Common "konirĭ"]]
+            }
+           {:label "burunge-VDeclSubjunctiveDentalStemBaseForm-qadid"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :qadid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "qadide"],
+                    [:Singular :Person2 :Common "qadite"],
+                    [:Singular :Person3 :Masc "qadidiye"],
+                    [:Singular :Person3 :Fem "qadite"],
+                    [:Plural :Person1 :Common "qadidane"],
+                    [:Plural :Person2 :Common "qaditee’ĭ"],
+                    [:Plural :Person3 :Common "qadididyee’ĭ"]]
+            }
+           {:label "burunge-VDeclSubjunctiveUnmrkStemBaseForm-doosl"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dooɬe"],
+                    [:Singular :Person2 :Common "dooɬide"],
+                    [:Singular :Person3 :Masc "dooɬiye"],
+                    [:Singular :Person3 :Fem "dooɬide"],
+                    [:Plural :Person1 :Common "dooɬane"],
+                    [:Plural :Person2 :Common "dooɬidee’i"],
+                    [:Plural :Person3 :Common "dooɬiyee’i"]]
+            }
+           {:label "burunge-VDeclSubjunctiveUnmrkStemBaseForm-koom"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :koom,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "koome"],
+                    [:Singular :Person2 :Common "konte"],
+                    [:Singular :Person3 :Masc "kone"],
+                    [:Singular :Person3 :Fem "konte"],
+                    [:Plural :Person1 :Common "kone"],
+                    [:Plural :Person2 :Common "kontee’i"],
+                    [:Plural :Person3 :Common "konee’i"]]
+            }
+           {:label "burunge-VImperfPresentSel_sem-doosl"
+            :note "Kiessling1994 # 7.2.5.1"
+            :pdgmType :Finite_Sel_stem
+            :common {:polarity :Negative,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :tenseSel :Present,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ana ha dooɬă"],
+                    [:Singular :Person2 :Common "‘ugu ha dooɬidă"],
+                    [:Singular :Person3 :Masc "‘ina dooɬĭ"],
+                    [:Singular :Person3 :Fem "‘ina dooɬidă"],
+                    [:Plural :Person1 :Common "dandiray ha dooɬană"],
+                    [:Plural :Person2 :Common "‘unkuray ha dooɬiday"],
+                    [:Plural :Person3 :Common "‘inay dooɬiyay"]]
+            }
+           {:label "burunge-VImperfPreteriteSel_stem-doosl"
+            :note "Kiessling1994 7.2.5.2. The imperf preterite needs a progressive durative
+            stem."
+            :pdgmType :Finite_Sel_stem
+            :common {:derivedStem :ProgDur,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :tenseSel :Preterite,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ana háa dooɬiiɬimă"],
+                    [:Singular :Person2 :Common "‘ugu háa dooɬiiɬintă"],
+                    [:Singular :Person3 :Masc "‘ina yáa dooɬiiɬină"],
+                    [:Singular :Person3 :Fem "‘ina yáa dooɬiiɬintă"],
+                    [:Plural :Person1 :Common "dandiray háa dooɬiiɬină"],
+                    [:Plural :Person2 :Common "‘unkuray háa dooɬiiɬintay"],
+                    [:Plural :Person3 :Common "‘inay yáa dooɬiiɬinay"]]
+            }
+           {:label "burunge-VImperfCompletiveSel_stem-doosl"
+            :note "Kiessling1994 # 7.2.5.3. Das Kompletivmorphem. Der imperfische Aspekt dagegen
+            forert wuederum den progressivischem Verbalstamm:"
+            :pdgmType :Finite_Sel_stem
+            :common {:derivedStem :ProgDur,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :tenseSel :Completive,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ana hang dooɬiiɬimă"],
+                    [:Singular :Person2 :Common "‘ugu hang dooɬiiɬintă"],
+                    [:Singular :Person3 :Masc "‘ina hing dooɬiiɬină"],
+                    [:Singular :Person3 :Fem "‘ina hing dooɬiiɬintă"],
+                    [:Plural :Person1 :Common "dandiray hang dooɬiiɬină"],
+                    [:Plural :Person2 :Common "‘unkuray hang dooɬiiɬintay"],
+                    [:Plural :Person3 :Common "‘inay hing dooɬiilinay"]]
+            }
+           {:label "burunge-VPerfCompletiveSel_stem-doosl"
+            :note "Kiessling1994 # 7.2.5.3. Das Kompletivmorphem perf"
+            :pdgmType :Finite_Sel_stem
+            :common {:polarity :Negative,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :tenseSel :Completive,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ana hang dooɬĭ"],
+                    [:Singular :Person2 :Common "‘ugu hang dooɬidĭ"],
+                    [:Singular :Person3 :Masc "‘ina hing dooɬĭ"],
+                    [:Singular :Person3 :Fem "‘ina hing dooɬidĭ"],
+                    [:Plural :Person1 :Common "dandiray hang dooɬanĭ"],
+                    [:Plural :Person2 :Common "‘unkuray hang dooɬidirĭ"],
+                    [:Plural :Person3 :Common "‘inay hing dooɬirĭ"]]
+            }
+           {:label "burunge-VPerfPreteriteSel_stem-doosl"
+            :note "Kiessling1994 # 7.2.5.2"
+            :pdgmType :Finite_Sel_stem
+            :common {:polarity :Negative,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :tenseSel :Preterite,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ana háa dooɬĭ"],
+                    [:Singular :Person2 :Common "‘ugu háa dooɬidĭ"],
+                    [:Singular :Person3 :Masc "‘ina yáa dooɬĭ"],
+                    [:Singular :Person3 :Fem "‘ina yáa dooɬidĭ"],
+                    [:Plural :Person1 :Common "dandiray háa dooɬanĭ"],
+                    [:Plural :Person2 :Common "‘unkuray háa dooɬidirĭ"],
+                    [:Plural :Person3 :Common "inay yáa dooɬiĭ"]]
+            }
+           {:label "burunge-VImperfHabitualSel_stem-doosl"
+            :note "Kiessling1994 # 7.2.5.4. Das Beispielparadigma fur den Habitual
+            lautet:"
+            :pdgmType :Finite_Sel_stem
+            :common {:polarity :Negative,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :tenseSel :Habitual,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ana hóo dooɬă"],
+                    [:Singular :Person2 :Common "‘ugu hóo dooɬidă"],
+                    [:Singular :Person3 :Masc "‘ina yóo dooɬĭ"],
+                    [:Singular :Person3 :Fem "‘ina yóo dooɬidă"],
+                    [:Plural :Person1 :Common "dandiray hóo dooɬană"],
+                    [:Plural :Person2 :Common "‘unkuray hóo dooɬiday"],
+                    [:Plural :Person3 :Common "‘inay yóo dooɬiyay"]]
+            }
+           {:label "burunge-VImperfProspectiveSel_stem-doosl"
+            :note "Kiessling1994 # 7.2.5.5. Das Beispielparadigma fur den Prospektiv
+            lautet:"
+            :pdgmType :Finite_Sel_stem
+            :common {:polarity :Negative,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :tenseSel :Prospective,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ana hoo dooɬă"],
+                    [:Singular :Person2 :Common "‘ugu hoo dooɬidă"],
+                    [:Singular :Person3 :Masc "‘ina yoo dooɬĭ"],
+                    [:Singular :Person3 :Fem "‘ina yoo dooɬidă"],
+                    [:Plural :Person1 :Common "dandiray hoo dooɬană"],
+                    [:Plural :Person2 :Common "‘unkuray hoo dooɬiday"],
+                    [:Plural :Person3 :Common "‘inay yoo dooɬiyay"]]
+            }
+           {:label "burunge-VImperfFuture1Sel_stem-doosl"
+            :note "Kiessling1994 # 7.2.5.6. Das Paradigma fur Futur 1 lautet:"
+            :pdgmType :Finite_Sel_stem
+            :common {:polarity :Negative,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :tenseSel :Future1,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ana haa dooɬă"],
+                    [:Singular :Person2 :Common "‘ugu haa dooɬidă"],
+                    [:Singular :Person3 :Masc "‘ina yaa dooɬĭ"],
+                    [:Singular :Person3 :Fem "‘ina yaa dooɬidă"],
+                    [:Plural :Person1 :Common "dandiray haa dooɬană"],
+                    [:Plural :Person2 :Common "‘unkuray haa dooɬiday"],
+                    [:Plural :Person3 :Common "‘inay yaa dooɬiyay"]]
+            }
+           {:label "burunge-VImperfFuture2Sel_stem-doosl"
+            :note "Kiessling1994 # 7.2.5.6"
+            :pdgmType :Finite_Sel_stem
+            :common {:polarity :Negative,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :tenseSel :Future2,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ana hamaa dooɬă"],
+                    [:Singular :Person2 :Common "‘ugu hamaa dooɬidă"],
+                    [:Singular :Person3 :Masc "‘ina himaa dooɬĭ"],
+                    [:Singular :Person3 :Fem "‘ina himaa dooɬidă"],
+                    [:Plural :Person1 :Common "dandiray hamaa dooɬană"],
+                    [:Plural :Person2 :Common "‘unkuray hamaa dooɬiday"],
+                    [:Plural :Person3 :Common "‘inay himaa dooɬiyay"]]
+            }
+           {:label "burunge-VInterrImperfDentalStemBaseForm-qadid"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :qadid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "qadida"],
+                    [:Singular :Person2 :Common "qadita"],
+                    [:Singular :Person3 :Masc "qadidiya"],
+                    [:Singular :Person3 :Fem "qadita"],
+                    [:Plural :Person1 :Common "qadidana"],
+                    [:Plural :Person2 :Common "qadita’i"],
+                    [:Plural :Person3 :Common "qadidiya’i"]]
+            }
+           {:label "burunge-VInterrImperfGlideStemBaseForm-xaw"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :xaw,
+                     :pos :Verb,
+                     :stemClass :GlideStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "xawa"]
+                    [:Singular :Person2 :Common "xayda"]
+                    [:Singular :Person3 :Masc "xaya"]
+                    [:Singular :Person3 :Fem "xayda"]
+                    [:Plural :Person1 :Common "xayna"]
+                    [:Plural :Person2 :Common "xayda’i"]
+                    [:Plural :Person3 :Common "xaya’i"]]
+            }
+           {:label "burunge-VInterrImperfHStemBaseForm-dah"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :dah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dawa"]
+                    [:Singular :Person2 :Common "dahada"]
+                    [:Singular :Person3 :Masc "dahiya"]
+                    [:Singular :Person3 :Fem "dahada"]
+                    [:Plural :Person1 :Common "dahana"]
+                    [:Plural :Person2 :Common "dahada’i"]
+                    [:Plural :Person3 :Common "dahiya’i"]]
+            }
+           {:label "burunge-VInterrImperfUnmrkStemBaseForm-doosl"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dooɬa"],
+                    [:Singular :Person2 :Common "dooɬida"],
+                    [:Singular :Person3 :Masc "dooɬiya"],
+                    [:Singular :Person3 :Fem "dooɬida"],
+                    [:Plural :Person1 :Common "dooɬana"],
+                    [:Plural :Person2 :Common "dooɬida’i"],
+                    [:Plural :Person3 :Common "dooɬiya’i"]]
+            }
+           {:label "burunge-VInterrImperfUnmrkStemBaseForm-koom"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :koom,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "kooma"],
+                    [:Singular :Person2 :Common "konta"],
+                    [:Singular :Person3 :Masc "kona"],
+                    [:Singular :Person3 :Fem "konta"],
+                    [:Plural :Person1 :Common "kona"],
+                    [:Plural :Person2 :Common "konta’i"],
+                    [:Plural :Person3 :Common "kona’i"]]
+            }
+           {:label "burunge-VInterrPerfDentalStemBaseForm-qadid"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :qadid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "qadidi"],
+                    [:Singular :Person2 :Common "qaditi"],
+                    [:Singular :Person3 :Masc "qadidi"],
+                    [:Singular :Person3 :Fem "qaditi"],
+                    [:Plural :Person1 :Common "qadidani"],
+                    [:Plural :Person2 :Common "qaditiri"],
+                    [:Plural :Person3 :Common "qadidiri"]]
+            }
+           {:label "burunge-VInterrPerfGlideStemBaseForm-xaw"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :xaw,
+                     :pos :Verb,
+                     :stemClass :GlideStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "xay"]
+                    [:Singular :Person2 :Common "xaydi"]
+                    [:Singular :Person3 :Masc "xay"]
+                    [:Singular :Person3 :Fem "xaydi"]
+                    [:Plural :Person1 :Common "xayni"]
+                    [:Plural :Person2 :Common "xaydiri"]
+                    [:Plural :Person3 :Common "xayri"]]
+            }
+           {:label "burunge-VInterrPerfHStemBaseForm-dah"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :dah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dahi"]
+                    [:Singular :Person2 :Common "dahadi"]
+                    [:Singular :Person3 :Masc "dahi"]
+                    [:Singular :Person3 :Fem "dahadi"]
+                    [:Plural :Person1 :Common "dahani"]
+                    [:Plural :Person2 :Common "dahadiri"]
+                    [:Plural :Person3 :Common "dahiri"]]
+            }
+           {:label "burunge-VInterrPerfUnmrkStemBaseForm-doosl"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dooɬi"],
+                    [:Singular :Person2 :Common "dooɬidi"],
+                    [:Singular :Person3 :Masc "dooɬi"],
+                    [:Singular :Person3 :Fem "dooɬidi"],
+                    [:Plural :Person1 :Common "dooɬani"],
+                    [:Plural :Person2 :Common "dooɬidiri"],
+                    [:Plural :Person3 :Common "dooɬiri"]]
+            }
+           {:label "burunge-VInterrPerfUnmrkStemBaseForm-koom"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :koom,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "koomi"],
+                    [:Singular :Person2 :Common "konti"],
+                    [:Singular :Person3 :Masc "koomi"],
+                    [:Singular :Person3 :Fem "konti"],
+                    [:Plural :Person1 :Common "koni"],
+                    [:Plural :Person2 :Common "kontiri"],
+                    [:Plural :Person3 :Common "koniri"]]
+            }
+           {:label "burunge-VInterrSubjunctiveDentalStemBaseForm-qadid"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :qadid,
+                     :pos :Verb,
+                     :stemClass :DentalStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "qadidee"],
+                    [:Singular :Person2 :Common "qaditee"],
+                    [:Singular :Person3 :Masc "qadidiyee"],
+                    [:Singular :Person3 :Fem "qaditee"],
+                    [:Plural :Person1 :Common "qadidanee"],
+                    [:Plural :Person2 :Common "qaditee’i"],
+                    [:Plural :Person3 :Common "qadidiyee’i"]]
+            }
+           {:label "burunge-VInterrSubjunctiveGlideStemBaseForm-xaw"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :xaw,
+                     :pos :Verb,
+                     :stemClass :GlideStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "xawee"]
+                    [:Singular :Person2 :Common "xaydee"]
+                    [:Singular :Person3 :Masc "xayee"]
+                    [:Singular :Person3 :Fem "xaydee"]
+                    [:Plural :Person1 :Common "xaynee"]
+                    [:Plural :Person2 :Common "xaydee’i"]
+                    [:Plural :Person3 :Common "xayee’i"]]
+            }
+           {:label "burunge-VInterrSubjunctiveHStemBaseForm-dah"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :dah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dahee"]
+                    [:Singular :Person2 :Common "dahadee"]
+                    [:Singular :Person3 :Masc "dahiyee"]
+                    [:Singular :Person3 :Fem "dahadee"]
+                    [:Plural :Person1 :Common "dahanee"]
+                    [:Plural :Person2 :Common "dahadee’i"]
+                    [:Plural :Person3 :Common "dahiyee’i"]]
+            }
+           {:label "burunge-VInterrSubjunctiveUnmrkStemBaseForm-doosl"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :doosl,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dooɬee"],
+                    [:Singular :Person2 :Common "dooɬidee"],
+                    [:Singular :Person3 :Masc "dooɬiyee"],
+                    [:Singular :Person3 :Fem "dooɬidee"],
+                    [:Plural :Person1 :Common "dooɬanee"],
+                    [:Plural :Person2 :Common "dooɬidee’i"],
+                    [:Plural :Person3 :Common "dooɬiyee’i"]]
+            }
+           {:label "burunge-VInterrSubjunctiveUnmrkStemBaseForm-koom"
+            :note "Kiessling1994 # 7.2.2 & 7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffInterr,
+                     :lexeme :koom,
+                     :pos :Verb,
+                     :stemClass :UnmrkStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "koomee"],
+                    [:Singular :Person2 :Common "kontee"],
+                    [:Singular :Person3 :Masc "konee"],
+                    [:Singular :Person3 :Fem "kontee"],
+                    [:Plural :Person1 :Common "konee"],
+                    [:Plural :Person2 :Common "kontee’i"],
+                    [:Plural :Person3 :Common "konee’i"]]
+            }
+           {:label "burunge-VDeclImperfGlideStemBaseForm-xaw"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :xaw,
+                     :pos :Verb,
+                     :stemClass :GlideStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "xaw"]
+                    [:Singular :Person2 :Common "xaydă"]
+                    [:Singular :Person3 :Masc "xay"]
+                    [:Singular :Person3 :Fem "xaydă"]
+                    [:Plural :Person1 :Common "xaynă"]
+                    [:Plural :Person2 :Common "xayday"]
+                    [:Plural :Person3 :Common "xayay"]]
+            }
+           {:label "burunge-VDeclImperfHStemBaseForm-dah"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :dah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Imperfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "daw"]
+                    [:Singular :Person2 :Common "dahadă ~ daadă"]
+                    [:Singular :Person3 :Masc "dahĭ ~ day"]
+                    [:Singular :Person3 :Fem "dahadă ~ daadă"]
+                    [:Plural :Person1 :Common "dahană ~ daană"]
+                    [:Plural :Person2 :Common "dahaday ~ daaday"]
+                    [:Plural :Person3 :Common "dahiyay ~ dayay"]]
+            }
+           {:label "burunge-VDeclPerfGlideStemBaseForm-xaw"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :xaw,
+                     :pos :Verb,
+                     :stemClass :GlideStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "xay"]
+                    [:Singular :Person2 :Common "xaydĭ"]
+                    [:Singular :Person3 :Masc "xay"]
+                    [:Singular :Person3 :Fem "xaydĭ"]
+                    [:Plural :Person1 :Common "xaynĭ"]
+                    [:Plural :Person2 :Common "xaydirĭ"]
+                    [:Plural :Person3 :Common "xayrĭ"]]
+            }
+           {:label "burunge-VDeclPerfHStemBaseForm-dah"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :dah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Perfect}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dahĭ ~ day"]
+                    [:Singular :Person2 :Common "dahadĭ ~ daadĭ"]
+                    [:Singular :Person3 :Masc "dahĭ ~ day"]
+                    [:Singular :Person3 :Fem "dahadĭ ~ daadĭ"]
+                    [:Plural :Person1 :Common "dahanĭ ~ daanĭ"]
+                    [:Plural :Person2 :Common "dahadirĭ ~ daadirĭ"]
+                    [:Plural :Person3 :Common "dahirĭ ~ dayrĭ"]]
+            }
+           {:label "burunge-VDeclSubjunctiveGlideStemBaseForm-xaw"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :xaw,
+                     :pos :Verb,
+                     :stemClass :GlideStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "xawe"]
+                    [:Singular :Person2 :Common "xayde"]
+                    [:Singular :Person3 :Masc "xaye"]
+                    [:Singular :Person3 :Fem "xayde"]
+                    [:Plural :Person1 :Common "xayne"]
+                    [:Plural :Person2 :Common "xaydee’i"]
+                    [:Plural :Person3 :Common "xayee’i"]]
+            }
+           {:label "burunge-VDeclSubjunctiveHStemBaseForm-dah"
+            :note "Kiessling1994 ## 7.2.2,7.2.3"
+            :pdgmType :Finite
+            :common {:polarity :AffDecl,
+                     :lexeme :dah,
+                     :pos :Verb,
+                     :stemClass :HStem,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "dahe"]
+                    [:Singular :Person2 :Common "dahade ~ daade"]
+                    [:Singular :Person3 :Masc "dahiye ~ daye"]
+                    [:Singular :Person3 :Fem "dahade ~ daade"]
+                    [:Plural :Person1 :Common "dahane ~ daane"]
+                    [:Plural :Person2 :Common "dahadee’ĭ ~ daadee’ĭ"]
+                    [:Plural :Person3 :Common "dahiyee’ĭ ~ dayee’ĭ"]]
+            }
+           {:label "burunge-VSel_stem-doosl"
+            :note "Kiessling1994 # 7.2.7.3"
+            :pdgmType :Finite_Sel
+            :common {:clauseTypeSel :Consecutive,
+                     :lexeme :doosl,
+                     :number :Singular,
+                     :person :Person1,
+                     :gender :Common
+                     :pos :Selector
+                     :smorphClass :Subj_Tense_Consecutive
+                     }
+            :terms [[:tenseSel :token],
+                    [:Future1 "‘ana maa dooɬĭ"],
+                    [:Future2 "‘ana mamaa dooɬĭ"],
+                    [:Habitual "‘ana móo dooɬĭ"],
+                    [:Prospective "‘ana moo dooɬĭ"]]
+            }
+           {:label "burunge-VSubjunctiveSel_stem-doosl"
+            :note "Kiessling1994 # 7.2.6. Der Subjunktiv"
+            :pdgmType :Finite_Sel_stem
+            :common {:lexeme :doosl,
+                     :pos :Verb,
+                     :tam :Subjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ana dooɬe"],
+                    [:Singular :Person2 :Common "‘ugu dooɬide"],
+                    [:Singular :Person3 :Masc "‘ina dooɬiye"],
+                    [:Singular :Person3 :Fem "‘ina dooɬide"],
+                    [:Plural :Person1 :Common "dandiray dooɬane"],
+                    [:Plural :Person2 :Common "‘unkuray dooɬidee’ĭ"],
+                    [:Plural :Person3 :Common "‘inay dooɬiyee’ĭ"]]
+            }
+           {:label "burunge-VImprtvWithObj-kiis"
+            :note "Kiessling1994, 7.2.16, p. 179. [REV: :orientation :number :genNumObj]"
+            :pdgmType :Finite_WithObj
+            :common {:lexeme :kiis
+                     :person :Person2,
+                     :pos :Verb,
+                     :tam :Imperative}
+            :terms [[:genderObj  :orientation :number :token],
+                    [:Neut  :NonVentive :Plural "kiʕisakină"],
+                    [:Neut  :Ventive :Plural "kiʕisankină"],
+                    [:Neut  :NonVentive :Singular "kiʕisekĭ"],
+                    [:Neut  :Ventive :Singular "kiʕisankĭ"],
+                    [:Fem  :NonVentive :Plural "kiʕisakană"],
+                    [:Fem  :Ventive :Plural "kiʕisankună"],
+                    [:Fem  :NonVentive :Singular "kiʕisekă"],
+                    [:Fem  :Ventive :Singular "kiʕisankă"],
+                    [:Masc :NonVentive :Plural "kiʕisakună"],
+                    [:Masc :Ventive :Plural "kiʕisankună"],
+                    [:Masc :NonVentive :Singular "kiʕisekŭ"],
+                    [:Masc :Ventive :Singular "kiʕisankŭ"]]
+            }
+           {:label "burunge-VNegProhibitativeNegSubjunctive"
+            :note "Kiessling1994 # 9.5.2. Der Prohibitiv. The prohibitive functions as the negation
+            of the imprtv,subjunctive,and optative. Negation with -baɬi not possible. Instead,neg
+            adv ħanti comes between selector and stem. The tnsAspMod is imperf;can be combined with
+            any non-preterite tenseSel"
+            :pdgmType :Finite
+            :common {:lexeme :doosl,
+                     :polarity :Negative,
+                     :pos :Verb,
+                     :tam :Prohibitative,
+                     :mood :NegSubjunctive}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ana ha ħanti dooɬă"],
+                    [:Singular :Person2 :Common "‘ugu ha ħanti dooɬidă"],
+                    [:Singular :Person3 :Masc "‘ina ħanti dooɬĭ"],
+                    [:Singular :Person3 :Fem "‘ina ħanti dooɬidă"],
+                    [:Plural :Person1 :Common "dandiray ha ħanti dooɬană"],
+                    [:Plural :Person2 :Common "‘unkuray ha ħanti dooɬiday"],
+                    [:Plural :Person3 :Common "‘inay ħanti dooɬiyay"]]
+            }
+           {:label "burunge-VNegVerbVsAdjNeg-ar"
+            :note "Kiessling1994 # 9.5.3. Der adjektivische Charakter des Negationssuffixes -baɬi. The following paradigm illustrates the difference between the verbal suffix -baɬi,which gets reduced to –ba in the declarative,and the adjective baɬ,which undergoes no such reduction."
+            :pdgmType :VOther
+            :common {:lexeme :ʔar,
+                     :person :Person2,
+                     :vmorphClass :VerbVsAdjNeg
+                     :pos :Verb}
+            :terms [[:polarity :predType :number :gender :token],
+                    [:NegInterr :Adjectival :Singular :Masc "hagung báɬu ‘arimaa"],
+                    [:NegInterr :Adjectival :Singular :Fem "haging báɬi ‘arimaa"],
+                    [:NegInterr :Adjectival :Plural :Common "hangung báɬi ‘arimaa"],
+                    [:NegInterr :Verbal :Singular :Masc "hang ‘arintíibaɬi"],
+                    [:NegInterr :Verbal :Singular :Fem "hang ‘arintíibaɬi"],
+                    [:NegInterr :Verbal :Plural :Common "hang ‘arintiríibaɬi"],
+                    [:Negative :Adjectival :Singular :Masc "hagung baɬŭ ‘arimaa"],
+                    [:Negative :Adjectival :Singular :Fem "haging baɬĭ ‘arimaa"],
+                    [:Negative :Adjectival :Plural :Common "hangung baɬĭ ‘arimaa"],
+                    [:Negative :Verbal :Singular :Masc "hang ‘arintiiba"],
+                    [:Negative :Verbal :Singular :Fem "hang ‘arintiiba"],
+                    [:Negative :Verbal :Plural :Common "hang ‘arintiriiba"]]
+            }
+           {:label "burunge-VNegVerbalnoun-doosl"
+            :note "Kiessling1994 # 9.5.3. Der adjektivische Charakter des Negationssuffixes -baɬi.
+            This is a nominal type negative construction. The adjectivally inflected baɬ comes
+            inbetween the selector and the verbal noun form of the verb. Paradigm gives by way of
+            example the second person forms."
+            :pdgmType :VOther
+            :common {:lexeme :doosl,
+                     :person :Person2,
+                     :polarity :Negative,
+                     :vmorphClass :Verbalnoun
+                     :pos :Verb}
+            :terms [[:tenseSel :number :gender :token :token-verb],
+                    [:Completive :Singular :Masc "hagung baɬu""dooɬa"],
+                    [:Completive :Singular :Fem "haging baɬi""dooɬa"],
+                    [:Completive :Plural :Common "hangung baɬi""dooɬa"],
+                    [:Future1 :Singular :Masc "hagwaa baɬu""dooɬa"],
+                    [:Future1 :Singular :Fem "hagiyaa baɬi""dooɬa"],
+                    [:Future1 :Plural :Common "hangwaa baɬi""dooɬa"],
+                    [:Future2 :Singular :Masc "hagumaa baɬu""dooɬa"],
+                    [:Future2 :Singular :Fem "hagimaa baɬi""dooɬa"],
+                    [:Future2 :Plural :Common "hangumaa baɬi""dooɬa"],
+                    [:Habitual :Singular :Masc "hagóo baɬu""dooɬa"],
+                    [:Habitual :Singular :Fem "hagiyóo baɬi""dooɬa"],
+                    [:Habitual :Plural :Common "hangóo baɬi""dooɬa"],
+                    [:Present :Singular :Masc "hagu baɬu""dooɬa"],
+                    [:Present :Singular :Fem "hagi baɬi""dooɬa"],
+                    [:Present :Plural :Common "hangu baɬi""dooɬa"],
+                    [:Preterite :Singular :Masc "hagwáa baɬu""dooɬa"],
+                    [:Preterite :Singular :Fem "hagiyáa baɬi""dooɬa"],
+                    [:Preterite :Plural :Common "hangwáa baɬi""dooɬa"],
+                    [:Prospective :Singular :Masc "hagoo baɬu""dooɬa"],
+                    [:Prospective :Singular :Fem "hagiyoo baɬi""dooɬa"],
+                    [:Prospective :Plural :Common "hangoo baɬi""dooɬa"]]
+            }
+           ]
+ :muterms [
+           {:label "burunge-PDeicticAnaph"
+            :note "Kiessling1994 5.6.1.2. Die deiktische anaphorische Basis. [The plural form serves also as a neuter. On deixis and reference features,cf. 5.5.1 and 5.5.2 (pp. 79-81).]"
+            :pdgmType :PRO
+            :common {:pos :Pronoun,
+                     :proClass :DeicticAnaph}
+            :terms [[:deixis :reference :gender :token],
+                    [:Far :NonSpatial :PluralNeut "ħakiri ~ ħakira"],
+                    [:Far :NonSpatial :Masc "hikiri ~ hikira"],
+                    [:Far :NonSpatial :Fem "hatiri ~ hatira"],
+                    [:Far :Spatial :PluralNeut "ħaka’a"],
+                    [:Far :Spatial :Masc "hika’a"],
+                    [:Far :Spatial :Fem "hata’a"],
+                    [:Near :NonSpatial :PluralNeut "ħakee"],
+                    [:Near :NonSpatial :Masc "hikee"],
+                    [:Near :NonSpatial :Fem "hatee"],
+                    [:Near :Spatial :PluralNeut "ħang"],
+                    [:Near :Spatial :Masc "hing"],
+                    [:Near :Spatial :Fem "hang"]]
+            }
+           {:label "burunge-PInd"
+            :note "Kiessling1994 5.6 (p. 86)"
+            :pdgmType :PRO
+            :common {:pos :Pronoun,
+                     :proClass :Independent}
+            :terms [[:number :person :gender :token],
+                    [:Singular :Person1 :Common "‘ana"],
+                    [:Singular :Person2 :Masc "‘ugu ~ ‘u"],
+                    [:Singular :Person2 :Fem "‘igi ~ ‘i"],
+                    [:Singular :Person3 :Common "‘ina ~ ‘ină"],
+                    [:Plural :Person1 :Common "dandiray ~ dandi ~ danday"],
+                    [:Plural :Person2 :Common "‘unkuray"],
+                    [:Plural :Person3 :Common "‘inay"]]
+            }
+
+           {:label "burunge-PPersMarkersGen"
+            :note "Kiessling1994 5.6 (p. 87). [A conflation of several person marker paradigms]"
+            :pdgmType :PRO
+            :common {:pos :Pronoun,
+                     :proClass :PersMarkersGeneral}
+            :terms [[:personMarkerType :number :person :gender :token],
+                    [:ObjAgr :Singular :Person1 :Common "-ni-"],
+                    [:ObjAgr :Singular :Person2 :Masc "-gu-"],
+                    [:ObjAgr :Singular :Person2 :Fem "-gi-"],
+                    [:ObjAgr :Singular :Person3 :Masc "-gu-"],
+                    [:ObjAgr :Singular :Person3 :Fem "-ga-"],
+                    [:ObjAgr :Plural :Person1 :Common "-ndi-"],
+                    [:ObjAgr :Plural :Person2 :Common "-ngu-"],
+                    [:ObjAgr :Plural :Person3 :Common "-gi-"],
+                    [:PossSuffBase :Singular :Person1 :Common "-ay"],
+                    [:PossSuffBase :Singular :Person2 :Masc "-oogu"],
+                    [:PossSuffBase :Singular :Person2 :Fem "-oogi"],
+                    [:PossSuffBase :Singular :Person3 :Masc "-osi"],
+                    [:PossSuffBase :Singular :Person3 :Fem "-osi"],
+                    [:PossSuffBase :Plural :Person1 :Common "-oori"],
+                    [:PossSuffBase :Plural :Person2 :Common "-ooguna"],
+                    [:PossSuffBase :Plural :Person3 :Common "-oo’ina"],
+                    [:ProInd :Singular :Person1 :Common "‘ana"],
+                    [:ProInd :Singular :Person2 :Masc "‘ugu"],
+                    [:ProInd :Singular :Person2 :Fem "‘igi"],
+                    [:ProInd :Singular :Person3 :Masc "‘ina"],
+                    [:ProInd :Singular :Person3 :Fem "‘ina"],
+                    [:ProInd :Plural :Person1 :Common "dandiray ~ dandi ~ danday"],
+                    [:ProInd :Plural :Person2 :Common "‘unkuray"],
+                    [:ProInd :Plural :Person3 :Common "‘inay"]
+                    [:SubjAgr :Singular :Person1 :Common "ha-"],
+                    [:SubjAgr :Singular :Person2 :Masc "ha-"],
+                    [:SubjAgr :Singular :Person2 :Fem "ha-"],
+                    [:SubjAgr :Singular :Person3 :Masc "hi-"],
+                    [:SubjAgr :Singular :Person3 :Fem "hi-"],
+                    [:SubjAgr :Plural :Person1 :Common "ha-"],
+                    [:SubjAgr :Plural :Person2 :Common "ha-"],
+                    [:SubjAgr :Plural :Person3 :Common "hi-"],
+                    [:VerbSuff :Singular :Person1 :Common "_NULL, -u"],
+                    [:VerbSuff :Singular :Person2 :Masc "-id"],
+                    [:VerbSuff :Singular :Person2 :Fem "-id"],
+                    [:VerbSuff :Singular :Person3 :Masc "-i"],
+                    [:VerbSuff :Singular :Person3 :Fem "-id"],
+                    [:VerbSuff :Plural :Person1 :Common "-an"],
+                    [:VerbSuff :Plural :Person2 :Common "-id, -'i, -ri"],
+                    [:VerbSuff :Plural :Person3 :Common "-i, -'i, -ri"]]
+            }
+           {:label "burunge-PPossAnaph"
+            :note "Kiessling1994 5.6.1.1 Die possessivische anaphorische Basis. [e.g.,(it is)
+            mine,etc. (?)]"
+            :pdgmType :PRO
+            :common {:pos :Pronoun,
+                     :proClass :PossAnaph}
+            :terms [[:genderHead :number :person :gender :token],
+                    [:HeadFem :Singular :Person1 :Common "tay"],
+                    [:HeadFem :Singular :Person2 :Masc "toogu"],
+                    [:HeadFem :Singular :Person2 :Fem "toogi"],
+                    [:HeadFem :Singular :Person3 :Common "tosi"],
+                    [:HeadFem :Plural :Person1 :Common "toori"],
+                    [:HeadFem :Plural :Person2 :Common "tooguna"],
+                    [:HeadFem :Plural :Person3 :Common "too’ina"],
+                    [:HeadMasc :Singular :Person1 :Common "kway"],
+                    [:HeadMasc :Singular :Person2 :Masc "koogu"],
+                    [:HeadMasc :Singular :Person2 :Fem "koogi"],
+                    [:HeadMasc :Singular :Person3 :Common "kosi"],
+                    [:HeadMasc :Plural :Person1 :Common "koori"],
+                    [:HeadMasc :Plural :Person2 :Common "kooguna"],
+                    [:HeadMasc :Plural :Person3 :Common "koo’ina"],
+                    [:HeadNeut :Singular :Person1 :Common "ko’i"],
+                    [:HeadNeut :Singular :Person2 :Masc "koku"],
+                    [:HeadNeut :Singular :Person2 :Fem "koki"],
+                    [:HeadNeut :Singular :Person3 :Common "kosi"],
+                    [:HeadNeut :Plural :Person1 :Common "koti"],
+                    [:HeadNeut :Plural :Person2 :Common "kokuna"],
+                    [:HeadNeut :Plural :Person3 :Common "ko’ina"]]
+            }
+           {:label "burunge-PRefSwitch"
+            :note "Kiessling1994 5.6.1.1 Fem. poss anaphoric pronoun is grammaticized,in conjunction
+            with a locative case suffix as a reference switch indicator."
+            :pdgmType :PRO
+            :common {:pos :Pronoun,
+                     :proClass :RefSwitch}
+            :terms [[:case :number :person :gender :token],
+                    [:Ablative :Singular :Person1 :Common "too’aa"],
+                    [:Ablative :Singular :Person2 :Masc "toogwaa"],
+                    [:Ablative :Singular :Person2 :Fem "toogaa"],
+                    [:Ablative :Singular :Person3 :Common "tosaa"],
+                    [:Ablative :Plural :Person1 :Common "tooraa"],
+                    [:Ablative :Plural :Person2 :Common "toogunaa"],
+                    [:Ablative :Plural :Person3 :Common "too’inaa"],
+                    [:Allative :Singular :Person1 :Common "too’i"],
+                    [:Allative :Singular :Person2 :Masc "toogu"],
+                    [:Allative :Singular :Person2 :Fem "toogi"],
+                    [:Allative :Singular :Person3 :Common "tosi"],
+                    [:Allative :Plural :Person1 :Common "toori"],
+                    [:Allative :Plural :Person2 :Common "toogunay"],
+                    [:Allative :Plural :Person3 :Common "too’inay"]]
+            }
+           {:label "burunge-VDervStem"
+            :note "Kiessling1994 6.3 (pp. 93-109). Derived stem template:comitative - applicative - frequentative - ROOT - distributive - {progressive,intensive}- inchoative - durative - {mediopassive,continuative}- causative. The plural root (suppletive in a number of verbs) is often formed with a derived stem (frequentative,continuative,durative,progressivew,or intensive - cf. section 6.5.2,pp. 113 - 119. [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+            :pdgmType :VOther
+            :common {:pos :Verb
+                     :vmorphClass :DervStem}
+            :terms [[:derivedStem :token :token-note],
+                    [:Applicative "hii-""_NULL"],
+                    [:Causative "-is""_NULL"],
+                    [:Comitative "_NULL""_NULL"],
+                    [:Continuative "-id!""_NULL"],
+                    [:Distributive "{CV}n""total reduplication"],
+                    [:Durative "-(i)m""_NULL"],
+                    [:Frequentative "CV-""first syllable reduplication"],
+                    [:Inchoative "-aw""_NULL"],
+                    [:Intensive "-aaC-""reduplication of root-final C"],
+                    [:Mediopassive "-id!""_NULL"],
+                    [:Progressive "-VVC-""reduplication of root-final syllable with vowel lengthening"]]
+            }
+
+             {:label "burunge-VVerbStemStructure"
+              :note "Kiessling1994 #7 (p. 122). The verb stem inflection consists of the following possible sequence:STEM - person - aspectMood - number - negation – interr. [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :vmorphClass :VerbStemStructure}
+              :terms [[:stemInflCategory :stemInflMorpheme :number :person :gender :token],
+                      [:AspectMood :Imperfect :Common :Common :Common "-a"],
+                      [:AspectMood :Perfect :Common :Common :Common "-i"],
+                      [:AspectMood :Subjunctive :Common :Common :Common "-ee"],
+                      [:Negative :Negative :Common :Common :Common "-baɬi"],
+                      [:Number :Common :Singular :Common :Common "⊤"],
+                      [:Number :NumNonPerf :Plural :Common :Common "-‘i"],
+                      [:Number :NumPerf :Plural :Common :Common "-ri"],
+                      [:Person :Common :Singular :Person1 :Common "-"],
+                      [:Person :Common :Singular :Person2 :Common "-id"],
+                      [:Person :Common :Singular :Person3 :Masc "-I"],
+                      [:Person :Common :Singular :Person3 :Fem "-id"],
+                      [:Person :Common :Plural :Person1 :Common "-an"],
+                      [:SentenceType :AffDecl :Common :Common :Common "{phonReduction}"],
+                      [:SentenceType :InterrogDir :Common :Common :Common "⊤"],
+                      [:SentenceType :InterrogRhet :Common :Common :Common "-la"]]
+              }
+             {:label "burunge-VSel_SubjSuff"
+              :note "Kiessling1994 #7.1.1.1 (p. 123). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :vmorphClass :SubjMarkerSelStem}
+              :terms [[:tam :number :person :gender :token],
+                      [:Imperfect :Singular :Person1 :Common "ha- + -a"],
+                      [:Imperfect :Singular :Person2 :Common "ha- + -ida"],
+                      [:Imperfect :Singular :Person3 :Masc "hi- + -i"],
+                      [:Imperfect :Singular :Person3 :Fem "hi- + -ida"],
+                      [:Imperfect :Plural :Person1 :Common "ha- + -ana"],
+                      [:Imperfect :Plural :Person2 :Common "ha- + -ida’i"],
+                      [:Imperfect :Plural :Person3 :Common "hi- + -iya’i"],
+                      [:Perfect :Singular :Person1 :Common "ha- + -i"],
+                      [:Perfect :Singular :Person2 :Common "ha- + -idi"],
+                      [:Perfect :Singular :Person3 :Masc "hi- + -i"],
+                      [:Perfect :Singular :Person3 :Fem "hi- + -idi"],
+                      [:Perfect :Plural :Person1 :Common "ha- + -ani"],
+                      [:Perfect :Plural :Person2 :Common "ha- + -idiri"],
+                      [:Perfect :Plural :Person3 :Common "hi- + -iri"]]
+              }
+             {:label "burunge-VSubjSuffAllomorph"
+              :note "Kiessling1994 #7.1.1.2 (p. 124)"
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :vmorphClass :SubjSuffAllomorph}
+              :terms [[:number :person :gender :token],
+                      [:Singular :Person1 :Common "-Ø, -u"],
+                      [:Singular :Person2 :Common "-id, -t"],
+                      [:Singular :Person3 :Masc "-i, -n!"],
+                      [:Singular :Person3 :Fem "-id, -t"],
+                      [:Plural :Person1 :Common "-an, -in, -n!"],
+                      [:Plural :Person2 :Common "-ida’i -idiri, -ta'i, -tiri"],
+                      [:Plural :Person3 :Common "-iya’i, -iri, -n!a'i, -n!iri"]]
+              }
+             {:label "burunge-VSubjSuffDentStemImpf"
+              :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :stemClass :DentalStem
+                       :tam :Imperfect
+                       :vmorphClass :SubjSuffDentStemImperf}
+              :terms [[:number :person :gender :token],
+                      [:Singular :Person1 :Common "-Ø"],
+                      [:Singular :Person2 :Common "-id"],
+                      [:Singular :Person3 :Masc "-i"],
+                      [:Singular :Person3 :Fem "-id"],
+                      [:Plural :Person1 :Common "-an"],
+                      [:Plural :Person2 :Common "-ida’i"],
+                      [:Plural :Person3 :Common "-iya’i"]]
+              }
+             {:label "burunge-VSubjSuffDentStemPerf"
+              :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :stemClass :DentalStem
+                       :tam :Perfect
+                       :vmorphClass :SubjSuffDentStemPerf}
+              :terms [[:number :person :gender :token],
+                      [:Singular :Person1 :Common "-Ø"],
+                      [:Singular :Person2 :Common "-id"],
+                      [:Singular :Person3 :Masc "-i"],
+                      [:Singular :Person3 :Fem "-id"],
+                      [:Plural :Person1 :Common "-an"],
+                      [:Plural :Person2 :Common "-idiri"],
+                      [:Plural :Person3 :Common "-iri"]]
+              }
+             {:label "burunge-VSubjSuffGlideStemImpf"
+              :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :stemClass :GlideStem,
+                       :tam :Imperfect
+                       :vmorphClass :SubjSuffGlideStemImperf}
+              :terms [[:number :person :gender :token],
+                      [:Singular :Person1 :Common "-Ø"],
+                      [:Singular :Person2 :Common "-id"],
+                      [:Singular :Person3 :Masc "-i"],
+                      [:Singular :Person3 :Fem "-id"],
+                      [:Plural :Person1 :Common "-in"],
+                      [:Plural :Person2 :Common "-ida’i"],
+                      [:Plural :Person3 :Common "-iya’i"]]
+              }
+             {:label "burunge-VSubjSuffGlideStemPerf"
+              :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :stemClass :GlideStem
+                       :tam :Perfect
+                       :vmorphClass :SubjSuffGlideStemPerfect}
+              :terms [[:number :person :gender :token],
+                      [:Singular :Person1 :Common "-Ø"],
+                      [:Singular :Person2 :Common "-id"],
+                      [:Singular :Person3 :Masc "-i"],
+                      [:Singular :Person3 :Fem "-id"],
+                      [:Plural :Person1 :Common "-in"],
+                      [:Plural :Person2 :Common "-idiri"],
+                      [:Plural :Person3 :Common "-iri"]]
+              }
+             {:label "burunge-VSubjSuffHStemImpf"
+              :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :stemClass :HStem
+                       :tam :Imperfect
+                       :vmorphClass :SubjSuffHStemPerf}
+              :terms [[:number :person :gender :token],
+                      [:Singular :Person1 :Common "-u"],
+                      [:Singular :Person2 :Common "-id"],
+                      [:Singular :Person3 :Masc "-i"],
+                      [:Singular :Person3 :Fem "-id"],
+                      [:Plural :Person1 :Common "-an"],
+                      [:Plural :Person2 :Common "-ida’i"],
+                      [:Plural :Person3 :Common "-iya’i"]]
+              }
+             {:label "burunge-VSubjSuffHStemPerf"
+              :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :stemClass :HStem
+                       :tam :Perfect
+                       :vmorphClass :SubjSuffHStemPerf}
+              :terms [[:number :person :gender :token],
+                      [:Singular :Person1 :Common "-Ø"],
+                      [:Singular :Person2 :Common "-id"],
+                      [:Singular :Person3 :Masc "-i"],
+                      [:Singular :Person3 :Fem "-id"],
+                      [:Plural :Person1 :Common "-an"],
+                      [:Plural :Person2 :Common "-idiri"],
+                      [:Plural :Person3 :Common "-iri"]]
+              }
+             {:label "burunge-VSubjSuffNasStemImperf"
+              :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :stemClass :NasalStem
+                       :tam :Imperfect
+                       :vmorphClass :SubjSuffNasStemImperf}
+              :terms [[:number :person :gender :token],
+                      [:Singular :Person1 :Common "-Ø"],
+                      [:Singular :Person2 :Common "-t"],
+                      [:Singular :Person3 :Masc "-n!"],
+                      [:Singular :Person3 :Fem "-t"],
+                      [:Plural :Person1 :Common "-n!"],
+                      [:Plural :Person2 :Common "-ta’i"],
+                      [:Plural :Person3 :Common "-n!a’i"]]
+              }
+             {:label "burunge-VSubjSuffNasStemPerf"
+              :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :stemClass :NasalStem
+                       :tam :Perfect
+                       :vmorphClass :SubjSuffNasStemPerf}
+              :terms [[:number :person :gender :token],
+                      [:Singular :Person1 :Common "-Ø"],
+                      [:Singular :Person2 :Common "-t"],
+                      [:Singular :Person3 :Masc "-i"],
+                      [:Singular :Person3 :Fem "-t"],
+                      [:Plural :Person1 :Common "-n!"],
+                      [:Plural :Person2 :Common "indi"],
+                      [:Plural :Person3 :Common "-n!iri"]]
+              }
+             {:label "burunge-VSelectorStructure"
+              :note "Kiessling1994 #7 (p. 121). The preverbal selectorcomplex (Flexionskomplex) can contain morphemes from the following categories:clauseType - subjType - object - contrast - case - tenseAspect - sequential - actionOrientation"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :smorphClass :SelectorStructure}
+              :terms [[:selectorCategory :selectorFormant :token],
+                      [:CaseSel :CommitInstrumental "ri"]
+
+                      [:ClauseTypeSel :Conditional "bara"],
+                      [:ClauseTypeSel :Consecutive "ma"],
+                      [:ClauseTypeSel :ObliqueRelative "ga"],
+                      [:ClauseTypeSel :Optative "la"],
+                      [:ClauseTypeSel :SubjFocus "na"],
+
+                      [:ContrastSel :ObjFocus "ni"]
+
+                      [:ObjSel :Singular :Person1 :Common "ni"],
+                      [:ObjSel :Singular :Person2 :Masc "gu"],
+                      [:ObjSel :Singular :Person2 :Fem "gi"],
+                      [:ObjSel :Singular :Person3 :Masc "gu"],
+                      [:ObjSel :Singular :Person3 :Fem "ga"],
+                      [:ObjSel :Plural :Person1 :Common "ndi"],
+                      [:ObjSel :Plural :Person2 :Common "ngu"],
+                      [:ObjSel :Plural :Person3 :Common "gi"]
+                      [:ObjSel :NumCommon :PersonRefl :Common "ngi"]
+
+                      [:OrientationSel :Reflexive "ti"],
+                      [:OrientationSel :Separative "ti"],
+                      [:OrientationSel :Ventive "ni"]
+
+                      [:SequentialSel :Sequential "gi"]
+
+                      [:SubjTypeSel :BenefactiveSubj "sa"],
+                      [:SubjTypeSel :IndetSubj "da"],
+                      [:SubjTypeSel :Person1_2Sel "ha"],
+                      [:SubjTypeSel :Person3Sel "hi"]
+
+                      [:TenseSel :Completive "ng"],
+                      [:TenseSel :Future1 "aa"],
+                      [:TenseSel :Future2 "maa"],
+                      [:TenseSel :Habitual "óo"],
+                      [:TenseSel :Present "Ø"],
+                      [:TenseSel :Preterite "áa"],
+                      [:TenseSel :Prospective "oo"]]
+              }
+             {:label "burunge-VSubjObjTenseMorphophon"
+              :note "Kiessling1994 # 7.1.3 pp. 133-135. Sel vowel sequence resolutions."
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :smorphClass :SubjObjTenseMorphophon}
+              :terms [[:tenseSel :subjSel :numberObj :personObj :genderObj :token],
+                      [:Future1 :Person1_2Sel :NA :NA :NA "ha+aa > haa"]
+                      [:Future1 :Person3Sel :NA :NA :NA "hi+aa > yaa"]
+                      [:Future1 :Person1_2Sel :Singular :Person2 :Fem "ha+gi+aa > hagiyaa~hagaa"]
+                      [:Future1 :Person1_2Sel :Plural :Person3 :Common "ha+gi+aa > hagiyaa~hagaa"]
+                      [:Future1 :Person1_2Sel :Singular :Person1 :Common "ha+ni+aa > hanaa"]
+                      [:Future1 :Person1_2Sel :Singular :Person2 :Masc "ha+gu+aa > hagwaa"]
+                      [:Future1 :Person1_2Sel :Singular :Person3 :Masc "ha+gu+aa > hagwaa"]
+                      [:Future1 :Person1_2Sel :Plural :Person2 :Common "ha+ngu+aa > hagwaa"]
+                      [:Habitual :Person1_2Sel :NA :NA :NA "ha+óo > hóo"]
+                      [:Habitual :Person3Sel :NA :NA :NA "hi+óo > yóo"]
+                      [:Habitual :Person1_2Sel :Singular :Person2 :Fem "ha+gi+óo > hagiyóo~hagóo"]
+                      [:Habitual :Person1_2Sel :Plural :Person3 :Common "ha+gi+óo > hagiyóo~hagóo"]
+                      [:Habitual :Person1_2Sel :Plural :Person1 :Common "ha+ndi+óo > handóo"]
+                      [:Habitual :Person1_2Sel :Singular :Person2 :Masc "ha+gu+óo > hagóo"]
+                      [:Habitual :Person1_2Sel :Singular :Person3 :Masc "ha+gu+óo > hagóo"]
+                      [:Habitual :Person3Sel :Plural :Person2 :Common "ha+ngu+óo > hagóo"]
+                      [:NA :Person3Sel :Singular :Person2 :Masc "hi+gu > hugu"]
+                      [:NA :Person3Sel :Plural :Person2 :Common "hi+ngu > hungu"]
+                      [:NA :Person3Sel :Singular :Person3 :Masc "hi+gu > higu"]
+                      [:NA :Person3Sel :Singular :Person3 :Fem "hi+ga > higa"]
+                      [:Preterite :Person1_2Sel :NA :NA :NA "ha+áa > háa"]
+                      [:Preterite :Person3Sel :NA :NA :NA "hi+áa > yáa"]
+                      [:Preterite :Person1_2Sel :Singular :Person2 :Fem "ha+gi+áa > hagiyáa~hagáa"]
+                      [:Preterite :Person1_2Sel :Plural :Person3 :Common "ha+gi+áa > hagiyáa~hagáa"]
+                      [:Preterite :Person1_2Sel :Plural :Person1 :Common "ha+ndi+áa > handáa"]
+                      [:Preterite :Person1_2Sel :Singular :Person2 :Masc "ha+gu+áa > hagwáa"]
+                      [:Preterite :Person1_2Sel :Singular :Person3 :Masc "ha+gu+áa > hagwáa"]
+                      [:Preterite :Person1_2Sel :Plural :Person2 :Common "ha+ngu+áa > hagwáa"]
+                      [:Prospective :Person1_2Sel :NA :NA :NA "ha+oo > hoo"]
+                      [:Prospective :Person3Sel :NA :NA :NA "hi+oo > yoo"]
+                      [:Prospective :Person1_2Sel :Singular :Person2 :Fem "ha+gi+oo > hagiyoo~hagoo"]
+                      [:Prospective :Person1_2Sel :Plural :Person3 :Common "ha+gi+oo > hagiyoo~hagoo"]
+                      [:Prospective :Person1_2Sel :Singular :Person1 :Common "ha+ni+oo > hanoo"]
+                      [:Prospective :Person1_2Sel :Singular :Person2 :Fem "ha+gi+oo > hagoo"]
+                      [:Prospective :Person1_2Sel :Singular :Person3 :Fem "ha+ga+oo > hagoo"]
+                      [:Prospective :Person1_2Sel :Plural :Person3 :Common "ha+gi+oo > hagoo"]
+                      [:Prospective :Person1_2Sel :Singular :Person2 :Masc "ha+gu+oo > hagoo"]
+                      [:Prospective :Person1_2Sel :Singular :Person3 :Masc "ha+gu+oo > hagoo"]
+                      [:Prospective :Person1_2Sel :Plural :Person2 :Common "ha+ngu+oo > hagoo"]]
+              }
+             {:label "burunge-VPret_SubjObj"
+              :note "Kiessling1994 # 7.2.3.2 [REV: :subjSel :numberObj :personObj :genderObj]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :selectorCategory :TenseSel
+                       :tenseSel :Preterite
+                       :smorphClass :Preterite_SubjObj}
+              :terms [[:genderObj :numberObj :subjSel :personObj :token],
+                      [:Common :Plural :Person1_2Sel :Person1 "handáa"],
+                      [:Common :Plural :Person1_2Sel :Person2 "hangwáa"],
+                      [:Common :Plural :Person1_2Sel :Person3 "hagáa ~ hagiyáa"],
+                      [:Common :Plural :Person3Sel :Person1 "hindáa"],
+                      [:Common :Plural :Person3Sel :Person2 "hungwáa"],
+                      [:Common :Plural :Person3Sel :Person3 "higáa ~ higiyáa"],
+                      [:Common :Singular :Person1_2Sel :Person1 "hanáa"],
+                      [:Common :Singular :Person3Sel :Person1 "hináa"],
+                      [:Fem :Singular :Person1_2Sel :Person2 "hagáa ~ hagiyáa"],
+                      [:Fem :Singular :Person1_2Sel :Person3 "hagáa"],
+                      [:Fem :Singular :Person3Sel :Person2 "higáa ~ higiyáa"],
+                      [:Fem :Singular :Person3Sel :Person3 "higáa"],
+                      [:Masc :Singular :Person1_2Sel :Person2 "hagwáa"],
+                      [:Masc :Singular :Person1_2Sel :Person3 "hagwáa"],
+                      [:Masc :Singular :Person3Sel :Person2 "hugwáa"],
+                      [:Masc :Singular :Person3Sel :Person3 "higwáa"]]
+              }
+             {:label "burunge-VProspective_SubjObj"
+              :note "Kiessling1994 # 7.2.5.5 "
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :selectorCategory :TenseSel
+                       :tenseSel :Prospective
+                       :smorphClass :Prospective_SubjObj}
+              :terms [[:subjSel :numberObj :personObj :genderObj :token],
+                      [:Person1_2Sel :Singular :Person1 :Common "hanoo"]
+                      [:Person1_2Sel :Singular :Person2 :Fem "hagoo ~ hagiyoo"]
+                      [:Person1_2Sel :Singular :Person3 :Fem "hagoo"]
+                      [:Person1_2Sel :Singular :Person2 :Masc "hagoo"]
+                      [:Person1_2Sel :Singular :Person3 :Masc "hagoo"]
+                      [:Person1_2Sel :Plural :Person1 :Common "handoo"]
+                      [:Person1_2Sel :Plural :Person2 :Common "haŋoo"]
+                      [:Person1_2Sel :Plural :Person3 :Common "hagoo ~ hagiyoo"]
+                      [:Person3Sel :Singular :Person1 :Common "hinoo"]
+                      [:Person3Sel :Singular :Person2 :Fem "higoo ~ higiyoo"]
+                      [:Person3Sel :Singular :Person3 :Fem "higoo"]
+                      [:Person3Sel :Singular :Person2 :Masc "hugoo"]
+                      [:Person3Sel :Singular :Person3 :Masc "higoo"]
+                      [:Person3Sel :Plural :Person1 :Common "hindoo"]
+                      [:Person3Sel :Plural :Person2 :Common "huŋoo"]
+                      [:Person3Sel :Plural :Person3 :Common "higoo ~ higiyoo"]]
+              }
+
+             {:label "burunge-VTenseSel_SubjSel"
+              :note "Kiessling1994 #7.2.5 (p. 147) [REV: :tenseSel :subjSel]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :smorphClass :TenseSel_SubjSel }
+              :terms [[:subjSel :tenseSel :token],
+                      [:Person1_2Sel :Completive "hang"],
+                      [:Person1_2Sel :Future1 "haa"],
+                      [:Person1_2Sel :Future2 "hamaa"],
+                      [:Person1_2Sel :Habitual "hóo"],
+                      [:Person1_2Sel :Present "ha"],
+                      [:Person1_2Sel :Preterite "háa"],
+                      [:Person1_2Sel :Prospective "hoo"],
+                      [:Person3Sel :Completive "hing"],
+                      [:Person3Sel :Future1 "yaa"],
+                      [:Person3Sel :Future2 "himaa"],
+                      [:Person3Sel :Habitual "yóo"],
+                      [:Person3Sel :Present "hi"],
+                      [:Person3Sel :Preterite "yáa"],
+                      [:Person3Sel :Prospective "yoo"]]
+              }
+             {:label "burunge-VCompletive_SubjObj"
+              :note "Kiessling1994 # 7.2.5.3. [REV: :subjSel :numberObj :personObj :genderObj]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :smorphClass :Completive_SubjObj}
+              :terms [[:genderObj :numberObj :subjSel :personObj :token],
+                      [:Common :Plural :Person1_2Sel :Person1 "handing"],
+                      [:Common :Plural :Person1_2Sel :Person2 "hangung"],
+                      [:Common :Plural :Person1_2Sel :Person3 "haging"],
+                      [:Common :Plural :Person3Sel :Person1 "hinding"],
+                      [:Common :Plural :Person3Sel :Person2 "hungung"],
+                      [:Common :Plural :Person3Sel :Person3 "higing"],
+                      [:Common :Singular :Person1_2Sel :Person1 "haning"],
+                      [:Common :Singular :Person3Sel :Person1 "hining"],
+                      [:Fem :Singular :Person1_2Sel :Person2 "haging"],
+                      [:Fem :Singular :Person1_2Sel :Person3 "hagang"],
+                      [:Fem :Singular :Person3Sel :Person2 "higing"],
+                      [:Fem :Singular :Person3Sel :Person3 "higang"],
+                      [:Masc :Singular :Person1_2Sel :Person2 "hagung"],
+                      [:Masc :Singular :Person1_2Sel :Person3 "hagung"],
+                      [:Masc :Singular :Person3Sel :Person2 "hugung"],
+                      [:Masc :Singular :Person3Sel :Person3 "higung"]]
+              }
+             {:label "burunge-VSubj_Obj_Habitual"
+              :note "Kiessling1994 # 7.2.5.4. [REV: :subjSel :numberObj :personObj :genderObj]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :smorphClass :Subj_Obj_Habitual}
+              :terms [[:genderObj :numberObj :subjSel :personObj :token],
+                      [:Common :Plural :Person1_2Sel :Person1 "handóo"],
+                      [:Common :Plural :Person1_2Sel :Person2 "hangóo"],
+                      [:Common :Plural :Person1_2Sel :Person3 "hagóo ~ hagiyóo"],
+                      [:Common :Plural :Person3Sel :Person1 "hindóo"],
+                      [:Common :Plural :Person3Sel :Person2 "hungóo"],
+                      [:Common :Plural :Person3Sel :Person3 "higóo ~ higiyóo"],
+                      [:Common :Singular :Person1_2Sel :Person1 "hanóo"],
+                      [:Common :Singular :Person3Sel :Person1 "hinóo"],
+                      [:Fem :Singular :Person1_2Sel :Person2 "hagóo ~ hagiyóo"],
+                      [:Fem :Singular :Person1_2Sel :Person3 "hagóo"],
+                      [:Fem :Singular :Person3Sel :Person2 "higóo ~ higiyóo"],
+                      [:Fem :Singular :Person3Sel :Person3 "higóo"],
+                      [:Masc :Singular :Person1_2Sel :Person2 "hagóo"],
+                      [:Masc :Singular :Person1_2Sel :Person3 "hagóo"],
+                      [:Masc :Singular :Person3Sel :Person2 "hugóo"],
+                      [:Masc :Singular :Person3Sel :Person3 "higóo"]]
+              }
+             {:label "burunge-VSubj_Obj_Future1"
+              :note "Kiessling1994 # 7.2.5.6. [REV: :subjSel :numberObj :personObj :genderObj]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :smorphClass :Subj_Obj_Future1}
+              :terms [[:genderObj :numberObj :subjSel :personObj :token],
+                      [:Common :Plural :Person1_2Sel :Person1 "handaa"],
+                      [:Common :Plural :Person1_2Sel :Person2 "hangwaa"],
+                      [:Common :Plural :Person1_2Sel :Person3 "hagaa ~ hagiyaa"],
+                      [:Common :Plural :Person3Sel :Person1 "hindaa"],
+                      [:Common :Plural :Person3Sel :Person2 "hungwaa"],
+                      [:Common :Plural :Person3Sel :Person3 "higaa ~ higiyaa"],
+                      [:Common :Singular :Person1_2Sel :Person1 "hanaa"],
+                      [:Common :Singular :Person3Sel :Person1 "hinaa"],
+                      [:Fem :Singular :Person1_2Sel :Person2 "hagaa ~ hagiyaa"],
+                      [:Fem :Singular :Person1_2Sel :Person3 "hagaa"],
+                      [:Fem :Singular :Person3Sel :Person2 "higaa ~ higiyaa"],
+                      [:Fem :Singular :Person3Sel :Person3 "higaa"],
+                      [:Masc :Singular :Person1_2Sel :Person2 "hagwaa"],
+                      [:Masc :Singular :Person1_2Sel :Person3 "hagwaa"],
+                      [:Masc :Singular :Person3Sel :Person2 "hugwaa"],
+                      [:Masc :Singular :Person3Sel :Person3 "higwaa"]]
+              }
+             {:label "burunge-VSubj_Obj_Future2"
+              :note "Kiessling1994 # 7.2.5.7. [REV: :subjSel :numberObj :personObj :genderObj]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :smorphClass :Subj_Obj_Future2}
+              :terms [[:genderObj :numberObj :subjSel :personObj :token],
+                      [:Common :Plural :Person1_2Sel :Person1 "handimaa"],
+                      [:Common :Plural :Person1_2Sel :Person2 "hangumaa"],
+                      [:Common :Plural :Person1_2Sel :Person3 "hagimaa"],
+                      [:Common :Plural :Person3Sel :Person1 "hindimaa"],
+                      [:Common :Plural :Person3Sel :Person2 "hungumaa"],
+                      [:Common :Plural :Person3Sel :Person3 "higimaa"],
+                      [:Common :Singular :Person1_2Sel :Person1 "hanimaa"],
+                      [:Common :Singular :Person3Sel :Person1 "hinimaa"],
+                      [:Fem :Singular :Person1_2Sel :Person2 "hagimaa"],
+                      [:Fem :Singular :Person1_2Sel :Person3 "hagamaa"],
+                      [:Fem :Singular :Person3Sel :Person2 "higimaa"],
+                      [:Fem :Singular :Person3Sel :Person3 "higamaa"],
+                      [:Masc :Singular :Person1_2Sel :Person2 "hagumaa"],
+                      [:Masc :Singular :Person1_2Sel :Person3 "hagumaa"],
+                      [:Masc :Singular :Person3Sel :Person2 "hugumaa"],
+                      [:Masc :Singular :Person3Sel :Person3 "higumaa"]]
+              }
+             {:label "burunge-VOptativeIntransSel"
+              :note "Kiessling1994 # 7.2.7.1 Das Optativeparadigma ohne Objektindikatoren. [REV: :tenseSel :subjSel]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :stype :Optative
+                       :transitivity :Intransitive
+                       :smorphClass :Optative_Subj}
+              :terms [[:subjSel :tenseSel :token],
+                      [:Person1_2Sel :Future1 "laa"],
+                      [:Person1_2Sel :Future2 "lamaa"],
+                      [:Person1_2Sel :Habitual "lóo"],
+                      [:Person1_2Sel :Present "la"],
+                      [:Person1_2Sel :Prospective "loo"],
+                      [:Person3Sel :Future1 "liyaa"],
+                      [:Person3Sel :Future2 "limaa"],
+                      [:Person3Sel :Habitual "liyóo"],
+                      [:Person3Sel :Present "li "],
+                      [:Person3Sel :Prospective "liyoo"]]
+              }
+             {:label "burunge-VOptativeTransPresSel"
+              :note "Kiessling1994 # 7.2.7.1. [REV: :subjSel :numberObj :personObj :genderObj]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :stype :Optative
+                       :transitivity :Transitive
+                       :tam :Present
+                       :smorphClass :Optative_Subj_Obj_Pres}
+              :terms [[:genderObj :numberObj :subjSel :personObj :token],
+                      [:Common :Plural :Person1_2Sel :Person1 "landi"],
+                      [:Common :Plural :Person1_2Sel :Person2 "langu"],
+                      [:Common :Plural :Person1_2Sel :Person3 "lagi"],
+                      [:Common :Plural :Person3Sel :Person1 "lindi"],
+                      [:Common :Plural :Person3Sel :Person2 "lungu"],
+                      [:Common :Plural :Person3Sel :Person3 "ligi"],
+                      [:Common :Singular :Person1_2Sel :Person1 "lani"],
+                      [:Common :Singular :Person3Sel :Person1 "lini"],
+                      [:Fem :Singular :Person1_2Sel :Person2 "lagi"],
+                      [:Fem :Singular :Person1_2Sel :Person3 "laga"],
+                      [:Fem :Singular :Person3Sel :Person2 "ligi"],
+                      [:Fem :Singular :Person3Sel :Person3 "liga"],
+                      [:Masc :Singular :Person1_2Sel :Person2 "lagu"],
+                      [:Masc :Singular :Person1_2Sel :Person3 "lagu"],
+                      [:Masc :Singular :Person3Sel :Person2 "lugu"],
+                      [:Masc :Singular :Person3Sel :Person3 "ligu"]]
+              }
+           {:label "burunge-VConsecutiveTransPresSel"
+            :note "Kiessling1994 # 7.2.7.3. Das Consecutivemorphem {ma}. [REV: :subjSel :numberObj :personObj :genderObj]. "
+            :pdgmType :SEL
+            :common {:pos :Selector,
+                     :stype :Consecutive
+                     :transitivity :Transitive
+                     :tam :Present
+                     :smorphClass :Consecutive_Subj_Obj_Pres}
+            :terms [[:genderObj :numberObj :subjSel :personObj :token],
+                    [:Common :Plural :Person1_2Sel :Person1 "mandi"],
+                    [:Common :Plural :Person1_2Sel :Person2 "mangu"],
+                    [:Common :Plural :Person1_2Sel :Person3 "magi"],
+                    [:Common :Plural :Person3Sel :Person1 "mindi"],
+                    [:Common :Plural :Person3Sel :Person2 "mungu"],
+                    [:Common :Plural :Person3Sel :Person3 "migi"],
+                    [:Common :Singular :Person1_2Sel :Person1 "mani"],
+                    [:Common :Singular :Person3Sel :Person1 "mini"],
+                    [:Fem :Singular :Person1_2Sel :Person2 "magi"],
+                    [:Fem :Singular :Person1_2Sel :Person3 "maga"],
+                    [:Fem :Singular :Person3Sel :Person2 "migi"],
+                    [:Fem :Singular :Person3Sel :Person3 "miga"],
+                    [:Masc :Singular :Person1_2Sel :Person2 "magu"],
+                    [:Masc :Singular :Person1_2Sel :Person3 "magu"],
+                    [:Masc :Singular :Person3Sel :Person2 "mugu"],
+                    [:Masc :Singular :Person3Sel :Person3 "migu"]]
+            }
+           {:label "burunge-VConsecutive_TenseSel"
+            :note "Kiessling1994 # 7.2.7.3. Das Paradigma ohne Objektindikatoren."
+            :pdgmType :SEL
+            :common {:pos :Selector,
+                     :stype :Consecutive
+                     :transitivity :Intransitive
+                     :smorphClass :Consecutive_Subj_Tense}
+            :terms [[:subjSel :tenseSel :token],
+                    [:Person1_2Sel :Future1 "maa"],
+                    [:Person1_2Sel :Future2 "mamaa"],
+                    [:Person1_2Sel :Habitual "móo"],
+                    [:Person1_2Sel :Present "ma"],
+                    [:Person1_2Sel :Prospective "moo"],
+                    [:Person3Sel :Future1 "miyaa"],
+                    [:Person3Sel :Future2 "mimaa"],
+                    [:Person3Sel :Habitual "miyóo"],
+                    [:Person3Sel :Present "mi"],
+                    [:Person3Sel :Prospective "miyoo"]]
+            }
+
+             {:label "burunge-VRelativePres_SubjObj"
+              :note "Kiessling1994 # 7.2.7.4. [REV: :subjSel :numberObj :personObj :genderObj]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :stype :Relative
+                       :smorphClass :RelativePres_SubjObj}
+              :terms [[:genderObj :numberObj :subjSel :personObj :token],
+                      [:Common :Plural :Person1_2Sel :Person1 "(ha)gandi"],
+                      [:Common :Plural :Person1_2Sel :Person2 "(ha)gangu"],
+                      [:Common :Plural :Person1_2Sel :Person3 "(ha)hagi"],
+                      [:Common :Plural :Person3Sel :Person1 "(hi)gindi"],
+                      [:Common :Plural :Person3Sel :Person2 "(hi)gungu"],
+                      [:Common :Plural :Person3Sel :Person3 "(hi)gigi"],
+                      [:Common :Singular :Person1_2Sel :Person1 "(ha)gani"],
+                      [:Common :Singular :Person3Sel :Person1 "(hi)gini"],
+                      [:Fem :Singular :Person1_2Sel :Person2 "(ha)gagi"],
+                      [:Fem :Singular :Person1_2Sel :Person3 "(ha)gaga"],
+                      [:Fem :Singular :Person3Sel :Person2 "(hi)gigi"],
+                      [:Fem :Singular :Person3Sel :Person3 "(hi)giga"],
+                      [:Masc :Singular :Person1_2Sel :Person2 "(ha)gagu"],
+                      [:Masc :Singular :Person1_2Sel :Person3 "(ha)gagu"],
+                      [:Masc :Singular :Person3Sel :Person2 "(hi)gugu"],
+                      [:Masc :Singular :Person3Sel :Person3 "(hi)gigu"]]
+              }
+             {:label "burunge-VSubj_RelativeInstransSel"
+              :note "Kiessling1994 # 7.2.7.4. Das Relativmorphem {ga}"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :stype :SubjRel
+                       :smorphClass :SubjRelative_Tense_Intrans}
+              :terms [[:subjSel :tenseSel :token],
+                      [:Person1_2Sel :Completive "(ha)gang"],
+                      [:Person1_2Sel :Future1 "(ha)gaa"],
+                      [:Person1_2Sel :Future2 "(ha)gamaa"],
+                      [:Person1_2Sel :Habitual "(ha)góo"],
+                      [:Person1_2Sel :Present "(ha)ga"],
+                      [:Person1_2Sel :Preterite "(ha)gáa"],
+                      [:Person1_2Sel :Prospective "(ha)goo"],
+                      [:Person3Sel :Completive "(hi)ging"],
+                      [:Person3Sel :Future1 "(hi)giyaa"],
+                      [:Person3Sel :Future2 "(hi)gimaa"],
+                      [:Person3Sel :Habitual "(hi)giyóo"],
+                      [:Person3Sel :Present "(hi)gi"],
+                      [:Person3Sel :Preterite "(hi)giyáa"],
+                      [:Person3Sel :Prospective "(hi)giyoo"]]
+              }
+             {:label "burunge-VConcessiveIntransSel"
+              :note "Kiessling1994 # 7.2.7.5. Der Konzessiv. The concessive is formed from the consecutive by placing consecutive 'ma' after tam marker"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :stype :Concessive
+                       :smorphClass :Concessive_Tense_Intrans}
+              :terms [[:subjSel :tamSel :token],
+                      [:Person1_2Sel :Completive "hagangma"],
+                      [:Person1_2Sel :Future1 "hagaama"],
+                      [:Person1_2Sel :Future2 "hagamaama"],
+                      [:Person1_2Sel :Habitual "hagóoma"],
+                      [:Person1_2Sel :Present "hagama"],
+                      [:Person1_2Sel :Preterite "hagáama"],
+                      [:Person1_2Sel :Prospective "hagooma"],
+                      [:Person3Sel :Completive "higingma"],
+                      [:Person3Sel :Future1 "higaama"],
+                      [:Person3Sel :Future2 "higimaama"],
+                      [:Person3Sel :Habitual "higóoma"],
+                      [:Person3Sel :Present "higima"],
+                      [:Person3Sel :Preterite "higáama"],
+                      [:Person3Sel :Prospective "higooma"]]
+              }
+             {:label "burunge-VConcessivel_SubjObj"
+              :note "Kiessling1994 # 7.2.7.5. The concessive is formed from the consecutive by placing consecutive 'ma' after tam marker. [REV: :subjSel :numberObj :personObj :genderObj]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :stype :Concessive
+                       :tam :Present
+                       :smorphClass :Concessive_SubjObj}
+              :terms [[:genderObj :numberObj :subjSel :personObj :token],
+                      [:Common :Plural :Person1_2Sel :Person1 "handima"],
+                      [:Common :Plural :Person1_2Sel :Person2 "hanguma"],
+                      [:Common :Plural :Person1_2Sel :Person3 "hagima"],
+                      [:Common :Plural :Person3Sel :Person1 "hindima"],
+                      [:Common :Plural :Person3Sel :Person2 "hunguma"],
+                      [:Common :Plural :Person3Sel :Person3 "higima"],
+                      [:Common :Singular :Person1_2Sel :Person1 "hanima"],
+                      [:Common :Singular :Person3Sel :Person1 "hinima"],
+                      [:Fem :Singular :Person1_2Sel :Person2 "hagima"],
+                      [:Fem :Singular :Person1_2Sel :Person3 "hagama"],
+                      [:Fem :Singular :Person3Sel :Person2 "higima"],
+                      [:Fem :Singular :Person3Sel :Person3 "higama"],
+                      [:Masc :Singular :Person1_2Sel :Person2 "haguma"],
+                      [:Masc :Singular :Person1_2Sel :Person3 "haguma"],
+                      [:Masc :Singular :Person3Sel :Person2 "huguma"],
+                      [:Masc :Singular :Person3Sel :Person3 "higuma"]]
+              }
+             {:label "burunge-VSequential_SubjObj"
+              :note "Kiessling1994 # 7.2.8. Das Sequentialmorphem {gi}. [REV: :subjSel :numberObj :personObj :genderObj]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :stype :Sequential
+                       :smorphClass :Sequential_SubjObj}
+              :terms [[:genderObj :numberObj :subjSel :personObj :token],
+                      [:Common :Plural :Person1_2Sel :Person1 "handigi"],
+                      [:Common :Plural :Person1_2Sel :Person2 "hangugu"],
+                      [:Common :Plural :Person1_2Sel :Person3 "hagigi"],
+                      [:Common :Plural :Person3Sel :Person1 "hindigi"],
+                      [:Common :Plural :Person3Sel :Person2 "hungugu"],
+                      [:Common :Plural :Person3Sel :Person3 "higigi"],
+                      [:Common :Singular :Person1_2Sel :Person1 "hanigi"],
+                      [:Common :Singular :Person3Sel :Person1 "hinigi"],
+                      [:Fem :Singular :Person1_2Sel :Person2 "hagigi"],
+                      [:Fem :Singular :Person1_2Sel :Person3 "hagaga"],
+                      [:Fem :Singular :Person3Sel :Person2 "higigi"],
+                      [:Fem :Singular :Person3Sel :Person3 "higaga"],
+                      [:Masc :Singular :Person1_2Sel :Person2 "hagugu"],
+                      [:Masc :Singular :Person1_2Sel :Person3 "hagugu"],
+                      [:Masc :Singular :Person3Sel :Person2 "hugugu"],
+                      [:Masc :Singular :Person3Sel :Person3 "higugu"]]
+              }
+           {:label "burunge-VSType_Subj"
+            :note "Kiessling1994 # 7.2.7"
+            :pdgmType :SEL
+            :common {:pos :Selector,
+                     :smorphClass :ClauseType_Subj}
+            :terms [[:stype :subjSel :token],
+                    [:Consecutive :Person1_2Sel "ma + ha → ma"],
+                    [:Consecutive :Person3Sel "ma + hi → mi"],
+                    [:ObliqueRelative :Person1_2Sel "ga + ha → ga"],
+                    [:ObliqueRelative :Person3Sel "ga + hi → gi"],
+                    [:Optative :Person1_2Sel "la + ha → la"],
+                    [:Optative :Person3Sel "la + hi → li"]]
+            }
+             {:label "burunge-VIndetSubj_Obj"
+              :note "Kiessling1994 # 7.2.11. Der SubjTypeSelindefinit {da}.[REV: :numberObj :personObj :genderObj] "
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :subjTypeSel :IndetSubj
+                       :smorphClass :IndetSubj_Obj}
+              :terms [[:genderObj :numberObj :personOvj :token],
+                      [:Common :Plural :Person1 "da + ndi → dandi ~ dindi"],
+                      [:Common :Plural :Person2 "da + ngu → dangu ~ dungu"],
+                      [:Common :Plural :Person3 "da + gi → digi"],
+                      [:Common :Singular :Person1 "da + ni → dini"],
+                      [:Fem :Singular :Person2 "da + gi → digi"],
+                      [:Fem :Singular :Person3 "da + ga → daga"],
+                      [:Masc :Singular :Person2 "da + gu → dugu"],
+                      [:Masc :Singular :Person3 "da + gu → dugu"]]
+              }
+             {:label "burunge-VIndetkSubj_TenseSel"
+              :note "Kiessling1994 # 7.2.11. Der SubjTypeSelindefinit {da}"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :subjTypeSel :IndetSubj
+                       :smorphClass :IndetSubj_Tense}
+              :terms [[:tenseSel :token],
+                      [:Completive "da + ng → dang"],
+                      [:Future1 "da + aa → daa"],
+                      [:Future2 "da + maa → damaa"],
+                      [:Habitual "da + óo → dóo"],
+                      [:Preterite "da + áa → dáa"],
+                      [:Prospective "da + oo → doo"]]
+              }
+           {:label "burunge-VBenef_Obj"
+            :note "Kiessling1994 # 7.2.12. Der Benefaktiv-Kasus {saa}. [REV: :numberObj :personObj :genderObj]"
+            :pdgmType :SEL
+            :common {:pos :Selector,
+                     :subjTypeSel :BenefactiveSubj
+                     :smorphClass :Benef_Obj}
+            :terms [[:genderObj :numberObj :personObj :token],
+                    [:Common :Plural :Person1 "sa + ndi → sindi"],
+                    [:Common :Plural :Person2 "sa + ngu → sungu"],
+                    [:Common :Plural :Person3 "sa + gi → sigi"],
+                    [:Common :Singular :Person1 "sa + ni → sini"],
+                    [:Fem :Singular :Person2 "sa + gi → sigi"],
+                    [:Fem :Singular :Person3 "sa + ga → saga"],
+                    [:Masc :Singular :Person2 "sa + gu → sugu"],
+                    [:Masc :Singular :Person3 "sa + gu → sugu"]]
+            }
+             {:label "burunge-VBenef_TenseSel"
+              :note "Kiessling1994 7.2.12. Der Benefaktiv-Kasus {saa}"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :subjTypeSel :BenefactiveSubj
+                       :smorphClass :Benef_Tense}
+              :terms [[:tenseSel :token],
+                      [:Completive "sa + ng → sang"],
+                      [:Future1 "sa + aa → saa"],
+                      [:Future2 "sa + maa → samaa"],
+                      [:Habitual "sa + óo → sóo"],
+                      [:Preterite "sa + áa → sáa"],
+                      [:Prospective "sa + oo → soo"]]
+              }
+             {:label "burunge-VCommitInst_Tense_Obj"
+              :note "Kiessling1994 # 7.2.13. Der Komitativ-Kasus {ri}. [REV: :tensseSel :numberObj :personObj :genderObj]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :subjTypeSel :Person1_2Sel
+                       :caseSel :CommitInstrumental
+                       :smorphClass :CommitInst_Tense_Obj}
+              :terms [[:genderObj :numberObj :tenseSel :personObj :token],
+                      [:Common :Plural :Completive :Person1 "handiring"],
+                      [:Common :Plural :Completive :Person2 "hanguring"],
+                      [:Common :Plural :Completive :Person3 "hagiring"],
+                      [:Common :Plural :Future1 :Person1 "handiraa"],
+                      [:Common :Plural :Future1 :Person2 "hanguraa"],
+                      [:Common :Plural :Future1 :Person3 "hagiraa"],
+                      [:Common :Plural :Future2 :Person1 "handirimaa"],
+                      [:Common :Plural :Future2 :Person2 "hangurimaa"],
+                      [:Common :Plural :Future2 :Person3 "hagirimaa"],
+                      [:Common :Plural :Habitual :Person1 "handiróo"],
+                      [:Common :Plural :Habitual :Person2 "hanguróo"],
+                      [:Common :Plural :Habitual :Person3 "hagiróo"],
+                      [:Common :Plural :Present :Person1 "handiri"],
+                      [:Common :Plural :Present :Person2 "hanguri"],
+                      [:Common :Plural :Present :Person3 "hagiri"],
+                      [:Common :Plural :Preterite :Person1 "handiráa"],
+                      [:Common :Plural :Preterite :Person2 "hanguráa"],
+                      [:Common :Plural :Preterite :Person3 "hagiráa"],
+                      [:Common :Plural :Prospective :Person1 "handiroo"],
+                      [:Common :Plural :Prospective :Person2 "hanguroo"],
+                      [:Common :Plural :Prospective :Person3 "hagiroo"],
+                      [:Common :Singular :Completive :Person1 "haniring"],
+                      [:Common :Singular :Future1 :Person1 "haniraa"],
+                      [:Common :Singular :Future2 :Person1 "hanirimaa"],
+                      [:Common :Singular :Habitual :Person1 "haniróo"],
+                      [:Common :Singular :Present :Person1 "haniri"],
+                      [:Common :Singular :Preterite :Person1 "haniráa"],
+                      [:Common :Singular :Prospective :Person1 "haniroo"],
+                      [:Fem :Singular :Completive :Person2 "hagiring"],
+                      [:Fem :Singular :Completive :Person3 "hagaring"],
+                      [:Fem :Singular :Future1 :Person2 "hagiraa"],
+                      [:Fem :Singular :Future1 :Person3 "hagaraa"],
+                      [:Fem :Singular :Future2 :Person2 "hagirimaa"],
+                      [:Fem :Singular :Future2 :Person3 "hagarimaa"],
+                      [:Fem :Singular :Habitual :Person2 "hagiróo"],
+                      [:Fem :Singular :Habitual :Person3 "hagaróo"],
+                      [:Fem :Singular :Present :Person2 "hagii"],
+                      [:Fem :Singular :Present :Person3 "harari"],
+                      [:Fem :Singular :Preterite :Person2 "hagiráa"],
+                      [:Fem :Singular :Preterite :Person3 "hagaráa"],
+                      [:Fem :Singular :Prospective :Person2 "hagiroo"],
+                      [:Fem :Singular :Prospective :Person3 "hagaroo"],
+                      [:Masc :Singular :Completive :Person2 "haguring"],
+                      [:Masc :Singular :Completive :Person3 "haguring"],
+                      [:Masc :Singular :Future1 :Person2 "haguraa"],
+                      [:Masc :Singular :Future1 :Person3 "haguraa"],
+                      [:Masc :Singular :Future2 :Person2 "hagurimaa"],
+                      [:Masc :Singular :Future2 :Person3 "hagurimaa"],
+                      [:Masc :Singular :Habitual :Person2 "haguróo"],
+                      [:Masc :Singular :Habitual :Person3 "haguróo"],
+                      [:Masc :Singular :Present :Person2 "haguri"],
+                      [:Masc :Singular :Present :Person3 "haguri"],
+                      [:Masc :Singular :Preterite :Person2 "haguráa"],
+                      [:Masc :Singular :Preterite :Person3 "haguráa"],
+                      [:Masc :Singular :Prospective :Person2 "haguroo"],
+                      [:Masc :Singular :Prospective :Person3 "haguroo"]]
+              }
+             {:label "burunge-VSubjFocus_Obj"
+              :note "Kiessling1994 7.2.14. Die Fokusmorpheme {na}und {ni}. [REV: :numberObj :personObj :genderObj]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :stype :SubjFocus
+                       :smorphClass :SubjFocus_Obj}
+              :terms [[:genderObj :numberObj :personObj :token],
+                      [:Common :Plural :Person1 "na + ndi → nindi"],
+                      [:Common :Plural :Person2 "na + ngu → nungu"],
+                      [:Common :Plural :Person3 "na + gi → nigi"],
+                      [:Common :Singular :Person1 "na + ni → nini"],
+                      [:Fem :Singular :Person2 "na + ga → nigi"],
+                      [:Fem :Singular :Person3 "na + ga → naga"],
+                      [:Masc :Singular :Person2 "na + gu → nugu"],
+                      [:Masc :Singular :Person3 "na + gu → nugu"]]
+              }
+             {:label "burunge-VSubjFocus_Tense"
+              :note "Kiessling1994 # 7.2.14. Die Fokusmorpheme {na}und {ni}"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :stype :SubjFocus
+                       :smorphClass :SubjFocus_Tense}
+              :terms [[:tenseSel :token],
+                      [:Completive "na + ng → nang"],
+                      [:Future1 "na + aa → naa"],
+                      [:Future2 "na + maa → namaa"],
+                      [:Habitual "na + óo → nóo"],
+                      [:Preterite "na + áa → náa"],
+                      [:Prospective "na + oo → noo"]]
+              }
+             {:label "burunge-VObjFocus_TenseSel_Obj"
+              :note "Kiessling1994 7.2.14. Die Fokusmorpheme {na}und {ni}. [REV: :tenseSel :numberObj :personObj :genderObj]"
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :subjTypeSel :Person1_2Sel
+                       :stype :ObjFocus
+                       :smorphClass :ObjFocus_TenseSel_Obj}
+              :terms [[:genderObj :numberObj :tenseSel :personObj :token],
+                      [:Common :Plural :Completive :Person1 "handinging"],
+                      [:Common :Plural :Completive :Person2 "haguning"],
+                      [:Common :Plural :Completive :Person3 "hagining"],
+                      [:Common :Plural :Future1 :Person1 "handinaa"],
+                      [:Common :Plural :Future1 :Person2 "hangunaa"],
+                      [:Common :Plural :Future1 :Person3 "haginaa"],
+                      [:Common :Plural :Future2 :Person1 "handinimaa"],
+                      [:Common :Plural :Future2 :Person2 "hangunimaa"],
+                      [:Common :Plural :Future2 :Person3 "haginimaa"],
+                      [:Common :Plural :Habitual :Person1 "handinóo"],
+                      [:Common :Plural :Habitual :Person2 "hangunóo"],
+                      [:Common :Plural :Habitual :Person3 "haginóo"],
+                      [:Common :Plural :Preterite :Person1 "handináa"],
+                      [:Common :Plural :Preterite :Person2 "hagnunáa"],
+                      [:Common :Plural :Preterite :Person3 "hagináa"],
+                      [:Common :Plural :Prospective :Person1 "handinoo"],
+                      [:Common :Plural :Prospective :Person2 "hangunoo"],
+                      [:Common :Plural :Prospective :Person3 "haginoo"],
+                      [:Common :Singular :Completive :Person1 "hanining"],
+                      [:Common :Singular :Future1 :Person1 "haninaa"],
+                      [:Common :Singular :Future2 :Person1 "haninimaa"],
+                      [:Common :Singular :Habitual :Person1 "haninóo"],
+                      [:Common :Singular :Preterite :Person1 "hanináa"],
+                      [:Common :Singular :Prospective :Person1 "haninoo"],
+                      [:Fem :Singular :Completive :Person2 "hagining"],
+                      [:Fem :Singular :Completive :Person3 "haganing"],
+                      [:Fem :Singular :Future1 :Person2 "haginaa"],
+                      [:Fem :Singular :Future1 :Person3 "haganaa"],
+                      [:Fem :Singular :Future2 :Person2 "haginimaa"],
+                      [:Fem :Singular :Future2 :Person3 "haganimaa"],
+                      [:Fem :Singular :Habitual :Person2 "haginóo"],
+                      [:Fem :Singular :Habitual :Person3 "haganóo"],
+                      [:Fem :Singular :Preterite :Person2 "hagináa"],
+                      [:Fem :Singular :Preterite :Person3 "haganáa"],
+                      [:Fem :Singular :Prospective :Person2 "haginoo"],
+                      [:Fem :Singular :Prospective :Person3 "haganoo"],
+                      [:Masc :Singular :Completive :Person2 "haguning"],
+                      [:Masc :Singular :Completive :Person3 "haguning"],
+                      [:Masc :Singular :Future1 :Person2 "hagunaa"],
+                      [:Masc :Singular :Future1 :Person3 "hagunaa"],
+                      [:Masc :Singular :Future2 :Person2 "hagunimaa"],
+                      [:Masc :Singular :Future2 :Person3 "hagunimaa"],
+                      [:Masc :Singular :Habitual :Person2 "hagunóo"],
+                      [:Masc :Singular :Habitual :Person3 "hagunóo"],
+                      [:Masc :Singular :Preterite :Person2 "hagunáa"],
+                      [:Masc :Singular :Preterite :Person3 "hagunáa"],
+                      [:Masc :Singular :Prospective :Person2 "hagunoo"],
+                      [:Masc :Singular :Prospective :Person3 "hagunoo"]]
+              }
+           {:label "burunge-VImprtvComponentAnalysis"
+            :note "Kiessling1994 # 7.2.16, p. 180. [An attempt to combine a subj/obj marker component in various classes of imperative -- other dimensional presentations possible (features for ventive, object gender).]"
+            :pdgmType :VOther
+            :common {:pos :Verb
+                     :vmorphClass :ImperativeCompAnalysis,
+                     :tam :Imperative}
+            :terms [[:imprtvComponent :numberObj  :token],
+                    [:NonVent :Singular "-i"]
+                    [:NonVent :Plural "-a"]
+                    [:Vent :Singular "-a"]
+                    [:Vent :Plural "-aari"]
+                    [:Vent :NA   "-an"]
+                    [:Applicative :NA  "-u"]
+                    [:Obj3Marker :NA  "-k"]
+                    [:Obj3GenderM :NA "-u"]
+                    [:Obj3GenderF :NA "-a"]
+                    [:Obj3GenderN :NA "-i"]
+                    [:SubjNumObj3 :Plural "-na"]]
+            }
+           {:label "burunge-VImprtvObjSuff"
+            :note "Kiessling1994 #7.2.16"
+            :pdgmType :VOther
+            :common {:pos :Verb
+                     :vmorphClass :ImperativeObject3
+                     :personObj :Person3
+                     :person :Person2,
+                     :tam :Imperative}
+            :terms [[:genderObj  :orientation :numberObj :token],
+                    [:NeutPl  :NonVentive :Singular "-eki"],
+                    [:NeutPl  :NonVentive :Plural "-akina"],
+                    [:NeutPl  :Ventive :Singular "-anki"],
+                    [:NeutPl  :Ventive :Plural "-ankina"],
+                    [:Fem  :NonVentive :Singular "-eka"],
+                    [:Fem  :NonVentive :Plural "-akana"],
+                    [:Fem  :Ventive :Singular "-anka"],
+                    [:Fem  :Ventive :Plural "-ankana"],
+                    [:Masc :NonVentive :Singular "-eku"],
+                    [:Masc :NonVentive :Plural "-akuna"],
+                    [:Masc :Ventive :Singular "-anku"],
+                    [:Masc :Ventive :Plural "-ankuna"]]
+            }
+            {:label "burunge-VImprtvSuffixes"
+             :note "Kiessling1994 # 7.2.16. In the imprtv,applicative verbs do not have the prefix hil-,but suffix a kind of protemanteau morpheme. [Object indication not possible.]"
+             :pdgmType :VOther
+             :common {:pos :Verb
+                      :vmorphClass :ImperativeAppliclative
+                      :derivedStem :Applicative,
+                      :person :Person2
+                      :tam :Imperative}
+                      :terms [[:orientation :number :token],
+                              [:NonVentive :Singular "-i"],
+                              [:NonVentive :Plural "-aw"],
+                              [:Ventive :Singular "-aayu"],
+                              [:Ventive :Plural "-aaru"]]
+             }
+             {:label "burunge-VPresentSubjRelClause-objMarking"
+              :note "Kiessling1994 # 9.7.1.1. Subject relative clause. (Head noun subject of relative.) Verb occurs In participial form (perf or imperf) – similar to relative clauses of ECush (cf. Somali). Sel formants are attahced to gender-marked subordinator:gu- masc.,da- fem."
+              :pdgmType :SEL
+              :common {:pos :Selector,
+                       :smorphClass :SubjRelClause_ObjMarking
+                       :tenseSel :Present}
+              :terms [[:gender :genderObj :numberObj :personObj :token],
+                      [:Fem :Common :Plural :Person1 "dindi"],
+                      [:Fem :Common :Plural :Person2 "dungu"],
+                      [:Fem :Common :Plural :Person3 "digi"],
+                      [:Fem :Common :Singular :Person1 "dini"],
+                      [:Fem :Fem :Singular :Person2 "digi"],
+                      [:Fem :Fem :Singular :Person3 "daga"],
+                      [:Fem :Masc :Singular :Person2 "dugu"],
+                      [:Fem :Masc :Singular :Person3 "dugu"],
+                      [:Masc :Common :Plural :Person1 "gundi"],
+                      [:Masc :Common :Plural :Person2 "gungu"],
+                      [:Masc :Common :Plural :Person3 "gugi"],
+                      [:Masc :Common :Singular :Person1 "guni"],
+                      [:Masc :Fem :Singular :Person2 "gigi"],
+                      [:Masc :Fem :Singular :Person3 "guga"],
+                      [:Masc :Masc :Singular :Person2 "gugu"],
+                      [:Masc :Masc :Singular :Person3 "gugu"]]
+              }
+             {:label "burunge-VPresentSubjRelClause-subjMarking"
+              :note "Kiessling1994 # 9.7.1.1. Subject relative clause. (Head noun subject of
+            relative.) Verb occurs In participial form (perf or imperf) – similar to relative
+            clauses of ECush (cf. Somali). Sel formants are attahced to gender-marked
+            subordinator:gu- masc.,da- fem."
+              :pdgmType :SEL
+              :common {:pos :Selector
+                       :smorphClass :SubjRelClause_SubjMarking}
+              :terms [[:gender :tenseSel :token],
+                      [:Fem :Completive "dang ~ ding"],
+                      [:Fem :Future1 "daa"],
+                      [:Fem :Future2 "damaa"],
+                      [:Fem :Habitual "dóo"],
+                      [:Fem :Present "da"],
+                      [:Fem :Preterite "dáa"],
+                      [:Fem :Prospective "doo"],
+                      [:Masc :Completive "gung"],
+                      [:Masc :Future1 "gwaa"],
+                      [:Masc :Future2 "gumaa"],
+                      [:Masc :Habitual "góo"],
+                      [:Masc :Present "gu"],
+                      [:Masc :Preterite "gwáa"],
+                      [:Masc :Prospective "goo"]]
+              }
+             {:label "burunge-VParticiple"
+              :note "Kiessling1994 # 7.3"
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :vmorphClass :ParticipleSuff}
+              :terms [[:tam :number :gender :token],
+                      [:Imperfect :Singular :Common "-aa"],
+                      [:Imperfect :Plural :Common "-ee’i"],
+                      [:Perfect :Singular :Masc "-u"],
+                      [:Perfect :Singular :Fem "-idi"],
+                      [:Perfect :Plural :Neut "-ee’i"]]
+              }
+           {:label "burunge-NNumerals"
+            :note "Kiessling1994 # 9.6.1"
+            :pdgmType :NOM
+            :common {:nmorphClass :Numerals,
+                     :pos :Noun}
+            :terms [[:predType :token :token-note],
+                    [:AffDecl "cadă" "2"],
+                    [:AffDecl "tamĭ" "3"],
+                    [:AffDecl "cigaħă" "4"],
+                    [:AffDecl "koo’anĭ" "5"],
+                    [:AffDecl "laħo’ŭ" "6"],
+                    [:AffDecl "fanqŭ" "7"],
+                    [:AffDecl "dagatĭ" "8"],
+                    [:AffDecl "gwelelĭ" "9"],
+                    [:AffDecl "mibĭ" "10"],
+                    [:AffInterr "cada" "2"],
+                    [:AffInterr "tami" "3"],
+                    [:AffInterr "cigaħa" "4"],
+                    [:AffInterr "koo’ani" "5"],
+                    [:AffInterr "laħo’u" "6"],
+                    [:AffInterr "fanqu" "7"],
+                    [:AffInterr "dagati" "8"],
+                    [:AffInterr "gweleli" "9"],
+                    [:AffInterr "mibi" "10"]]
+            }
+           {:label "burunge-PDeictic"
+            :note "Kiessling1994 # 9.6.1."
+            :pdgmType :PRO
+            :common {:pos :Pronoun,
+                     :proClass :Deictic}
+            :terms [[:deixis :polarity :reference :token],
+                    [:Far :AffDecl :NonSpatial "-irĭ ~ -iră"],
+                    [:Far :AffDecl :Spatial "-a’ă"],
+                    [:Far :AffInterr :NonSpatial "-iri ~ -ira"],
+                    [:Far :AffInterr :Spatial "-a’a"],
+                    [:Near :AffDecl :NonSpatial "-ee"],
+                    [:Near :AffDecl :Spatial "⊤"],
+                    [:Near :AffInterr :NonSpatial "-ee"],
+                    [:Near :AffInterr :Spatial "-i"]]
+            }
+           {:label "burunge-PPossSuff"
+            :note "Kiessling1994 # 9.6.1. Possessive suffixes also show reduction in
+            declarative,non-reduction in interrogative"
+            :pdgmType :PRO
+            :common {:pos :Pronoun,
+                     :proClass :PossSuff}
+            :terms [[:polarity :number :person :gender :token],
+                    [:AffDecl :Singular :Person1 :Common "-way ~ -oo’ĭ ~ -o’ĭ"],
+                    [:AffDecl :Singular :Person2 :Masc "-oogŭ"],
+                    [:AffDecl :Singular :Person2 :Fem "-oogĭ"],
+                    [:AffDecl :Singular :Person3 :Common "-osĭ"],
+                    [:AffDecl :Plural :Person1 :Common "-oorĭ"],
+                    [:AffDecl :Plural :Person2 :Common "-oogună"],
+                    [:AffDecl :Plural :Person3 :Common "-oo’ină"],
+                    [:AffInterr :Singular :Person1 :Common "-oo’I ~ -o’i"],
+                    [:AffInterr :Singular :Person2 :Masc "-oogu"],
+                    [:AffInterr :Singular :Person2 :Fem "-oogi"],
+                    [:AffInterr :Singular :Person3 :Common "-osi"],
+                    [:AffInterr :Plural :Person1 :Common "-oori"],
+                    [:AffInterr :Plural :Person2 :Common "-ooguna"],
+                    [:AffInterr :Plural :Person3 :Common "-oo’ina"]]
+            }
+             {:label "burunge-VInterrGen"
+              :note "Kiessling1994 # 9.6.1, p. 213. Die Satzfrage. Comparative list of morphological markers in declarative (with final reduction) and interrogative (without final reduction). On p, 214 gives list of imperative endings to make point that since imperative interrogatives do not exist, imperatives always have final reduction. Cf. pdgms: ImperativeCompAnalysis, ImperativeObject3, ImperativeApplicative."
+              :pdgmType :VOther
+              :common {:pos :Verb
+                       :vmorphClass :InterrGen}
+              :terms [[:gramFunction :polarity :token],
+                      [:AdjSuff-f :AffDecl "-i"],
+                      [:AdjSuff-f :AffInterr "-i"],
+                      [:AdjSuff-m :AffDecl "-u"],
+                      [:AdjSuff-m :AffInterr "-u"],
+                      [:ImperfSuff :AffDecl "⊤"],
+                      [:ImperfSuff :AffInterr "-a"],
+                      [:NegSuff :AffDecl "-ba"],
+                      [:NegSuff :AffInterr "-baɬi"],
+                      [:NominalPred :AffDecl "⊤"],
+                      [:NominalPred :AffInterr "-goo"],
+                      [:ParticipleSuff-imprf-sg :AffDecl "-a"],
+                      [:ParticipleSuff-imprf-sg :AffInterr "-aa"],
+                      [:ParticipleSuff-perf-f :AffDecl "-idĭ"],
+                      [:ParticipleSuff-perf-f :AffInterr "-idi"],
+                      [:ParticipleSuff-perf-m :AffDecl "-u"],
+                      [:ParticipleSuff-perf-m :AffInterr "-u"],
+                      [:ParticipleSuff-perf-pl :AffDecl "-ee’ĭ"],
+                      [:ParticipleSuff-perf-pl :AffInterr "-ee’i"],
+                      [:PerfSuff :AffDecl "⊤"],
+                      [:PerfSuff :AffInterr "-i"],
+                      [:Subj3sgImperf :AffDecl "⊤"],
+                      [:Subj3sgImperf :AffInterr "-iya"],
+                      [:SubjPlImperf :AffDecl "-y"],
+                      [:SubjPlImperf :AffInterr "-‘i"],
+                      [:SubjPlPerf :AffDecl "-rĭ"],
+                      [:SubjPlPerf :AffInterr "-ri"],
+                      [:SubjunctiveSuff :AffDecl "-e"],
+                      [:SubjunctiveSuff :AffInterr "-ee"]]
+              }
+             ]
+            }
+
+

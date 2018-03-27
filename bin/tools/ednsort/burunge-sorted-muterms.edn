@@ -1,0 +1,1065 @@
+:muterms [
+          {:label "burunge-NNumerals"
+           :note "Kiessling1994 # 9.6.1"
+           :common {:nmorphClass :Numerals, :pos :Noun}
+           :terms [[:predType :token :token-note] ;; schema
+                   [:AffDecl "cadă" "2"]
+                   [:AffDecl "tamĭ" "3"]
+                   [:AffDecl "cigaħă" "4"]
+                   [:AffDecl "koo’anĭ" "5"]
+                   [:AffDecl "laħo’ŭ" "6"]
+                   [:AffDecl "fanqŭ" "7"]
+                   [:AffDecl "dagatĭ" "8"]
+                   [:AffDecl "gwelelĭ" "9"]
+                   [:AffDecl "mibĭ" "10"]
+                   [:AffInterr "cada" "2"]
+                   [:AffInterr "tami" "3"]
+                   [:AffInterr "cigaħa" "4"]
+                   [:AffInterr "koo’ani" "5"]
+                   [:AffInterr "laħo’u" "6"]
+                   [:AffInterr "fanqu" "7"]
+                   [:AffInterr "dagati" "8"]
+                   [:AffInterr "gweleli" "9"]
+                   [:AffInterr "mibi" "10"] ]
+           }
+          {:label "burunge-PDeictic"
+           :note "Kiessling1994 # 9.6.1."
+           :common {:pos :Pronoun, :proClass :Deictic}
+           :terms [[:deixis :polarity :reference :token] ;; schema
+                   [:Far :AffDecl :NonSpatial "-irĭ ~ -iră"]
+                   [:Far :AffDecl :Spatial "-a’ă"]
+                   [:Far :AffInterr :NonSpatial "-iri ~ -ira"]
+                   [:Far :AffInterr :Spatial "-a’a"]
+                   [:Near :AffDecl :NonSpatial "-ee"]
+                   [:Near :AffDecl :Spatial "⊤"]
+                   [:Near :AffInterr :NonSpatial "-ee"]
+                   [:Near :AffInterr :Spatial "-i"] ]
+           }
+          {:label "burunge-PDeicticAnaph"
+           :note "Kiessling1994 5.6.1.2. Die deiktische anaphorische Basis. [The plural form serves also as a neuter. On deixis and reference features,cf. 5.5.1 and 5.5.2 (pp. 79-81).]"
+           :common {:pos :Pronoun, :proClass :DeicticAnaph}
+           :terms [[:deixis :gender :reference :token] ;; schema
+                   [:Far :Fem :NonSpatial "hatiri ~ hatira"]
+                   [:Far :Fem :Spatial "hata’a"]
+                   [:Far :Masc :NonSpatial "hikiri ~ hikira"]
+                   [:Far :Masc :Spatial "hika’a"]
+                   [:Far :PluralNeut :NonSpatial "ħakiri ~ ħakira"]
+                   [:Far :PluralNeut :Spatial "ħaka’a"]
+                   [:Near :Fem :NonSpatial "hatee"]
+                   [:Near :Fem :Spatial "hang"]
+                   [:Near :Masc :NonSpatial "hikee"]
+                   [:Near :Masc :Spatial "hing"]
+                   [:Near :PluralNeut :NonSpatial "ħakee"]
+                   [:Near :PluralNeut :Spatial "ħang"] ]
+           }
+          {:label "burunge-PInd"
+           :note "Kiessling1994 5.6 (p. 86)"
+           :common {:pos :Pronoun, :proClass :Independent}
+           :terms [[:gender :number :person :token] ;; schema
+                   [:Common :Plural :Person1 "dandiray ~ dandi ~ danday"]
+                   [:Common :Plural :Person2 "‘unkuray"]
+                   [:Common :Plural :Person3 "‘inay"]
+                   [:Common :Singular :Person1 "‘ana"]
+                   [:Common :Singular :Person3 "‘ina ~ ‘ină"]
+                   [:Fem :Singular :Person2 "‘igi ~ ‘i"]
+                   [:Masc :Singular :Person2 "‘ugu ~ ‘u"] ]
+           }
+          {:label "burunge-PPersMarkersGen"
+           :note "Kiessling1994 5.6 (p. 87). [A conflation of several person marker paradigms]"
+           :common {:pos :Pronoun, :proClass :PersMarkersGeneral}
+           :terms [[:gender :number :person :personMarkerType :token] ;; schema
+                   [:Common :Plural :Person1 :ObjAgr "-ndi-"]
+                   [:Common :Plural :Person1 :PossSuffBase "-oori"]
+                   [:Common :Plural :Person1 :ProInd "dandiray ~ dandi ~ danday"]
+                   [:Common :Plural :Person1 :SubjAgr "ha-"]
+                   [:Common :Plural :Person1 :VerbSuff "-an"]
+                   [:Common :Plural :Person2 :ObjAgr "-ngu-"]
+                   [:Common :Plural :Person2 :PossSuffBase "-ooguna"]
+                   [:Common :Plural :Person2 :ProInd "‘unkuray"]
+                   [:Common :Plural :Person2 :SubjAgr "ha-"]
+                   [:Common :Plural :Person2 :VerbSuff "-id, -'i, -ri"]
+                   [:Common :Plural :Person3 :ObjAgr "-gi-"]
+                   [:Common :Plural :Person3 :PossSuffBase "-oo’ina"]
+                   [:Common :Plural :Person3 :ProInd "‘inay"]
+                   [:Common :Plural :Person3 :SubjAgr "hi-"]
+                   [:Common :Plural :Person3 :VerbSuff "-i, -'i, -ri"]
+                   [:Common :Singular :Person1 :ObjAgr "-ni-"]
+                   [:Common :Singular :Person1 :PossSuffBase "-ay"]
+                   [:Common :Singular :Person1 :ProInd "‘ana"]
+                   [:Common :Singular :Person1 :SubjAgr "ha-"]
+                   [:Common :Singular :Person1 :VerbSuff "_NULL, -u"]
+                   [:Fem :Singular :Person2 :ObjAgr "-gi-"]
+                   [:Fem :Singular :Person2 :PossSuffBase "-oogi"]
+                   [:Fem :Singular :Person2 :ProInd "‘igi"]
+                   [:Fem :Singular :Person2 :SubjAgr "ha-"]
+                   [:Fem :Singular :Person2 :VerbSuff "-id"]
+                   [:Fem :Singular :Person3 :ObjAgr "-ga-"]
+                   [:Fem :Singular :Person3 :PossSuffBase "-osi"]
+                   [:Fem :Singular :Person3 :ProInd "‘ina"]
+                   [:Fem :Singular :Person3 :SubjAgr "hi-"]
+                   [:Fem :Singular :Person3 :VerbSuff "-id"]
+                   [:Masc :Singular :Person2 :ObjAgr "-gu-"]
+                   [:Masc :Singular :Person2 :PossSuffBase "-oogu"]
+                   [:Masc :Singular :Person2 :ProInd "‘ugu"]
+                   [:Masc :Singular :Person2 :SubjAgr "ha-"]
+                   [:Masc :Singular :Person2 :VerbSuff "-id"]
+                   [:Masc :Singular :Person3 :ObjAgr "-gu-"]
+                   [:Masc :Singular :Person3 :PossSuffBase "-osi"]
+                   [:Masc :Singular :Person3 :ProInd "‘ina"]
+                   [:Masc :Singular :Person3 :SubjAgr "hi-"]
+                   [:Masc :Singular :Person3 :VerbSuff "-i"] ]
+           }
+          {:label "burunge-PPossAnaph"
+           :note "Kiessling1994 5.6.1.1 Die possessivische anaphorische Basis. [e.g.,(it is)
+            mine,etc. (?)]"
+           :common {:pos :Pronoun, :proClass :PossAnaph}
+           :terms [[:gender :genderHead :number :person :token] ;; schema
+                   [:Common :HeadFem :Plural :Person1 "toori"]
+                   [:Common :HeadFem :Plural :Person2 "tooguna"]
+                   [:Common :HeadFem :Plural :Person3 "too’ina"]
+                   [:Common :HeadFem :Singular :Person1 "tay"]
+                   [:Common :HeadFem :Singular :Person3 "tosi"]
+                   [:Common :HeadMasc :Plural :Person1 "koori"]
+                   [:Common :HeadMasc :Plural :Person2 "kooguna"]
+                   [:Common :HeadMasc :Plural :Person3 "koo’ina"]
+                   [:Common :HeadMasc :Singular :Person1 "kway"]
+                   [:Common :HeadMasc :Singular :Person3 "kosi"]
+                   [:Common :HeadNeut :Plural :Person1 "koti"]
+                   [:Common :HeadNeut :Plural :Person2 "kokuna"]
+                   [:Common :HeadNeut :Plural :Person3 "ko’ina"]
+                   [:Common :HeadNeut :Singular :Person1 "ko’i"]
+                   [:Common :HeadNeut :Singular :Person3 "kosi"]
+                   [:Fem :HeadFem :Singular :Person2 "toogi"]
+                   [:Fem :HeadMasc :Singular :Person2 "koogi"]
+                   [:Fem :HeadNeut :Singular :Person2 "koki"]
+                   [:Masc :HeadFem :Singular :Person2 "toogu"]
+                   [:Masc :HeadMasc :Singular :Person2 "koogu"]
+                   [:Masc :HeadNeut :Singular :Person2 "koku"] ]
+           }
+          {:label "burunge-PPossSuff"
+           :note "Kiessling1994 # 9.6.1. Possessive suffixes also show reduction in
+            declarative,non-reduction in interrogative"
+           :common {:pos :Pronoun, :proClass :PossSuff}
+           :terms [[:gender :number :person :polarity :token] ;; schema
+                   [:Common :Plural :Person1 :AffDecl "-oorĭ"]
+                   [:Common :Plural :Person1 :AffInterr "-oori"]
+                   [:Common :Plural :Person2 :AffDecl "-oogună"]
+                   [:Common :Plural :Person2 :AffInterr "-ooguna"]
+                   [:Common :Plural :Person3 :AffDecl "-oo’ină"]
+                   [:Common :Plural :Person3 :AffInterr "-oo’ina"]
+                   [:Common :Singular :Person1 :AffDecl "-way ~ -oo’ĭ ~ -o’ĭ"]
+                   [:Common :Singular :Person1 :AffInterr "-oo’I ~ -o’i"]
+                   [:Common :Singular :Person3 :AffDecl "-osĭ"]
+                   [:Common :Singular :Person3 :AffInterr "-osi"]
+                   [:Fem :Singular :Person2 :AffDecl "-oogĭ"]
+                   [:Fem :Singular :Person2 :AffInterr "-oogi"]
+                   [:Masc :Singular :Person2 :AffDecl "-oogŭ"]
+                   [:Masc :Singular :Person2 :AffInterr "-oogu"] ]
+           }
+          {:label "burunge-PRefSwitch"
+           :note "Kiessling1994 5.6.1.1 Fem. poss anaphoric pronoun is grammaticized,in conjunction
+            with a locative case suffix as a reference switch indicator."
+           :common {:pos :Pronoun, :proClass :RefSwitch}
+           :terms [[:case :gender :number :person :token] ;; schema
+                   [:Ablative :Common :Plural :Person1 "tooraa"]
+                   [:Ablative :Common :Plural :Person2 "toogunaa"]
+                   [:Ablative :Common :Plural :Person3 "too’inaa"]
+                   [:Ablative :Common :Singular :Person1 "too’aa"]
+                   [:Ablative :Common :Singular :Person3 "tosaa"]
+                   [:Ablative :Fem :Singular :Person2 "toogaa"]
+                   [:Ablative :Masc :Singular :Person2 "toogwaa"]
+                   [:Allative :Common :Plural :Person1 "toori"]
+                   [:Allative :Common :Plural :Person2 "toogunay"]
+                   [:Allative :Common :Plural :Person3 "too’inay"]
+                   [:Allative :Common :Singular :Person1 "too’i"]
+                   [:Allative :Common :Singular :Person3 "tosi"]
+                   [:Allative :Fem :Singular :Person2 "toogi"]
+                   [:Allative :Masc :Singular :Person2 "toogu"] ]
+           }
+          {:label "burunge-VBenef_Obj"
+           :note "Kiessling1994 # 7.2.12. Der Benefaktiv-Kasus {saa}. [REV: :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :subjTypeSel :BenefactiveSubj, :smorphClass :Benef_Obj}
+           :terms [[:token] ;; schema
+                   ["sa + ni → sini"]
+                   ["sa + gu → sugu"]
+                   ["sa + gi → sigi"]
+                   ["sa + gu → sugu"]
+                   ["sa + ga → saga"]
+                   ["sa + ndi → sindi"]
+                   ["sa + ngu → sungu"]
+                   ["sa + gi → sigi"] ]
+           }
+          {:label "burunge-VBenef_TenseSel"
+           :note "Kiessling1994 7.2.12. Der Benefaktiv-Kasus {saa}"
+           :common {:pos :Selector, :subjTypeSel :BenefactiveSubj, :smorphClass :Benef_Tense}
+           :terms [[:tenseSel :token] ;; schema
+                   [:Completive "sa + ng → sang"]
+                   [:Future1 "sa + aa → saa"]
+                   [:Future2 "sa + maa → samaa"]
+                   [:Habitual "sa + óo → sóo"]
+                   [:Preterite "sa + áa → sáa"]
+                   [:Prospective "sa + oo → soo"] ]
+           }
+          {:label "burunge-VCommitInst_Tense_Obj"
+           :note "Kiessling1994 # 7.2.13. Der Komitativ-Kasus {ri}. [REV: :tensseSel :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :subjTypeSel :Person1_2Sel, :caseSel :CommitInstrumental, :smorphClass :CommitInst_Tense_Obj}
+           :terms [[:tenseSel :token] ;; schema
+                   [:Completive "haniring"]
+                   [:Completive "haguring"]
+                   [:Completive "hagiring"]
+                   [:Completive "haguring"]
+                   [:Completive "hagaring"]
+                   [:Completive "handiring"]
+                   [:Completive "hanguring"]
+                   [:Completive "hagiring"]
+                   [:Future1 "haniraa"]
+                   [:Future1 "haguraa"]
+                   [:Future1 "hagiraa"]
+                   [:Future1 "haguraa"]
+                   [:Future1 "hagaraa"]
+                   [:Future1 "handiraa"]
+                   [:Future1 "hanguraa"]
+                   [:Future1 "hagiraa"]
+                   [:Future2 "hanirimaa"]
+                   [:Future2 "hagurimaa"]
+                   [:Future2 "hagirimaa"]
+                   [:Future2 "hagurimaa"]
+                   [:Future2 "hagarimaa"]
+                   [:Future2 "handirimaa"]
+                   [:Future2 "hangurimaa"]
+                   [:Future2 "hagirimaa"]
+                   [:Habitual "haniróo"]
+                   [:Habitual "haguróo"]
+                   [:Habitual "hagiróo"]
+                   [:Habitual "haguróo"]
+                   [:Habitual "hagaróo"]
+                   [:Habitual "handiróo"]
+                   [:Habitual "hanguróo"]
+                   [:Habitual "hagiróo"]
+                   [:Present "haniri"]
+                   [:Present "haguri"]
+                   [:Present "hagii"]
+                   [:Present "haguri"]
+                   [:Present "harari"]
+                   [:Present "handiri"]
+                   [:Present "hanguri"]
+                   [:Present "hagiri"]
+                   [:Preterite "haniráa"]
+                   [:Preterite "haguráa"]
+                   [:Preterite "hagiráa"]
+                   [:Preterite "haguráa"]
+                   [:Preterite "hagaráa"]
+                   [:Preterite "handiráa"]
+                   [:Preterite "hanguráa"]
+                   [:Preterite "hagiráa"]
+                   [:Prospective "haniroo"]
+                   [:Prospective "haguroo"]
+                   [:Prospective "hagiroo"]
+                   [:Prospective "haguroo"]
+                   [:Prospective "hagaroo"]
+                   [:Prospective "handiroo"]
+                   [:Prospective "hanguroo"]
+                   [:Prospective "hagiroo"] ]
+           }
+          {:label "burunge-VCompletive_SubjObj"
+           :note "Kiessling1994 # 7.2.5.3. [REV: :subjSel :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :smorphClass :Completive_SubjObj}
+           :terms [[:subjSel :token] ;; schema
+                   [:Person1_2Sel "haning"]
+                   [:Person1_2Sel "hagung"]
+                   [:Person1_2Sel "haging"]
+                   [:Person1_2Sel "hagung"]
+                   [:Person1_2Sel "hagang"]
+                   [:Person1_2Sel "handing"]
+                   [:Person1_2Sel "hangung"]
+                   [:Person1_2Sel "haging"]
+                   [:Person3Sel "hining"]
+                   [:Person3Sel "hugung"]
+                   [:Person3Sel "higing"]
+                   [:Person3Sel "higung"]
+                   [:Person3Sel "higang"]
+                   [:Person3Sel "hinding"]
+                   [:Person3Sel "hungung"]
+                   [:Person3Sel "higing"] ]
+           }
+          {:label "burunge-VConcessiveIntransSel"
+           :note "Kiessling1994 # 7.2.7.5. Der Konzessiv. The concessive is formed from the consecutive by placing consecutive 'ma' after tam marker"
+           :common {:pos :Selector, :stype :Concessive, :smorphClass :Concessive_Tense_Intrans}
+           :terms [[:subjSel :tamSel :token] ;; schema
+                   [:Person1_2Sel :Completive "hagangma"]
+                   [:Person1_2Sel :Future1 "hagaama"]
+                   [:Person1_2Sel :Future2 "hagamaama"]
+                   [:Person1_2Sel :Habitual "hagóoma"]
+                   [:Person1_2Sel :Present "hagama"]
+                   [:Person1_2Sel :Preterite "hagáama"]
+                   [:Person1_2Sel :Prospective "hagooma"]
+                   [:Person3Sel :Completive "higingma"]
+                   [:Person3Sel :Future1 "higaama"]
+                   [:Person3Sel :Future2 "higimaama"]
+                   [:Person3Sel :Habitual "higóoma"]
+                   [:Person3Sel :Present "higima"]
+                   [:Person3Sel :Preterite "higáama"]
+                   [:Person3Sel :Prospective "higooma"] ]
+           }
+          {:label "burunge-VConcessivel_SubjObj"
+           :note "Kiessling1994 # 7.2.7.5. The concessive is formed from the consecutive by placing consecutive 'ma' after tam marker. [REV: :subjSel :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :stype :Concessive, :tam :Present, :smorphClass :Concessive_SubjObj}
+           :terms [[:subjSel :token] ;; schema
+                   [:Person1_2Sel "hanima"]
+                   [:Person1_2Sel "haguma"]
+                   [:Person1_2Sel "hagima"]
+                   [:Person1_2Sel "haguma"]
+                   [:Person1_2Sel "hagama"]
+                   [:Person1_2Sel "handima"]
+                   [:Person1_2Sel "hanguma"]
+                   [:Person1_2Sel "hagima"]
+                   [:Person3Sel "hinima"]
+                   [:Person3Sel "huguma"]
+                   [:Person3Sel "higima"]
+                   [:Person3Sel "higuma"]
+                   [:Person3Sel "higama"]
+                   [:Person3Sel "hindima"]
+                   [:Person3Sel "hunguma"]
+                   [:Person3Sel "higima"] ]
+           }
+          {:label "burunge-VConsecutiveTransPresSel"
+           :note "Kiessling1994 # 7.2.7.3. Das Consecutivemorphem {ma}. [REV: :subjSel :numberObj :personObj :genderObj]. "
+           :common {:pos :Selector, :stype :Consecutive, :transitivity :Transitive, :tam :Present, :smorphClass :Consecutive_Subj_Obj_Pres}
+           :terms [[:subjSel :token] ;; schema
+                   [:Person1_2Sel "mani"]
+                   [:Person1_2Sel "magu"]
+                   [:Person1_2Sel "magi"]
+                   [:Person1_2Sel "magu"]
+                   [:Person1_2Sel "maga"]
+                   [:Person1_2Sel "mandi"]
+                   [:Person1_2Sel "mangu"]
+                   [:Person1_2Sel "magi"]
+                   [:Person3Sel "mini"]
+                   [:Person3Sel "mugu"]
+                   [:Person3Sel "migi"]
+                   [:Person3Sel "migu"]
+                   [:Person3Sel "miga"]
+                   [:Person3Sel "mindi"]
+                   [:Person3Sel "mungu"]
+                   [:Person3Sel "migi"] ]
+           }
+          {:label "burunge-VConsecutive_TenseSel"
+           :note "Kiessling1994 # 7.2.7.3. Das Paradigma ohne Objektindikatoren."
+           :common {:pos :Selector, :stype :Consecutive, :transitivity :Intransitive, :smorphClass :Consecutive_Subj_Tense}
+           :terms [[:subjSel :tenseSel :token] ;; schema
+                   [:Person1_2Sel :Future1 "maa"]
+                   [:Person1_2Sel :Future2 "mamaa"]
+                   [:Person1_2Sel :Habitual "móo"]
+                   [:Person1_2Sel :Present "ma"]
+                   [:Person1_2Sel :Prospective "moo"]
+                   [:Person3Sel :Future1 "miyaa"]
+                   [:Person3Sel :Future2 "mimaa"]
+                   [:Person3Sel :Habitual "miyóo"]
+                   [:Person3Sel :Present "mi"]
+                   [:Person3Sel :Prospective "miyoo"] ]
+           }
+          {:label "burunge-VDervStem"
+           :note "Kiessling1994 6.3 (pp. 93-109). Derived stem template:comitative - applicative - frequentative - ROOT - distributive - {progressive,intensive}- inchoative - durative - {mediopassive,continuative}- causative. The plural root (suppletive in a number of verbs) is often formed with a derived stem (frequentative,continuative,durative,progressivew,or intensive - cf. section 6.5.2,pp. 113 - 119. [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+           :common {:pos :Verb, :vmorphClass :DervStem}
+           :terms [[:derivedStem :token :token-note] ;; schema
+                   [:Applicative "hii-" "_NULL"]
+                   [:Causative "-is" "_NULL"]
+                   [:Comitative "_NULL" "_NULL"]
+                   [:Continuative "-id!" "_NULL"]
+                   [:Distributive "{CV}n" "total reduplication"]
+                   [:Durative "-(i)m" "_NULL"]
+                   [:Frequentative "CV-" "first syllable reduplication"]
+                   [:Inchoative "-aw" "_NULL"]
+                   [:Intensive "-aaC-" "reduplication of root-final C"]
+                   [:Mediopassive "-id!" "_NULL"]
+                   [:Progressive "-VVC-" "reduplication of root-final syllable with vowel lengthening"] ]
+           }
+          {:label "burunge-VImprtvComponentAnalysis"
+           :note "Kiessling1994 # 7.2.16, p. 180. [An attempt to combine a subj/obj marker component in various classes of imperative -- other dimensional presentations possible (features for ventive, object gender).]"
+           :common {:pos :Verb, :vmorphClass :ImperativeCompAnalysis, :tam :Imperative}
+           :terms [[:imprtvComponent :token] ;; schema
+                   [:Applicative "-u"]
+                   [:NonVent "-i"]
+                   [:NonVent "-a"]
+                   [:Obj3GenderF "-a"]
+                   [:Obj3GenderM "-u"]
+                   [:Obj3GenderN "-i"]
+                   [:Obj3Marker "-k"]
+                   [:SubjNumObj3 "-na"]
+                   [:Vent "-a"]
+                   [:Vent "-aari"]
+                   [:Vent "-an"] ]
+           }
+          {:label "burunge-VImprtvObjSuff"
+           :note "Kiessling1994 #7.2.16"
+           :common {:pos :Verb, :vmorphClass :ImperativeObject3, :personObj :Person3, :person :Person2, :tam :Imperative}
+           :terms [[:orientation :token] ;; schema
+                   [:NonVentive "-eki"]
+                   [:NonVentive "-eku"]
+                   [:NonVentive "-eka"]
+                   [:NonVentive "-akina"]
+                   [:NonVentive "-akuna"]
+                   [:NonVentive "-akana"]
+                   [:Ventive "-anki"]
+                   [:Ventive "-anku"]
+                   [:Ventive "-anka"]
+                   [:Ventive "-ankina"]
+                   [:Ventive "-ankuna"]
+                   [:Ventive "-ankana"] ]
+           }
+          {:label "burunge-VImprtvSuffixes"
+           :note "Kiessling1994 # 7.2.16. In the imprtv,applicative verbs do not have the prefix hil-,but suffix a kind of protemanteau morpheme. [Object indication not possible.]"
+           :common {:pos :Verb, :vmorphClass :ImperativeAppliclative, :derivedStem :Applicative, :person :Person2, :tam :Imperative}
+           :terms [[:number :orientation :token] ;; schema
+                   [:Plural :NonVentive "-aw"]
+                   [:Plural :Ventive "-aaru"]
+                   [:Singular :NonVentive "-i"]
+                   [:Singular :Ventive "-aayu"] ]
+           }
+          {:label "burunge-VIndetSubj_Obj"
+           :note "Kiessling1994 # 7.2.11. Der SubjTypeSelindefinit {da}.[REV: :numberObj :personObj :genderObj] "
+           :common {:pos :Selector, :subjTypeSel :IndetSubj, :smorphClass :IndetSubj_Obj}
+           :terms [[:personOvj :token] ;; schema
+                   [:Person1 "da + ni → dini"]
+                   [:Person1 "da + ndi → dandi ~ dindi"]
+                   [:Person2 "da + gu → dugu"]
+                   [:Person2 "da + gi → digi"]
+                   [:Person2 "da + ngu → dangu ~ dungu"]
+                   [:Person3 "da + gu → dugu"]
+                   [:Person3 "da + ga → daga"]
+                   [:Person3 "da + gi → digi"] ]
+           }
+          {:label "burunge-VIndetkSubj_TenseSel"
+           :note "Kiessling1994 # 7.2.11. Der SubjTypeSelindefinit {da}"
+           :common {:pos :Selector, :subjTypeSel :IndetSubj, :smorphClass :IndetSubj_Tense}
+           :terms [[:tenseSel :token] ;; schema
+                   [:Completive "da + ng → dang"]
+                   [:Future1 "da + aa → daa"]
+                   [:Future2 "da + maa → damaa"]
+                   [:Habitual "da + óo → dóo"]
+                   [:Preterite "da + áa → dáa"]
+                   [:Prospective "da + oo → doo"] ]
+           }
+          {:label "burunge-VInterrGen"
+           :note "Kiessling1994 # 9.6.1, p. 213. Die Satzfrage. Comparative list of morphological markers in declarative (with final reduction) and interrogative (without final reduction). On p, 214 gives list of imperative endings to make point that since imperative interrogatives do not exist, imperatives always have final reduction. Cf. pdgms: ImperativeCompAnalysis, ImperativeObject3, ImperativeApplicative."
+           :common {:pos :Verb, :vmorphClass :InterrGen}
+           :terms [[:gramFunction :polarity :token] ;; schema
+                   [:AdjSuff-f :AffDecl "-i"]
+                   [:AdjSuff-f :AffInterr "-i"]
+                   [:AdjSuff-m :AffDecl "-u"]
+                   [:AdjSuff-m :AffInterr "-u"]
+                   [:ImperfSuff :AffDecl "⊤"]
+                   [:ImperfSuff :AffInterr "-a"]
+                   [:NegSuff :AffDecl "-ba"]
+                   [:NegSuff :AffInterr "-baɬi"]
+                   [:NominalPred :AffDecl "⊤"]
+                   [:NominalPred :AffInterr "-goo"]
+                   [:ParticipleSuff-imprf-sg :AffDecl "-a"]
+                   [:ParticipleSuff-imprf-sg :AffInterr "-aa"]
+                   [:ParticipleSuff-perf-f :AffDecl "-idĭ"]
+                   [:ParticipleSuff-perf-f :AffInterr "-idi"]
+                   [:ParticipleSuff-perf-m :AffDecl "-u"]
+                   [:ParticipleSuff-perf-m :AffInterr "-u"]
+                   [:ParticipleSuff-perf-pl :AffDecl "-ee’ĭ"]
+                   [:ParticipleSuff-perf-pl :AffInterr "-ee’i"]
+                   [:PerfSuff :AffDecl "⊤"]
+                   [:PerfSuff :AffInterr "-i"]
+                   [:Subj3sgImperf :AffDecl "⊤"]
+                   [:Subj3sgImperf :AffInterr "-iya"]
+                   [:SubjPlImperf :AffDecl "-y"]
+                   [:SubjPlImperf :AffInterr "-‘i"]
+                   [:SubjPlPerf :AffDecl "-rĭ"]
+                   [:SubjPlPerf :AffInterr "-ri"]
+                   [:SubjunctiveSuff :AffDecl "-e"]
+                   [:SubjunctiveSuff :AffInterr "-ee"] ]
+           }
+          {:label "burunge-VObjFocus_TenseSel_Obj"
+           :note "Kiessling1994 7.2.14. Die Fokusmorpheme {na}und {ni}. [REV: :tenseSel :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :subjTypeSel :Person1_2Sel, :stype :ObjFocus, :smorphClass :ObjFocus_TenseSel_Obj}
+           :terms [[:tenseSel :token] ;; schema
+                   [:Completive "hanining"]
+                   [:Completive "haguning"]
+                   [:Completive "hagining"]
+                   [:Completive "haguning"]
+                   [:Completive "haganing"]
+                   [:Completive "handinging"]
+                   [:Completive "haguning"]
+                   [:Completive "hagining"]
+                   [:Future1 "haninaa"]
+                   [:Future1 "hagunaa"]
+                   [:Future1 "haginaa"]
+                   [:Future1 "hagunaa"]
+                   [:Future1 "haganaa"]
+                   [:Future1 "handinaa"]
+                   [:Future1 "hangunaa"]
+                   [:Future1 "haginaa"]
+                   [:Future2 "haninimaa"]
+                   [:Future2 "hagunimaa"]
+                   [:Future2 "haginimaa"]
+                   [:Future2 "hagunimaa"]
+                   [:Future2 "haganimaa"]
+                   [:Future2 "handinimaa"]
+                   [:Future2 "hangunimaa"]
+                   [:Future2 "haginimaa"]
+                   [:Habitual "haninóo"]
+                   [:Habitual "hagunóo"]
+                   [:Habitual "haginóo"]
+                   [:Habitual "hagunóo"]
+                   [:Habitual "haganóo"]
+                   [:Habitual "handinóo"]
+                   [:Habitual "hangunóo"]
+                   [:Habitual "haginóo"]
+                   [:Preterite "hanináa"]
+                   [:Preterite "hagunáa"]
+                   [:Preterite "hagináa"]
+                   [:Preterite "hagunáa"]
+                   [:Preterite "haganáa"]
+                   [:Preterite "handináa"]
+                   [:Preterite "hagnunáa"]
+                   [:Preterite "hagináa"]
+                   [:Prospective "haninoo"]
+                   [:Prospective "hagunoo"]
+                   [:Prospective "haginoo"]
+                   [:Prospective "hagunoo"]
+                   [:Prospective "haganoo"]
+                   [:Prospective "handinoo"]
+                   [:Prospective "hangunoo"]
+                   [:Prospective "haginoo"] ]
+           }
+          {:label "burunge-VOptativeIntransSel"
+           :note "Kiessling1994 # 7.2.7.1 Das Optativeparadigma ohne Objektindikatoren. [REV: :tenseSel :subjSel]"
+           :common {:pos :Selector, :stype :Optative, :transitivity :Intransitive, :smorphClass :Optative_Subj}
+           :terms [[:subjSel :tenseSel :token] ;; schema
+                   [:Person1_2Sel :Future1 "laa"]
+                   [:Person1_2Sel :Future2 "lamaa"]
+                   [:Person1_2Sel :Habitual "lóo"]
+                   [:Person1_2Sel :Present "la"]
+                   [:Person1_2Sel :Prospective "loo"]
+                   [:Person3Sel :Future1 "liyaa"]
+                   [:Person3Sel :Future2 "limaa"]
+                   [:Person3Sel :Habitual "liyóo"]
+                   [:Person3Sel :Present "li "]
+                   [:Person3Sel :Prospective "liyoo"] ]
+           }
+          {:label "burunge-VOptativeTransPresSel"
+           :note "Kiessling1994 # 7.2.7.1. [REV: :subjSel :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :stype :Optative, :transitivity :Transitive, :tam :Present, :smorphClass :Optative_Subj_Obj_Pres}
+           :terms [[:subjSel :token] ;; schema
+                   [:Person1_2Sel "lani"]
+                   [:Person1_2Sel "lagu"]
+                   [:Person1_2Sel "lagi"]
+                   [:Person1_2Sel "lagu"]
+                   [:Person1_2Sel "laga"]
+                   [:Person1_2Sel "landi"]
+                   [:Person1_2Sel "langu"]
+                   [:Person1_2Sel "lagi"]
+                   [:Person3Sel "lini"]
+                   [:Person3Sel "lugu"]
+                   [:Person3Sel "ligi"]
+                   [:Person3Sel "ligu"]
+                   [:Person3Sel "liga"]
+                   [:Person3Sel "lindi"]
+                   [:Person3Sel "lungu"]
+                   [:Person3Sel "ligi"] ]
+           }
+          {:label "burunge-VParticiple"
+           :note "Kiessling1994 # 7.3"
+           :common {:pos :Verb, :vmorphClass :ParticipleSuff}
+           :terms [[:gender :number :tam :token] ;; schema
+                   [:Common :Plural :Imperfect "-ee’i"]
+                   [:Common :Singular :Imperfect "-aa"]
+                   [:Fem :Singular :Perfect "-idi"]
+                   [:Masc :Singular :Perfect "-u"]
+                   [:Neut :Plural :Perfect "-ee’i"] ]
+           }
+          {:label "burunge-VPresentSubjRelClause-objMarking"
+           :note "Kiessling1994 # 9.7.1.1. Subject relative clause. (Head noun subject of relative.) Verb occurs In participial form (perf or imperf) – similar to relative clauses of ECush (cf. Somali). Sel formants are attahced to gender-marked subordinator:gu- masc.,da- fem."
+           :common {:pos :Selector, :smorphClass :SubjRelClause_ObjMarking, :tenseSel :Present}
+           :terms [[:gender :token] ;; schema
+                   [:Fem "dini"]
+                   [:Fem "dugu"]
+                   [:Fem "digi"]
+                   [:Fem "dugu"]
+                   [:Fem "daga"]
+                   [:Fem "dindi"]
+                   [:Fem "dungu"]
+                   [:Fem "digi"]
+                   [:Masc "guni"]
+                   [:Masc "gugu"]
+                   [:Masc "gigi"]
+                   [:Masc "gugu"]
+                   [:Masc "guga"]
+                   [:Masc "gundi"]
+                   [:Masc "gungu"]
+                   [:Masc "gugi"] ]
+           }
+          {:label "burunge-VPresentSubjRelClause-subjMarking"
+           :note "Kiessling1994 # 9.7.1.1. Subject relative clause. (Head noun subject of
+            relative.) Verb occurs In participial form (perf or imperf) – similar to relative
+            clauses of ECush (cf. Somali). Sel formants are attahced to gender-marked
+            subordinator:gu- masc.,da- fem."
+           :common {:pos :Selector, :smorphClass :SubjRelClause_SubjMarking}
+           :terms [[:gender :tenseSel :token] ;; schema
+                   [:Fem :Completive "dang ~ ding"]
+                   [:Fem :Future1 "daa"]
+                   [:Fem :Future2 "damaa"]
+                   [:Fem :Habitual "dóo"]
+                   [:Fem :Present "da"]
+                   [:Fem :Preterite "dáa"]
+                   [:Fem :Prospective "doo"]
+                   [:Masc :Completive "gung"]
+                   [:Masc :Future1 "gwaa"]
+                   [:Masc :Future2 "gumaa"]
+                   [:Masc :Habitual "góo"]
+                   [:Masc :Present "gu"]
+                   [:Masc :Preterite "gwáa"]
+                   [:Masc :Prospective "goo"] ]
+           }
+          {:label "burunge-VPret_SubjObj"
+           :note "Kiessling1994 # 7.2.3.2 [REV: :subjSel :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :selectorCategory :TenseSel, :tenseSel :Preterite, :smorphClass :Preterite_SubjObj}
+           :terms [[:subjSel :token] ;; schema
+                   [:Person1_2Sel "hanáa"]
+                   [:Person1_2Sel "hagwáa"]
+                   [:Person1_2Sel "hagáa ~ hagiyáa"]
+                   [:Person1_2Sel "hagwáa"]
+                   [:Person1_2Sel "hagáa"]
+                   [:Person1_2Sel "handáa"]
+                   [:Person1_2Sel "hangwáa"]
+                   [:Person1_2Sel "hagáa ~ hagiyáa"]
+                   [:Person3Sel "hináa"]
+                   [:Person3Sel "hugwáa"]
+                   [:Person3Sel "higáa ~ higiyáa"]
+                   [:Person3Sel "higwáa"]
+                   [:Person3Sel "higáa"]
+                   [:Person3Sel "hindáa"]
+                   [:Person3Sel "hungwáa"]
+                   [:Person3Sel "higáa ~ higiyáa"] ]
+           }
+          {:label "burunge-VProspective_SubjObj"
+           :note "Kiessling1994 # 7.2.5.5 "
+           :common {:pos :Selector, :selectorCategory :TenseSel, :tenseSel :Prospective, :smorphClass :Prospective_SubjObj}
+           :terms [[:subjSel :token] ;; schema
+                   [:Person1_2Sel "hanoo"]
+                   [:Person1_2Sel "hagoo"]
+                   [:Person1_2Sel "hagoo ~ hagiyoo"]
+                   [:Person1_2Sel "hagoo"]
+                   [:Person1_2Sel "hagoo"]
+                   [:Person1_2Sel "handoo"]
+                   [:Person1_2Sel "haŋoo"]
+                   [:Person1_2Sel "hagoo ~ hagiyoo"]
+                   [:Person3Sel "hinoo"]
+                   [:Person3Sel "hugoo"]
+                   [:Person3Sel "higoo ~ higiyoo"]
+                   [:Person3Sel "higoo"]
+                   [:Person3Sel "higoo"]
+                   [:Person3Sel "hindoo"]
+                   [:Person3Sel "huŋoo"]
+                   [:Person3Sel "higoo ~ higiyoo"] ]
+           }
+          {:label "burunge-VRelativePres_SubjObj"
+           :note "Kiessling1994 # 7.2.7.4. [REV: :subjSel :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :stype :Relative, :smorphClass :RelativePres_SubjObj}
+           :terms [[:subjSel :token] ;; schema
+                   [:Person1_2Sel "(ha)gani"]
+                   [:Person1_2Sel "(ha)gagu"]
+                   [:Person1_2Sel "(ha)gagi"]
+                   [:Person1_2Sel "(ha)gagu"]
+                   [:Person1_2Sel "(ha)gaga"]
+                   [:Person1_2Sel "(ha)gandi"]
+                   [:Person1_2Sel "(ha)gangu"]
+                   [:Person1_2Sel "(ha)hagi"]
+                   [:Person3Sel "(hi)gini"]
+                   [:Person3Sel "(hi)gugu"]
+                   [:Person3Sel "(hi)gigi"]
+                   [:Person3Sel "(hi)gigu"]
+                   [:Person3Sel "(hi)giga"]
+                   [:Person3Sel "(hi)gindi"]
+                   [:Person3Sel "(hi)gungu"]
+                   [:Person3Sel "(hi)gigi"] ]
+           }
+          {:label "burunge-VSType_Subj"
+           :note "Kiessling1994 # 7.2.7"
+           :common {:pos :Selector, :smorphClass :ClauseType_Subj}
+           :terms [[:stype :subjSel :token] ;; schema
+                   [:Consecutive :Person1_2Sel "ma + ha → ma"]
+                   [:Consecutive :Person3Sel "ma + hi → mi"]
+                   [:ObliqueRelative :Person1_2Sel "ga + ha → ga"]
+                   [:ObliqueRelative :Person3Sel "ga + hi → gi"]
+                   [:Optative :Person1_2Sel "la + ha → la"]
+                   [:Optative :Person3Sel "la + hi → li"] ]
+           }
+          {:label "burunge-VSel_SubjSuff"
+           :note "Kiessling1994 #7.1.1.1 (p. 123). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+           :common {:pos :Verb, :vmorphClass :SubjMarkerSelStem}
+           :terms [[:gender :number :person :tam :token] ;; schema
+                   [:Common :Plural :Person1 :Imperfect "ha- + -ana"]
+                   [:Common :Plural :Person1 :Perfect "ha- + -ani"]
+                   [:Common :Plural :Person2 :Imperfect "ha- + -ida’i"]
+                   [:Common :Plural :Person2 :Perfect "ha- + -idiri"]
+                   [:Common :Plural :Person3 :Imperfect "hi- + -iya’i"]
+                   [:Common :Plural :Person3 :Perfect "hi- + -iri"]
+                   [:Common :Singular :Person1 :Imperfect "ha- + -a"]
+                   [:Common :Singular :Person1 :Perfect "ha- + -i"]
+                   [:Common :Singular :Person2 :Imperfect "ha- + -ida"]
+                   [:Common :Singular :Person2 :Perfect "ha- + -idi"]
+                   [:Fem :Singular :Person3 :Imperfect "hi- + -ida"]
+                   [:Fem :Singular :Person3 :Perfect "hi- + -idi"]
+                   [:Masc :Singular :Person3 :Imperfect "hi- + -i"]
+                   [:Masc :Singular :Person3 :Perfect "hi- + -i"] ]
+           }
+          {:label "burunge-VSelectorStructure"
+           :note "Kiessling1994 #7 (p. 121). The preverbal selectorcomplex (Flexionskomplex) can contain morphemes from the following categories:clauseType - subjType - object - contrast - case - tenseAspect - sequential - actionOrientation"
+           :common {:pos :Selector, :smorphClass :SelectorStructure}
+           :terms [[:selectorCategory :selectorFormant :token] ;; schema
+                   [:CaseSel :CommitInstrumental "ri"]
+                   [:ClauseTypeSel :Conditional "bara"]
+                   [:ClauseTypeSel :Consecutive "ma"]
+                   [:ClauseTypeSel :ObliqueRelative "ga"]
+                   [:ClauseTypeSel :Optative "la"]
+                   [:ClauseTypeSel :SubjFocus "na"]
+                   [:ContrastSel :ObjFocus "ni"]
+                   [:ObjSel :NumCommon :PersonRefl]
+                   [:ObjSel :Plural :Person1]
+                   [:ObjSel :Plural :Person2]
+                   [:ObjSel :Plural :Person3]
+                   [:ObjSel :Singular :Person1]
+                   [:ObjSel :Singular :Person2]
+                   [:ObjSel :Singular :Person2]
+                   [:ObjSel :Singular :Person3]
+                   [:ObjSel :Singular :Person3]
+                   [:OrientationSel :Reflexive "ti"]
+                   [:OrientationSel :Separative "ti"]
+                   [:OrientationSel :Ventive "ni"]
+                   [:SequentialSel :Sequential "gi"]
+                   [:SubjTypeSel :BenefactiveSubj "sa"]
+                   [:SubjTypeSel :IndetSubj "da"]
+                   [:SubjTypeSel :Person1_2Sel "ha"]
+                   [:SubjTypeSel :Person3Sel "hi"]
+                   [:TenseSel :Completive "ng"]
+                   [:TenseSel :Future1 "aa"]
+                   [:TenseSel :Future2 "maa"]
+                   [:TenseSel :Habitual "óo"]
+                   [:TenseSel :Present "Ø"]
+                   [:TenseSel :Preterite "áa"]
+                   [:TenseSel :Prospective "oo"] ]
+           }
+          {:label "burunge-VSequential_SubjObj"
+           :note "Kiessling1994 # 7.2.8. Das Sequentialmorphem {gi}. [REV: :subjSel :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :stype :Sequential, :smorphClass :Sequential_SubjObj}
+           :terms [[:subjSel :token] ;; schema
+                   [:Person1_2Sel "hanigi"]
+                   [:Person1_2Sel "hagugu"]
+                   [:Person1_2Sel "hagigi"]
+                   [:Person1_2Sel "hagugu"]
+                   [:Person1_2Sel "hagaga"]
+                   [:Person1_2Sel "handigi"]
+                   [:Person1_2Sel "hangugu"]
+                   [:Person1_2Sel "hagigi"]
+                   [:Person3Sel "hinigi"]
+                   [:Person3Sel "hugugu"]
+                   [:Person3Sel "higigi"]
+                   [:Person3Sel "higugu"]
+                   [:Person3Sel "higaga"]
+                   [:Person3Sel "hindigi"]
+                   [:Person3Sel "hungugu"]
+                   [:Person3Sel "higigi"] ]
+           }
+          {:label "burunge-VSubjFocus_Obj"
+           :note "Kiessling1994 7.2.14. Die Fokusmorpheme {na}und {ni}. [REV: :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :stype :SubjFocus, :smorphClass :SubjFocus_Obj}
+           :terms [[:token] ;; schema
+                   ["na + ni → nini"]
+                   ["na + gu → nugu"]
+                   ["na + ga → nigi"]
+                   ["na + gu → nugu"]
+                   ["na + ga → naga"]
+                   ["na + ndi → nindi"]
+                   ["na + ngu → nungu"]
+                   ["na + gi → nigi"] ]
+           }
+          {:label "burunge-VSubjFocus_Tense"
+           :note "Kiessling1994 # 7.2.14. Die Fokusmorpheme {na}und {ni}"
+           :common {:pos :Selector, :stype :SubjFocus, :smorphClass :SubjFocus_Tense}
+           :terms [[:tenseSel :token] ;; schema
+                   [:Completive "na + ng → nang"]
+                   [:Future1 "na + aa → naa"]
+                   [:Future2 "na + maa → namaa"]
+                   [:Habitual "na + óo → nóo"]
+                   [:Preterite "na + áa → náa"]
+                   [:Prospective "na + oo → noo"] ]
+           }
+          {:label "burunge-VSubjObjTenseMorphophon"
+           :note "Kiessling1994 # 7.1.3 pp. 133-135. Sel vowel sequence resolutions."
+           :common {:pos :Selector, :smorphClass :SubjObjTenseMorphophon}
+           :terms [[:subjSel :tenseSel :token] ;; schema
+                   [:Person1_2Sel :Future1 "ha+ni+aa > hanaa"]
+                   [:Person1_2Sel :Future1 "ha+gu+aa > hagwaa"]
+                   [:Person1_2Sel :Future1 "ha+gi+aa > hagiyaa~hagaa"]
+                   [:Person1_2Sel :Future1 "ha+gu+aa > hagwaa"]
+                   [:Person1_2Sel :Future1 "ha+ngu+aa > hagwaa"]
+                   [:Person1_2Sel :Future1 "ha+gi+aa > hagiyaa~hagaa"]
+                   [:Person1_2Sel :Future1 "ha+aa > haa"]
+                   [:Person1_2Sel :Habitual "ha+gu+óo > hagóo"]
+                   [:Person1_2Sel :Habitual "ha+gi+óo > hagiyóo~hagóo"]
+                   [:Person1_2Sel :Habitual "ha+gu+óo > hagóo"]
+                   [:Person1_2Sel :Habitual "ha+ndi+óo > handóo"]
+                   [:Person1_2Sel :Habitual "ha+gi+óo > hagiyóo~hagóo"]
+                   [:Person1_2Sel :Habitual "ha+óo > hóo"]
+                   [:Person1_2Sel :Preterite "ha+gu+áa > hagwáa"]
+                   [:Person1_2Sel :Preterite "ha+gi+áa > hagiyáa~hagáa"]
+                   [:Person1_2Sel :Preterite "ha+gu+áa > hagwáa"]
+                   [:Person1_2Sel :Preterite "ha+ndi+áa > handáa"]
+                   [:Person1_2Sel :Preterite "ha+ngu+áa > hagwáa"]
+                   [:Person1_2Sel :Preterite "ha+gi+áa > hagiyáa~hagáa"]
+                   [:Person1_2Sel :Preterite "ha+áa > háa"]
+                   [:Person1_2Sel :Prospective "ha+ni+oo > hanoo"]
+                   [:Person1_2Sel :Prospective "ha+gu+oo > hagoo"]
+                   [:Person1_2Sel :Prospective "ha+gi+oo > hagiyoo~hagoo"]
+                   [:Person1_2Sel :Prospective "ha+gi+oo > hagoo"]
+                   [:Person1_2Sel :Prospective "ha+gu+oo > hagoo"]
+                   [:Person1_2Sel :Prospective "ha+ga+oo > hagoo"]
+                   [:Person1_2Sel :Prospective "ha+ngu+oo > hagoo"]
+                   [:Person1_2Sel :Prospective "ha+gi+oo > hagiyoo~hagoo"]
+                   [:Person1_2Sel :Prospective "ha+gi+oo > hagoo"]
+                   [:Person1_2Sel :Prospective "ha+oo > hoo"]
+                   [:Person3Sel :Future1 "hi+aa > yaa"]
+                   [:Person3Sel :Habitual "ha+ngu+óo > hagóo"]
+                   [:Person3Sel :Habitual "hi+óo > yóo"]
+                   [:Person3Sel :NA "hi+gu > hugu"]
+                   [:Person3Sel :NA "hi+gu > higu"]
+                   [:Person3Sel :NA "hi+ga > higa"]
+                   [:Person3Sel :NA "hi+ngu > hungu"]
+                   [:Person3Sel :Preterite "hi+áa > yáa"]
+                   [:Person3Sel :Prospective "hi+oo > yoo"] ]
+           }
+          {:label "burunge-VSubjSuffAllomorph"
+           :note "Kiessling1994 #7.1.1.2 (p. 124)"
+           :common {:pos :Verb, :vmorphClass :SubjSuffAllomorph}
+           :terms [[:gender :number :person :token] ;; schema
+                   [:Common :Plural :Person1 "-an, -in, -n!"]
+                   [:Common :Plural :Person2 "-ida’i -idiri, -ta'i, -tiri"]
+                   [:Common :Plural :Person3 "-iya’i, -iri, -n!a'i, -n!iri"]
+                   [:Common :Singular :Person1 "-Ø, -u"]
+                   [:Common :Singular :Person2 "-id, -t"]
+                   [:Fem :Singular :Person3 "-id, -t"]
+                   [:Masc :Singular :Person3 "-i, -n!"] ]
+           }
+          {:label "burunge-VSubjSuffDentStemImpf"
+           :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+           :common {:pos :Verb, :stemClass :DentalStem, :tam :Imperfect, :vmorphClass :SubjSuffDentStemImperf}
+           :terms [[:gender :number :person :token] ;; schema
+                   [:Common :Plural :Person1 "-an"]
+                   [:Common :Plural :Person2 "-ida’i"]
+                   [:Common :Plural :Person3 "-iya’i"]
+                   [:Common :Singular :Person1 "-Ø"]
+                   [:Common :Singular :Person2 "-id"]
+                   [:Fem :Singular :Person3 "-id"]
+                   [:Masc :Singular :Person3 "-i"] ]
+           }
+          {:label "burunge-VSubjSuffDentStemPerf"
+           :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+           :common {:pos :Verb, :stemClass :DentalStem, :tam :Perfect, :vmorphClass :SubjSuffDentStemPerf}
+           :terms [[:gender :number :person :token] ;; schema
+                   [:Common :Plural :Person1 "-an"]
+                   [:Common :Plural :Person2 "-idiri"]
+                   [:Common :Plural :Person3 "-iri"]
+                   [:Common :Singular :Person1 "-Ø"]
+                   [:Common :Singular :Person2 "-id"]
+                   [:Fem :Singular :Person3 "-id"]
+                   [:Masc :Singular :Person3 "-i"] ]
+           }
+          {:label "burunge-VSubjSuffGlideStemImpf"
+           :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+           :common {:pos :Verb, :stemClass :GlideStem, :tam :Imperfect, :vmorphClass :SubjSuffGlideStemImperf}
+           :terms [[:gender :number :person :token] ;; schema
+                   [:Common :Plural :Person1 "-in"]
+                   [:Common :Plural :Person2 "-ida’i"]
+                   [:Common :Plural :Person3 "-iya’i"]
+                   [:Common :Singular :Person1 "-Ø"]
+                   [:Common :Singular :Person2 "-id"]
+                   [:Fem :Singular :Person3 "-id"]
+                   [:Masc :Singular :Person3 "-i"] ]
+           }
+          {:label "burunge-VSubjSuffGlideStemPerf"
+           :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+           :common {:pos :Verb, :stemClass :GlideStem, :tam :Perfect, :vmorphClass :SubjSuffGlideStemPerfect}
+           :terms [[:gender :number :person :token] ;; schema
+                   [:Common :Plural :Person1 "-in"]
+                   [:Common :Plural :Person2 "-idiri"]
+                   [:Common :Plural :Person3 "-iri"]
+                   [:Common :Singular :Person1 "-Ø"]
+                   [:Common :Singular :Person2 "-id"]
+                   [:Fem :Singular :Person3 "-id"]
+                   [:Masc :Singular :Person3 "-i"] ]
+           }
+          {:label "burunge-VSubjSuffHStemImpf"
+           :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+           :common {:pos :Verb, :stemClass :HStem, :tam :Imperfect, :vmorphClass :SubjSuffHStemPerf}
+           :terms [[:gender :number :person :token] ;; schema
+                   [:Common :Plural :Person1 "-an"]
+                   [:Common :Plural :Person2 "-ida’i"]
+                   [:Common :Plural :Person3 "-iya’i"]
+                   [:Common :Singular :Person1 "-u"]
+                   [:Common :Singular :Person2 "-id"]
+                   [:Fem :Singular :Person3 "-id"]
+                   [:Masc :Singular :Person3 "-i"] ]
+           }
+          {:label "burunge-VSubjSuffHStemPerf"
+           :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+           :common {:pos :Verb, :stemClass :HStem, :tam :Perfect, :vmorphClass :SubjSuffHStemPerf}
+           :terms [[:gender :number :person :token] ;; schema
+                   [:Common :Plural :Person1 "-an"]
+                   [:Common :Plural :Person2 "-idiri"]
+                   [:Common :Plural :Person3 "-iri"]
+                   [:Common :Singular :Person1 "-Ø"]
+                   [:Common :Singular :Person2 "-id"]
+                   [:Fem :Singular :Person3 "-id"]
+                   [:Masc :Singular :Person3 "-i"] ]
+           }
+          {:label "burunge-VSubjSuffNasStemImperf"
+           :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+           :common {:pos :Verb, :stemClass :NasalStem, :tam :Imperfect, :vmorphClass :SubjSuffNasStemImperf}
+           :terms [[:gender :number :person :token] ;; schema
+                   [:Common :Plural :Person1 "-n!"]
+                   [:Common :Plural :Person2 "-ta’i"]
+                   [:Common :Plural :Person3 "-n!a’i"]
+                   [:Common :Singular :Person1 "-Ø"]
+                   [:Common :Singular :Person2 "-t"]
+                   [:Fem :Singular :Person3 "-t"]
+                   [:Masc :Singular :Person3 "-n!"] ]
+           }
+          {:label "burunge-VSubjSuffNasStemPerf"
+           :note "Kiessling1994 #7.1.1.2 (p. 124). [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+           :common {:pos :Verb, :stemClass :NasalStem, :tam :Perfect, :vmorphClass :SubjSuffNasStemPerf}
+           :terms [[:gender :number :person :token] ;; schema
+                   [:Common :Plural :Person1 "-n!"]
+                   [:Common :Plural :Person2 "indi"]
+                   [:Common :Plural :Person3 "-n!iri"]
+                   [:Common :Singular :Person1 "-Ø"]
+                   [:Common :Singular :Person2 "-t"]
+                   [:Fem :Singular :Person3 "-t"]
+                   [:Masc :Singular :Person3 "-i"] ]
+           }
+          {:label "burunge-VSubj_Obj_Future1"
+           :note "Kiessling1994 # 7.2.5.6. [REV: :subjSel :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :smorphClass :Subj_Obj_Future1}
+           :terms [[:subjSel :token] ;; schema
+                   [:Person1_2Sel "hanaa"]
+                   [:Person1_2Sel "hagwaa"]
+                   [:Person1_2Sel "hagaa ~ hagiyaa"]
+                   [:Person1_2Sel "hagwaa"]
+                   [:Person1_2Sel "hagaa"]
+                   [:Person1_2Sel "handaa"]
+                   [:Person1_2Sel "hangwaa"]
+                   [:Person1_2Sel "hagaa ~ hagiyaa"]
+                   [:Person3Sel "hinaa"]
+                   [:Person3Sel "hugwaa"]
+                   [:Person3Sel "higaa ~ higiyaa"]
+                   [:Person3Sel "higwaa"]
+                   [:Person3Sel "higaa"]
+                   [:Person3Sel "hindaa"]
+                   [:Person3Sel "hungwaa"]
+                   [:Person3Sel "higaa ~ higiyaa"] ]
+           }
+          {:label "burunge-VSubj_Obj_Future2"
+           :note "Kiessling1994 # 7.2.5.7. [REV: :subjSel :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :smorphClass :Subj_Obj_Future2}
+           :terms [[:subjSel :token] ;; schema
+                   [:Person1_2Sel "hanimaa"]
+                   [:Person1_2Sel "hagumaa"]
+                   [:Person1_2Sel "hagimaa"]
+                   [:Person1_2Sel "hagumaa"]
+                   [:Person1_2Sel "hagamaa"]
+                   [:Person1_2Sel "handimaa"]
+                   [:Person1_2Sel "hangumaa"]
+                   [:Person1_2Sel "hagimaa"]
+                   [:Person3Sel "hinimaa"]
+                   [:Person3Sel "hugumaa"]
+                   [:Person3Sel "higimaa"]
+                   [:Person3Sel "higumaa"]
+                   [:Person3Sel "higamaa"]
+                   [:Person3Sel "hindimaa"]
+                   [:Person3Sel "hungumaa"]
+                   [:Person3Sel "higimaa"] ]
+           }
+          {:label "burunge-VSubj_Obj_Habitual"
+           :note "Kiessling1994 # 7.2.5.4. [REV: :subjSel :numberObj :personObj :genderObj]"
+           :common {:pos :Selector, :smorphClass :Subj_Obj_Habitual}
+           :terms [[:subjSel :token] ;; schema
+                   [:Person1_2Sel "hanóo"]
+                   [:Person1_2Sel "hagóo"]
+                   [:Person1_2Sel "hagóo ~ hagiyóo"]
+                   [:Person1_2Sel "hagóo"]
+                   [:Person1_2Sel "hagóo"]
+                   [:Person1_2Sel "handóo"]
+                   [:Person1_2Sel "hangóo"]
+                   [:Person1_2Sel "hagóo ~ hagiyóo"]
+                   [:Person3Sel "hinóo"]
+                   [:Person3Sel "hugóo"]
+                   [:Person3Sel "higóo ~ higiyóo"]
+                   [:Person3Sel "higóo"]
+                   [:Person3Sel "higóo"]
+                   [:Person3Sel "hindóo"]
+                   [:Person3Sel "hungóo"]
+                   [:Person3Sel "higóo ~ higiyóo"] ]
+           }
+          {:label "burunge-VSubj_RelativeInstransSel"
+           :note "Kiessling1994 # 7.2.7.4. Das Relativmorphem {ga}"
+           :common {:pos :Selector, :stype :SubjRel, :smorphClass :SubjRelative_Tense_Intrans}
+           :terms [[:subjSel :tenseSel :token] ;; schema
+                   [:Person1_2Sel :Completive "(ha)gang"]
+                   [:Person1_2Sel :Future1 "(ha)gaa"]
+                   [:Person1_2Sel :Future2 "(ha)gamaa"]
+                   [:Person1_2Sel :Habitual "(ha)góo"]
+                   [:Person1_2Sel :Present "(ha)ga"]
+                   [:Person1_2Sel :Preterite "(ha)gáa"]
+                   [:Person1_2Sel :Prospective "(ha)goo"]
+                   [:Person3Sel :Completive "(hi)ging"]
+                   [:Person3Sel :Future1 "(hi)giyaa"]
+                   [:Person3Sel :Future2 "(hi)gimaa"]
+                   [:Person3Sel :Habitual "(hi)giyóo"]
+                   [:Person3Sel :Present "(hi)gi"]
+                   [:Person3Sel :Preterite "(hi)giyáa"]
+                   [:Person3Sel :Prospective "(hi)giyoo"] ]
+           }
+          {:label "burunge-VTenseSel_SubjSel"
+           :note "Kiessling1994 #7.2.5 (p. 147) [REV: :tenseSel :subjSel]"
+           :common {:pos :Selector, :smorphClass :TenseSel_SubjSel}
+           :terms [[:subjSel :tenseSel :token] ;; schema
+                   [:Person1_2Sel :Completive "hang"]
+                   [:Person1_2Sel :Future1 "haa"]
+                   [:Person1_2Sel :Future2 "hamaa"]
+                   [:Person1_2Sel :Habitual "hóo"]
+                   [:Person1_2Sel :Present "ha"]
+                   [:Person1_2Sel :Preterite "háa"]
+                   [:Person1_2Sel :Prospective "hoo"]
+                   [:Person3Sel :Completive "hing"]
+                   [:Person3Sel :Future1 "yaa"]
+                   [:Person3Sel :Future2 "himaa"]
+                   [:Person3Sel :Habitual "yóo"]
+                   [:Person3Sel :Present "hi"]
+                   [:Person3Sel :Preterite "yáa"]
+                   [:Person3Sel :Prospective "yoo"] ]
+           }
+          {:label "burunge-VVerbStemStructure"
+           :note "Kiessling1994 #7 (p. 122). The verb stem inflection consists of the following possible sequence:STEM - person - aspectMood - number - negation – interr. [The exclamation sign !is used by Kiessling as a morphophonemic indicator of (regressive or progressive) vowel shortening,and,when progressive,consonant devoicing. Cf. 4.1.11 (pp. 43f)]"
+           :common {:pos :Verb, :vmorphClass :VerbStemStructure}
+           :terms [[:gender :number :person :stemInflCategory :stemInflMorpheme :token] ;; schema
+                   [:Common :Common :Common :AspectMood :Imperfect "-a"]
+                   [:Common :Common :Common :AspectMood :Perfect "-i"]
+                   [:Common :Common :Common :AspectMood :Subjunctive "-ee"]
+                   [:Common :Common :Common :Negative :Negative "-baɬi"]
+                   [:Common :Common :Common :SentenceType :AffDecl "{phonReduction}"]
+                   [:Common :Common :Common :SentenceType :InterrogDir "⊤"]
+                   [:Common :Common :Common :SentenceType :InterrogRhet "-la"]
+                   [:Common :Plural :Common :Number :NumNonPerf "-‘i"]
+                   [:Common :Plural :Common :Number :NumPerf "-ri"]
+                   [:Common :Plural :Person1 :Person :Common "-an"]
+                   [:Common :Singular :Common :Number :Common "⊤"]
+                   [:Common :Singular :Person1 :Person :Common "-"]
+                   [:Common :Singular :Person2 :Person :Common "-id"]
+                   [:Fem :Singular :Person3 :Person :Common "-id"]
+                   [:Masc :Singular :Person3 :Person :Common "-I"] ]
+           }
+          ]
