@@ -19,21 +19,27 @@
 
 (defn langInfo []
   (let [langlist (slurp "pvlists/menu-langs.txt")
+        lprefmap (read-string (slurp "pvlists/lprefs.clj"))
         languages (split langlist #"\n")]
   (layout/common
    [:body
    ;;[:h1#clickable "Afroasiatic Morphological Archive"]
     [:hr]
-    [:h3#clickable "Get Language Information: "]
+    [:h3#clickable "Get Archive Data Source Information: "]
     (form-to [:post "/lgInformation"]
              [:table
               [:tr [:td "AAMA Language(s): " ]
                [:td 
                 {:title "Choose one or more languages.", :name "language"}
                 (for [language languages]
+                 ;; (if (re-find #"_" language)
+                   ;; [:div {:class "lfamily"}
+                    ;;[:p language]]
+                  (let [lang (read-string (str ":" (lower-case language)))
+                        lpref (lang lprefmap)]
                   [:div {:class "form-group"}
                    [:label 
-                    (check-box {:name "languages[]" :value (lower-case language)}language) language]])]]
+                    (check-box {:name "languages[]" :value (lower-case language)}language) language " (" lpref ")"]]))]]
               ;; from https://groups.google.com/forum/#!topic/compojure/5Vm8QCQLsaQ
               ;; (check-box "valclusters[]" false valcluster) (str valcluster)]]
               ;;(submit-button "Get pdgm")
@@ -102,6 +108,7 @@
                                                    [:div (link-to descurl descurl)])]
                 ]]]
              ;;[:hr]
+           ;;[:div [:h4 "======= Debug Info: ======="]
              ;;[:h3 "Query Response:"]
              ;;[:pre (:body req)]
              ;;[:pre langInfostr]
@@ -112,6 +119,7 @@
              ;;[:hr]
              ;;[:h3#clickable "Query:"]
              ;;[:pre query-sparql-pr]
+            ;;[:h4 "============================="]]
            ]))]
         [:script {:src "js/goog/base.js" :type "text/javascript"}]
         [:script {:src "js/webapp.js" :type "text/javascript"}]

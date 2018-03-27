@@ -59,6 +59,95 @@
               rdfs:comment ?comment . } ")
         {:label dataID}))))
             
+(defn pdgmqry-sparql-gen-vrbs [valcluster]
+  "This version, is to be called for all archive pdgm types. Presumes verbose version of pdgm index (all pdgm values, except lex, have 'prop=val')." 
+  (let [lprefmap (read-string (slurp "pvlists/lprefs.clj"))
+        ;; parse valcluster
+        vals (split valcluster #"," 2)
+        language (first vals)
+        vcs (split (last vals) #"," 2)
+        pos (first vcs)
+        mvalsprops (split (last vcs) #"%" 2)
+        mv (first mvalsprops)
+        proplex (last mvalsprops)
+        morphclass (first (split mv #"," 2))
+        props (if (re-find #"," mv)
+                (last (split mv #"," 2))
+                "")
+        valsLex (split proplex #":" 2)
+        valstr (first valsLex)
+        lex (if (re-find #":" proplex)
+                (last (split proplex #":" 2))
+                "")
+        valvec (split valstr #",")
+        selection (str "?" (clojure.string/replace valstr #"," " ?"))
+        selOrder (clojure.string/replace selection #"\?number|\?gender|\?nmbObj|\?gndObj" {"?number" "DESC(?number)" "?gender" "DESC(?gender)" "?nmbObj" "DESC(?nmbObj)" "?gndObj" "DESC(?gndObj)"})
+        lang (read-string (str ":" language))
+        lpref (lang lprefmap)
+        Language (capitalize language)
+        ]
+    (str PREFIXES
+         (tmpl/render-string 
+          (str "
+	PREFIX {{lpref}}:   <http://id.oi.uchicago.edu/aama/2013/{{language}}/> 
+	SELECT {{selection}} ?token
+	WHERE
+        { 
+	 { 
+	  GRAPH aamag:{{language}}  
+          { 
+	   ?s {{lpref}}:pos {{lpref}}:{{pos}} .  
+	   ?s aamas:lang aama:{{Language}} . 
+	   ?s aamas:lang / rdfs:label ?langLabel .
+           ?s ?QmorphClass {{lpref}}:{{morphclass}}. ")
+          {:lpref lpref
+           :selection selection
+           :pos pos
+           :morphclass morphclass
+           :language language
+           :Language Language})
+         (if (re-find #"\w" lex)
+           (tmpl/render-string 
+            (str "
+           ?s aamas:lexeme ?lexeme .
+           ?lexeme rdfs:label \"{{lex}}\" .")
+            {:lex lex}))
+         (if (re-find #"\w"  props)
+           (apply str  
+                  (for [prop (split props #",")]
+                    (let [pv (split prop #"=")
+                          property (first pv)
+                          value (last pv)]
+                      (tmpl/render-string 
+                       (str "
+           ?s {{lpref}}:{{property}}  {{lpref}}:{{value}} .  ")
+                       {:lpref lpref
+                        :property property
+                        :value value} )))))
+         (apply str
+                (for [val valvec]
+                  (tmpl/render-string
+                   (str "
+	   ?s {{lpref}}:{{val}} / rdfs:label ?{{val}} .  " )
+                   {:lpref lpref
+                    :val val})))
+         (tmpl/render-string
+           (str "
+	   ?s {{lpref}}:token ?tkn .
+           OPTIONAL { ?s ?t ?o . FILTER (CONTAINS(str(?t), \"token-note\"))}
+           BIND((IF(BOUND(?o),
+                    CONCAT(?tkn, \"  [\", ?o, \"]\"),
+                    ?tkn))
+                   AS ?token) .
+	  } 
+	 } 
+	} 
+	ORDER BY {{selOrder}} ")
+          {:lpref lpref
+          :selOrder selOrder})
+         );;str
+    ))
+
 (defn pdgmqry-sparql-fv [language lpref valstring]
   "This version, for the moment only called by the single pdgm display option, which is designed to give the most information about an individual paradigm, includes information about input paradigm notes, lex, and token-... . Note info should eventually be displayed in the paradigm-label listing."
     (let [;; if assume last value is lex (generalize to other pos?)
@@ -627,111 +716,6 @@ ORDER BY ASC(?prop) ASC(?val)
  ")
 {:language language})))
 
-(defn listptype-sparql [language]
-  "In case one wants simply a list of pdgmType for a specific language"
-  (let [Language (capitalize language)]
-    (str PREFIXES
-         (str "
-    SELECT DISTINCT  ?ptype 
-    WHERE { ")
-         (apply str
-                (tmpl/render-string
-                 (str "
-    {GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{language}}> {
-	?s aamas:lang  aama:{{Language}} ;
-        aamas:pdgmType ?QpdgmType .
-        OPTIONAL {?QpdgmType rdfs:label ?type .}
-        BIND (IF (!bound(?type) ,
-                 str(?QpdgmType),
-                 ?type 
-                ) AS ?ptype
-             ) .
-     }} }
-   ORDER BY ASC(?ptype) ")
-                 {:language language
-                  :Language Language})))))
-
-(defn listlptype-sparql [ldomain]
-;; In case one wants simply a list of pdgmType 
-  (let [langs (split ldomain #",")]
-    (str PREFIXES
-     (str "
-    SELECT DISTINCT  ?lang ?ptype 
-    WHERE { ")
-     (apply str
-            (for [language langs]
-              (tmpl/render-string
-               (str "
-    {GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{language}}> {
-	?s aamas:lang  ?language ;
-        aamas:pdgmType ?QpdgmType .
-	?language rdfs:label ?lang .
-        OPTIONAL {?QpdgmType rdfs:label ?type .}
-        BIND (IF (!bound(?type) ,
-                 str(?QpdgmType),
-                 ?type 
-                ) AS ?ptype
-             ) .
-
-     }} "
-                    (if (not (= (last langs) language))
-                      (str " 
-          UNION")))
-               {:language language})))
-     (str "}
-   ORDER BY ASC(?lang) ASC(?ptype) "))))
-
-(defn listlptypepdgm-sparql [ldomain]
-;; In case one wants pdgmType to be only a property of specific pdgm
-  (let [langs (split ldomain #",")]
-    (str PREFIXES
-     (str "
-    SELECT DISTINCT  ?lang ?ptype ?pname
-    WHERE { ")
-     (apply str
-            (for [language langs]
-              (tmpl/render-string
-               (str "
-    {GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{language}}> {
-	?s a aamas:Termcluster ;
-	aamas:lang  ?language ;
-        aamas:pdgmType ?QpdgmType .
-        ?s rdfs:label ?pname .
-	?language rdfs:label ?lang .
-        ?QpdgmType rdfs:label ?ptype .
-     }} "
-                    (if (not (= (last langs) language))
-                      (str " 
-          UNION")))
-               {:language language})))
-     (str "}
-   ORDER BY ASC(?lang) ASC(?ptype) ASC(?pname)"))))
-
-(defn listptypelpdgm-sparql [ldomain]
-;; In case one wants pdgmType to be only a property of specific pdgm
-  (let [langs (split ldomain #",")]
-    (str PREFIXES
-     (str "
-    SELECT DISTINCT   ?ptype ?lang ?pname
-    WHERE { ")
-     (apply str
-            (for [language langs]
-              (tmpl/render-string
-               (str "
-    {GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{language}}> {
-	?s a aamas:Termcluster ;
-	aamas:lang  ?language ;
-        aamas:pdgmType ?QpdgmType .
-        ?s rdfs:label ?pname .
-	?language rdfs:label ?lang .
-        ?QpdgmType rdfs:label ?ptype .
-     }} "
-                    (if (not (= (last langs) language))
-                      (str " 
-          UNION")))
-               {:language language})))
-     (str "}
-   ORDER BY ASC(?ptype) ASC(?lang) ASC(?pname)"))))
 
 
 (defn listlpv-check-sparql [ldomain]

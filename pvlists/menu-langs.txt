@@ -1,6 +1,8 @@
+Aari
 Afar
 Akkadian-ob
 Alaaba
+Alagwa
 Arabic
 Arbore
 Awngi
@@ -27,6 +29,8 @@ Gawwada
 Gedeo
 Geez
 Hadiyya
+Hausa
+Hdi
 Hebrew
 Iraqw
 Kambaata
@@ -34,6 +38,7 @@ Kemant
 Khamtanga
 Koorete
 Maale
+Mubi
 Oromo
 Rendille
 Saho

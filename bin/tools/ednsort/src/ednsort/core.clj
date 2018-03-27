@@ -101,8 +101,8 @@
           schema (first terms)
           data (next terms)
           common (:common termcluster)
-          pngset #{:number :person :gender}
-          pngsort [:number desc :person asc :gender desc]
+          pngset #{:numberObj :personObj :genderObj}
+          pngsort [:numberObj desc :personObj asc :genderObj desc]
           nonpngset (set/difference (set schema) pngset)
           nonpngvec (vec (sort nonpngset))
           pngs (set/difference (set schema) nonpngset)
@@ -144,7 +144,7 @@
 ;;      (do-pclass (pdgm-map :pclass) sgpref)
 ;;      (do-morphemes (pdgm-map :morphemes) sgpref Lang)
 ;;      (do-lexemes (pdgm-map :lexemes) sgpref Lang)
-      (do-lexterms (pdgm-map :lxterms))
-;;      (do-muterms (pdgm-map :muterms))
+;;      (do-lexterms (pdgm-map :lxterms))
+      (do-muterms (pdgm-map :muterms))
       )
      )

@@ -108,9 +108,11 @@
             pvalcluster (last vcs)
             query-sparql (cond 
                           (= pos "pro")
-                          (sparql/pdgmqry-sparql-pro language lpref pvalcluster)
+                          (sparql/pdgmqry-sparql-pro language lpref vcluster)
                           (= pos "noun")
                           (sparql/pdgmqry-sparql-noun language lpref vcluster)
+                          (= pos "sel")
+                          (sparql/pdgmqry-sparql-sel language lpref vcluster)
                           ;;(= pdgmType "Finite")
                           (re-find #"Finite" pdgmType)
                           (sparql/pdgmqry-sparql-fv language lpref pvalcluster)
@@ -195,14 +197,14 @@
     (layout/common
      [:h3#clickable "Paradigms: Sequential Display " ]
      [:p "Click on column to sort (multiple sort by holding down shift key). Columns can be dragged by clicking and holding on 'drag-bar' at top of column."]
-     ;;[:hr]
-     ;;[:p "valclusters: " [:pre valclusters]]
-     ;;[:p "pnames: " [:pre pnames]]
-     ;;[:p "pnames2: " [:pre pnames2]]
-     ;;[:p "pnamevec: " [:pre pnamevec]]
-     ;;[:p "pdgmvec: " [:pre pdgmvec]]
-     ;;[:p "pdgmst1: " [:pre pdgmstr1]]
-     ;;[:p "pdgmstr2: " [:pre pdgmstr2]]
+     [:hr]
+     [:p "valclusters: " [:pre valclusters]]
+     [:p "pos: " [:pre pos]]
+     [:p "pnames: " [:pre pnames]]
+     [:p "pnames2: " [:pre pnames2]]
+     [:p "pdgmvec: " [:pre pdgmvec]]
+     [:p "pdgmst1: " [:pre pdgmstr1]]
+     [:p "pdgmstr2: " [:pre pdgmstr2]]
      [:hr]
      pdgmtable
      [:hr]

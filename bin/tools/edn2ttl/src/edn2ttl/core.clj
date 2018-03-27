@@ -144,49 +144,6 @@
              :prop property
              :prpclass prpclass})))))))
 
-(defn do-morphemes
-  [morphemes sgpref Lang]
-  (println  "\n#MORPHEMES:\n")
-  (doseq [[morpheme featurelist] morphemes]
-    (let [morph (name morpheme)]
-      (println
-       (tmpl/render-string 
-        (str
-         "aama:{{Lang}}-{{morph}} a aamas:Muterm ;\n"
-         "\taamas:lang aama:{{Lang}} ;\n"
-         "\trdfs:label \"{{morph}}\" ;")
-        {:Lang Lang
-         :morph morph})
-       )
-      ) ;; (let [morph (name morpheme)]
-    (doseq [[feature value] featurelist]
-      (let [mprop (name feature)
-            mval (name value)]
-        (println
-         (cond (= mprop "gloss")
-               (tmpl/render-string 
-                (str "\trdfs:comment \"{{mval}}\" ;") 
-                {:mval mval})
-               (= mprop "lemma")
-               (tmpl/render-string 
-                (str"\trdfs:comment \"{{mval}}\" ;") 
-                {:mval mval})
-               (re-find #"^\"" mval)
-               (tmpl/render-string 
-                (str"\t{{pfx}}:{{mprop}} \"{{mval}}\" ;") 
-                {:pfx sgpref :mval mval :mprop mprop})
-               :else
-               (tmpl/render-string 
-                (str"\t{{pfx}}:{{mprop}} {{pfx}}:{{mval}}s ;") 
-                {:pfx sgpref :mval mval :mprop mprop})
-               )
-         )
-        ) ;; (let [mprop (name feature)
-      ) ;; (doseq [[feature value] featurelist]
-    (println "\t.")
-    ) ;; (doseq [[morpheme featurelist] morphemes]
-  ) ;; (defn do-morphemes
-
 
 (defn do-lexemes
   [lexemes sgpref Lang]
@@ -235,11 +192,10 @@
     ) ;; (doseq [[lexeme featurelist] lexemes
   ) ;; (do-lexemes)
 
-(defn do-lexterms
-  [lexterms sgpref Lang]
-  (doseq [termcluster lexterms]
+(defn do-termclusters
+  [termclusters sgpref Lang]
+  (doseq [termcluster termclusters]
     (let [label (:label termcluster)
-          pdgmtype (:pdgmType termcluster)
           terms (:terms termcluster)
           ;;because csv sparql req will be split by ","
           note (clojure.string/replace (str (:note termcluster)) #"," "%%")
@@ -254,13 +210,11 @@
              "{{pfx}}:{{label}} a aamas:Termcluster ;\n"
              "\trdfs:label \"{{label}}\" ;\n"
              "\taamas:lang aama:{{Lang}} ;\n"
-             "\taamas:pdgmType {{pfx}}{{pdgmtype}} ;\n"
              "\trdfs:comment \"{{note}}\" \n"
              "\t.")
         {:pfx sgpref
          :label label
          :Lang Lang
-         :pdgmtype pdgmtype
          :note note}))
       ;; Need to build up string which can then be println-ed with each term of cluster
       (doseq [term data]
@@ -334,123 +288,8 @@
         ) ;;(doseq [term data]
       ) ;;(let [terms (:terms termcluster)
     ) ;;(doseq [termcluster lexterms]
-  ) ;;(defn do-lexterms
+  ) ;;(defn do-termclusters
 
-(defn do-muterms
-  [muterms sgpref Lang]
-  (doseq [ mutermcluster muterms]
-    (let [label (:label mutermcluster)
-          pdgmtype (:pdgmType mutermcluster)
-          terms (:terms mutermcluster)
-          ;;because csv sparql req will be split by ","
-          note (clojure.string/replace (str (:note mutermcluster)) #"," "%%")
-          ;;note (:note mutermcluster)
-          schema (first terms)
-          data (next terms)
-          common (:common mutermcluster)]
-      ;; Need to build up string which can then be println-ed with each term of cluster
-      (println "\n#MUTERMCLUSTER: "  label)
-      (println
-       (tmpl/render-string 
-        (str (newline)
-             "{{pfx}}:{{label}} a aamas:MuTermcluster ;\n"
-             "\trdfs:label \"{{label}}\" ;\n"
-             "\taamas:lang aama:{{Lang}} ;\n"
-             "\taamas:pdgmType {{pfx}}{{pdgmtype}} ;\n"
-             "\trdfs:comment \"{{note}}\" \n"
-             "\t.")
-        {:Lang Lang
-         :pfx sgpref
-         :label label
-         :pdgmtype pdgmtype
-         :note note}))
-      (doseq [term data]
-	(let [termid (uuid)]
-          (println
-           (tmpl/render-string 
-            (str (newline)
-                 "aama:ID{{uuid}} a aamas:Muterm ;\n" 
-                 "\taamas:lang aama:{{Lang}} ;\n"
-                 "\taamas:memberOf {{pfx}}:{{label}} ;"
-                 )
-            {:Lang Lang
-             :uuid termid
-             :pfx sgpref
-             :label label})
-           )
-          )
-	(doseq [[feature value] common]
-          (let [cprop (name feature)
-                cval (name value)]
-            (println
-             (cond (= cprop "morpheme")
-                   (tmpl/render-string 
-                    (str "\taamas:{{cprop}} aama:{{Lang}}-{{cval}} ;") 
-                    {:cprop cprop :Lang Lang :cval cval})
-                   (= cprop "lexeme")
-                   (tmpl/render-string 
-                    (str "\taamas:{{cprop}} aama:{{Lang}}-{{cval}} ;") 
-                    {:cprop cprop :Lang Lang :cval cval})
-                   (re-find #"^token" cprop)
-                   (tmpl/render-string 
-                    (str "\t{{pfx}}:{{cprop}} \"{{cval}}\" ;")
-                    {:pfx sgpref :cprop cprop :cval cval} )
-                   (re-find #"^note" cprop)
-                   (tmpl/render-string 
-                    (str "\t{{pfx}}:{{cprop}} \"{{cval}}\" ;")
-                    {:pfx sgpref :cprop cprop :cval cval} )
-                   :else
-                   (tmpl/render-string 
-                    (str "\t{{pfx}}:{{cprop}} {{pfx}}:{{cval}} ;")
-                    {:pfx sgpref :cprop cprop :cval cval} )
-                   )
-             )
-            )
-          )
-	(let [termmap (apply assoc {} (interleave schema term))]
-          (doseq [tpropval termmap]
-            (let [tprop (name (key tpropval))
-                  tval (name (val tpropval))]
-              (println
-               (cond (re-find #"^\"" tval)
-                     (tmpl/render-string 
-                      (str "\t{{pfx}}:{{tprop}} \"{{tval}}\" ;" )
-                      {:pfx sgpref :tprop tprop :tval tval})
-                     ;;  following redundant if previous clause works
-                     (re-find #"^token" tprop)
-                     (tmpl/render-string 
-                      (str "\t{{pfx}}:{{tprop}} \"{{tval}}\" ;" )
-                      {:pfx sgpref :tprop tprop :tval tval})
-                     (re-find #"^note" tprop)
-                     (tmpl/render-string 
-                      (str "\t{{pfx}}:{{tprop}} \"{{tval}}\" ;" )
-                      {:pfx sgpref :tprop tprop :tval tval})
-                     (re-find #"^gloss" tprop)
-                     (tmpl/render-string 
-                      (str "\taamas:{{tprop}} \"{{tval}}\" ;" )
-                      {:pfx sgpref :tprop tprop :tval tval})
-                     (= tprop "morpheme")
-                     (tmpl/render-string 
-                      (str "\taamas:{{tprop}} aama:{{Lang}}-{{tval}} ;")
-                      {:tprop tprop :Lang Lang :tval tval})
-                     (= tprop "lexeme")
-                     (tmpl/render-string 
-                      (str "\taamas:{{tprop}} aama:{{Lang}}-{{tval}} ;")
-                      {:tprop tprop :Lang Lang :tval tval})
-                     :else
-                     (tmpl/render-string 
-                      (str "\t{{pfx}}:{{tprop}} {{pfx}}:{{tval}} ;")
-                      {:pfx sgpref :tprop tprop :tval tval})
-                     )
-               )
-              )
-            )
-          ) ;; (let [termmap apply assoc {}
-        (println "\t.")
-        ) ;; (doseq [term data]
-      ) ;; (let [terms (:terms mucluster)
-    ) ;; (doseq [mutermcluster muterms]
-  ) ;; (defn do-muterms
 
 (defn -main
   "Calls the functions that transform the keyed maps of a pdgms.edn to a pdgms.ttl"
@@ -470,12 +309,9 @@
 
     (do-pclass (pdgm-map :pclass) sgpref)
 
-    (do-morphemes (pdgm-map :morphemes) sgpref Lang)
-
     (do-lexemes (pdgm-map :lexemes) sgpref Lang)
 
-    (do-lexterms (pdgm-map :lxterms) sgpref Lang)
+    (do-termclusters (pdgm-map :termclusters) sgpref Lang)
 
-    (do-muterms (pdgm-map :muterms) sgpref Lang)
     )
   )

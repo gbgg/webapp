@@ -15,6 +15,7 @@ afroasiatic
 agaw
 akkadian
 alaaba
+alagwa
 arabic
 arbore
 arteiga
@@ -34,7 +35,7 @@ burji
 burunge
 chadic
 cop
-cult-evol
+cultural-evolution
 cush
 cushitic
 cushtic
@@ -85,12 +86,14 @@ pdf-p
 rendille
 riffian
 saho
+scush
 sem
 semitic
 sheko
 shinassha
 sid
 som
+somali
 syriac
 tamasheq
 tamazight

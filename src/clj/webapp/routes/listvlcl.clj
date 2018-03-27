@@ -323,7 +323,7 @@
            [:p [:b "Language: "] language]
            [:p [:b "POS: " ] pos]
            [:p [:b "Properties: "] pstring]
-           ;;[:p [:b "File vlcl-lst:    "] [:pre req-vlcllist]]
+           [:p [:b "File vlcl-lst:    "] [:pre req-vlcllist]]
            [:p [:b "File normstring:    "] [:pre normstring]]
            [:p [:b "File vlcl-table:    "] [:pre req2-table]]
            ;;[:p [:b "File data-vlcl:     "] [:br] req-dataIDvlcl]
