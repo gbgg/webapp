@@ -14,7 +14,7 @@
 #. bin/constants.sh
 
 
-fs=`find $1 -name "*.edn"`
+fs=`find $1 -name "*-pdgms.edn"`
 for f in $fs
 do
     l=${f%-*.edn}
@@ -25,7 +25,7 @@ do
     cp ../aama-data/data/$lang/README.md ../aama/$lang/
     cp ../aama-data/data/$lang/$lang-pdgms\.ttl ../aama/$lang/
     cp ../aama-data/data/$lang/$lang-pdgms\.rdf ../aama/$lang/
-    cp ../aama-data/data/$lang/$lang-cognates\.edn ../aama/$lang/
+#   cp ../aama-data/data/$lang/$lang-cognates\.edn ../aama/$lang/
     cd ../aama/$lang
     git add *.edn
     # git rm *.ttl
