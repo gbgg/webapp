@@ -83,14 +83,16 @@
          [:li (link-to "/formsearch" "Form/Paradigm Search")]
          [:li (link-to "#" "Archived Paradigm Search")
           [:ul
-           [:li (link-to "/pdgm" "Single Paradigm")]
+           [:li (link-to "/pdgm" "Single Paradigm (Old)")]
+           [:li (link-to "/pdgmindiv" "Single Paradigm (Revised)")]
            [:li (link-to "#" "Multiple Paradigms")
             [:ul
-             [:li (link-to "/multipdgmseq" "Default Display")]
-             [:li (link-to "/pdgmmultdef" "Default Display")]
+             [:li (link-to "/multipdgmseq" "Multiple Paradigm Default Format (Old)")]
+             [:li (link-to "/pdgmmultdef" "Multiple Paradigm Default Format (Revised)")]
              [:li (link-to "#" "Modifiable Display")
               [:ul
-               [:li (link-to "/multipdgmmod" "From Value-Cluster List")]
+               [:li (link-to "/multipdgmmod" "Multiple Paradigm Modifiable Display (Old)")]
+               [:li (link-to "/pdgmmultmod" "Multiple Paradigm Modifiable Display (Revised)")]
                [:li (link-to "/multipdgmsort" "From Sortable Table (FV Only)")]]]]]]]
          [:li (link-to "#" "Morphosyntactic Category Search")
           [:ul
