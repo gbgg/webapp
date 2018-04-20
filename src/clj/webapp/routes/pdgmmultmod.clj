@@ -63,7 +63,6 @@
                    {:title "Choose a value.", :name "valcluster", :width "10"}
                    (let [valclusterfile (str "pvlists/pdgm-index-" language ".txt")
                          valclusterlist (slurp valclusterfile)
-                         ;;valclusterlst (clojure.string/replace valclusterlist #":.*?\n" "\n")
                          valclusterset (into (sorted-set) (clojure.string/split valclusterlist #"\n"))]
                      (if (re-find #"EmptyList" valclusterlist)
                        [:div (str "There are no  paradigms in the " language " archive.")]
@@ -85,8 +84,6 @@
     (for [pdgmcluster pdgmclusters]
       (let [vals (split pdgmcluster #"-" 2)
             pnum (first vals)
-            ;;pnlng (split plang #"-", 2)
-            ;;pnum (first pnlng)
             lvalcluster (last vals)
             query-sparql (sparql/pdgmqry-sparql-gen-vrbs lvalcluster)
             req (http/get aama
@@ -105,8 +102,7 @@
   "Takes vector of pdgm strings and returns unified pmap of vector by splitting off header from rows, and then interleaving headervec and rowvec."
     [pdgmstrvec]
   (for [pdgmstr pdgmstrvec]
-    (let [;;headerstr (first (split pdgmstr #"\n" 2))
-          headerstr (first (split pdgmstr #"\r\n" 2))
+    (let [headerstr (first (split pdgmstr #"\r\n" 2))
           headervec (for [header (split headerstr #",")] (keyword header))
           rows (last (split pdgmstr  #"\r\n" 2))
           rowvec (split rows #"\r\n")]
@@ -175,11 +171,8 @@
         ;; make single csv array out of combined pdgm csv's, and display as HTML table
         newpdgm (csvcombine pheads pmap keyvec)
         newpdgmvec (split newpdgm #" ")
-        ;;newpdgmvec (vec newpdgm)
         newpdgmstring (apply str newpdgmvec)
         newpdgmstr (clojure.string/replace newpdgmstring #"[\(\)\"]" "")
-        ;;newpdgmstr (clojure.string/replace newpdgmstring3 #" " "\r\n")
-
         pdgmtable (csv2pdgm newpdgmvec)
         ;; take away 'token' as possible pivot
         pivots (pop pheads)
@@ -188,22 +181,6 @@
      [:h3#clickable "Combined Paradigms: Sequential Display " ]
      [:p "Click on column to sort (multiple sort by holding down shift key). Columns can be dragged by clicking and holding on 'drag-bar' at top of column."]
      [:hr]
-     [:p "lvalclusters: " [:p pnamestr2]]
-     [:p "pdgmclusters: " [:p pdgmclusters]]
-     ;;[:p "pnames: " [:pre pnames]]
-     ;;[:p "pnames2: " [:pre pnames2]]
-     [:p "pdgmvec: " [:pre pdgmvec]]
-     ;;[:p "pdgmst1: " [:pre pdgmstrvec1]]
-     [:p "pmap: " [:pre pmap]]
-     [:p "pmapstr: " [:p pmapstr]]
-     [:p "pivots: " [:pre pivots]]
-     [:p "pdgmstrvec2: " [:pre pdgmstrvec2]]
-     [:p "newpdgm: " [:pre newpdgm]]
-     [:p "newpdgmvec: " [:pre newpdgmvec]]
-     [:p "newpdgmstr: " [:pre newpdgmstr]]
-     ;;[:p "newpdgmstrvec2: " [:pre newpdgmstrvec2]]
-     [:p "header: " [:p (first newpdgmvec)]]
-     [:p "rows: "  (str (rest newpdgmvec)) [:pre (rest newpdgmvec)]]
      [:p "Paradigm Names:"
       [:ul
        (for [pname pdgmclusters]
@@ -212,7 +189,6 @@
       [:ul
        (for [pdgm pdgmvec]
          [:li (first (split pdgm #"\r\n" 2))])]]
-     ;;[:p "pdgmvec: " [:p pdgmvec]]
      [:p "Headerset: " [:pre headerset]]
      [:hr]
      pdgmtable
@@ -240,26 +216,32 @@
                    (for [head pivots]
                      [:span
                       (check-box {:name "pivotlist[]" :value (.indexOf pivots head)} head) head])]]]]
-               [:tr [:td "PString: "]
-                 [:td [:select#pdgms.required
-                      {:title "PDGMS", :name "pdgmstrvec2"}
-                      [:option {:value pdgmstrvec2} "Paradigm Forms (as above)"]]]]
+;;               [:tr [:td "PString: "]
+;;                 [:td [:select#pdgms.required
+;;                      {:title "PDGMS", :name "pdgmstrvec2"}
+;;                      [:option {:value pdgmstrvec2} "Paradigm Forms (as above)"]]]]
                [:tr [:td "Newpdgmstr: "]
                 [:td [:select#npdgms.required
                       {:title "NPDGMS", :name "newpdgmstr"}
                       [:option {:value newpdgmstr} "Paradigm Vector (as above)"]
-                      ;;[:option {:value valclusters} (str valclusters)]
                       ]]]
                [:tr [:td ]
                 [:td [:input#submit
                       {:value "Display Paradigms in Parallel", :name "submit", :type "submit"}]]]])
      [:hr]
      [:div [:h4 "======= Debug Info: ======="]
-      [:p "pdgmvec: " [:pre pdgmvec]]
-      ;;[:p "pdgmvec2: " [:pre pnames2]]
-      ;;[:p "pos: " [:pre pos]]
-      [:p "valclusters: " [:pre pdgmnames]]
-      [:p "pdgmstrvec2: " [:pre pdgmstrvec2]]
+     [:p "lvalclusters: " [:p pnamestr2]]
+     [:p "pdgmclusters: " [:p pdgmclusters]]
+     [:p "pdgmvec: " [:pre pdgmvec]]
+     [:p "pmap: " [:pre pmap]]
+     [:p "pmapstr: " [:p pmapstr]]
+     [:p "pivots: " [:pre pivots]]
+     [:p "pdgmstrvec2: " [:pre pdgmstrvec2]]
+     [:p "newpdgm: " [:pre newpdgm]]
+     [:p "newpdgmvec: " [:pre newpdgmvec]]
+     [:p "newpdgmstr: " [:pre newpdgmstr]]
+     [:p "header: " [:p (first newpdgmvec)]]
+     [:p "rows: "  (str (rest newpdgmvec)) [:pre (rest newpdgmvec)]]
       [:h4 "==========================="]]
      [:script {:src "js/goog/base.js" :type "text/javascript"}]
      [:script {:src "js/webapp.js" :type "text/javascript"}]
@@ -322,22 +304,17 @@
 
 (defn handle-pdgmmultmodplldisplay
   "In this version pivot/keyset can be generalized beyond png any col (eventually any sequence of cols) between col-1 and token column. (Need to find out how to 'presort' cols before initial display?) [Current version has very ugly string=>list pdgms=>pnames. Simplify?]"
-  [pdgmnames header pdgmstrvec2 pivotlist newpdgmstr]
+  [pdgmnames header pivotlist newpdgmstr]
   (let [pnamestr1 (clojure.string/replace pdgmnames #"[\[\]\"]" "")
         pnamestr2 (clojure.string/replace pnamestr1 #"%" ".")
         pnamestr3 (clojure.string/replace  pnamestr2 #"\w(P\d+-)" " $1")
-        ;;pnames (clojure.string/split-lines pnamestr3)
         pnames (split pnamestr3 #" " )
-        ;;pnames (map read-string pdgms)
         pivots (map read-string pivotlist)
-        ;;pivot (read-string pivotname)
         newpdgmstr2 (clojure.string/replace newpdgmstr #"P(\d)," "\\\\r\\\\nP$1,")
         ;; get rid of spurious line-feeds
-        ;;pdgmstr3 (cleanpdgms pdgmstrvec2)
         pdgmstr3 (cleanpdgms newpdgmstr2)
         ;; map each 'val-string-w/o-pivot-val token' to token
         prows (split pdgmstr3 #"\\r\\n")
-        ;;prows (split pdgmstr3 #" ")
         pcells (for [prow prows] (split prow #","))
         pivot-map (for [pcell pcells] (make-pmap pcell pivots))
         ;; group the val-tokens associated with each pivot val
@@ -349,7 +326,6 @@
         pmapvec (for [vgroup vvec] (for [vrow vgroup] (vec2map vrow)))
         ;; transform pmaps to hash-maps
         prmaps (for [prmap pmapvec] (for [prmp prmap] (pstring2maps prmp)))
-        ;;pmaps (for [prmap prmaps] (apply conj prmap))
         pmaps (join-pmaps prmaps)
         headers2 (clojure.string/replace header #"[\[\]\"]" "")
         heads (split (str headers2) #" ")
@@ -358,7 +334,6 @@
         headvec (vec (remove (set pivotnames) heads))
         ;; set of lists of vaue-combination-terms
         keylists (vec (for [pmap pmaps] (keys pmap)))
-        ;;keylists (set (keys pmap))
         ;; replace seems to be ad hoc cluj; 
         ;; only '[' and ']' appear in one-line paradigm keyvec (but should not)
         ;; other deleted chars should not be in keys in the first place
@@ -366,7 +341,6 @@
         keyvec (split keystring #" ")
         ;; set of all value combinations, as strings, in the combined pdgms
         keyset (set keyvec)
-        ;;newpdgmstr2 (clojure.string/replace newpdgmstr #" " "\\r\\n")
         ]
     (layout/common
      [:body
@@ -414,14 +388,9 @@
        [:p "newpdgms: " [:pre newpdgms]]
        [:p "newpdgms: " (str newpdgms)]
        [:p "pvalvec: " (str pvalvec)]
-       [:p "pdgmstrvec2: " [:pre pdgmstrvec2]]
        [:p "pdgmstr3: " [:pre pdgmstr3]]  
        [:p "newpdgmstr: " [:p newpdgmstr]]
        [:p "newpdgmstr2: " [:pre newpdgmstr2]]
-       ;;[:p "(rest newpdgmstr2): " [:p (rest newpdgmstr)]]
-       ;;[:p "newpdgm: " [:p newpdgm]]
-       ;;[:p "vvec: " [:pre vvec]] ;;!!raises "not valid element" exception
-       ;;[:p "vvec: " (str vvec)] ;; "not valid el." excp. with "!" in text
        [:p "pmapvec: " [:pre pmapvec]]
        [:p "pmapvec: " (str pmapvec)]
        [:p "prmaps: " [:pre prmaps]]
@@ -447,4 +416,4 @@
   (GET "/pdgmmultmod" [] (pdgmmultmod))
   (POST "/pdgmmultmodqry" [languages] (handle-pdgmmultmodqry languages))
   (POST "/pdgmmultmoddisplay" [lvalclusters] (handle-pdgmmultmoddisplay lvalclusters))
-  (POST "/pdgmmultmodplldisplay" [pdgmnames header pdgmstrvec2 pivotlist newpdgmstr] (handle-pdgmmultmodplldisplay pdgmnames header pdgmstrvec2 pivotlist newpdgmstr)))
+  (POST "/pdgmmultmodplldisplay" [pdgmnames header pivotlist newpdgmstr] (handle-pdgmmultmodplldisplay pdgmnames header pivotlist newpdgmstr)))
