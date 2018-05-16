@@ -1,4 +1,5 @@
 Ackerman&Malouf2010
+Albaugh&deLuna2018
 Almkvist1881
 Amha-etal2007
 Amha2001
@@ -6,6 +7,7 @@ Amha2007
 Amha2012
 Anbessa2014
 AndersonS2016
+Annis&Palmieri2018
 Appleyard1975
 Appleyard1984
 Appleyard1986
@@ -47,6 +49,10 @@ BenderL1997
 BenderL2000
 BenderL2002
 BenderL2003
+Beniamine-etal2017
+Benincasa2018
+Beuls2012
+Beuls2017
 Bickertib&Szathmary20009
 Bickerton-etal2009
 Binyam2010
@@ -63,6 +69,7 @@ Campbell&Posner2008
 Caporael-etal2014
 Carstairs-McCarthy1994
 Carstairs-McCarthy2010
+Carstairs1987
 Castellano-etal2009
 Cerny1976
 Christiansen&Cheter1999
@@ -148,6 +155,7 @@ HeathJ2005
 Heine&Kuteva2002
 Heine&Kuteva2003
 Heine-etal1981
+Heine1976
 Heine1980d
 Heine1982
 Heine1997
@@ -211,6 +219,7 @@ Loprieno1995
 Lottner1860-61
 Love&Wimsatt-to-appear
 Lowenstamm2011
+MacEachern2018
 Maiden&ONeill2010
 McElreath&Henrich2008
 Mesoudi2007
@@ -242,6 +251,7 @@ Nichols1997
 Nichols1998
 Nichols2003
 Nichols2014
+Nichols2017
 Niyogi&Berwick1998
 Niyogi1999
 Nowak2006
@@ -252,6 +262,7 @@ Orwin1995
 Pagel2009
 Parker&Hayward1985
 Pichler2007
+Pietraszko2018
 Pillinger&Galboran1999
 PlankF1991
 Praetorius1893
@@ -293,9 +304,11 @@ Schuh2017
 SimM1985
 SimR1985
 SmithA2014
+Steels2017
 Stolbova2016
 Stoltz-etal2012
 Strogatz2015
+Stump2015ms
 Stump2016
 Sudlow2001
 Szathmáry&Számadó2008
@@ -321,6 +334,7 @@ Tosco2001b
 Tosco2003
 Tosco2007
 Tosco2007b
+Tosco2018
 Treis2008
 VanTrijp2008
 Voigt1998
@@ -358,3 +372,4 @@ Zaborski201?
 Zaug-Coretti2013
 Zaug-Coretti2017
 Zelealem2003
+Zimmermann2018

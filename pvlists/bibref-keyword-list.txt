@@ -1,3 +1,4 @@
+Bayesian
 HEC
 aa-sem
 aa-sem-aa
@@ -11,11 +12,13 @@ aa-sem-sem
 aa-sem-src
 aari
 afar
+african-languages
 afroasiatic
 agaw
 akkadian
 alaaba
 alagwa
+allomorphy
 arabic
 arbore
 arteiga
@@ -34,6 +37,7 @@ book
 burji
 burunge
 chadic
+computation
 cop
 cultural-evolution
 cush
@@ -49,6 +53,7 @@ egy
 elmolo
 evolution
 figuig
+fluid-construction-grammar
 gamo
 gawwada
 gedeo
@@ -62,6 +67,7 @@ hausa
 hause
 hdi
 hebrew
+historical
 historical-linguistics
 iclass-change
 iraqw
@@ -77,6 +83,7 @@ language-evolution
 maale
 morphology
 mubi
+ometo
 omotic
 ongota
 orm
@@ -94,12 +101,14 @@ shinassha
 sid
 som
 somali
+statistics
 syriac
 tamasheq
 tamazight
 tashlhiyt
 tsamakko
 tuareg
+typology
 wolaytta
 woylatta
 yemsa
