@@ -28,9 +28,10 @@ do
 #   cp ../aama-data/data/$lang/$lang-cognates\.edn ../aama/$lang/
     cd ../aama/$lang
     git add *.edn
+    git add *.ttl
     # git rm *.ttl
     git add README.md
-    git commit -am "aama lang repositories now have pdgm.ttl and .rdf to .edn files"
+    git commit -am "aama lang repositories now have pdgm.ttl in addition  to .edn files"
     git push origin master
     cd ../../webapp
 done

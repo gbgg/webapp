@@ -5,7 +5,7 @@ Omo-Tana arbore,bayso,boni-jara,boni-kijee-bala,boni-kilii,dhaasanac,elmolo,rend
 Highland-East-Cushitic alaaba,burji,gedeo,hadiyya,kambaata,sidaama
 Oromoid oromo
 Yaaku-Dullay yaaku,tsamakko,gawwada
-South-Cushitic dahalo,burunge,iraqw, alagwa
+South-Cushitic dahalo,burunge,iraqw,alagwa
 Cushitic afar,alaaba,arbore,awngi,bayso,beja-arteiga,beja-atmaan,beja-beniamer,beja-bishari,beja-hadendowa,bilin,boni-jara,boni-kijee-bala,boni-kilii,burji,burunge,dahalo,dhaasanac,elmolo,gawwada,gedeo,hadiyya,iraqw,kambaata,kemant,khamtanga,oromo,rendille,saho,sidaama,somali-standard,tsamakko,yaaku
 Omotic dizi,koorete,maale,shinassha,wolaytta,yemsa
 (Semitic) akkadian-ob,arabic,geez,hebrew,syriac
