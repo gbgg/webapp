@@ -101,13 +101,14 @@
         [:li (link-to "/pdgmcomblist" "Combine/Modify Paradigm (From List)")]
         [:li (link-to "/pdgmcombtabl" "Combine/modify Paradigm (From Table)")]]]
       [:li (link-to "/formsearch" "User-specified Form/Paradigm")]
-
       [:li (link-to "#" "Morphosyntactic Category")
        [:ul
         [:li (link-to "/pvlgpr" "Morphosyntactic Properties")]
         [:li (link-to "/pvlgvl" "Morphosyntactic Values")]
         [:li (link-to "/listlgpr"  "Properties by Language and POS")]
-        [:li (link-to "/listlpv" "Property-Value Indices by Language")]]]]]
+        [:li (link-to "/listlpv" "Property-Value Indices by Language")]]]
+      [:li (link-to "/lextabledisp" "Paradigm Lexemes")]
+      ]]
     [:li (link-to "#" "Utilities")
      [:ul 
       [:li (link-to "#" "List and Index Generation:")
@@ -116,6 +117,7 @@
         [:li (link-to "/bibIndexGen" "Bibliography Indices")]
         [:li (link-to "/listmenulpv" "Property/Value Lists")]
         [:li (link-to "/pdgmIndex" "Paradigm Lists")]
+        [:li (link-to "/makelexemes" "New Lexemes Section for LANG-pdgms.edn")]
         [:li (link-to "/makeschemata" "New Schemata Section for LANG-pdgms.edn")]]]
       [:li (link-to "#" "Update:")
        [:ul 

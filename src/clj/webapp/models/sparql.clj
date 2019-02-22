@@ -46,6 +46,26 @@
            :language language
            :Language Language}))))
 
+(defn lexqry-sparql [lexeme lang]
+  "Query to retrieve lexical information"
+  (let [lex (str lexeme)]
+    (str PREFIXES
+         (tmpl/render-string
+          (str "
+          SELECT ?lemma ?gloss
+          WHERE
+          {
+      	   ?s a  aamas:Lexeme ; 
+              aamas:lang aama:{{lang}} ;
+              rdfs:label \"{{label}}\" ;
+              aamas:gloss ?gloss .
+              OPTIONAL {?s aamas:lemma ?lemma . }}
+           ORDER BY ?gloss ")
+          {:label lexeme
+           :lang lang} 
+          )
+         )))
+
 (defn pdgmqry-sparql-comment [dataID]
   "Query to retrieve comment from any term-cluster whose edn-file ':label' is known"
   (let [dataIDstr (str "/"" dataID "/"")]
@@ -80,8 +100,10 @@
               (last (split proplex #":" 2))
               "")
         valvec (split valstr #",")
-        selection (str "?" (clojure.string/replace valstr #"," " ?"))
-        selOrder (clojure.string/replace selection #"\?number|\?gender|\?nmbObj|\?gndObj" {"?number" "DESC(?number)" "?gender" "DESC(?gender)" "?nmbObj" "DESC(?nmbObj)" "?gndObj" "DESC(?gndObj)"})
+        selection1 (str "?" (clojure.string/replace valstr #"," " ?"))
+        selection2 (clojure.string/replace selection1 #"-" "")
+        selection3 (clojure.string/replace selection2 #"tokennote" "")
+        selOrder (clojure.string/replace selection2 #"\?number|\?gender|\?nmbObj|\?gndObj" {"?number" "DESC(?number)" "?gender" "DESC(?gender)" "?nmbObj" "DESC(?nmbObj)" "?gndObj" "DESC(?gndObj)"})
         lang (read-string (str ":" language))
         lpref (lang lprefmap)
         Language (capitalize language)
@@ -101,7 +123,7 @@
 	   ?s aamas:lang / rdfs:label ?langLabel .
            ?s ?QmorphClass {{lpref}}:{{morphclass}}. ")
           {:lpref lpref
-           :selection selection
+           :selection selection2
            :pos pos
            :morphclass morphclass
            :language language
@@ -132,28 +154,41 @@
                           :property property
                           :value value} ))))))
          (apply str
-                (for [val valvec]
-                  (tmpl/render-string
-                   (str "
-	   ?s {{lpref}}:{{val}} / rdfs:label ?{{val}} .  " )
-                   {:lpref lpref
-                    :val val})))
-         (tmpl/render-string
-          (str "
-	   ?s {{lpref}}:token ?tkn .
-           OPTIONAL { ?s ?t ?o . FILTER (CONTAINS(str(?t), \"token-note\"))}
-           BIND((IF(BOUND(?o),
-                    CONCAT(?tkn, \"  [\", ?o, \"]\"),
-                    ?tkn))
-                   AS ?token) .
+               (for [val valvec]
+                 ;; (let [qval (clojure.string/replace val #"-" "")]
+                  (if
+                     (= val "lexeme")
+                     (tmpl/render-string
+                      (str "
+                 ?s aamas:{{val}} / rdfs:label ?{{val}} .  " )
+                      {:val val})
+                      ;; :qval qval})
+                 (if-not (re-find #"token" val)
+                     (tmpl/render-string
+                      (str "
+	   ?s {{lpref}}:{{val}} / rdfs:label ?{{val}} .")
+                      {:lpref lpref
+                       :val val}))))
+                       ;;:qval qval}))
+                    ;;)
+                  )
+                (tmpl/render-string
+                 (str "
+           OPTIONAL { ?s {{lpref}}:token-note ?tokennote .}
+	   ?s {{lpref}}:token ?token .
+           #OPTIONAL { ?s ?t ?o . FILTER (CONTAINS(str(?t), \"token-note\"))}
+           #BIND((IF(BOUND(?o),
+           #         CONCAT(?tkn, \"  [\", ?o, \"]\"),
+           #         ?tkn))
+           #        AS ?token) .
 	  } 
 	 } 
 	} 
 	ORDER BY {{selOrder}} ")
-          {:lpref lpref
-           :selOrder selOrder})
-         );;str
-    ))
+                 {:lpref lpref
+                  :selOrder selOrder})
+                );;str
+         ))
 
 (defn lgpr-sparql [ldomain prop]
   (let [ldoms (split ldomain #",")]
@@ -392,11 +427,56 @@ ORDER BY ASC(?language) ")))
                  ?val
                 ) AS ?value
              ) .
- 	FILTER (?p NOT IN ( aamas:lang, aamas:memberOf, rdf:type ) )
+ 	FILTER (?p NOT IN ( aamas:lang, aamas:lexeme, aamas:memberOf, rdf:type ) )
         FILTER (!CONTAINS (str(?p), \"token\" ))
 
      }}}
    ORDER BY ASC(?lang) ASC(?prop) ASC(?value)")
+               {:language lang}))))
+
+(defn checklexemes-sparql [lang]
+  (str PREFIXES
+       (str "
+    SELECT DISTINCT  ?lexeme
+    WHERE { ")
+       (apply str
+              (tmpl/render-string
+               (str "
+    {GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{language}}> {
+	?s aamas:lexeme ?lexeme .
+         MINUS {?lexeme a aamas:Lexeme } 
+           }}}
+            ORDER BY ASC(?lexeme)")
+               {:language lang}))))
+
+(defn makelexemes-sparql [lang]
+  (str PREFIXES
+       (str "
+    SELECT DISTINCT  ?label ?property ?value
+    WHERE { ")
+       (apply str
+              (tmpl/render-string
+               (str "
+    {GRAPH <http://oi.uchicago.edu/aama/2013/graph/{{language}}> {
+	?s ?p ?o ;
+            rdf:type aamas:Lexeme ;
+            rdfs:label ?label .
+           # aamas:lang  ?language .
+	#?language rdfs:label ?lang .
+         ?p rdfs:label ?property .
+       ?o rdfs:label ?val .
+        # if ?o has a label, then that is the value
+        # otherwise ?o is a string
+        BIND (IF (!bound(?val) ,
+                 ?o ,
+                 ?val
+                ) AS ?value
+             ) .
+ 	FILTER (?p NOT IN ( aamas:lang, aamas:memberOf, rdf:type ) )
+        FILTER (!CONTAINS (str(?p), \"token\" ))
+
+     }}}
+   ORDER BY ?label ?property ?value ")
                {:language lang}))))
 
 

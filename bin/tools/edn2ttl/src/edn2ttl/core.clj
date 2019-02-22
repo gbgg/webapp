@@ -71,62 +71,62 @@
       ;; terms like conjClass: =>Conjclass rather than ConjClass
       (if (=  prop "pdgmType")
         (println
-          (tmpl/render-string 
-           (str
-            (newline)
-            "#SCHEMATA: {{prop}}\n"
-            "aamas:{{prop}} aamas:lang aama:{{Lang}} .\n"
-            "aamas:{{Prop}} aamas:lang aama:{{Lang}} .\n"
-            "aamas:{{prop}} rdfs:domain aamas:Termcluster .\n"
-            "aamas:{{Prop}} rdfs:label \"{{prop}} exponents\" .\n"
-            "aamas:{{prop}} rdfs:label \"{{prop}}\" .\n"
-            "aamas:{{prop}} rdfs:range aamas:{{Prop}} .\n"
-            "aamas:{{Prop}} rdfs:subClassOf {{pfx}}:MuExponent .\n"
-            "aamas:{{prop}} rdfs:subPropertyOf {{pfx}}:muProperty .")
-           {:pfx sgpref
-            :Lang Lang
-            :prop prop
-            :Prop Prop}))
+         (tmpl/render-string 
+          (str
+           (newline)
+           "#SCHEMATA: {{prop}}\n"
+           "aamas:{{prop}} aamas:lang aama:{{Lang}} .\n"
+           "aamas:{{Prop}} aamas:lang aama:{{Lang}} .\n"
+           "aamas:{{prop}} rdfs:domain aamas:Termcluster .\n"
+           "aamas:{{Prop}} rdfs:label \"{{prop}} exponents\" .\n"
+           "aamas:{{prop}} rdfs:label \"{{prop}}\" .\n"
+           "aamas:{{prop}} rdfs:range aamas:{{Prop}} .\n"
+           "aamas:{{Prop}} rdfs:subClassOf {{pfx}}:MuExponent .\n"
+           "aamas:{{prop}} rdfs:subPropertyOf {{pfx}}:muProperty .")
+          {:pfx sgpref
+           :Lang Lang
+           :prop prop
+           :Prop Prop}))
         (println
-          (tmpl/render-string 
-           (str
-            (newline)
-            "#SCHEMATA: {{prop}}\n"
-            "{{pfx}}:{{prop}} aamas:lang aama:{{Lang}} .\n"
-            "{{pfx}}:{{Prop}} aamas:lang aama:{{Lang}} .\n"
-            "{{pfx}}:{{prop}} rdfs:domain aamas:Term .\n"
-            "{{pfx}}:{{Prop}} rdfs:label \"{{prop}} exponents\" .\n"
-            "{{pfx}}:{{prop}} rdfs:label \"{{prop}}\" .\n"
-            "{{pfx}}:{{prop}} rdfs:range {{pfx}}:{{Prop}} .\n"
-            "{{pfx}}:{{Prop}} rdfs:subClassOf {{pfx}}:MuExponent .\n"
-            "{{pfx}}:{{prop}} rdfs:subPropertyOf {{pfx}}:muProperty .")
-           {:pfx sgpref
-            :Lang Lang
-            :prop prop
-            :Prop Prop})))
-         (doseq [value valuelist]
-           (let [val (name value)]
-             (if (= prop "pdgmType")
-             (println
-              (tmpl/render-string 
-               (str
-                "{{pfx}}:{{val}} aamas:lang aama:{{Lang}} .\n"
-                "{{pfx}}:{{val}} rdf:type aamas:{{Prop}} .\n"
-                "{{pfx}}:{{val}} rdfs:label \"{{val}}\" .")
-               {:pfx sgpref
-                :Lang Lang
-                :Prop Prop
-                :val val}))
-             (println
-              (tmpl/render-string 
-               (str
-                "{{pfx}}:{{val}} aamas:lang aama:{{Lang}} .\n"
-                "{{pfx}}:{{val}} rdf:type {{pfx}}:{{Prop}} .\n"
-                "{{pfx}}:{{val}} rdfs:label \"{{val}}\" .")
-               {:pfx sgpref
-                :Lang Lang
-                :Prop Prop
-                :val val}))))))))
+         (tmpl/render-string 
+          (str
+           (newline)
+           "#SCHEMATA: {{prop}}\n"
+           "{{pfx}}:{{prop}} aamas:lang aama:{{Lang}} .\n"
+           "{{pfx}}:{{Prop}} aamas:lang aama:{{Lang}} .\n"
+           "{{pfx}}:{{prop}} rdfs:domain aamas:Term .\n"
+           "{{pfx}}:{{Prop}} rdfs:label \"{{prop}} exponents\" .\n"
+           "{{pfx}}:{{prop}} rdfs:label \"{{prop}}\" .\n"
+           "{{pfx}}:{{prop}} rdfs:range {{pfx}}:{{Prop}} .\n"
+           "{{pfx}}:{{Prop}} rdfs:subClassOf {{pfx}}:MuExponent .\n"
+           "{{pfx}}:{{prop}} rdfs:subPropertyOf {{pfx}}:muProperty .")
+          {:pfx sgpref
+           :Lang Lang
+           :prop prop
+           :Prop Prop})))
+      (doseq [value valuelist]
+        (let [val (name value)]
+          (if (= prop "pdgmType")
+            (println
+             (tmpl/render-string 
+              (str
+               "{{pfx}}:{{val}} aamas:lang aama:{{Lang}} .\n"
+               "{{pfx}}:{{val}} rdf:type aamas:{{Prop}} .\n"
+               "{{pfx}}:{{val}} rdfs:label \"{{val}}\" .")
+              {:pfx sgpref
+               :Lang Lang
+               :Prop Prop
+               :val val}))
+            (println
+             (tmpl/render-string 
+              (str
+               "{{pfx}}:{{val}} aamas:lang aama:{{Lang}} .\n"
+               "{{pfx}}:{{val}} rdf:type {{pfx}}:{{Prop}} .\n"
+               "{{pfx}}:{{val}} rdfs:label \"{{val}}\" .")
+              {:pfx sgpref
+               :Lang Lang
+               :Prop Prop
+               :val val}))))))))
 
 (defn do-pclass
   [pclass sgpref]
@@ -145,9 +145,35 @@
              :prpclass prpclass})))))))
 
 
+(defn do-lexprops
+  [lexprops sgpref Lang]
+  (println  "\n#LEXEMES:")
+  (doseq [property lexprops]
+    (let [prop (name property)
+          Prop (clojure.string/capitalize prop)]
+      ;; NB clojure.string/capitalize gives  wrong output with
+      ;; terms like conjClass: =>Conjclass rather than ConjClass
+      (println
+       (tmpl/render-string 
+        (str
+         (newline)
+         "#LexSchema: {{prop}}\n"
+         "aamas:{{prop}} aamas:lang aama:{{Lang}} .\n"
+         "aamas:{{Prop}} aamas:lang aama:{{Lang}} .\n"
+         "aamas:{{prop}} rdfs:domain aamas:Lexeme .\n"
+         "aamas:{{Prop}} rdfs:label \"{{prop}} exponents\" .\n"
+         "aamas:{{prop}} rdfs:label \"{{prop}}\" .\n"
+         "aamas:{{prop}} rdfs:range aamas:{{Prop}} .\n"
+         "aamas:{{Prop}} rdfs:subClassOf {{pfx}}:LexExponent .\n"
+         "aamas:{{prop}} rdfs:subPropertyOf {{pfx}}:lexProperty .")
+        {:pfx sgpref
+         :Lang Lang
+         :prop prop
+         :Prop Prop})))))
+
 (defn do-lexemes
   [lexemes sgpref Lang]
-  (println  "\n#LEXEMES:")
+  (println "\n##LexItems")
   (doseq [[lexeme featurelist] lexemes]
     (let [lex (name lexeme)]
       (println
@@ -309,7 +335,9 @@
 
     (do-pclass (pdgm-map :pclass) sgpref)
 
-    (do-lexemes (pdgm-map :lexemes) sgpref Lang)
+    (do-lexprops (pdgm-map :lexprops)  sgpref Lang)
+
+    (do-lexemes  (pdgm-map :lexemes) sgpref Lang)
 
     (do-termclusters (pdgm-map :termclusters) sgpref Lang)
 

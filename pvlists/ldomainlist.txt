@@ -1,4 +1,4 @@
-Beja beja-arteiga,beja-atmaan,beja-beniamer,beja-bishari,beja-hadendowa
+Beja beja-arteiga,beja-atmaan,beja-beniamer,beja-bishari,beja-hadendowa,beja-van
 Agaw awngi,bilin,kemant,khamtanga
 Saho-Afar afar,saho
 Omo-Tana arbore,bayso,boni-jara,boni-kijee-bala,boni-kilii,dhaasanac,elmolo,rendille,somali-standard

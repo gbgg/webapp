@@ -24,7 +24,8 @@
       [:ol 
        [:li [:em "pvlists/bibkwindex.edn"]": a map linking each keyword used in  bibrefs.edn, with a list of the associated bibref IDs."]
        [:li [:em "pvlists/bibref-master-list.txt"]": a sorted list of all the bibref IDs [used in the general bibliography menu checkbox list]."]
-       [:li [:em "pvlists/bibref-keyword-list.txt"]": a sorted list of all the keywords [used in the keyword menu selection list]."]]]
+       [:li [:em "pvlists/bibref-keyword-list.txt"]": a sorted list of all the keywords [used in the keyword menu selection list]."]
+       [:li [:em "resources/public/bibrefs-back.edn"]": a new sorted file of bibrefs [to be substituted for old bibrefs.edn after proof-reading]."]]]
      [:p (form-to [:post "/bibIndexGen"]
               [:table
                [:tr 
@@ -48,9 +49,11 @@
                  (str ", " @curpart1 " " (:part2 partmap))))))))
 
 (defn handle-bibIndexGen
+"Makes the key-map, list of keys, list of bib-entries, and a sorted list of the bibrefs, which it copies to bibrefs-back.edn. Note that the latter has to be edited by hand ('replace: ]] [:  -> ]^J:') before it can be rebaptized bibrefs.edn"
   []
   (let [
         bibrefmap (read-string (slurp "resources/public/bibrefs.edn"))
+        bibrefbck (sort (read-string (slurp "resources/public/bibrefs.edn")))
         klist (sort (flatten (make-kwindex bibrefmap)))
         kwcompact (apply str (compact-list klist))
         kwcomp (clojure.string/replace kwcompact #"^, " "")
@@ -65,6 +68,7 @@
     (spit "pvlists/bibkwindex.edn" kmap)
     (spit "pvlists/bibref-master-list.txt" bibkeys2)
     (spit "pvlists/bibref-keyword-list.txt" bibkw2)
+    (spit "resources/public/bibrefs-back.edn" bibrefbck)
     (layout/common
      [:body
       ;;[:h1#clickable "Afroasiatic Morphological Archive"]

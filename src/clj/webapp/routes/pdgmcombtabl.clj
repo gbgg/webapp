@@ -53,7 +53,7 @@
           vlcltableheads (slurp vlcltableheadsfile)
           ;;headprops (split vlcltableheads #",")
           headprops (for [tablehead (split vlcltableheads #",")]
-                         (clojure.string/replace tablehead #":" ""))
+                      (clojure.string/replace tablehead #":" ""))
           ]
       (vec headprops))))
 
@@ -98,15 +98,14 @@
               ]
           ;; make sure no redundant commas
           ;;(str language "," vlcl "&&"  pos "," morphclass   propseq  "%%" lex  "\r\n"))))))
-          (str language "," vlcl "&&"  pos "," morphclass   propseq  "\r\n"))))))
-                      
+          (str language "," vlcl "&&"  pos "," morphclass   propseq  "\r\n"))))))                      
 (defn handle-pdgmcombtablqry
   [languages]
   (let [combtableheads (makecombtableheads languages)
         propheads (reduce concat combtableheads)
         propheadset1 (into (sorted-set) propheads)
         ;; limit propheadset to prop=val components
-        ;;propheadset2 (disj propheadset1 "pos" "morphClass" "pdgm" "lexeme")
+        ;; propheadset2 (disj propheadset1 "pos" "morphClass" "pdgm" "lexeme")
         propheadset2 (disj propheadset1 "pos" "morphClass" "pdgm" )
         propheadvec (into [] propheadset2)
         combtablerows (makecombtablerows languages propheadvec)

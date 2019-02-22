@@ -74,20 +74,19 @@
    (let [;; parse lvalcluster string (as in sparql/pdgmqry-sparql-gen-vrbs)
          vals (split lvalcluster #"," 2)
          language (first vals)
+         Language (capitalize language)
          vcs (split (last vals) #"," 2)
          pos (first vcs)
-         mvalsprops (split (last vcs) #"%" 2)
-         mv (first mvalsprops)
-         proplex (last mvalsprops)
-         morphclass (first (split mv #"," 2))
-         props (if (re-find #"," mv)
-                 (last (split mv #"," 2))
+         mpropsvals (split (last vcs) #"%" 2)
+         mprops (first mpropsvals)
+         valstr (last mpropsvals)
+         morphclass (first (split mprops #"," 2))
+         props (if (re-find #"," mprops)
+                 (last (split mprops #"," 2))
                  "")
-         valsLex (split proplex #":" 2)
-         valstr (first valsLex)
-         lex (if (re-find #":" proplex)
-               (last (split proplex #":" 2))
-               "")
+         lexeme (if (re-find #"lexeme=" props)
+                  (first (split (last (split props #"lexeme=" 2)) #","))
+                  (str ""))
          valvec (split valstr #",")
          ;; get data
          query-sparql (sparql/pdgmqry-sparql-gen-vrbs lvalcluster)
@@ -100,11 +99,32 @@
          req2 (clojure.string/replace (:body req) #"%%" " + ")
          psplit (split (:body req) #"\n")
          header (first psplit)
-         pdgmrows (rest psplit)
+          pdgmrows (rest psplit)
          pheads (split header #",")
          ;; get dataID and pdgmcmmt
          pdgmmap (read-string (slurp (str "pvlists/pdgm-label-" language ".edn")))
          pname (keyword (clojure.string/replace (last vals) #"," "_"))
+         ;; TODO 07/18/18 (reformulate :lexemes with lpref:LEX, then new sparql
+         query-sparql-lexeme (sparql/lexqry-sparql lexeme Language)
+         query-sparql-lexeme-pr (clojure.string/replace query-sparql-lexeme #"<" "&lt;")
+         req-lexeme (http/get aama
+                       {:query-params
+                        {"query" query-sparql-lexeme ;;generated sparql
+                         ;;"format" "application/sparql-results+json"}})]
+                         "format" "csv"}})
+         ;;lexdata (split (rest (split (:body req-lexeme) #"\n")) #",")
+         lexdata1 (split (:body req-lexeme) #"\r\n")
+         head (first lexdata1)
+         lexinfo1 (next lexdata1)
+         lexinfo2 (str (next lexdata1))
+         ;;lexinfo2 (clojure.string/replace lexinfo1 #"," ", ")
+         ;;lexinfo3 (clojure.string/replace lexinfo1 #"\"" "'")
+         lexdata2 (clojure.string/replace lexinfo2 #"[()\"\\]" "")
+         lexdata3 (split  lexdata2 #"," 2)
+         ;; if make the following distinctions, have problem with 
+         ;; clojuwre.lang.PersistentVector$ChunkedSeq
+         lemma (first lexdata3)
+         gloss (rest lexdata3)
          ;;dataID (read-string (pname pdgmmap))
          ;;query-sparql-pdgmcmmt (sparql/pdgmqry-sparql-comment dataID)
          ;;query-sparql-pdgmcmmt-pr (clojure.string/replace query-sparql-pdgmcmmt #"<" "&lt;")
@@ -120,17 +140,24 @@
      [:div
       [:hr]
       [:h4 "Paradigm Properties: "]
-      [:p [:em "Language: "] (capitalize language)]
+      [:p [:em "Language: "] Language]
       [:p [:em "POS: "] pos ]
       [:p [:em "MorphClass: "] morphclass ]
+      (if (re-find #"\w" lexeme)
+        [:p [:em "Paradigm Lexeme: "] lexeme 
+         [:ul 
+          ;;[:li [:em "lemma, gloss: " lexinfo1 ]]
+          [:li [:em "lemma: "  lemma ]]
+          [:li [:em "gloss: \"" gloss "\""]]
+         ]]
+        [:p [:em "(No Paradigm Lexeme)"]])
       (if (re-find #"\w" props)
         [:p [:em "Fixed Property/Value Pairs: "] 
          [:ul
           (for [prop (split props #",")]
-            [:li (clojure.string/replace prop #"=" " = ")])]])
+            (if-not (re-find #"lexeme" prop)
+              [:li (clojure.string/replace prop #"=" " = ")]))]])
       [:p [:em  "Variable Properties: "] (clojure.string/replace valstr #"," ", ") ]
-      (if (re-find #"\w" lex)
-        [:p [:em "Lexeme: "] lex ])
       [:hr]
       
       [:h4 "Paradigm: "]
@@ -175,7 +202,7 @@
       ;;[:p "req2: " [:pre req2]]
       ;;[:p "==========================="]
       ])
- 
+   
    [:script {:src "js/goog/base.js" :type "text/javascript"}]
    [:script {:src "js/webapp.js" :type "text/javascript"}]
    [:script {:type "text/javascript"}

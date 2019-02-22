@@ -1,0 +1,1146 @@
+#TTL FROM INPUT FILE:
+#beja-atmaan-pdgms.edn
+
+@prefix rdf:	 <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:	 <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc:    <http://purl.org/dc/elements>.
+@prefix dcterms:    <http://purl.org/dc/terms>.
+@prefix aama:	 <http://id.oi.uchicago.edu/aama/2013/> .
+@prefix aamas:	 <http://id.oi.uchicago.edu/aama/2013/schema/> .
+@prefix bat:   <http://id.oi.uchicago.edu/aama/2013/beja-atmaan/> .
+
+#LANG INFO:
+
+aama:Beja-atmaan a aamas:Language .
+aama:Beja-atmaan rdfs:label "Beja-atmaan" .
+aama:Beja-atmaan aamas:subfamily "Beja" .
+aama:Beja-atmaan aamas:lpref "bat" .
+aama:Beja-atmaan aamas:dataSource "Wedekind-etal2007" .
+aama:Beja-atmaan aamas:dataSourceNotes "Wedekind uses the term 'Past Continuous' for what is here termed ':Aorist'" .
+aama:Beja-atmaan aamas:geodemoURL "http://www.ethnologue.com/language/bej" .
+aama:Beja-atmaan aamas:geodemoTXT "Beja is a closely related group of language varieties and dialects spoken in the Red Sea coastal and hill regions in Sudan%% Eritrea%% and Egypt by more than a million individuals. The Atmaan variety is spoken in Eastern Sudan%% and is described in Wedekind-etal2007." .
+
+
+#SCHEMATA: headPosition
+bat:headPosition aamas:lang aama:Beja-atmaan .
+bat:Headposition aamas:lang aama:Beja-atmaan .
+bat:headPosition rdfs:domain aamas:Term .
+bat:Headposition rdfs:label "headPosition exponents" .
+bat:headPosition rdfs:label "headPosition" .
+bat:headPosition rdfs:range bat:Headposition .
+bat:Headposition rdfs:subClassOf bat:MuExponent .
+bat:headPosition rdfs:subPropertyOf bat:muProperty .
+bat:HeadFollow aamas:lang aama:Beja-atmaan .
+bat:HeadFollow rdf:type bat:Headposition .
+bat:HeadFollow rdfs:label "HeadFollow" .
+bat:HeadPrecede aamas:lang aama:Beja-atmaan .
+bat:HeadPrecede rdf:type bat:Headposition .
+bat:HeadPrecede rdfs:label "HeadPrecede" .
+
+#SCHEMATA: genObj
+bat:genObj aamas:lang aama:Beja-atmaan .
+bat:Genobj aamas:lang aama:Beja-atmaan .
+bat:genObj rdfs:domain aamas:Term .
+bat:Genobj rdfs:label "genObj exponents" .
+bat:genObj rdfs:label "genObj" .
+bat:genObj rdfs:range bat:Genobj .
+bat:Genobj rdfs:subClassOf bat:MuExponent .
+bat:genObj rdfs:subPropertyOf bat:muProperty .
+bat:O_Common aamas:lang aama:Beja-atmaan .
+bat:O_Common rdf:type bat:Genobj .
+bat:O_Common rdfs:label "O_Common" .
+bat:O_Fem aamas:lang aama:Beja-atmaan .
+bat:O_Fem rdf:type bat:Genobj .
+bat:O_Fem rdfs:label "O_Fem" .
+bat:O_Masc aamas:lang aama:Beja-atmaan .
+bat:O_Masc rdf:type bat:Genobj .
+bat:O_Masc rdfs:label "O_Masc" .
+
+#SCHEMATA: numHead
+bat:numHead aamas:lang aama:Beja-atmaan .
+bat:Numhead aamas:lang aama:Beja-atmaan .
+bat:numHead rdfs:domain aamas:Term .
+bat:Numhead rdfs:label "numHead exponents" .
+bat:numHead rdfs:label "numHead" .
+bat:numHead rdfs:range bat:Numhead .
+bat:Numhead rdfs:subClassOf bat:MuExponent .
+bat:numHead rdfs:subPropertyOf bat:muProperty .
+bat:H_Plural aamas:lang aama:Beja-atmaan .
+bat:H_Plural rdf:type bat:Numhead .
+bat:H_Plural rdfs:label "H_Plural" .
+bat:H_Singular aamas:lang aama:Beja-atmaan .
+bat:H_Singular rdf:type bat:Numhead .
+bat:H_Singular rdfs:label "H_Singular" .
+
+#SCHEMATA: person
+bat:person aamas:lang aama:Beja-atmaan .
+bat:Person aamas:lang aama:Beja-atmaan .
+bat:person rdfs:domain aamas:Term .
+bat:Person rdfs:label "person exponents" .
+bat:person rdfs:label "person" .
+bat:person rdfs:range bat:Person .
+bat:Person rdfs:subClassOf bat:MuExponent .
+bat:person rdfs:subPropertyOf bat:muProperty .
+bat:Person1 aamas:lang aama:Beja-atmaan .
+bat:Person1 rdf:type bat:Person .
+bat:Person1 rdfs:label "Person1" .
+bat:Person2 aamas:lang aama:Beja-atmaan .
+bat:Person2 rdf:type bat:Person .
+bat:Person2 rdfs:label "Person2" .
+bat:Person3 aamas:lang aama:Beja-atmaan .
+bat:Person3 rdf:type bat:Person .
+bat:Person3 rdfs:label "Person3" .
+
+#SCHEMATA: clauseType
+bat:clauseType aamas:lang aama:Beja-atmaan .
+bat:Clausetype aamas:lang aama:Beja-atmaan .
+bat:clauseType rdfs:domain aamas:Term .
+bat:Clausetype rdfs:label "clauseType exponents" .
+bat:clauseType rdfs:label "clauseType" .
+bat:clauseType rdfs:range bat:Clausetype .
+bat:Clausetype rdfs:subClassOf bat:MuExponent .
+bat:clauseType rdfs:subPropertyOf bat:muProperty .
+bat:Relative aamas:lang aama:Beja-atmaan .
+bat:Relative rdf:type bat:Clausetype .
+bat:Relative rdfs:label "Relative" .
+
+#SCHEMATA: number
+bat:number aamas:lang aama:Beja-atmaan .
+bat:Number aamas:lang aama:Beja-atmaan .
+bat:number rdfs:domain aamas:Term .
+bat:Number rdfs:label "number exponents" .
+bat:number rdfs:label "number" .
+bat:number rdfs:range bat:Number .
+bat:Number rdfs:subClassOf bat:MuExponent .
+bat:number rdfs:subPropertyOf bat:muProperty .
+bat:Plural aamas:lang aama:Beja-atmaan .
+bat:Plural rdf:type bat:Number .
+bat:Plural rdfs:label "Plural" .
+bat:Singular aamas:lang aama:Beja-atmaan .
+bat:Singular rdf:type bat:Number .
+bat:Singular rdfs:label "Singular" .
+
+#SCHEMATA: caseHead
+bat:caseHead aamas:lang aama:Beja-atmaan .
+bat:Casehead aamas:lang aama:Beja-atmaan .
+bat:caseHead rdfs:domain aamas:Term .
+bat:Casehead rdfs:label "caseHead exponents" .
+bat:caseHead rdfs:label "caseHead" .
+bat:caseHead rdfs:range bat:Casehead .
+bat:Casehead rdfs:subClassOf bat:MuExponent .
+bat:caseHead rdfs:subPropertyOf bat:muProperty .
+bat:H_Object aamas:lang aama:Beja-atmaan .
+bat:H_Object rdf:type bat:Casehead .
+bat:H_Object rdfs:label "H_Object" .
+bat:H_Subject aamas:lang aama:Beja-atmaan .
+bat:H_Subject rdf:type bat:Casehead .
+bat:H_Subject rdfs:label "H_Subject" .
+
+#SCHEMATA: genHead
+bat:genHead aamas:lang aama:Beja-atmaan .
+bat:Genhead aamas:lang aama:Beja-atmaan .
+bat:genHead rdfs:domain aamas:Term .
+bat:Genhead rdfs:label "genHead exponents" .
+bat:genHead rdfs:label "genHead" .
+bat:genHead rdfs:range bat:Genhead .
+bat:Genhead rdfs:subClassOf bat:MuExponent .
+bat:genHead rdfs:subPropertyOf bat:muProperty .
+bat:H_Fem aamas:lang aama:Beja-atmaan .
+bat:H_Fem rdf:type bat:Genhead .
+bat:H_Fem rdfs:label "H_Fem" .
+bat:H_Masc aamas:lang aama:Beja-atmaan .
+bat:H_Masc rdf:type bat:Genhead .
+bat:H_Masc rdfs:label "H_Masc" .
+
+#SCHEMATA: formFrequency
+bat:formFrequency aamas:lang aama:Beja-atmaan .
+bat:Formfrequency aamas:lang aama:Beja-atmaan .
+bat:formFrequency rdfs:domain aamas:Term .
+bat:Formfrequency rdfs:label "formFrequency exponents" .
+bat:formFrequency rdfs:label "formFrequency" .
+bat:formFrequency rdfs:range bat:Formfrequency .
+bat:Formfrequency rdfs:subClassOf bat:MuExponent .
+bat:formFrequency rdfs:subPropertyOf bat:muProperty .
+bat:Frequent aamas:lang aama:Beja-atmaan .
+bat:Frequent rdf:type bat:Formfrequency .
+bat:Frequent rdfs:label "Frequent" .
+bat:Rare aamas:lang aama:Beja-atmaan .
+bat:Rare rdf:type bat:Formfrequency .
+bat:Rare rdfs:label "Rare" .
+
+#SCHEMATA: nonFiniteForm
+bat:nonFiniteForm aamas:lang aama:Beja-atmaan .
+bat:Nonfiniteform aamas:lang aama:Beja-atmaan .
+bat:nonFiniteForm rdfs:domain aamas:Term .
+bat:Nonfiniteform rdfs:label "nonFiniteForm exponents" .
+bat:nonFiniteForm rdfs:label "nonFiniteForm" .
+bat:nonFiniteForm rdfs:range bat:Nonfiniteform .
+bat:Nonfiniteform rdfs:subClassOf bat:MuExponent .
+bat:nonFiniteForm rdfs:subPropertyOf bat:muProperty .
+bat:NominalAction aamas:lang aama:Beja-atmaan .
+bat:NominalAction rdf:type bat:Nonfiniteform .
+bat:NominalAction rdfs:label "NominalAction" .
+bat:Participle aamas:lang aama:Beja-atmaan .
+bat:Participle rdf:type bat:Nonfiniteform .
+bat:Participle rdfs:label "Participle" .
+
+#SCHEMATA: pos
+bat:pos aamas:lang aama:Beja-atmaan .
+bat:Pos aamas:lang aama:Beja-atmaan .
+bat:pos rdfs:domain aamas:Term .
+bat:Pos rdfs:label "pos exponents" .
+bat:pos rdfs:label "pos" .
+bat:pos rdfs:range bat:Pos .
+bat:Pos rdfs:subClassOf bat:MuExponent .
+bat:pos rdfs:subPropertyOf bat:muProperty .
+bat:Pronoun aamas:lang aama:Beja-atmaan .
+bat:Pronoun rdf:type bat:Pos .
+bat:Pronoun rdfs:label "Pronoun" .
+bat:Verb aamas:lang aama:Beja-atmaan .
+bat:Verb rdf:type bat:Pos .
+bat:Verb rdfs:label "Verb" .
+
+#SCHEMATA: stemClass
+bat:stemClass aamas:lang aama:Beja-atmaan .
+bat:Stemclass aamas:lang aama:Beja-atmaan .
+bat:stemClass rdfs:domain aamas:Term .
+bat:Stemclass rdfs:label "stemClass exponents" .
+bat:stemClass rdfs:label "stemClass" .
+bat:stemClass rdfs:range bat:Stemclass .
+bat:Stemclass rdfs:subClassOf bat:MuExponent .
+bat:stemClass rdfs:subPropertyOf bat:muProperty .
+bat:HFin aamas:lang aama:Beja-atmaan .
+bat:HFin rdf:type bat:Stemclass .
+bat:HFin rdfs:label "HFin" .
+bat:HamzFin aamas:lang aama:Beja-atmaan .
+bat:HamzFin rdf:type bat:Stemclass .
+bat:HamzFin rdfs:label "HamzFin" .
+bat:HamzInitVFin aamas:lang aama:Beja-atmaan .
+bat:HamzInitVFin rdf:type bat:Stemclass .
+bat:HamzInitVFin rdfs:label "HamzInitVFin" .
+bat:VFin1 aamas:lang aama:Beja-atmaan .
+bat:VFin1 rdf:type bat:Stemclass .
+bat:VFin1 rdfs:label "VFin1" .
+bat:VFin2 aamas:lang aama:Beja-atmaan .
+bat:VFin2 rdf:type bat:Stemclass .
+bat:VFin2 rdfs:label "VFin2" .
+
+#SCHEMATA: proClass
+bat:proClass aamas:lang aama:Beja-atmaan .
+bat:Proclass aamas:lang aama:Beja-atmaan .
+bat:proClass rdfs:domain aamas:Term .
+bat:Proclass rdfs:label "proClass exponents" .
+bat:proClass rdfs:label "proClass" .
+bat:proClass rdfs:range bat:Proclass .
+bat:Proclass rdfs:subClassOf bat:MuExponent .
+bat:proClass rdfs:subPropertyOf bat:muProperty .
+bat:Independent aamas:lang aama:Beja-atmaan .
+bat:Independent rdf:type bat:Proclass .
+bat:Independent rdfs:label "Independent" .
+bat:IndependentPersonal aamas:lang aama:Beja-atmaan .
+bat:IndependentPersonal rdf:type bat:Proclass .
+bat:IndependentPersonal rdfs:label "IndependentPersonal" .
+bat:ObjSuff aamas:lang aama:Beja-atmaan .
+bat:ObjSuff rdf:type bat:Proclass .
+bat:ObjSuff rdfs:label "ObjSuff" .
+bat:ObjSuffwVerb aamas:lang aama:Beja-atmaan .
+bat:ObjSuffwVerb rdf:type bat:Proclass .
+bat:ObjSuffwVerb rdfs:label "ObjSuffwVerb" .
+bat:PersSuff aamas:lang aama:Beja-atmaan .
+bat:PersSuff rdf:type bat:Proclass .
+bat:PersSuff rdfs:label "PersSuff" .
+bat:PossSuff aamas:lang aama:Beja-atmaan .
+bat:PossSuff rdf:type bat:Proclass .
+bat:PossSuff rdfs:label "PossSuff" .
+bat:IndependentPossessive aamas:lang aama:Beja-atmaan .
+bat:IndependentPossessive rdf:type bat:Proclass .
+bat:IndependentPossessive rdfs:label "IndependentPossessive" .
+
+#SCHEMATA: strength
+bat:strength aamas:lang aama:Beja-atmaan .
+bat:Strength aamas:lang aama:Beja-atmaan .
+bat:strength rdfs:domain aamas:Term .
+bat:Strength rdfs:label "strength exponents" .
+bat:strength rdfs:label "strength" .
+bat:strength rdfs:range bat:Strength .
+bat:Strength rdfs:subClassOf bat:MuExponent .
+bat:strength rdfs:subPropertyOf bat:muProperty .
+bat:weak aamas:lang aama:Beja-atmaan .
+bat:weak rdf:type bat:Strength .
+bat:weak rdfs:label "weak" .
+
+#SCHEMATA: conjClass
+bat:conjClass aamas:lang aama:Beja-atmaan .
+bat:Conjclass aamas:lang aama:Beja-atmaan .
+bat:conjClass rdfs:domain aamas:Term .
+bat:Conjclass rdfs:label "conjClass exponents" .
+bat:conjClass rdfs:label "conjClass" .
+bat:conjClass rdfs:range bat:Conjclass .
+bat:Conjclass rdfs:subClassOf bat:MuExponent .
+bat:conjClass rdfs:subPropertyOf bat:muProperty .
+bat:Irregular aamas:lang aama:Beja-atmaan .
+bat:Irregular rdf:type bat:Conjclass .
+bat:Irregular rdfs:label "Irregular" .
+bat:Prefix aamas:lang aama:Beja-atmaan .
+bat:Prefix rdf:type bat:Conjclass .
+bat:Prefix rdfs:label "Prefix" .
+bat:Suffix aamas:lang aama:Beja-atmaan .
+bat:Suffix rdf:type bat:Conjclass .
+bat:Suffix rdfs:label "Suffix" .
+
+#SCHEMATA: numObj
+bat:numObj aamas:lang aama:Beja-atmaan .
+bat:Numobj aamas:lang aama:Beja-atmaan .
+bat:numObj rdfs:domain aamas:Term .
+bat:Numobj rdfs:label "numObj exponents" .
+bat:numObj rdfs:label "numObj" .
+bat:numObj rdfs:range bat:Numobj .
+bat:Numobj rdfs:subClassOf bat:MuExponent .
+bat:numObj rdfs:subPropertyOf bat:muProperty .
+bat:O_Plural aamas:lang aama:Beja-atmaan .
+bat:O_Plural rdf:type bat:Numobj .
+bat:O_Plural rdfs:label "O_Plural" .
+bat:O_Singular aamas:lang aama:Beja-atmaan .
+bat:O_Singular rdf:type bat:Numobj .
+bat:O_Singular rdfs:label "O_Singular" .
+
+#SCHEMATA: case
+bat:case aamas:lang aama:Beja-atmaan .
+bat:Case aamas:lang aama:Beja-atmaan .
+bat:case rdfs:domain aamas:Term .
+bat:Case rdfs:label "case exponents" .
+bat:case rdfs:label "case" .
+bat:case rdfs:range bat:Case .
+bat:Case rdfs:subClassOf bat:MuExponent .
+bat:case rdfs:subPropertyOf bat:muProperty .
+bat:Object aamas:lang aama:Beja-atmaan .
+bat:Object rdf:type bat:Case .
+bat:Object rdfs:label "Object" .
+bat:Subject aamas:lang aama:Beja-atmaan .
+bat:Subject rdf:type bat:Case .
+bat:Subject rdfs:label "Subject" .
+
+#SCHEMATA: polarity
+bat:polarity aamas:lang aama:Beja-atmaan .
+bat:Polarity aamas:lang aama:Beja-atmaan .
+bat:polarity rdfs:domain aamas:Term .
+bat:Polarity rdfs:label "polarity exponents" .
+bat:polarity rdfs:label "polarity" .
+bat:polarity rdfs:range bat:Polarity .
+bat:Polarity rdfs:subClassOf bat:MuExponent .
+bat:polarity rdfs:subPropertyOf bat:muProperty .
+bat:Affirmative aamas:lang aama:Beja-atmaan .
+bat:Affirmative rdf:type bat:Polarity .
+bat:Affirmative rdfs:label "Affirmative" .
+bat:Negative aamas:lang aama:Beja-atmaan .
+bat:Negative rdf:type bat:Polarity .
+bat:Negative rdfs:label "Negative" .
+
+#SCHEMATA: tam
+bat:tam aamas:lang aama:Beja-atmaan .
+bat:Tam aamas:lang aama:Beja-atmaan .
+bat:tam rdfs:domain aamas:Term .
+bat:Tam rdfs:label "tam exponents" .
+bat:tam rdfs:label "tam" .
+bat:tam rdfs:range bat:Tam .
+bat:Tam rdfs:subClassOf bat:MuExponent .
+bat:tam rdfs:subPropertyOf bat:muProperty .
+bat:Aorist aamas:lang aama:Beja-atmaan .
+bat:Aorist rdf:type bat:Tam .
+bat:Aorist rdfs:label "Aorist" .
+bat:Future aamas:lang aama:Beja-atmaan .
+bat:Future rdf:type bat:Tam .
+bat:Future rdfs:label "Future" .
+bat:Imperative aamas:lang aama:Beja-atmaan .
+bat:Imperative rdf:type bat:Tam .
+bat:Imperative rdfs:label "Imperative" .
+bat:Jussive aamas:lang aama:Beja-atmaan .
+bat:Jussive rdf:type bat:Tam .
+bat:Jussive rdfs:label "Jussive" .
+bat:Participle aamas:lang aama:Beja-atmaan .
+bat:Participle rdf:type bat:Tam .
+bat:Participle rdfs:label "Participle" .
+bat:Past aamas:lang aama:Beja-atmaan .
+bat:Past rdf:type bat:Tam .
+bat:Past rdfs:label "Past" .
+bat:PastAlt aamas:lang aama:Beja-atmaan .
+bat:PastAlt rdf:type bat:Tam .
+bat:PastAlt rdfs:label "PastAlt" .
+bat:PastPerfect aamas:lang aama:Beja-atmaan .
+bat:PastPerfect rdf:type bat:Tam .
+bat:PastPerfect rdfs:label "PastPerfect" .
+bat:Present aamas:lang aama:Beja-atmaan .
+bat:Present rdf:type bat:Tam .
+bat:Present rdfs:label "Present" .
+bat:PresentShort aamas:lang aama:Beja-atmaan .
+bat:PresentShort rdf:type bat:Tam .
+bat:PresentShort rdfs:label "PresentShort" .
+
+#SCHEMATA: derivedStemAug
+bat:derivedStemAug aamas:lang aama:Beja-atmaan .
+bat:Derivedstemaug aamas:lang aama:Beja-atmaan .
+bat:derivedStemAug rdfs:domain aamas:Term .
+bat:Derivedstemaug rdfs:label "derivedStemAug exponents" .
+bat:derivedStemAug rdfs:label "derivedStemAug" .
+bat:derivedStemAug rdfs:range bat:Derivedstemaug .
+bat:Derivedstemaug rdfs:subClassOf bat:MuExponent .
+bat:derivedStemAug rdfs:subPropertyOf bat:muProperty .
+bat:Repetitive aamas:lang aama:Beja-atmaan .
+bat:Repetitive rdf:type bat:Derivedstemaug .
+bat:Repetitive rdfs:label "Repetitive" .
+bat:Simple aamas:lang aama:Beja-atmaan .
+bat:Simple rdf:type bat:Derivedstemaug .
+bat:Simple rdfs:label "Simple" .
+
+#SCHEMATA: gender
+bat:gender aamas:lang aama:Beja-atmaan .
+bat:Gender aamas:lang aama:Beja-atmaan .
+bat:gender rdfs:domain aamas:Term .
+bat:Gender rdfs:label "gender exponents" .
+bat:gender rdfs:label "gender" .
+bat:gender rdfs:range bat:Gender .
+bat:Gender rdfs:subClassOf bat:MuExponent .
+bat:gender rdfs:subPropertyOf bat:muProperty .
+bat:Common aamas:lang aama:Beja-atmaan .
+bat:Common rdf:type bat:Gender .
+bat:Common rdfs:label "Common" .
+bat:Fem aamas:lang aama:Beja-atmaan .
+bat:Fem rdf:type bat:Gender .
+bat:Fem rdfs:label "Fem" .
+bat:Masc aamas:lang aama:Beja-atmaan .
+bat:Masc rdf:type bat:Gender .
+bat:Masc rdfs:label "Masc" .
+
+#SCHEMATA: pdgmType
+aamas:pdgmType aamas:lang aama:Beja-atmaan .
+aamas:Pdgmtype aamas:lang aama:Beja-atmaan .
+aamas:pdgmType rdfs:domain aamas:Termcluster .
+aamas:Pdgmtype rdfs:label "pdgmType exponents" .
+aamas:pdgmType rdfs:label "pdgmType" .
+aamas:pdgmType rdfs:range aamas:Pdgmtype .
+aamas:Pdgmtype rdfs:subClassOf bat:MuExponent .
+aamas:pdgmType rdfs:subPropertyOf bat:muProperty .
+bat:Overview_NegAux aamas:lang aama:Beja-atmaan .
+bat:Overview_NegAux rdf:type aamas:Pdgmtype .
+bat:Overview_NegAux rdfs:label "Overview_NegAux" .
+bat:NonFin_NomSuffixClass aamas:lang aama:Beja-atmaan .
+bat:NonFin_NomSuffixClass rdf:type aamas:Pdgmtype .
+bat:NonFin_NomSuffixClass rdfs:label "NonFin_NomSuffixClass" .
+bat:Overview_Mood aamas:lang aama:Beja-atmaan .
+bat:Overview_Mood rdf:type aamas:Pdgmtype .
+bat:Overview_Mood rdfs:label "Overview_Mood" .
+bat:Partial_PrefVerbImperative aamas:lang aama:Beja-atmaan .
+bat:Partial_PrefVerbImperative rdf:type aamas:Pdgmtype .
+bat:Partial_PrefVerbImperative rdfs:label "Partial_PrefVerbImperative" .
+bat:Overview_IntensiveAction aamas:lang aama:Beja-atmaan .
+bat:Overview_IntensiveAction rdf:type aamas:Pdgmtype .
+bat:Overview_IntensiveAction rdfs:label "Overview_IntensiveAction" .
+bat:Overview_ObjSuffwVerbNeg aamas:lang aama:Beja-atmaan .
+bat:Overview_ObjSuffwVerbNeg rdf:type aamas:Pdgmtype .
+bat:Overview_ObjSuffwVerbNeg rdfs:label "Overview_ObjSuffwVerbNeg" .
+bat:Finite aamas:lang aama:Beja-atmaan .
+bat:Finite rdf:type aamas:Pdgmtype .
+bat:Finite rdfs:label "Finite" .
+bat:Overview_ObjSuffwVerb aamas:lang aama:Beja-atmaan .
+bat:Overview_ObjSuffwVerb rdf:type aamas:Pdgmtype .
+bat:Overview_ObjSuffwVerb rdfs:label "Overview_ObjSuffwVerb" .
+bat:NonFin_NomForm aamas:lang aama:Beja-atmaan .
+bat:NonFin_NomForm rdf:type aamas:Pdgmtype .
+bat:NonFin_NomForm rdfs:label "NonFin_NomForm" .
+bat:NA aamas:lang aama:Beja-atmaan .
+bat:NA rdf:type aamas:Pdgmtype .
+bat:NA rdfs:label "NA" .
+bat:Overview_SuffPastPres aamas:lang aama:Beja-atmaan .
+bat:Overview_SuffPastPres rdf:type aamas:Pdgmtype .
+bat:Overview_SuffPastPres rdfs:label "Overview_SuffPastPres" .
+bat:Affix_RelSuff aamas:lang aama:Beja-atmaan .
+bat:Affix_RelSuff rdf:type aamas:Pdgmtype .
+bat:Affix_RelSuff rdfs:label "Affix_RelSuff" .
+bat:NonFin_Participle aamas:lang aama:Beja-atmaan .
+bat:NonFin_Participle rdf:type aamas:Pdgmtype .
+bat:NonFin_Participle rdfs:label "NonFin_Participle" .
+bat:Affix_SubjPref aamas:lang aama:Beja-atmaan .
+bat:Affix_SubjPref rdf:type aamas:Pdgmtype .
+bat:Affix_SubjPref rdfs:label "Affix_SubjPref" .
+bat:Overview_NominalizationPatterns aamas:lang aama:Beja-atmaan .
+bat:Overview_NominalizationPatterns rdf:type aamas:Pdgmtype .
+bat:Overview_NominalizationPatterns rdfs:label "Overview_NominalizationPatterns" .
+bat:Overview_AuxPut aamas:lang aama:Beja-atmaan .
+bat:Overview_AuxPut rdf:type aamas:Pdgmtype .
+bat:Overview_AuxPut rdfs:label "Overview_AuxPut" .
+bat:Overview_Aux aamas:lang aama:Beja-atmaan .
+bat:Overview_Aux rdf:type aamas:Pdgmtype .
+bat:Overview_Aux rdfs:label "Overview_Aux" .
+bat:Overview_Interrogation aamas:lang aama:Beja-atmaan .
+bat:Overview_Interrogation rdf:type aamas:Pdgmtype .
+bat:Overview_Interrogation rdfs:label "Overview_Interrogation" .
+bat:Partial_Future aamas:lang aama:Beja-atmaan .
+bat:Partial_Future rdf:type aamas:Pdgmtype .
+bat:Partial_Future rdfs:label "Partial_Future" .
+bat:Overview_TenseAsp aamas:lang aama:Beja-atmaan .
+bat:Overview_TenseAsp rdf:type aamas:Pdgmtype .
+bat:Overview_TenseAsp rdfs:label "Overview_TenseAsp" .
+bat:Partial_ImperativeWeak aamas:lang aama:Beja-atmaan .
+bat:Partial_ImperativeWeak rdf:type aamas:Pdgmtype .
+bat:Partial_ImperativeWeak rdfs:label "Partial_ImperativeWeak" .
+bat:Overview_FutureIntention aamas:lang aama:Beja-atmaan .
+bat:Overview_FutureIntention rdf:type aamas:Pdgmtype .
+bat:Overview_FutureIntention rdfs:label "Overview_FutureIntention" .
+bat:Overview_AuxTake aamas:lang aama:Beja-atmaan .
+bat:Overview_AuxTake rdf:type aamas:Pdgmtype .
+bat:Overview_AuxTake rdfs:label "Overview_AuxTake" .
+bat:Partial_Become aamas:lang aama:Beja-atmaan .
+bat:Partial_Become rdf:type aamas:Pdgmtype .
+bat:Partial_Become rdfs:label "Partial_Become" .
+
+#SCHEMATA: persObj
+bat:persObj aamas:lang aama:Beja-atmaan .
+bat:Persobj aamas:lang aama:Beja-atmaan .
+bat:persObj rdfs:domain aamas:Term .
+bat:Persobj rdfs:label "persObj exponents" .
+bat:persObj rdfs:label "persObj" .
+bat:persObj rdfs:range bat:Persobj .
+bat:Persobj rdfs:subClassOf bat:MuExponent .
+bat:persObj rdfs:subPropertyOf bat:muProperty .
+bat:O_Person1 aamas:lang aama:Beja-atmaan .
+bat:O_Person1 rdf:type bat:Persobj .
+bat:O_Person1 rdfs:label "O_Person1" .
+bat:O_Person2 aamas:lang aama:Beja-atmaan .
+bat:O_Person2 rdf:type bat:Persobj .
+bat:O_Person2 rdfs:label "O_Person2" .
+bat:O_Person3 aamas:lang aama:Beja-atmaan .
+bat:O_Person3 rdf:type bat:Persobj .
+bat:O_Person3 rdfs:label "O_Person3" .
+
+#SCHEMATA: rootClass
+bat:rootClass aamas:lang aama:Beja-atmaan .
+bat:Rootclass aamas:lang aama:Beja-atmaan .
+bat:rootClass rdfs:domain aamas:Term .
+bat:Rootclass rdfs:label "rootClass exponents" .
+bat:rootClass rdfs:label "rootClass" .
+bat:rootClass rdfs:range bat:Rootclass .
+bat:Rootclass rdfs:subClassOf bat:MuExponent .
+bat:rootClass rdfs:subPropertyOf bat:muProperty .
+bat:CHiy aamas:lang aama:Beja-atmaan .
+bat:CHiy rdf:type bat:Rootclass .
+bat:CHiy rdfs:label "CHiy" .
+bat:CaC aamas:lang aama:Beja-atmaan .
+bat:CaC rdf:type bat:Rootclass .
+bat:CaC rdfs:label "CaC" .
+bat:Cay aamas:lang aama:Beja-atmaan .
+bat:Cay rdf:type bat:Rootclass .
+bat:Cay rdfs:label "Cay" .
+bat:CiC aamas:lang aama:Beja-atmaan .
+bat:CiC rdf:type bat:Rootclass .
+bat:CiC rdfs:label "CiC" .
+bat:CiCH aamas:lang aama:Beja-atmaan .
+bat:CiCH rdf:type bat:Rootclass .
+bat:CiCH rdfs:label "CiCH" .
+bat:CiCaC aamas:lang aama:Beja-atmaan .
+bat:CiCaC rdf:type bat:Rootclass .
+bat:CiCaC rdfs:label "CiCaC" .
+bat:CiCiC aamas:lang aama:Beja-atmaan .
+bat:CiCiC rdf:type bat:Rootclass .
+bat:CiCiC rdfs:label "CiCiC" .
+bat:CiCiy aamas:lang aama:Beja-atmaan .
+bat:CiCiy rdf:type bat:Rootclass .
+bat:CiCiy rdfs:label "CiCiy" .
+bat:Ciy aamas:lang aama:Beja-atmaan .
+bat:Ciy rdf:type bat:Rootclass .
+bat:Ciy rdfs:label "Ciy" .
+bat:HaCiC aamas:lang aama:Beja-atmaan .
+bat:HaCiC rdf:type bat:Rootclass .
+bat:HaCiC rdfs:label "HaCiC" .
+bat:Invar aamas:lang aama:Beja-atmaan .
+bat:Invar rdf:type bat:Rootclass .
+bat:Invar rdfs:label "Invar" .
+
+#PCLASSES:
+
+bat:person aamas:pclass aamas:pngClass .
+aamas:pngClass rdfs:label "pngClass" .
+bat:number aamas:pclass aamas:pngClass .
+aamas:pngClass rdfs:label "pngClass" .
+bat:gender aamas:pclass aamas:pngClass .
+aamas:pngClass rdfs:label "pngClass" .
+bat:genHead aamas:pclass aamas:pngClass .
+aamas:pngClass rdfs:label "pngClass" .
+bat:genObj aamas:pclass aamas:pngClass .
+aamas:pngClass rdfs:label "pngClass" .
+bat:numHead aamas:pclass aamas:pngClass .
+aamas:pngClass rdfs:label "pngClass" .
+bat:numObj aamas:pclass aamas:pngClass .
+aamas:pngClass rdfs:label "pngClass" .
+bat:persObj aamas:pclass aamas:pngClass .
+aamas:pngClass rdfs:label "pngClass" .
+bat:case aamas:pclass aamas:synsemClass .
+aamas:synsemClass rdfs:label "synsemClass" .
+bat:caseHead aamas:pclass aamas:synsemClass .
+aamas:synsemClass rdfs:label "synsemClass" .
+bat:clauseType aamas:pclass aamas:synsemClass .
+aamas:synsemClass rdfs:label "synsemClass" .
+bat:derivedStem aamas:pclass aamas:synsemClass .
+aamas:synsemClass rdfs:label "synsemClass" .
+bat:derivedStemAug aamas:pclass aamas:synsemClass .
+aamas:synsemClass rdfs:label "synsemClass" .
+bat:headPosition aamas:pclass aamas:synsemClass .
+aamas:synsemClass rdfs:label "synsemClass" .
+bat:nonFiniteForm aamas:pclass aamas:synsemClass .
+aamas:synsemClass rdfs:label "synsemClass" .
+bat:polarity aamas:pclass aamas:synsemClass .
+aamas:synsemClass rdfs:label "synsemClass" .
+bat:pos aamas:pclass aamas:synsemClass .
+aamas:synsemClass rdfs:label "synsemClass" .
+bat:proClass aamas:pclass aamas:synsemClass .
+aamas:synsemClass rdfs:label "synsemClass" .
+bat:tam aamas:pclass aamas:synsemClass .
+aamas:synsemClass rdfs:label "synsemClass" .
+bat:conjClass aamas:pclass aamas:inflClass .
+aamas:inflClass rdfs:label "inflClass" .
+bat:rootClass aamas:pclass aamas:inflClass .
+aamas:inflClass rdfs:label "inflClass" .
+bat:stemClass aamas:pclass aamas:inflClass .
+aamas:inflClass rdfs:label "inflClass" .
+bat:strength aamas:pclass aamas:inflClass .
+aamas:inflClass rdfs:label "inflClass" .
+
+#LEXEMES:
+
+##LexItems
+aama:Beja-atmaan-bidil a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "bidil" ;
+	bat:rootClass bat:CiCiC ;
+	aamas:gloss "change" ;
+	.
+aama:Beja-atmaan-daas a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "daas" ;
+	aamas:gloss "put" ;
+	.
+aama:Beja-atmaan-ha a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "ha" ;
+	aamas:gloss "bring" ;
+	aamas:lemma " " ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-hasib a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "hasib" ;
+	bat:rootClass bat:HaCiC ;
+	aamas:gloss "count" ;
+	.
+aama:Beja-atmaan-adgir a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "adgir" ;
+	bat:conjClass bat:Suffix ;
+	aamas:gloss "able" ;
+	aamas:lemma " " ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-dHiy a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "dHiy" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "do, put" ;
+	aamas:lemma "d’íya" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-rib a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "rib" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "refuse" ;
+	aamas:lemma "rib" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-ma a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "ma" ;
+	bat:conjClass bat:Suffix ;
+	aamas:gloss "come" ;
+	aamas:lemma "m`-" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-sdd a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "sdd" ;
+	aamas:lemma " " ;
+	aamas:gloss "peel" ;
+	.
+aama:Beja-atmaan-raat a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "raat" ;
+	aamas:gloss "[x]" ;
+	aamas:lemma "[y]" ;
+	.
+aama:Beja-atmaan-aree a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "aree" ;
+	bat:conjClass bat:Suffix ;
+	aamas:gloss "like, want" ;
+	aamas:lemma "aree-" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-bis a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "bis" ;
+	aamas:gloss "[x]" ;
+	aamas:lemma "[y]" ;
+	.
+aama:Beja-atmaan-sibib a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "sibib" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "look" ;
+	aamas:lemma "šibib" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-dir a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "dir" ;
+	aamas:lemma " " ;
+	aamas:gloss "kill" ;
+	.
+aama:Beja-atmaan-agrii a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "agrii" ;
+	bat:conjClass bat:Suffix ;
+	aamas:gloss "read" ;
+	aamas:lemma "agrii-" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-gwa a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "gwa" ;
+	bat:conjClass bat:Suffix ;
+	aamas:gloss "drink" ;
+	aamas:lemma "gwa" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-miriy a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "miriy" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "find" ;
+	aamas:lemma "miriy" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-assí a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "assí" ;
+	aamas:gloss "cover" ;
+	.
+aama:Beja-atmaan-mikir a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "mikir" ;
+	bat:rootClass bat:CiCiC ;
+	aamas:gloss "advise" ;
+	.
+aama:Beja-atmaan-ba a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "ba" ;
+	aamas:lemma "bá’aa b’aa" ;
+	aamas:gloss "lie down" ;
+	.
+aama:Beja-atmaan-sak a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "sak" ;
+	aamas:gloss "work" ;
+	aamas:lemma " " ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-hayis a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "hayis" ;
+	bat:rootClass bat:HaCiC ;
+	aamas:gloss "be better" ;
+	.
+aama:Beja-atmaan-dif a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "dif" ;
+	bat:rootClass bat:CiC ;
+	.
+aama:Beja-atmaan-ni-di a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "ni-di" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "say" ;
+	aamas:lemma "ni~di" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-ish a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "ish" ;
+	bat:rootClass bat:CiC ;
+	aamas:gloss "let" ;
+	.
+aama:Beja-atmaan-agir a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "agir" ;
+	bat:rootClass bat:HaCiC ;
+	aamas:gloss "return" ;
+	.
+aama:Beja-atmaan-rih a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "rih" ;
+	bat:conjClass bat:Suffix ;
+	aamas:gloss "see" ;
+	aamas:lemma "rhaa" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-šibiba a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "šibiba" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "look" ;
+	aamas:lemma "šibiba" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-kta a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "kta" ;
+	aamas:gloss "[x]" ;
+	aamas:lemma "[y]" ;
+	.
+aama:Beja-atmaan-mir a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "mir" ;
+	bat:rootClass bat:CiC ;
+	aamas:gloss "prepare" ;
+	.
+aama:Beja-atmaan-hiy a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "hiy" ;
+	bat:conjClass bat:Irregular ;
+	aamas:gloss "give" ;
+	aamas:lemma "hiya" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-dhigwiy a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "dhigwiy" ;
+	bat:rootClass bat:CiCiy ;
+	aamas:gloss "count" ;
+	.
+aama:Beja-atmaan-bariy a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "bariy" ;
+	bat:conjClass bat:Irregular ;
+	aamas:gloss "have" ;
+	aamas:lemma "bariya" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-afreey a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "afreey" ;
+	aamas:gloss "bad" ;
+	.
+aama:Beja-atmaan-sa a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "sa" ;
+	aamas:lemma "sá’a" ;
+	aamas:gloss "sit" ;
+	.
+aama:Beja-atmaan-fay a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "fay" ;
+	bat:conjClass bat:Irregular ;
+	aamas:gloss "be" ;
+	aamas:lemma "faya" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-uhi a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "uhi" ;
+	bat:rootClass bat:CiC ;
+	aamas:gloss "let" ;
+	.
+aama:Beja-atmaan-abik a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "abik" ;
+	bat:rootClass bat:HaCiC ;
+	aamas:gloss "seize" ;
+	.
+aama:Beja-atmaan-soo a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "soo" ;
+	aamas:gloss "inform" ;
+	aamas:lemma " " ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-gid a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "gid" ;
+	aamas:lemma "[x]" ;
+	aamas:gloss "throw" ;
+	.
+aama:Beja-atmaan-Handhiwaayii a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "Handhiwaayii" ;
+	aamas:gloss "hadendowa" ;
+	aamas:lemma "Handhiwaayii" ;
+	.
+aama:Beja-atmaan-siniy a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "siniy" ;
+	bat:rootClass bat:CiCiy ;
+	aamas:gloss "await" ;
+	.
+aama:Beja-atmaan-diy a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "diy" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "say" ;
+	aamas:lemma "diya" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-tama a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "tama" ;
+	bat:conjClass bat:Suffix ;
+	aamas:gloss "eat" ;
+	aamas:lemma "tama" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-naw a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "naw" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "fail" ;
+	aamas:lemma "nawa" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-assi a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "assi" ;
+	aamas:gloss "[x]" ;
+	aamas:lemma "[y]" ;
+	.
+aama:Beja-atmaan-afrey a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "afrey" ;
+	aamas:gloss "[x]" ;
+	aamas:lemma "[y]" ;
+	.
+aama:Beja-atmaan-raataa a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "raataa" ;
+	bat:conjClass bat:Suffix ;
+	aamas:gloss "ask" ;
+	aamas:lemma "raataa" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-fir a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "fir" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "go out" ;
+	aamas:lemma "fira" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-waaw a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "waaw" ;
+	aamas:gloss "weep" ;
+	aamas:lemma " " ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-kaam a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "kaam" ;
+	aamas:gloss "camel" ;
+	aamas:lemma "kaam" ;
+	.
+aama:Beja-atmaan-aha a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "aha" ;
+	aamas:gloss "take" ;
+	aamas:lemma "aha" ;
+	.
+aama:Beja-atmaan-kitim a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "kitim" ;
+	bat:rootClass bat:CiCiC ;
+	aamas:gloss "reach" ;
+	.
+aama:Beja-atmaan-m- a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "m-" ;
+	aamas:gloss "[x]" ;
+	aamas:lemma "[y]" ;
+	.
+aama:Beja-atmaan-hagit a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "hagit" ;
+	bat:rootClass bat:HaCiC ;
+	aamas:gloss "wait" ;
+	.
+aama:Beja-atmaan-bireet a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "bireet" ;
+	aamas:gloss "rain" ;
+	.
+aama:Beja-atmaan-kay a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "kay" ;
+	bat:conjClass bat:Irregular ;
+	aamas:gloss "be" ;
+	aamas:lemma "kaya" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-NEGAUX a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "NEGAUX" ;
+	aamas:gloss "Negative Auxiliaries" ;
+	aamas:lemma "" ;
+	.
+aama:Beja-atmaan-gad a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "gad" ;
+	aamas:lemma "gáda" ;
+	aamas:gloss "stand" ;
+	.
+aama:Beja-atmaan-dam a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "dam" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "climb, ride" ;
+	aamas:lemma "dama" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-tam a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "tam" ;
+	bat:conjClass bat:Suffix ;
+	aamas:gloss "eat" ;
+	aamas:lemma "tam-" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-giig a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "giig" ;
+	aamas:gloss "leave, go away" ;
+	aamas:lemma " " ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-bay a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "bay" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "go" ;
+	aamas:lemma "baya" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-anf a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "anf" ;
+	aamas:gloss "fit" ;
+	.
+aama:Beja-atmaan-ee a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "ee" ;
+	bat:conjClass bat:Suffix ;
+	aamas:gloss "come" ;
+	aamas:lemma " " ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-aššig- a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "aššig-" ;
+	aamas:gloss "be fast" ;
+	aamas:lemma "aššig-" ;
+	.
+aama:Beja-atmaan-ústaaz a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "ústaaz" ;
+	aamas:gloss "teacher" ;
+	aamas:lemma "ústaaz (pl. ustáz)" ;
+	.
+aama:Beja-atmaan-kitib a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "kitib" ;
+	bat:rootClass bat:CiCiC ;
+	aamas:gloss "write" ;
+	.
+aama:Beja-atmaan-are a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "are" ;
+	aamas:gloss "[x]" ;
+	aamas:lemma "[y]" ;
+	.
+aama:Beja-atmaan-haráayrii a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "haráayrii" ;
+	aamas:gloss "liar" ;
+	aamas:lemma "haráayr’ii" ;
+	.
+aama:Beja-atmaan-fidig a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "fidig" ;
+	bat:rootClass bat:CiCiC ;
+	aamas:gloss "open" ;
+	.
+aama:Beja-atmaan-afirh a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "afirh" ;
+	aamas:gloss "rejoice" ;
+	.
+aama:Beja-atmaan-tikwikw a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "tikwikw" ;
+	bat:rootClass bat:CiCiC ;
+	aamas:gloss "prepare" ;
+	.
+aama:Beja-atmaan-hariw a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "hariw" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "look for" ;
+	aamas:lemma "hariwa" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-fiyak a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "fiyak" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "carry" ;
+	aamas:lemma "fiyaka" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-dilib a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "dilib" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "trade" ;
+	aamas:lemma "diliba" ;
+	bat:rootClass bat:CiCiC ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-kan a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "kan" ;
+	aamas:lemma " " ;
+	aamas:gloss "know" ;
+	.
+aama:Beja-atmaan-yak a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "yak" ;
+	bat:conjClass bat:Prefix ;
+	aamas:gloss "start" ;
+	aamas:lemma "yak-" ;
+	bat:pos bat:Verb ;
+	.
+aama:Beja-atmaan-anfiy a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "anfiy" ;
+	aamas:gloss "[x]" ;
+	aamas:lemma "[y]" ;
+	.
+aama:Beja-atmaan-sim a aamas:Lexeme ;
+	aamas:lang aama:Beja-atmaan ;
+	rdfs:label "sim" ;
+	bat:rootClass bat:CiC ;
+	aamas:gloss "mention" ;
+	.
